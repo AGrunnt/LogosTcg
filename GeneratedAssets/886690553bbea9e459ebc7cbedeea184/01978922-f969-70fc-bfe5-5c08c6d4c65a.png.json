@@ -1,0 +1,19 @@
+{
+    "asset": "886690553bbea9e459ebc7cbedeea184",
+    "fileName": "01978922-f969-70fc-bfe5-5c08c6d4c65a.png",
+    "prompt": "Create the outline for a card slot",
+    "negativePrompt": "",
+    "model": "4d662a89-b8ca-4652-a119-f3963d923bbb",
+    "customSeed": -1,
+    "w3CTraceId": "c131b64ba98f7bfc864fdd07f81c0789",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}

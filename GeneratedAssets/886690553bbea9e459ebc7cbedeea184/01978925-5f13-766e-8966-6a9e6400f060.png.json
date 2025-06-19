@@ -1,0 +1,19 @@
+{
+    "asset": "886690553bbea9e459ebc7cbedeea184",
+    "fileName": "01978925-5f13-766e-8966-6a9e6400f060.png",
+    "prompt": "Create a plain white thin border for a card slot",
+    "negativePrompt": "",
+    "model": "4dc55660-f3eb-42ba-93a4-6261d6b2b8ec",
+    "customSeed": -1,
+    "w3CTraceId": "0eddf820809b7a209b07c31a89917f51",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}
