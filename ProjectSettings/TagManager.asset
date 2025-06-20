@@ -47,5 +47,8 @@ TagManager:
   - name: Board
     uniqueID: 2430255605
     locked: 0
+  - name: Cards
+    uniqueID: 486992313
+    locked: 0
   m_RenderingLayers:
   - Default
