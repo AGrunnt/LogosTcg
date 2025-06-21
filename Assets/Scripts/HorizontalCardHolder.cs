@@ -10,20 +10,20 @@ using UnityEngine.InputSystem; // ? NEW
 
 namespace LogosTcb
 {
-    public class HorizontalCardHolder : MonoBehaviour
+    public class HorizontalGobjectHolder : MonoBehaviour
     {
-        [SerializeField] private Card selectedCard;
-        [SerializeReference] private Card hoveredCard;
+        [SerializeField] private Gobject selectedGobject;
+        [SerializeReference] private Gobject hoveredGobject;
 
         [SerializeField] private GameObject slotPrefab;
         private RectTransform rect;
 
         [Header("Spawn Settings")]
-        [SerializeField] private int cardsToSpawn = 7;
-        public List<Card> cards;
+        [SerializeField] private int gobjectsToSpawn = 7;
+        public List<Gobject> gobjects;
 
         bool isCrossing = false;
-        [SerializeField] private bool tweenCardReturn = true;
+        [SerializeField] private bool tweenGobjectReturn = true;
 
         // ? NEW INPUT ACTIONS
         private InputAction deleteAction;
@@ -50,24 +50,24 @@ namespace LogosTcb
 
         void Start()
         {
-            for (int i = 0; i < cardsToSpawn; i++)
+            for (int i = 0; i < gobjectsToSpawn; i++)
             {
                 Instantiate(slotPrefab, transform);
             }
 
             rect = GetComponent<RectTransform>();
-            cards = GetComponentsInChildren<Card>().ToList();
+            gobjects = GetComponentsInChildren<Gobject>().ToList();
 
-            int cardCount = 0;
+            int gobjectCount = 0;
 
-            foreach (Card card in cards)
+            foreach (Gobject gobject in gobjects)
             {
-                card.PointerEnterEvent.AddListener(CardPointerEnter);
-                card.PointerExitEvent.AddListener(CardPointerExit);
-                card.BeginDragEvent.AddListener(BeginDrag);
-                card.EndDragEvent.AddListener(EndDrag);
-                card.name = cardCount.ToString();
-                cardCount++;
+                gobject.PointerEnterEvent.AddListener(GobjectPointerEnter);
+                gobject.PointerExitEvent.AddListener(GobjectPointerExit);
+                gobject.BeginDragEvent.AddListener(BeginDrag);
+                gobject.EndDragEvent.AddListener(EndDrag);
+                gobject.name = gobjectCount.ToString();
+                gobjectCount++;
             }
 
             StartCoroutine(Frame());
@@ -75,78 +75,78 @@ namespace LogosTcb
             IEnumerator Frame()
             {
                 yield return new WaitForSecondsRealtime(.1f);
-                for (int i = 0; i < cards.Count; i++)
+                for (int i = 0; i < gobjects.Count; i++)
                 {
-                    if (cards[i].cardVisual != null)
-                        cards[i].cardVisual.UpdateIndex(transform.childCount);
+                    if (gobjects[i].gobjectVisual != null)
+                        gobjects[i].gobjectVisual.UpdateIndex(transform.childCount);
                 }
             }
         }
 
-        private void BeginDrag(Card card)
+        private void BeginDrag(Gobject gobject)
         {
-            selectedCard = card;
+            selectedGobject = gobject;
         }
 
-        void EndDrag(Card card)
+        void EndDrag(Gobject gobject)
         {
-            if (selectedCard == null)
+            if (selectedGobject == null)
                 return;
 
-            selectedCard.transform.DOLocalMove(selectedCard.selected ? new Vector3(0, selectedCard.selectionOffset, 0) : Vector3.zero, tweenCardReturn ? .15f : 0).SetEase(Ease.OutBack);
+            selectedGobject.transform.DOLocalMove(selectedGobject.selected ? new Vector3(0, selectedGobject.selectionOffset, 0) : Vector3.zero, tweenGobjectReturn ? .15f : 0).SetEase(Ease.OutBack);
 
             rect.sizeDelta += Vector2.right;
             rect.sizeDelta -= Vector2.right;
 
-            selectedCard = null;
+            selectedGobject = null;
         }
 
-        void CardPointerEnter(Card card)
+        void GobjectPointerEnter(Gobject gobject)
         {
-            hoveredCard = card;
+            hoveredGobject = gobject;
         }
 
-        void CardPointerExit(Card card)
+        void GobjectPointerExit(Gobject gobject)
         {
-            hoveredCard = null;
+            hoveredGobject = null;
         }
 
         void Update()
         {
             if (deleteAction.WasPressedThisFrame())
             {
-                if (hoveredCard != null)
+                if (hoveredGobject != null)
                 {
-                    Destroy(hoveredCard.transform.parent.gameObject);
-                    cards.Remove(hoveredCard);
+                    Destroy(hoveredGobject.transform.parent.gameObject);
+                    gobjects.Remove(hoveredGobject);
                 }
             }
 
             if (rightClickAction.WasPressedThisFrame())
             {
-                foreach (Card card in cards)
+                foreach (Gobject gobject in gobjects)
                 {
-                    card.Deselect();
+                    gobject.Deselect();
                 }
             }
 
-            if (selectedCard == null || isCrossing)
+            if (selectedGobject == null || isCrossing)
                 return;
 
-            for (int i = 0; i < cards.Count; i++)
+            for (int i = 0; i < gobjects.Count; i++)
             {
-                if (selectedCard.transform.position.x > cards[i].transform.position.x)
+                if (selectedGobject.transform.position.x > gobjects[i].transform.position.x)
                 {
-                    if (selectedCard.ParentIndex() < cards[i].ParentIndex())
+                    if (selectedGobject.ParentIndex() < gobjects[i].ParentIndex())
                     {
                         Swap(i);
                         break;
                     }
                 }
 
-                if (selectedCard.transform.position.x < cards[i].transform.position.x)
+                if (selectedGobject.transform.position.x < gobjects[i].transform.position.x)
                 {
-                    if (selectedCard.ParentIndex() > cards[i].ParentIndex())
+                    if (selectedGobject.ParentIndex() > gobjects[i].ParentIndex())
                     {
                         Swap(i);
                         break;
@@ -159,24 +159,24 @@ namespace LogosTcb
         {
             isCrossing = true;
 
-            Transform focusedParent = selectedCard.transform.parent;
-            Transform crossedParent = cards[index].transform.parent;
+            Transform focusedParent = selectedGobject.transform.parent;
+            Transform crossedParent = gobjects[index].transform.parent;
 
-            cards[index].transform.SetParent(focusedParent);
-            cards[index].transform.localPosition = cards[index].selected ? new Vector3(0, cards[index].selectionOffset, 0) : Vector3.zero;
-            selectedCard.transform.SetParent(crossedParent);
+            gobjects[index].transform.SetParent(focusedParent);
+            gobjects[index].transform.localPosition = gobjects[index].selected ? new Vector3(0, gobjects[index].selectionOffset, 0) : Vector3.zero;
+            selectedGobject.transform.SetParent(crossedParent);
 
             isCrossing = false;
 
-            if (cards[index].cardVisual == null)
+            if (gobjects[index].gobjectVisual == null)
                 return;
 
-            bool swapIsRight = cards[index].ParentIndex() > selectedCard.ParentIndex();
-            cards[index].cardVisual.Swap(swapIsRight ? -1 : 1);
+            bool swapIsRight = gobjects[index].ParentIndex() > selectedGobject.ParentIndex();
+            gobjects[index].gobjectVisual.Swap(swapIsRight ? -1 : 1);
 
-            foreach (Card card in cards)
+            foreach (Gobject gobject in gobjects)
             {
-                card.cardVisual.UpdateIndex(transform.childCount);
+                gobject.gobjectVisual.UpdateIndex(transform.childCount);
             }
         }
     }

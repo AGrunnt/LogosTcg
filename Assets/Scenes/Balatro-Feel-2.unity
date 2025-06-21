@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: cardVisualPrefab
       value: 
       objectReference: {fileID: 7310339964073049012, guid: 7fe84931bcb3e6347bdbe396cb4678f7, type: 3}
+    - target: {fileID: 133173175211647385, guid: 38aa6ba35be5144dc931edb1e6e43818, type: 3}
+      propertyPath: gobjectVisualPrefab
+      value: 
+      objectReference: {fileID: 7310339964073049012, guid: 7fe84931bcb3e6347bdbe396cb4678f7, type: 3}
     - target: {fileID: 6964580406683806308, guid: 38aa6ba35be5144dc931edb1e6e43818, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -527,12 +531,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f801d56ab9c881544a43900f0d4e3218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCard: {fileID: 0}
-  hoveredCard: {fileID: 0}
+  selectedGobject: {fileID: 0}
+  hoveredGobject: {fileID: 0}
   slotPrefab: {fileID: 3655645598659960977, guid: e99c361e7acdd41f0b904fef6be48fea, type: 3}
-  cardsToSpawn: 7
-  cards: []
-  tweenCardReturn: 1
+  gobjectsToSpawn: 7
+  gobjects: []
+  tweenGobjectReturn: 1
 --- !u!114 &667881469
 MonoBehaviour:
   m_ObjectHideFlags: 0

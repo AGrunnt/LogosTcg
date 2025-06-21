@@ -11,7 +11,7 @@ namespace LogosTcg
 
         Image image;
         Material m;
-        CardVisual visual;
+        GobjectVisual visual;
 
         // Start is called before the first frame update
         void Start()
@@ -19,7 +19,7 @@ namespace LogosTcg
             image = GetComponent<Image>();
             m = new Material(image.material);
             image.material = m;
-            visual = GetComponentInParent<CardVisual>();
+            visual = GetComponentInParent<GobjectVisual>();
 
             string[] editions = new string[4];
             editions[0] = "REGULAR";

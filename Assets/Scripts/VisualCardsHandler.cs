@@ -18,10 +18,10 @@ namespace LogosTcg
     }
 #endif
 
-    public class VisualCardsHandler : MonoBehaviour
+    public class VisualGobjectsHandler : MonoBehaviour
     {
 
-        public static VisualCardsHandler instance;
+        public static VisualGobjectsHandler instance;
 
         private void Awake()
         {

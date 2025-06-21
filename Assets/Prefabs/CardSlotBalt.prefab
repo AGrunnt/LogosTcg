@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2346250072548168058}
   - component: {fileID: 8761704864212873196}
   m_Layer: 5
-  m_Name: CardSlot
+  m_Name: CardSlotBalt
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

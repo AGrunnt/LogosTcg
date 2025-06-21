@@ -12,13 +12,13 @@ using UnityEngine.InputSystem;
 
 namespace LogosTcg
 {
-    public class CardVisual : MonoBehaviour
+    public class GobjectVisual : MonoBehaviour
     {
         private bool initalize = false;
 
-        [Header("Card")]
-        public Card parentCard;
-        private Transform cardTransform;
+        [Header("Gobject")]
+        public Gobject parentGobject;
+        private Transform gobjectTransform;
         private Vector3 rotationDelta;
         private int savedIndex;
         Vector3 movementDelta;
@@ -31,7 +31,7 @@ namespace LogosTcg
         private Canvas shadowCanvas;
         [SerializeField] private Transform shakeParent;
         [SerializeField] private Transform tiltParent;
-        [SerializeField] private Image cardImage;
+        [SerializeField] private Image gobjectImage;
 
         [Header("Follow Parameters")]
         [SerializeField] private float followSpeed = 30;
@@ -75,24 +75,25 @@ namespace LogosTcg
             shadowDistance = visualShadow.localPosition;
         }
 
-        public void Initialize(Card target, int index = 0)
+        public void Initialize(Gobject target, int index = 0)
         {
             //Declarations
-            parentCard = target;
-            cardTransform = target.transform;
+            parentGobject = target;
+            gobjectTransform = target.transform;
             canvas = GetComponent<Canvas>();
             shadowCanvas = visualShadow.GetComponent<Canvas>();
-            cardImage.sprite = parentCard.GetComponent<Image>().sprite;
-            visualShadow.GetComponent<Image>().sprite = cardImage.sprite;
+            gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
+            //gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
+            visualShadow.GetComponent<Image>().sprite = gobjectImage.sprite;
 
             //Event Listening
-            parentCard.PointerEnterEvent.AddListener(PointerEnter);
-            parentCard.PointerExitEvent.AddListener(PointerExit);
-            parentCard.BeginDragEvent.AddListener(BeginDrag);
-            parentCard.EndDragEvent.AddListener(EndDrag);
-            parentCard.PointerDownEvent.AddListener(PointerDown);
-            parentCard.PointerUpEvent.AddListener(PointerUp);
-            parentCard.SelectEvent.AddListener(Select);
+            parentGobject.PointerEnterEvent.AddListener(PointerEnter);
+            parentGobject.PointerExitEvent.AddListener(PointerExit);
+            parentGobject.BeginDragEvent.AddListener(BeginDrag);
+            parentGobject.EndDragEvent.AddListener(EndDrag);
+            parentGobject.PointerDownEvent.AddListener(PointerDown);
+            parentGobject.PointerUpEvent.AddListener(PointerUp);
+            parentGobject.SelectEvent.AddListener(Select);
 
             //Initialization
             initalize = true;
@@ -100,54 +101,54 @@ namespace LogosTcg
 
         public void UpdateIndex(int length)
         {
-            transform.SetSiblingIndex(parentCard.transform.parent.GetSiblingIndex());
+            transform.SetSiblingIndex(parentGobject.transform.parent.GetSiblingIndex());
         }
 
         void Update()
         {
-            if (!initalize || parentCard == null) return;
+            if (!initalize || parentGobject == null) return;
 
             HandPositioning();
             SmoothFollow();
             FollowRotation();
 
-            if(!parentCard.isDragging)
-                CardTilt();
+            if(!parentGobject.isDragging)
+                GobjectTilt();
 
         }
 
         private void HandPositioning()
         {
-            curveYOffset = (curve.positioning.Evaluate(parentCard.NormalizedPosition()) * curve.positioningInfluence) * parentCard.SiblingAmount();
-            curveYOffset = parentCard.SiblingAmount() < 5 ? 0 : curveYOffset;
-            curveRotationOffset = curve.rotation.Evaluate(parentCard.NormalizedPosition());
+            curveYOffset = (curve.positioning.Evaluate(parentGobject.NormalizedPosition()) * curve.positioningInfluence) * parentGobject.SiblingAmount();
+            curveYOffset = parentGobject.SiblingAmount() < 5 ? 0 : curveYOffset;
+            curveRotationOffset = curve.rotation.Evaluate(parentGobject.NormalizedPosition());
         }
 
         private void SmoothFollow()
         {
-            Vector3 verticalOffset = (Vector3.up * (parentCard.isDragging ? 0 : curveYOffset));
-            transform.position = Vector3.Lerp(transform.position, cardTransform.position + verticalOffset, followSpeed * Time.deltaTime);
+            Vector3 verticalOffset = (Vector3.up * (parentGobject.isDragging ? 0 : curveYOffset));
+            transform.position = Vector3.Lerp(transform.position, gobjectTransform.position + verticalOffset, followSpeed * Time.deltaTime);
         }
 
         private void FollowRotation()
         {
-            Vector3 movement = (transform.position - cardTransform.position);
+            Vector3 movement = (transform.position - gobjectTransform.position);
             movementDelta = Vector3.Lerp(movementDelta, movement, 25 * Time.deltaTime);
-            Vector3 movementRotation = (parentCard.isDragging ? movementDelta : movement) * rotationAmount;
+            Vector3 movementRotation = (parentGobject.isDragging ? movementDelta : movement) * rotationAmount;
             rotationDelta = Vector3.Lerp(rotationDelta, movementRotation, rotationSpeed * Time.deltaTime);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(rotationDelta.x, -60, 60));
         }
 
-        private void CardTilt()
+        private void GobjectTilt()
         {
-            savedIndex = parentCard.isDragging ? savedIndex : parentCard.ParentIndex();
-            float sine = Mathf.Sin(Time.time + savedIndex) * (parentCard.isHovering ? .2f : 1);
-            float cosine = Mathf.Cos(Time.time + savedIndex) * (parentCard.isHovering ? .2f : 1);
+            savedIndex = parentGobject.isDragging ? savedIndex : parentGobject.ParentIndex();
+            float sine = Mathf.Sin(Time.time + savedIndex) * (parentGobject.isHovering ? .2f : 1);
+            float cosine = Mathf.Cos(Time.time + savedIndex) * (parentGobject.isHovering ? .2f : 1);
 
             Vector3 offset = transform.position - Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            float tiltX = parentCard.isHovering ? ((offset.y * -1) * manualTiltAmount) : 0;
-            float tiltY = parentCard.isHovering ? ((offset.x) * manualTiltAmount) : 0;
-            float tiltZ = parentCard.isDragging ? tiltParent.eulerAngles.z : (curveRotationOffset * (curve.rotationInfluence * parentCard.SiblingAmount()));
+            float tiltX = parentGobject.isHovering ? ((offset.y * -1) * manualTiltAmount) : 0;
+            float tiltY = parentGobject.isHovering ? ((offset.x) * manualTiltAmount) : 0;
+            float tiltZ = parentGobject.isDragging ? tiltParent.eulerAngles.z : (curveRotationOffset * (curve.rotationInfluence * parentGobject.SiblingAmount()));
 
             float lerpX = Mathf.LerpAngle(tiltParent.eulerAngles.x, tiltX + (sine * autoTiltAmount), tiltSpeed * Time.deltaTime);
             float lerpY = Mathf.LerpAngle(tiltParent.eulerAngles.y, tiltY + (cosine * autoTiltAmount), tiltSpeed * Time.deltaTime);
@@ -156,7 +157,7 @@ namespace LogosTcg
             tiltParent.eulerAngles = new Vector3(lerpX, lerpY, lerpZ);
         }
 
-        private void Select(Card card, bool state)
+        private void Select(Gobject gobject, bool state)
         {
             DOTween.Kill(2, true);
             float dir = state ? 1 : 0;
@@ -166,7 +167,7 @@ namespace LogosTcg
             if (scaleAnimations)
                 transform.DOScale(scaleOnHover, scaleTransition).SetEase(scaleEase);
 
-            if (parentCard.selected)
+            if (parentGobject.selected)
                 autoTiltAmount = 20;
             else
                 autoTiltAmount = 0;
@@ -181,7 +182,7 @@ namespace LogosTcg
             shakeParent.DOPunchRotation((Vector3.forward * swapRotationAngle) * dir, swapTransition, swapVibrato, 1).SetId(3);
         }
 
-        private void BeginDrag(Card card)
+        private void BeginDrag(Gobject gobject)
         {
             if (scaleAnimations)
                 transform.DOScale(scaleOnSelect, scaleTransition).SetEase(scaleEase);
@@ -189,13 +190,13 @@ namespace LogosTcg
             canvas.overrideSorting = true;
         }
 
-        private void EndDrag(Card card)
+        private void EndDrag(Gobject gobject)
         {
             canvas.overrideSorting = false;
             transform.DOScale(1, scaleTransition).SetEase(scaleEase);
         }
 
-        private void PointerEnter(Card card)
+        private void PointerEnter(Gobject gobject)
         {
             if (scaleAnimations)
                 transform.DOScale(scaleOnHover, scaleTransition).SetEase(scaleEase);
@@ -204,13 +205,13 @@ namespace LogosTcg
             shakeParent.DOPunchRotation(Vector3.forward * hoverPunchAngle, hoverTransition, 20, 1).SetId(2);
         }
 
-        private void PointerExit(Card card)
+        private void PointerExit(Gobject gobject)
         {
-            if (!parentCard.wasDragged)
+            if (!parentGobject.wasDragged)
                 transform.DOScale(1, scaleTransition).SetEase(scaleEase);
         }
 
-        private void PointerUp(Card card, bool longPress)
+        private void PointerUp(Gobject gobject, bool longPress)
         {
             if (scaleAnimations)
                 transform.DOScale(longPress ? scaleOnHover : scaleOnSelect, scaleTransition).SetEase(scaleEase);
@@ -220,7 +221,7 @@ namespace LogosTcg
             shadowCanvas.overrideSorting = true;
         }
 
-        private void PointerDown(Card card)
+        private void PointerDown(Gobject gobject)
         {
             if (scaleAnimations)
                 transform.DOScale(scaleOnSelect, scaleTransition).SetEase(scaleEase);

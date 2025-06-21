@@ -8,7 +8,7 @@ using LogosTcg;
 
 namespace LogoTcg
 {
-    public class Card : MonoBehaviour,
+    public class Gobject : MonoBehaviour,
         IDragHandler, IBeginDragHandler, IEndDragHandler,
         IPointerEnterHandler, IPointerExitHandler,
         IPointerUpHandler, IPointerDownHandler
@@ -16,7 +16,7 @@ namespace LogoTcg
         private Canvas canvas;
         private Image imageComponent;
         [SerializeField] private bool instantiateVisual = true;
-        private VisualCardsHandler visualHandler;
+        private VisualGobjectsHandler visualHandler;
         private Vector3 offset;
 
         [Header("Movement")]
@@ -29,8 +29,8 @@ namespace LogoTcg
         private float pointerUpTime;
 
         [Header("Visual")]
-        [SerializeField] private GameObject cardVisualPrefab;
-        [HideInInspector] public CardVisual cardVisual;
+        [SerializeField] private GameObject gobjectVisualPrefab;
+        [HideInInspector] public GobjectVisual gobjectVisual;
 
         [Header("States")]
         public bool isHovering;
@@ -38,13 +38,13 @@ namespace LogoTcg
         [HideInInspector] public bool wasDragged;
 
         [Header("Events")]
-        [HideInInspector] public UnityEvent<Card> PointerEnterEvent;
-        [HideInInspector] public UnityEvent<Card> PointerExitEvent;
-        [HideInInspector] public UnityEvent<Card, bool> PointerUpEvent;
-        [HideInInspector] public UnityEvent<Card> PointerDownEvent;
-        [HideInInspector] public UnityEvent<Card> BeginDragEvent;
-        [HideInInspector] public UnityEvent<Card> EndDragEvent;
-        [HideInInspector] public UnityEvent<Card, bool> SelectEvent;
+        [HideInInspector] public UnityEvent<Gobject> PointerEnterEvent;
+        [HideInInspector] public UnityEvent<Gobject> PointerExitEvent;
+        [HideInInspector] public UnityEvent<Gobject, bool> PointerUpEvent;
+        [HideInInspector] public UnityEvent<Gobject> PointerDownEvent;
+        [HideInInspector] public UnityEvent<Gobject> BeginDragEvent;
+        [HideInInspector] public UnityEvent<Gobject> EndDragEvent;
+        [HideInInspector] public UnityEvent<Gobject, bool> SelectEvent;
 
         void Start()
         {
@@ -54,12 +54,12 @@ namespace LogoTcg
             if (!instantiateVisual)
                 return;
 
-            visualHandler = FindFirstObjectByType<VisualCardsHandler>();
-            cardVisual = Instantiate(
-                cardVisualPrefab,
+            visualHandler = FindFirstObjectByType<VisualGobjectsHandler>();
+            gobjectVisual = Instantiate(
+                gobjectVisualPrefab,
                 visualHandler ? visualHandler.transform : this.transform
-            ).GetComponent<CardVisual>();
-            cardVisual.Initialize(this);
+            ).GetComponent<GobjectVisual>();
+            gobjectVisual.Initialize(this);
         }
 
         void Update()
@@ -159,9 +159,9 @@ namespace LogoTcg
             SelectEvent.Invoke(this, selected);
 
             if (selected)
-                transform.localPosition += (cardVisual.transform.up * selectionOffset);
+                transform.localPosition += (gobjectVisual.transform.up * selectionOffset);
             else
-                transform.localPosition -= (cardVisual.transform.up * selectionOffset);
+                transform.localPosition -= (gobjectVisual.transform.up * selectionOffset);
             //transform.localPosition = Vector3.zero;
         }
 
@@ -197,8 +197,8 @@ namespace LogoTcg
 
         private void OnDestroy()
         {
-            if (cardVisual != null)
-                Destroy(cardVisual.gameObject);
+            if (gobjectVisual != null)
+                Destroy(gobjectVisual.gameObject);
         }
     }
 }

@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 4132845374223140069}
   - component: {fileID: -580308703452269557}
   m_Layer: 5
-  m_Name: CardVisual
+  m_Name: GobjectVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,11 +337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b19607376c7c041854b4e19ca32fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentCard: {fileID: 0}
+  parentGobject: {fileID: 0}
   visualShadow: {fileID: 9157190824811683565}
   shakeParent: {fileID: 3449025543118524474}
   tiltParent: {fileID: 5862976466474931636}
-  cardImage: {fileID: 7697484841366769644}
+  gobjectImage: {fileID: 7697484841366769644}
   followSpeed: 30
   rotationAmount: 20
   rotationSpeed: 20

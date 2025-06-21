@@ -32,7 +32,7 @@ namespace LogosTcg
         private bool isHovering;
         public bool selected;
 
-        // Curve-based card spread (optional grouping)
+        // Curve-based gobject spread (optional grouping)
         [Header("Curve Settings")]
         public AnimationCurve positioningCurve = AnimationCurve.Linear(0, 0, 1, 1);
         public float positioningInfluence = 0.1f;
