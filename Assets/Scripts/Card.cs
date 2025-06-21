@@ -57,7 +57,7 @@ namespace LogoTcg
             visualHandler = FindFirstObjectByType<VisualCardsHandler>();
             cardVisual = Instantiate(
                 cardVisualPrefab,
-                visualHandler ? visualHandler.transform : canvas.transform
+                visualHandler ? visualHandler.transform : this.transform
             ).GetComponent<CardVisual>();
             cardVisual.Initialize(this);
         }
@@ -161,7 +161,8 @@ namespace LogoTcg
             if (selected)
                 transform.localPosition += (cardVisual.transform.up * selectionOffset);
             else
-                transform.localPosition = Vector3.zero;
+                transform.localPosition -= (cardVisual.transform.up * selectionOffset);
+            //transform.localPosition = Vector3.zero;
         }
 
         public void Deselect()

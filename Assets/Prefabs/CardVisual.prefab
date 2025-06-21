@@ -345,7 +345,7 @@ MonoBehaviour:
   followSpeed: 30
   rotationAmount: 20
   rotationSpeed: 20
-  autoTiltAmount: 30
+  autoTiltAmount: 0
   manualTiltAmount: 20
   tiltSpeed: 20
   scaleAnimations: 1

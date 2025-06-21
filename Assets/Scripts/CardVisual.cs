@@ -82,6 +82,8 @@ namespace LogosTcg
             cardTransform = target.transform;
             canvas = GetComponent<Canvas>();
             shadowCanvas = visualShadow.GetComponent<Canvas>();
+            cardImage.sprite = parentCard.GetComponent<Image>().sprite;
+            visualShadow.GetComponent<Image>().sprite = cardImage.sprite;
 
             //Event Listening
             parentCard.PointerEnterEvent.AddListener(PointerEnter);
@@ -108,7 +110,9 @@ namespace LogosTcg
             HandPositioning();
             SmoothFollow();
             FollowRotation();
-            CardTilt();
+
+            if(!parentCard.isDragging)
+                CardTilt();
 
         }
 
@@ -162,6 +166,10 @@ namespace LogosTcg
             if (scaleAnimations)
                 transform.DOScale(scaleOnHover, scaleTransition).SetEase(scaleEase);
 
+            if (parentCard.selected)
+                autoTiltAmount = 20;
+            else
+                autoTiltAmount = 0;
         }
 
         public void Swap(float dir = 1)
