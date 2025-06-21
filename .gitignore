@@ -23,6 +23,7 @@ UserSettings/
 *.VC.db
 *.bak
 *.old
+.vs/
 
 # JetBrains Rider
 .idea/
