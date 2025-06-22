@@ -5,6 +5,8 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;               // ? new
 using LogosTcg;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace LogoTcg
 {
@@ -31,6 +33,7 @@ namespace LogoTcg
         [Header("Visual")]
         [SerializeField] private GameObject gobjectVisualPrefab;
         [HideInInspector] public GobjectVisual gobjectVisual;
+        [SerializeField] public Image ImageShadow;
 
         [Header("States")]
         public bool isHovering;
@@ -54,12 +57,19 @@ namespace LogoTcg
             if (!instantiateVisual)
                 return;
 
+            var directChildren = new List<Transform>();
+            foreach (Transform child in transform)
+                directChildren.Add(child);
+
             visualHandler = FindFirstObjectByType<VisualGobjectsHandler>();
             gobjectVisual = Instantiate(
                 gobjectVisualPrefab,
                 visualHandler ? visualHandler.transform : this.transform
             ).GetComponent<GobjectVisual>();
             gobjectVisual.Initialize(this);
+
+            foreach (Transform child in directChildren)
+                child.SetParent(gobjectVisual.holder);
         }
 
         void Update()

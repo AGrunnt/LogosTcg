@@ -31,7 +31,8 @@ namespace LogosTcg
         private Canvas shadowCanvas;
         [SerializeField] private Transform shakeParent;
         [SerializeField] private Transform tiltParent;
-        [SerializeField] private Image gobjectImage;
+        [SerializeField] private Image gobjectImageShadow;
+        [SerializeField] public Transform holder;
 
         [Header("Follow Parameters")]
         [SerializeField] private float followSpeed = 30;
@@ -82,9 +83,10 @@ namespace LogosTcg
             gobjectTransform = target.transform;
             canvas = GetComponent<Canvas>();
             shadowCanvas = visualShadow.GetComponent<Canvas>();
-            gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
             //gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
-            visualShadow.GetComponent<Image>().sprite = gobjectImage.sprite;
+            //gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
+            //visualShadow.GetComponent<Image>().sprite = parentGobject.ImageShadow.sprite; //gobjectImageShadow.sprite;
+            gobjectImageShadow.sprite = parentGobject.ImageShadow.sprite; //gobjectImageShadow.sprite;
 
             //Event Listening
             parentGobject.PointerEnterEvent.AddListener(PointerEnter);
