@@ -33,7 +33,8 @@ namespace LogoTcg
         [Header("Visual")]
         [SerializeField] private GameObject gobjectVisualPrefab;
         [HideInInspector] public GobjectVisual gobjectVisual;
-        [SerializeField] public Image ImageShadow;
+        //[SerializeField] public Image ImageShadow;
+        [SerializeField] public Transform Shadow;
 
         [Header("States")]
         public bool isHovering;
@@ -52,7 +53,7 @@ namespace LogoTcg
         void Start()
         {
             canvas = GetComponentInParent<Canvas>();
-            imageComponent = GetComponent<Image>();
+            imageComponent = GetComponent<Image>(); //was getting the image comp of the card. now want to assign it
 
             if (!instantiateVisual)
                 return;
@@ -67,6 +68,8 @@ namespace LogoTcg
                 visualHandler ? visualHandler.transform : this.transform
             ).GetComponent<GobjectVisual>();
             gobjectVisual.Initialize(this);
+
+
 
             foreach (Transform child in directChildren)
                 child.SetParent(gobjectVisual.holder);

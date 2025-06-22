@@ -26,12 +26,15 @@ namespace LogosTcg
 
         [Header("References")]
         public Transform visualShadow;
-        private float shadowOffset = 20;
+        //private float shadowOffset = 20;
+        private Vector3 shadowDragOffset = new Vector3(5, -15, 0);
+        private Vector3 shadowHoverOffset = new Vector3(3, -10, 0);
         private Vector2 shadowDistance;
         private Canvas shadowCanvas;
         [SerializeField] private Transform shakeParent;
         [SerializeField] private Transform tiltParent;
-        [SerializeField] private Image gobjectImageShadow;
+        //[SerializeField] private Image gobjectImageShadow;
+        [SerializeField] private Transform gobjectShadow;
         [SerializeField] public Transform holder;
 
         [Header("Follow Parameters")]
@@ -75,6 +78,23 @@ namespace LogosTcg
         {
             shadowDistance = visualShadow.localPosition;
         }
+        void CopyRectTransform(RectTransform src, RectTransform dst, Vector2 offset)
+        {
+            // anchors & pivot
+            dst.anchorMin = src.anchorMin;
+            dst.anchorMax = src.anchorMax;
+            dst.pivot = src.pivot;
+
+            // size
+            dst.sizeDelta = src.sizeDelta;
+
+            // rotation & scale
+            dst.localRotation = src.localRotation;
+            dst.localScale = src.localScale;
+
+            // position with offset
+            dst.anchoredPosition = src.anchoredPosition + offset;
+        }
 
         public void Initialize(Gobject target, int index = 0)
         {
@@ -86,7 +106,11 @@ namespace LogosTcg
             //gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
             //gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
             //visualShadow.GetComponent<Image>().sprite = parentGobject.ImageShadow.sprite; //gobjectImageShadow.sprite;
-            gobjectImageShadow.sprite = parentGobject.ImageShadow.sprite; //gobjectImageShadow.sprite;
+            //gobjectImageShadow.sprite = parentGobject.ImageShadow.sprite; //gobjectImageShadow.sprite;
+            //gobjectShadow.getcomponent<Image>().sprite = parentGobject.ImageShadow.sprite;
+            visualShadow.GetComponent<Image>().sprite = parentGobject.Shadow.GetComponent<Image>().sprite;
+            CopyRectTransform(parentGobject.Shadow.GetComponent<RectTransform>(), visualShadow.GetComponent<RectTransform>(), new Vector2(3f, -6f));
+
 
             //Event Listening
             parentGobject.PointerEnterEvent.AddListener(PointerEnter);
@@ -170,9 +194,16 @@ namespace LogosTcg
                 transform.DOScale(scaleOnHover, scaleTransition).SetEase(scaleEase);
 
             if (parentGobject.selected)
+            {
                 autoTiltAmount = 20;
+                visualShadow.localPosition += shadowHoverOffset;
+            }
             else
-                autoTiltAmount = 0;
+            {
+                autoTiltAmount = 0; visualShadow.localPosition -= shadowHoverOffset;
+            }
+
+
         }
 
         public void Swap(float dir = 1)
@@ -205,12 +236,16 @@ namespace LogosTcg
 
             DOTween.Kill(2, true);
             shakeParent.DOPunchRotation(Vector3.forward * hoverPunchAngle, hoverTransition, 20, 1).SetId(2);
+
+            visualShadow.localPosition += shadowHoverOffset;
         }
 
         private void PointerExit(Gobject gobject)
         {
             if (!parentGobject.wasDragged)
                 transform.DOScale(1, scaleTransition).SetEase(scaleEase);
+
+            visualShadow.localPosition -= shadowHoverOffset;
         }
 
         private void PointerUp(Gobject gobject, bool longPress)
@@ -219,7 +254,8 @@ namespace LogosTcg
                 transform.DOScale(longPress ? scaleOnHover : scaleOnSelect, scaleTransition).SetEase(scaleEase);
             canvas.overrideSorting = false;
 
-            visualShadow.localPosition = shadowDistance;
+            //visualShadow.localPosition = shadowDistance;
+            visualShadow.localPosition -= shadowDragOffset;
             shadowCanvas.overrideSorting = true;
         }
 
@@ -228,7 +264,8 @@ namespace LogosTcg
             if (scaleAnimations)
                 transform.DOScale(scaleOnSelect, scaleTransition).SetEase(scaleEase);
 
-            visualShadow.localPosition += (-Vector3.up * shadowOffset);
+            //visualShadow.localPosition += (-Vector3.up * shadowOffset);
+            visualShadow.localPosition += shadowDragOffset;
             shadowCanvas.overrideSorting = false;
         }
 
