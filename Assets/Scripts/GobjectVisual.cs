@@ -220,7 +220,7 @@ namespace LogosTcg
             if (scaleAnimations)
                 transform.DOScale(scaleOnSelect, scaleTransition).SetEase(scaleEase);
 
-            canvas.overrideSorting = true;
+            //canvas.overrideSorting = true;
         }
 
         private void EndDrag(Gobject gobject)

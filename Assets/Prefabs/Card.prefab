@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5027353636002064164}
   - component: {fileID: 3772907506009727932}
   - component: {fileID: 8269191443868670581}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: BackArt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 7515478033833157671}
   - component: {fileID: 6456656486447430079}
   - component: {fileID: 2132054125723983143}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 8942510808862375459}
   - component: {fileID: 8073200305490359319}
   - component: {fileID: 6094820246711615023}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ValImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 6539954606238314657}
   - component: {fileID: 7063299793462164460}
   - component: {fileID: 8456238952048863284}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8001155586739003740}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8718616321595230330}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 739689573878633973}
   - component: {fileID: 115382665301966824}
   - component: {fileID: 3415093123087353405}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,8 @@ GameObject:
   - component: {fileID: 7486306067316991545}
   - component: {fileID: 8562604021319485591}
   - component: {fileID: -3148967189081000219}
-  m_Layer: 5
+  - component: {fileID: 7299889625168121792}
+  m_Layer: 6
   m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +580,7 @@ MonoBehaviour:
   selectionOffset: 50
   gobjectVisualPrefab: {fileID: 7310339964073049012, guid: 7fe84931bcb3e6347bdbe396cb4678f7, type: 3}
   gobjectVisual: {fileID: 0}
-  ImageShadow: {fileID: 2132054125723983143}
+  Shadow: {fileID: 0}
   isHovering: 0
   isDragging: 0
   wasDragged: 0
@@ -690,3 +691,15 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 8, y: 8}
   m_UseGraphicAlpha: 1
+--- !u!225 &7299889625168121792
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994356602663114153}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

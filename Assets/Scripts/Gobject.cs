@@ -114,9 +114,11 @@ namespace LogoTcg
             offset = worldPos - (Vector2)transform.position;
 
             isDragging = true;
-            canvas.GetComponent<GraphicRaycaster>().enabled = false;
+            //canvas.GetComponent<GraphicRaycaster>().enabled = false; //this stops from interacting with everything else
             imageComponent.raycastTarget = false;
             wasDragged = true;
+
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
 
         public void OnDrag(PointerEventData eventData) { }
@@ -125,8 +127,9 @@ namespace LogoTcg
         {
             EndDragEvent.Invoke(this);
             isDragging = false;
-            canvas.GetComponent<GraphicRaycaster>().enabled = true;
+            //canvas.GetComponent<GraphicRaycaster>().enabled = true;
             imageComponent.raycastTarget = true;
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
 
             StartCoroutine(FrameWait());
 
@@ -135,6 +138,7 @@ namespace LogoTcg
                 yield return new WaitForEndOfFrame();
                 wasDragged = false;
             }
+
         }
 
         public void OnPointerEnter(PointerEventData eventData)
