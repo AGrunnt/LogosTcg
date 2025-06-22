@@ -1,16 +1,11 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace LogosTcg
 {
-    public class SlotDropHandler : MonoBehaviour, IDropHandler, IPointerEnterHandler
+    public class SlotDropHandler : MonoBehaviour, IDropHandler
     {
-
-        
-    public void OnPointerEnter(PointerEventData eventData)
-        {
-            Debug.Log("Pointer entered slot!");
-        }
 
 
         // This will be called when something is dropped on this UI element
@@ -20,7 +15,7 @@ namespace LogosTcg
             var dropped = eventData.pointerDrag;
             if (dropped == null) return;
 
-            // Reparent the card under this slot
+             // Reparent the card under this slot
             dropped.transform.SetParent(transform, worldPositionStays: false);
 
             // Zero out its local position so it sits perfectly in the slot

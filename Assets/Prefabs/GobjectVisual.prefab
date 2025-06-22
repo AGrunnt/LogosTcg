@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 3226935036547433282}
   - component: {fileID: 5684855232780938289}
   - component: {fileID: 2143983590384064112}
-  - component: {fileID: 8920097431475161935}
   m_Layer: 5
   m_Name: Shadow
   m_TagString: Untagged
@@ -134,29 +133,6 @@ RotationConstraint:
   m_Sources:
   - sourceTransform: {fileID: 5862976466474931636}
     weight: 1
---- !u!223 &8920097431475161935
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3957243246872045618}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: -20
-  m_TargetDisplay: 0
 --- !u!1 &5434269512320548843
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +190,6 @@ GameObject:
   - component: {fileID: 7120376734261528799}
   - component: {fileID: 7994647478966201829}
   - component: {fileID: 4132845374223140069}
-  - component: {fileID: -580308703452269557}
   m_Layer: 5
   m_Name: GobjectVisual
   m_TagString: Untagged
@@ -266,7 +241,7 @@ MonoBehaviour:
   visualShadow: {fileID: 9157190824811683565}
   shakeParent: {fileID: 3449025543118524474}
   tiltParent: {fileID: 5862976466474931636}
-  gobjectImageShadow: {fileID: 5684855232780938289}
+  gobjectShadow: {fileID: 0}
   holder: {fileID: 6216753729960185820}
   followSpeed: 30
   rotationAmount: 20
@@ -301,7 +276,7 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
@@ -310,18 +285,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
---- !u!225 &-580308703452269557
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7310339964073049012}
-  m_Enabled: 0
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
 --- !u!1 &7665714622183767401
 GameObject:
   m_ObjectHideFlags: 0

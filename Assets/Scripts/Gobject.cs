@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;               // ? new
 using LogosTcg;
 using NUnit.Framework;
 using System.Collections.Generic;
+using DG.Tweening;
 
 namespace LogoTcg
 {
@@ -118,7 +119,7 @@ namespace LogoTcg
             imageComponent.raycastTarget = false;
             wasDragged = true;
 
-            GetComponent<CanvasGroup>().blocksRaycasts = false;
+            //GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
 
         public void OnDrag(PointerEventData eventData) { }
@@ -129,7 +130,7 @@ namespace LogoTcg
             isDragging = false;
             //canvas.GetComponent<GraphicRaycaster>().enabled = true;
             imageComponent.raycastTarget = true;
-            GetComponent<CanvasGroup>().blocksRaycasts = true;
+            //GetComponent<CanvasGroup>().blocksRaycasts = true;
 
             StartCoroutine(FrameWait());
 
@@ -138,6 +139,8 @@ namespace LogoTcg
                 yield return new WaitForEndOfFrame();
                 wasDragged = false;
             }
+
+            transform.DOLocalMove(Vector3.zero, .15f).SetEase(Ease.OutBack);
 
         }
 

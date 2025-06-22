@@ -30,7 +30,7 @@ namespace LogosTcg
         private Vector3 shadowDragOffset = new Vector3(5, -15, 0);
         private Vector3 shadowHoverOffset = new Vector3(3, -10, 0);
         private Vector2 shadowDistance;
-        private Canvas shadowCanvas;
+        //private Canvas shadowCanvas;
         [SerializeField] private Transform shakeParent;
         [SerializeField] private Transform tiltParent;
         //[SerializeField] private Image gobjectImageShadow;
@@ -76,6 +76,8 @@ namespace LogosTcg
 
         private void Start()
         {
+            //canvas.sortingLayerID = 3;
+            canvas.sortingLayerName = "Cards";
             shadowDistance = visualShadow.localPosition;
         }
         void CopyRectTransform(RectTransform src, RectTransform dst, Vector2 offset)
@@ -102,7 +104,7 @@ namespace LogosTcg
             parentGobject = target;
             gobjectTransform = target.transform;
             canvas = GetComponent<Canvas>();
-            shadowCanvas = visualShadow.GetComponent<Canvas>();
+            //shadowCanvas = visualShadow.GetComponent<Canvas>();
             //gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
             //gobjectImage.sprite = parentGobject.GetComponent<Image>().sprite;
             //visualShadow.GetComponent<Image>().sprite = parentGobject.ImageShadow.sprite; //gobjectImageShadow.sprite;
@@ -221,11 +223,13 @@ namespace LogosTcg
                 transform.DOScale(scaleOnSelect, scaleTransition).SetEase(scaleEase);
 
             //canvas.overrideSorting = true;
+            canvas.sortingOrder = 2;
         }
 
         private void EndDrag(Gobject gobject)
         {
-            canvas.overrideSorting = false;
+            //canvas.overrideSorting = false;
+            canvas.sortingOrder = 1;
             transform.DOScale(1, scaleTransition).SetEase(scaleEase);
         }
 
@@ -252,11 +256,11 @@ namespace LogosTcg
         {
             if (scaleAnimations)
                 transform.DOScale(longPress ? scaleOnHover : scaleOnSelect, scaleTransition).SetEase(scaleEase);
-            canvas.overrideSorting = false;
+            //canvas.overrideSorting = false;
 
             //visualShadow.localPosition = shadowDistance;
             visualShadow.localPosition -= shadowDragOffset;
-            shadowCanvas.overrideSorting = true;
+            //shadowCanvas.overrideSorting = true;
         }
 
         private void PointerDown(Gobject gobject)
@@ -266,7 +270,7 @@ namespace LogosTcg
 
             //visualShadow.localPosition += (-Vector3.up * shadowOffset);
             visualShadow.localPosition += shadowDragOffset;
-            shadowCanvas.overrideSorting = false;
+            //shadowCanvas.overrideSorting = false;
         }
 
     }
