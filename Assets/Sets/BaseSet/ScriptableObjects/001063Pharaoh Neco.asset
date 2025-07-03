@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001063Pharaoh Neco
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 063
+  Artwork: {fileID: -5695249469508893523, guid: d6b172e073d047d4eb9fc94ba2a9a46a, type: 3}
+  Title: Pharaoh Neco
+  Rarity: Uncommon
+  Type:
+  - Fallen
+  Value: 5
+  AbilityText: 'Bonus: When Pharaoh Neco is revealed~ the last discarded Faithless
+    is placed on this location~ If no Faithless have been discarded~ draw another
+    location'
+  Verse: 2 Kings 23:29
+  VerseText: "\u201CAt the end of Josiah\u2019s reign~ Pharaoh Neco king of Egypt
+    marched up to help the king of Assyria at the Euphrates River. King Josiah went
+    out to confront him~ but Neco faced him and killed him at Megiddo.\u201D"
+  Abilities:
+  - AbilityType:
+    - ReviveFaithless
+    Target:
+    - 
+    Tag:
+    - 

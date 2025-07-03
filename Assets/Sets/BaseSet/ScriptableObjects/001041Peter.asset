@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001041Peter
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 041
+  Artwork: {fileID: 8502040034361995065, guid: bbc1078aafedad44ba18680e1d6e74a1, type: 3}
+  Title: Peter
+  Rarity: Common
+  Type:
+  - Faithful
+  Value: 10
+  AbilityText: "\u20132 Dove if Gethsemane is in play"
+  Verse: Matthew 4:18-19
+  VerseText: "As Jesus was walking beside the Sea of Galilee~ He saw two brothers~
+    Simon called Peter and his brother Andrew. They were casting a net into the sea~
+    for they were fishermen. \u201CCome~ follow Me\u201D Jesus said~ \u201Cand I
+    will make you fishers of men.\u201D"
+  Abilities:
+  - AbilityType:
+    - Minus
+    Target:
+    - Gethsemane
+    Tag:
+    - 2

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001086Balaam
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 086
+  Artwork: {fileID: 3197271949835360503, guid: 86fc688441d65594b978e811819f0861, type: 3}
+  Title: Balaam
+  Rarity: Uncommon
+  Type:
+  - Fallen
+  Value: 6
+  AbilityText: 
+  Verse: Numbers 22:7
+  VerseText: "\u201CThe elders of Moab and Midian departed with the fees for divination
+    in hand. They came to Balaam and relayed to him the words of Balak.\u201D"
+  Abilities: []

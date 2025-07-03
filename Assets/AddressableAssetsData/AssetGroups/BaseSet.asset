@@ -1,0 +1,1828 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BaseSet
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: BaseSet
+  m_GUID: 0e3a5acc7adfb5741b3b6f141fbd98d8
+  m_SerializeEntries:
+  - m_GUID: 0145321b3d452a6499a844e7b22bc53e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001127God So Loved.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 019686cc0ca480c42a516d2214a4eac3
+    m_Address: Assets/Sets/BaseSet/Images/001158 - Moab - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 036937da409b37544b9e4ba8e9cad511
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001078Cain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0377b8ad4906e384e9934a3807db2bee
+    m_Address: Assets/Sets/BaseSet/Images/001064 - Pharoah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0401374bdccbea743b311e7c42f3552a
+    m_Address: Assets/Sets/BaseSet/Images/001116 - God_s Covenant - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06f8ca0cbf897fa4da41636ebee57c35
+    m_Address: Assets/Sets/BaseSet/Images/001053 - Angel of the Lord.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 073bcaf5b608c4a4a9278a7478fc4677
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001125Pentecost.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 077cb562834835d46bb9faf26f452259
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001123Fishes and Loaves.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0893a468639077d429da823ebcf90d92
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001107Rejoice in the Lord.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a023bebf08d52d4bb385cb4584eaca7
+    m_Address: Assets/Sets/BaseSet/Images/001022 - David - King.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a249451d1f67344684cb8568ebad31a
+    m_Address: Assets/Sets/BaseSet/Images/001110 - Ben Hadads Siege - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a3c31bb280e8e44e97aa3d31cdeec52
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001128Riot at Ephesus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b66d75ee8d2f2746b069ae5f21d2bd5
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001130Creation.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b91b29b75743ba4dbddcb4019b44b5f
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001124Cords of Sheol.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c67134f669360845b0274b7776ec7ec
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001026Abel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ce273b8046592043ae6c092a7a05ff6
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001088Magician of Egypt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d8293de6fc3f544bbc1db997fb57923
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001073Philistine Warrior.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0dd5957bd08fdfc4f937d98330ef8077
+    m_Address: Assets/Sets/BaseSet/Images/001071 - Pharisee.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ea349fe4b5876f47bf5167cc53a62cd
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001020Leah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ea6556a0a20d9e49bebdcf14afe1f15
+    m_Address: Assets/Sets/BaseSet/Images/001002 - Eve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f051fd58c2b5bf49b7d7ad0b8b1270f
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001003Eve.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f8a07accc39e9e4bbe1a37e71cc5c70
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001172Quail.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10a20ee74a4dff64793ea5b0737e34aa
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001039Balaam\u2019s Donkey.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 117c62c09d9ece9459f3dbafd489ebe1
+    m_Address: Assets/Sets/BaseSet/Images/001121 - Oppression - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 138ca6380f1002146a747c680e4fde84
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001148Naboth\u2019s Vineyard.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13aa21aa3a029a04fa121e2037337d1e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001075Goliath.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 144edf852f091224582431dca014daea
+    m_Address: Assets/Sets/BaseSet/Images/001098 - King Achish.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 149d5dfdba6057d4ab3a7c2e11e6ad88
+    m_Address: Assets/Sets/BaseSet/Images/001037 - Jael.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 152cc77311b2ae442a42be1e631327d0
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001175Sling and Stones.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 155ce1e0f49167242b1c8d35485de09b
+    m_Address: Assets/Sets/BaseSet/Images/001010 - Isaac.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 157705bb3aa2efe49abd3f1bd47c3199
+    m_Address: Assets/Sets/BaseSet/Images/001076 - Gehazi.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15be4f069bfde5a47b70e2342829d9fb
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001161Sycamore Tree.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1635e729458b1f24ea7d943b59182a74
+    m_Address: Assets/Sets/BaseSet/Images/001154 - Potiphar_s House - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16bccb0d0ffc8df4ba3f006061c56225
+    m_Address: Assets/Sets/BaseSet/Images/001122 - Repentance - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1795815f17f71814580ede5846d05b33
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001138Spies.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18727c3929d99b94287394f4862aa2ce
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001135The God Who Sees.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a5bde8949b3c9042be815543c79f2a1
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001048Jehosheba.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b0cec5b546311d4985f24a8c70e7500
+    m_Address: Assets/Sets/BaseSet/Images/001029 - Elijah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b553de180623b8439da34ed1405fe9e
+    m_Address: Assets/Sets/BaseSet/Images/001161 - The Sycamore Tree - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b8ff598f87d09d43a4c722e47fa190e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001104The Fall.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ba4ddfff776340408891d76f3412d8c
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001007Abram.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c341bd63cee40149bf8634f3aeded16
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001141The Garden of Eden.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c6675081b4ce1c41b3b3f7e90f16d16
+    m_Address: Assets/Sets/BaseSet/Images/001179 - Pharaoh_s Ring - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c9fa3c829993924ab2992d93b04c682
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001171Leviathan.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cccd4ea11633d94e8a30e55aee1d765
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001042Jonah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ce795836035f8944a4fafafc2c458c2
+    m_Address: Assets/Sets/BaseSet/Images/001168 - Ostrich - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20d493deb6ac4064ca40e44ee339b9bf
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001005Noah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2116f9e35fb78b844aca9e0950d50825
+    m_Address: Assets/Sets/BaseSet/Images/001004 - Adam.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21d512d0f1f964244b937083fc2c3a47
+    m_Address: Assets/Sets/BaseSet/Images/001038 - Gideon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21d96624368eb8845a825f4456c88c3c
+    m_Address: Assets/Sets/BaseSet/Images/001033 - Mary.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 226520f4db1afe6458790bc650f83d24
+    m_Address: Assets/Sets/BaseSet/Images/001056 - Uriah the Hittite.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23347d4648b635b4ea72a48506aa1924
+    m_Address: Assets/Sets/BaseSet/Images/001090 - Herod Antipas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2396a64c3cb185342ad7cda8e397542d
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001004Adam.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23b5866ab17e6af4ba0453d68a53d79a
+    m_Address: Assets/Sets/BaseSet/Images/001047 - Caleb.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23d42efb9c0bb414e881b01e3b551a50
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001031Naomi.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24626f5c5cc5d9b4799a4b5c4bd58b66
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001072Korah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26cd3836a15216844a06cef58de90d32
+    m_Address: Assets/Sets/BaseSet/Images/001066 - The Serpent.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 270343bb60d9eb2428e51d1e5b4d7932
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001015Joseph.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2722bfbcea1b9454bb3531ca25b25b5a
+    m_Address: Assets/Sets/BaseSet/Images/001131 - Flight of Moses - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a4c3f306535ea5409c2159fab8bbaa0
+    m_Address: Assets/Sets/BaseSet/Images/001084 - Saul.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a4d8b184ea8acc47adf601430538996
+    m_Address: Assets/Sets/BaseSet/Images/001130 - Creation - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2abdcacf3b6f3d343943ae0441dabdab
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001120Plague of Locusts.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bfb1792f7951a448964ace6d52097fc
+    m_Address: Assets/Sets/BaseSet/Images/001149 - Jericho - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c3d4b1e8e20b254ba0b76c468cf988e
+    m_Address: Assets/Sets/BaseSet/Images/001069 - Absalom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d7fdb45fc8773349ae00f9a5611798d
+    m_Address: Assets/Sets/BaseSet/Images/001024 - Zilpah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dd980e5188b9a941849a85b15bf88e3
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001057Queen of Sheba.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ea675f68d3285f44b2aebfe721101df
+    m_Address: Assets/Sets/BaseSet/Images/001081 - Micah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ec983122926cd741b0754e441d79b9e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001037Jael.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2edbf9cba46bb3a44b73e976391a3fba
+    m_Address: Assets/Sets/BaseSet/Images/001108 - Plague on Livestock - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 303fe4fb17a58ce459d5cf0284381b4d
+    m_Address: Assets/Sets/BaseSet/Images/001088 - Magician of Egypt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31e11991b5240744faadc4129a4caa32
+    m_Address: Assets/Sets/BaseSet/Images/001162 - Gethsemane - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 323d88ae84870f747916387ff140fb60
+    m_Address: Assets/Sets/BaseSet/Images/001174 - Palm Branch - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32e733b6177fe6a459c90eb36a0e5fdd
+    m_Address: Assets/Sets/BaseSet/Images/001123 - Fish and Loaves - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32fa9e031b1b9cd48989a42e27262801
+    m_Address: Assets/Sets/BaseSet/Images/001100 - Elymas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33ffe371bf293ed4f8780fffbf6c117a
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001090Herod Antipas.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 340b10b1956b49443a43448c4d4e7538
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001059Pharaoh\u2019s Daughter.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34f75c80f11865f4fa3d40efa04ce645
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001062Haman.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3623512df8ef9824292ed401ab02b7bf
+    m_Address: Assets/Sets/BaseSet/Images/001039 - Balaams Donkey.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 376e49b4f5b968b44b9f16315f1d807c
+    m_Address: Assets/Sets/BaseSet/Images/001171 - Leviathan - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37d52e65997308349ae292c47e6f1229
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001077Nephilim.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37e6eacf9000b91459a9b79746345e80
+    m_Address: Assets/Sets/BaseSet/Images/001036 - Deborah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 380834536d553f34e92cc00d26e7b0c6
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001021David (Shepherd).asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39488fb4b7235f84fb286dbabda4c382
+    m_Address: Assets/Sets/BaseSet/Images/001021 - David - Shepherd.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 398b02b5ed962bb4b9d73ec5aa2a16cc
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001061Medium at Endor.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3af20b7df59163c498539a7c6903d846
+    m_Address: Assets/Sets/BaseSet/Images/001019 - Rachel.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b22141549f80da44a3fcda203a867a5
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001179Pharaoh\u2019s Ring.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bf52a816a387654e84d394d38f3f63e
+    m_Address: Assets/Sets/BaseSet/Images/001092 - Pontius Pilate.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3da0757318336314c9dde068f29fe7f1
+    m_Address: Assets/Sets/BaseSet/Images/001139 - Rebellion - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ea3c041e7f6c6a4cae85abe4887aeef
+    m_Address: Assets/Sets/BaseSet/Images/001058 - Naboth.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3eb180eb57dd42044b016db676dc26da
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001149Jericho.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f90287d1a209fc438eb6c9ea0375fcc
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001047Caleb.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 402f4d3fb312e20448b73bad2f776c61
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001163Oaks of Mamre.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40b115d028103f347a095f4b1356e7d1
+    m_Address: Assets/Sets/BaseSet/Images/001147 - Mount Sinai - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 416b6a93b0b649842834db3fbdab9b35
+    m_Address: Assets/Sets/BaseSet/Images/001111 - Sinful Desperation - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41f7535074a1b0741970b9e943d6180b
+    m_Address: Assets/Sets/BaseSet/Images/001148 - Naboths Vineyard - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 428a7a88250ba8f48b2de948910e40c3
+    m_Address: Assets/Sets/BaseSet/Images/001032 - Zipporah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44161498933ba8e4b9c4c24f472a73e1
+    m_Address: Assets/Sets/BaseSet/Images/001007 - Abram.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 452d025a79a3c9b4ca11c08544bb2853
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001016Lot.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 467e395aa2a5b6a4db57b16c8988654c
+    m_Address: Assets/Sets/BaseSet/Images/001127 - God So Loved - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 468e5a12fac325f4b83f87fb7607c4c0
+    m_Address: Assets/Sets/BaseSet/Images/001045 - Centurion.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4708d0fa6b9582f44984e2d3784e4513
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001109Wild Lion.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4749049b2767bbf43a48ff94325f6c8a
+    m_Address: Assets/Sets/BaseSet/Images/001109 - Wild Lion - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4771e170b060c2842a82e2f9bb3417b8
+    m_Address: Assets/Sets/BaseSet/Images/001175 - Sling and Stones - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47a8deab2e70451459e5638655acfac0
+    m_Address: Assets/Sets/BaseSet/Images/001144 - Egypt - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47cae425b165fbc48aba88c850aeabb5
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001103The Flood.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4862d26032970d9489cc27ed1ab594d2
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001025Josiah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4889560ca2e6f49498ce95dfce8d12a7
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001018Moses.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 492ffa95d94cb774ab62b62285176a0f
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001044Mary Magdalene.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a6f9b61db1dfb643a73625884fb1de3
+    m_Address: Assets/Sets/BaseSet/Images/001020 - Leah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ca3eb9c6daf3e04880157a9eb75c66f
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001119Gideon\u2019s Fleece.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dc34d21b1511434282722d1c260202e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001038Gideon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4df7225414ef30447b250dbfe3c96f5a
+    m_Address: Assets/Sets/BaseSet/Images/001043 - Huldah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e5f275c142e0b94e8a90395ebcbac3a
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001147Mount Sinai.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ef54d2e0cd3b5d47be4b94671c9e020
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001067Ahab.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 554994cdc0b4112458500a74b763a578
+    m_Address: Assets/Sets/BaseSet/Images/001018 - Moses.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55690925edf8e484dbdcedcc0e6d9180
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001142The Garden of Eden.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 558af0ae680c59a45bfebf7166821759
+    m_Address: Assets/Sets/BaseSet/Images/001143 - The Tower of Babel - Location
+      Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55d2455e2e52f5d4197b5ab1e632522f
+    m_Address: Assets/Sets/BaseSet/Images/001012 - Ishmael.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55eafa6708f927e42a4d26450e87c0f6
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001162Gethsemane.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56b0970788f460440aa2677e5af80d98
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001068Jezebel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5839099402da0674aa7ae5902226f753
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001164Nazareth.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5864857535f148344b84106a1b5ab913
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001040Benaiah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58c394a963056ab4183efb57a5fd698e
+    m_Address: Assets/Sets/BaseSet/Images/001046 - John the Baptist.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58d32a0f3bff2644ba982ffa0b5c4b4a
+    m_Address: Assets/Sets/BaseSet/Images/001073 - Philistine Warrior.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bf7cdf9e79d47547add3893e784f19d
+    m_Address: Assets/Sets/BaseSet/Images/001133 - Jeroboam_s Idols - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c352b7160d8059448e99f4331d691dc
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001100Elymas the Sorceror.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 604eeb50b3430ac41a5a50faf9b4cd9d
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001159Canaan.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60bd959f68ffaeb479fa5825cfd8a800
+    m_Address: Assets/Sets/BaseSet/Images/001167 - Peacock - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60bfb837a5c6e5e4db98cead8fe3fb42
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001066The Serpent.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 619cb292fd774ec498b9e2c8786fa9d6
+    m_Address: Assets/Sets/BaseSet/Images/001096 - Og King of Bashan.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6203c76a1ef89c24bb1bd1c1d8ea1054
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001080Zalmunna.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62dc3eff4bc2d4f4c9770c88ea4dccaf
+    m_Address: Assets/Sets/BaseSet/Images/001128 - Riot at Ephesus - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62e86520af3e02d4caf06b3670567909
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001106Prophet\u2019s Rebuke.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63c56de298276ec47bdd63bcafa46a39
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001096Og King of Bashan.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63eb8520383649f4e9188cdd8b4d1dcb
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001160Shechem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 642983118f33e8a4fa68cfa1c104f84b
+    m_Address: Assets/Sets/BaseSet/Images/001027 - Solomon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6506a6b7605bb2f4fa1ec96600c90fc8
+    m_Address: Assets/Sets/BaseSet/Images/001057 - Queen of Sheba.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65e2618cb9c39ff4cb58ae7ab61487e5
+    m_Address: Assets/Sets/BaseSet/Images/001115 - The Call of Abram - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67ee0e67bda813842999b8037752052c
+    m_Address: Assets/Sets/BaseSet/Images/001102 - The Exodus - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68a3770cf31b9e143803f2a8e17ebf42
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001153The Red Sea.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68dfc2159cd16e242a0a19fed54c1c22
+    m_Address: Assets/Sets/BaseSet/Images/001089 - Herodias Daughter.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68fdad29718a8f04db5755c847a774d3
+    m_Address: Assets/Sets/BaseSet/Images/001132 - In The Beginning - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a4bcdf73002dad41b5fceeb597ab7d4
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001129The Wedding at Cana.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b6f4ab624a58b84db76576c88cc1b62
+    m_Address: Assets/Sets/BaseSet/Images/001104 - The Fall - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bae0c84638882c46b59feee0deb8707
+    m_Address: Assets/Sets/BaseSet/Images/001120 - Plague of Locusts - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c3e44b719ca19d48b09841d6585d2ff
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001058Naboth.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cd9440b7ff75534cb80e85f7ea7b18a
+    m_Address: Assets/Sets/BaseSet/Images/001150 - The Ark - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e019b56549359e438cf99042851c689
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001144Egypt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e1f040b9f8c2d34ab3460935d952f4e
+    m_Address: Assets/Sets/BaseSet/Images/001125 - Pentecost - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e2993d4b361cca4bbdc688b28471a63
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001052Joseph of Arimathea.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f03ee511fee6b04498a5f79382ee4a4
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001017Moses.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7002c22d8174ff94f98571e5122af01c
+    m_Address: Assets/Sets/BaseSet/Images/001023 - Abigail.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7131e6641e6526e4ca8f9e32bf64e4a4
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001114Call to Follow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71367a33981de964cb3c3d138834088a
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001032Zipporah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71582b041c31a8f42929b378a323de78
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001115The Call of Abram.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73a6b1adf2f063e4793aceb8c57e4c62
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001009Abraham.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74c6653ba5389f944a59eb13eb3aad53
+    m_Address: Assets/Sets/BaseSet/Images/001060 - Nicodemus.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 756052cff3216aa4c88da13ce5aa9d18
+    m_Address: Assets/Sets/BaseSet/Images/001051 - Naaman.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75958bb1916b7044eaedd484fec16bab
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001098King Achish.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77e0ce667ae3d06428694be486028281
+    m_Address: Assets/Sets/BaseSet/Images/001078 - Cain.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 787627096c041df4ab5a0d55204455d8
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001152Egypt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 787a0074489b2ff4896acf3ded3f9fdf
+    m_Address: Assets/Sets/BaseSet/Images/001126 - By Grace - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78da8a44779a265429a2d8ce48f72420
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001170Dove.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78de98d0b350a1e43a29b8c6d858512f
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001156Hebron.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79f730473e9dc74428e4d2c4361a8eb8
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001023Abigail.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a9a0795b265a724d842bf4c7f6fe517
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001146Gath.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ad9a5468eb161d45b8bbc3315609973
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001173Manna.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b79608542900fa4daeaa4ba6aa186e9
+    m_Address: Assets/Sets/BaseSet/Images/001077 - Nephilim.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c832737106cb914caefa8cfcbf224d6
+    m_Address: Assets/Sets/BaseSet/Images/001113 - A Huge Fish - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d0eaa49a114cc841858f0c877949ad8
+    m_Address: Assets/Sets/BaseSet/Images/001180 - Aaron_s Staff - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d2d35cb1fbd02449b8413894bcd7611
+    m_Address: Assets/Sets/BaseSet/Images/001166 - Camel - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d80523706190c347ba553f644a91462
+    m_Address: Assets/Sets/BaseSet/Images/001048 - Jehosheba.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d927dddfe705ec4d9f15db33cdd3864
+    m_Address: Assets/Sets/BaseSet/Images/001001 - Adam.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dc61dc2d8275f644a19b69620754f3c
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001046John the Baptist.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e90939d753eeac448131b05a36af38a
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001139Rebellion.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f7b3213e6c84674b83d41a27778a269
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001086Balaam.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80a500fac0b837749959552becd6ceb6
+    m_Address: Assets/Sets/BaseSet/Images/001119 - Gideon_s Fleece - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80ad69c90546beb4981b00372ad8ac30
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001150The Ark.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81be78d09a7fb4f4bb37b0023f33e469
+    m_Address: Assets/Sets/BaseSet/Images/001085 - Nadab and Abihu.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83664970cc3bbcc4694b3b7c5a803d10
+    m_Address: Assets/Sets/BaseSet/Images/001014 - Esau.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84af841c08db1774db31df8e7c9a0ebf
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001041Peter.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84b46d9481f7a1a4e99e8de2831429f2
+    m_Address: Assets/Sets/BaseSet/Images/001097 - Athaliah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86ebb0e625fc2154c92d40f1b2c4894e
+    m_Address: Assets/Sets/BaseSet/Images/001044 - Mary Magdalene.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86fc688441d65594b978e811819f0861
+    m_Address: Assets/Sets/BaseSet/Images/001086 - Balaam.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87c5e5d8f0c60fc42b52f78f541cb1ec
+    m_Address: Assets/Sets/BaseSet/Images/001157 - Mount Tabor - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87e03f800f9a256428edff933aea46d5
+    m_Address: Assets/Sets/BaseSet/Images/001177 - Ship of Tarshish - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88584055f131a7e4a9dc5adb74768c86
+    m_Address: Assets/Sets/BaseSet/Images/001118 - Elijah Flees - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89afbf6a8834a834da22054df65158f9
+    m_Address: Assets/Sets/BaseSet/Images/001074 - Moabite.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a4647fddcfd0be469a9c489f3986e04
+    m_Address: Assets/Sets/BaseSet/Images/001035 - Enoch.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c2d80cba01182c4c85bc85aa0457784
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001071Pharisee.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c68ff8a060980648bd999c0ba990352
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001108Plague on Livestock.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8da9fbd3294eadd41bfe751ea0eb36fa
+    m_Address: Assets/Sets/BaseSet/Images/001050 - Ruth.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e596bab4c10c254bae7b20d76ddeaa7
+    m_Address: Assets/Sets/BaseSet/Images/001026 - Abel.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f26831c8c75d4f40a6b31f0c7b90b58
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001085Nadab and Abihu.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90fc35091aec6654ab05c6047082693b
+    m_Address: Assets/Sets/BaseSet/Images/001017 - Moses.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 914f3e217b4e50940863c3fdaff48e0e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001178Scroll.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91e8641833473634eae75c156e01cbcf
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001008Sarah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92084836c61d8414991dcaf4e9bbfbc3
+    m_Address: Assets/Sets/BaseSet/Images/001079 - Zeba.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93bc327ecfd94c2419c9e4ac20d1966a
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001113A Huge Fish.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95ee99d9378ef58418919822fa37e9a5
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001070Giant of Egypt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9639ec5542aeed448a3ddfa0fd1476b9
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001089Herodias\u2019 Daughter.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9640d2eb6ee925246999b2ea6d46478b
+    m_Address: Assets/Sets/BaseSet/Images/001142 - The Garden of Eden - Location
+      Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 965e206ddeccffe4aa29165798c0ac69
+    m_Address: Assets/Sets/BaseSet/Images/001067 - Ahab.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96d4dd1c480443049a1838c28f3a63d4
+    m_Address: Assets/Sets/BaseSet/Images/001005 - Noah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97549a5276a7e3f4fbb62e28b924d370
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001060Nicodemus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97950e5621a044c4ba166d1dd5a15948
+    m_Address: Assets/Sets/BaseSet/Images/001114 - Call to Follow - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97cf95652cf3ed542946b631efa74ed9
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001006Jabal.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98e8310f0c7ef3a40828dd9eaac88cb5
+    m_Address: Assets/Sets/BaseSet/Images/001160 - Shechem - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99e985695dc1d844b9cb2161cf776287
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001019Rachel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a526d3fa7bcfe640aa309d98ac783fb
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001140The Golden Calf.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c575551e2d2f4b41b874f852dd43441
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001036Deborah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cc77863ccc5f9d44a58e311727b0ed8
+    m_Address: Assets/Sets/BaseSet/Images/001042 - Jonah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ce69a197dc147b4995134381c329dbb
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001024Zilpah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d361c6e12a616643a197aa99992ef6a
+    m_Address: Assets/Sets/BaseSet/Images/001099 - Eglon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d81a03d2952d00469280c2ecde7f206
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001143Tower of Babel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9da4d946b154fd946b481bf524db358c
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001180Aaron\u2019s Staff.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eb6e76affc01314cb43929f3b952862
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001133Jeroboam\u2019s Idols.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ee6b139fb51a924bbb142eb97b1c293
+    m_Address: Assets/Sets/BaseSet/Images/001135 - The God Who Sees - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a05321d3e415e5e4984cf80ea8214a8f
+    m_Address: Assets/Sets/BaseSet/Images/001072 - Korah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0a45837c11927c44ae7036e97dfd5a1
+    m_Address: Assets/Sets/BaseSet/Images/001163 - Oaks of Mamre - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0d2f59c641f95e488014f2fb800ed6f
+    m_Address: Assets/Sets/BaseSet/Images/001134 - Fallen Angels - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a29538f5eaedb6147a8517e9b55fc13f
+    m_Address: Assets/Sets/BaseSet/Images/001151 - The Jordan River - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a38805c78256741498edc23c6eb897f6
+    m_Address: Assets/Sets/BaseSet/Images/001091 - Judas Iscariot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3ddb3525874bbc4e803c67af513f15f
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001097Athaliah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a51ce8e4d9db91147af89a8e287d0650
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001116God\u2019s Covenant.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5639166694c5e24ba8a5fbd1f668145
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001030Esther.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a58f7ca57fdbf3d4191025de3e60adf8
+    m_Address: Assets/Sets/BaseSet/Images/001065 - The Serpent.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6d8999cf8b0b6d4c860313c6ef8b9c8
+    m_Address: Assets/Sets/BaseSet/Images/001136 - The Lord Will Provide - Event
+      Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a714f17ec48aabe42912ff3edfb9ab19
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001101Two She-Bears.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a86fcaafd234570468374a2d1483ba45
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001076Gehazi.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a90e70789679b354a876237458687f35
+    m_Address: Assets/Sets/BaseSet/Images/001172 - Quail - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab7fd01cd3c91f645bddb23a1a166b9a
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001063Pharaoh Neco.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac3980d61f030bb4b9cc16fe34381e00
+    m_Address: Assets/Sets/BaseSet/Images/001101 - Two-She-Bears - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad3a1c409887d404d8d24ca3800b0e22
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001027Solomon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ada53811f15d4994a9443c07e350f78f
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001132In The Beginning\u2026.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adb2d4f69fe446d45b6496f019bb06b9
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001157Mount Tabor.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae4125193f0930c4f8731021c4ddac57
+    m_Address: Assets/Sets/BaseSet/Images/001173 - Manna - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aed7950efc5f814408efc5c5e66b6756
+    m_Address: Assets/Sets/BaseSet/Images/001169 - Sparrow - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aee544c5de4748a43a94e3bee8c79313
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001155Nineveh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af97e6b5a36997a40acb50a30506dcf3
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001095King Ahasuerus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afcfd3ad23a96a94daa1df49f9614c56
+    m_Address: Assets/Sets/BaseSet/Images/001140 - The Golden Calf - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b13470bf2c3492f4c9fdfec6ca1d430c
+    m_Address: Assets/Sets/BaseSet/Images/001028 - Elijah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b172fac7d57e6934593f3cef7ec58618
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001092Pontius Pilate.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b26ae60f98e472647bf5abd6e5182684
+    m_Address: Assets/Sets/BaseSet/Images/001155 - Ninevah - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b31840ec7356d30439212a361d37d639
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001137The Word of God.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b32f28069ffaf0941b30b0a12d7b2152
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001054Angel of the Lord.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b39fbee6fde295c4aa297c80c42cd5e3
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001069Absalom.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3d66969b315a5047aced96a17c7f203
+    m_Address: Assets/Sets/BaseSet/Images/001159 - Canaan - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3e2f850e6aa72348aa6739935406cde
+    m_Address: Assets/Sets/BaseSet/Images/001061 - Medium at Endor.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b409a16e4d789334a8bc85c95bb852bf
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001121Oppression in Egypt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b499cb01277e07f4a87ad6184e3a172f
+    m_Address: Assets/Sets/BaseSet/Images/001011 - Hagar.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4ae1a85660f97b48bba0afb1a78287f
+    m_Address: Assets/Sets/BaseSet/Images/001068 - Jezebel.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b64a890639e5e914b8602eaad6b41ec4
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001043Huldah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6ca5bfb79f45db46a94c02464c1cbde
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001001Adam.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6cbf779f63a4dd4bbfec7bf024b5ec0
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001045Centurion.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7eb8949d07b26c44b0616a9894b1482
+    m_Address: Assets/Sets/BaseSet/Images/001117 - Torrents of Destruction - Event
+      Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9e5a7edc051b5c40892875d260355a6
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001064Pharaoh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba415fb4b2987ac4d9ad683e35996252
+    m_Address: Assets/Sets/BaseSet/Images/001124 - Cords of Sheol - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba7a368ef3aae4e42b3677394d032465
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001049Eutychus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: babfffe9c9740384e92c1e741d4f9a99
+    m_Address: Assets/Sets/BaseSet/Images/001008 - Sarah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb11a967bbc368a4da139662f8ea1da7
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001083Midianite Trader.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbc1078aafedad44ba18680e1d6e74a1
+    m_Address: Assets/Sets/BaseSet/Images/001041 - Peter.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc9603eb00123b24fbe7a5eaa9db2ab7
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001099Eglon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be03b10fedb46fb44ac4261a57a537e3
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001166Camel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be8fe7d155873874cb713bba136e213c
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001169Sparrow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf0d30f9bbbe6214f820cc7bf1edc5e8
+    m_Address: Assets/Sets/BaseSet/Images/001083 - Midianite Trader.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf301af1f0ba2c541a29bca0d49b426e
+    m_Address: Assets/Sets/BaseSet/Images/001015 - Joseph.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c03a778d6dc47384eb8294da1d39e097
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001111Sinful Desperation.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0b7664ff1d71614abae0edef9e4c19d
+    m_Address: Assets/Sets/BaseSet/Images/001080 - Zalmunna.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c113ad4a1b3a2f247ba7ba98db01bb74
+    m_Address: Assets/Sets/BaseSet/Images/001087 - Magician of Egypt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c25ba2aaaa880cd4ca1732539245ce6f
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001093Balak.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c73ae49d075ad0441b4bd5475bf288e1
+    m_Address: Assets/Sets/BaseSet/Images/001146 - Gath - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c79e78f14ff7e9c42a59c11b08496475
+    m_Address: Assets/Sets/BaseSet/Images/001112 - Risen - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7c9a54fa94e6fb43bf76522ef967a77
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001034Tarshish.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8fabc4811d4911498917a8df6356301
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001131Flight of Moses.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c90311d5fc67d3044b1a9ea4917e29d9
+    m_Address: Assets/Sets/BaseSet/Images/001093 - Balak.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c94ee850e43d47543adc7da95f0226fb
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001174Palm Branch.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9756e5f8adf35a4eb6970d1d5983383
+    m_Address: Assets/Sets/BaseSet/Images/001062 - Haman.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca26c678f1195af42bd78b2e8b623768
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001050Ruth.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cac1df2ed5ffeb549843a148a60656df
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001158Moab.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc17a68edfe4cbd418deaa4c1d45590a
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001177Ship of Tarshish.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc302125f4a25d748b89d25b0f5484f8
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001055Gamaliel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd8d86cd38ff9a54bbe4712fb721a8cc
+    m_Address: Assets/Sets/BaseSet/Images/001075 - Goliath.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce9d70e72b42bab468bde5c9bbd57709
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001110Ben-hadad\u2019s Siege.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf2bc6d9a3f50b54992b4ec23e3bf979
+    m_Address: Assets/Sets/BaseSet/Images/001095 - King Ahasuerus.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d071559a34edce646aec29289300c758
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001035Enoch.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1170484abae3ef4b83264cc267537e3
+    m_Address: Assets/Sets/BaseSet/Images/001145 - Susa the Citadel - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1edfaba4f6fdda42a69386fbd44844b
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001151The Jordan River.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d21c728b6b5faf34dad8e2718a8ab6c7
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001168Ostrich.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d21cbcd739fed2a46a88de924376151d
+    m_Address: Assets/Sets/BaseSet/Images/001016 - Lot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d22b5153abd18354da85d78bad432a26
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001028Elijah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d378625455bd1e04a91e67e8f906d983
+    m_Address: Assets/Sets/BaseSet/Images/001178 - Scroll - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3b34a3788abb914aa638d61f217f93b
+    m_Address: Assets/Sets/BaseSet/Images/001052 - Joseph of Arimathea.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d43c6801b0dc74a41af7ad61d6b553a8
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001117Waves of Death.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d52b9c5a58a9d7243a9f46c0de441244
+    m_Address: Assets/Sets/BaseSet/Images/001030 - Esther.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d52d12198c25ccd49bdbf13ae8bf5f7e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001118Elijah Flees.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d627836dce44f474c9dace483213429d
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001022David (King).asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6aee434231eff943b4c624d1a160c2f
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001051Naaman.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6b172e073d047d4eb9fc94ba2a9a46a
+    m_Address: Assets/Sets/BaseSet/Images/001063 - Pharoah Neco.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d721c94091f24f94a9bf9b4412b74f3f
+    m_Address: Assets/Sets/BaseSet/Images/001107 - Rejoice in the Lord - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d76edae21547a964fa98e374a3af51a5
+    m_Address: Assets/Sets/BaseSet/Images/001103 - The Flood - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7a129baaded5a54ab2b208816ba77d8
+    m_Address: Assets/Sets/BaseSet/Images/001152 - Egypt - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7ca1dfa15f3b554ab154a4c5a9113c5
+    m_Address: Assets/Sets/BaseSet/Images/001009 - Abraham.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7d4371a77a9cf3468a3f8588c8accf9
+    m_Address: Assets/Sets/BaseSet/Images/001082 - Potiphar_s Wife.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d80f242e3ce70d54eb50315824c01cec
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001010Isaac.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8629c4ce4a82b242a69dd90be1f85fb
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001013Jacob.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8ddaba2e14506541acb392514713036
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001087Magician of Egypt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d967fe26d8b711445aa29025f407ba88
+    m_Address: Assets/Sets/BaseSet/Images/001054 - Angel of the Lord.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da5988f5a0d479d43bb812b26c5c9deb
+    m_Address: Assets/Sets/BaseSet/Images/001156 - Hebron - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da5a624ecc294e846887d891e4ba6a13
+    m_Address: Assets/Sets/BaseSet/Images/001094 - King Nebuchadnezzar.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dae2a89b37337f94781dce897bbd09d5
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001053Angel of the Lord.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc0d3a40c13fa6b45b8d031a066f9756
+    m_Address: Assets/Sets/BaseSet/Images/001106 - Prophet_s Rebuke - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddc065b1213fe8d4d9ad16837e809a41
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001145Susa the Citadel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddd77783365f0ca4fb070e0a75764dae
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001084Saul.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dec2977f679cea64fbb9b97f968bf0f1
+    m_Address: Assets/Sets/BaseSet/Images/001138 - Spies - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df8089bce5553074aaffd6123cc1fa80
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001091Judas Iscariot.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfd9e0126760d044f97a0f00c3461239
+    m_Address: Assets/Sets/BaseSet/Images/001170 - Dove - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e043625b9730f424288ff5e1c7e45ae8
+    m_Address: Assets/Sets/BaseSet/Images/001031 - Naomi.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e05d606f7ad4ace43994364a4d973412
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001134Fallen Angels.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0811fcb456967f4cad6d94a01f48684
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001012Ishmael.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0af9dd4af6941d419beb515e46b1961
+    m_Address: Assets/Sets/BaseSet/Images/001164 - Nazareth - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2a3d02a9af1d7042ab5e3f1a339c7e4
+    m_Address: Assets/Sets/BaseSet/Images/001141 - The Garden of Eden - Location
+      Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3be9a06762a90f4eae68e8450f5bd4d
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001056Uriah the Hittite.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e567c09264a824946b194495841cc029
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001002Eve.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5e41ab47e4b35c4eb35deeded66c39b
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001122Repentance.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6cce1375266172498e2d27aca9242b9
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001105David\u2019s Census.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8b08b3b4f8388545b2f1ccb4e074986
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001094Nebuchadnezzar.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9bf8c1406656fb42a10380dc1717245
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001065The Serpent.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eea4c8bb12a24aa4bb114e9e6c548ab7
+    m_Address: Assets/Sets/BaseSet/Images/001129 - The Wedding at Cana - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eedf63587a001bd499a0bfa787bd321c
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001082Potiphar\u2019s Wife.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef51fdc338d99c746bc7769d1c644065
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001136The Lord Will Provide.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef6026b9f7640684d87dfe2787f6819c
+    m_Address: Assets/Sets/BaseSet/Images/001070 - Giant of Egypt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efa3a1a1ad896e04ea4f306f3c891850
+    m_Address: Assets/Sets/BaseSet/Images/001003 - Eve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efa6d8a70528aef4193a33727e437e67
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001112Risen!.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f019501b9dbd3cf4492c1b1e8ab8da5e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001074Moabite.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f152182019c149f469fba485ddd392a6
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001165Sea of Galilee.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f17fda520b213424cab49c828a05e7ba
+    m_Address: Assets/Sets/BaseSet/Images/001137 - The Word of God - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1a4fa596d735124a83d8fe509ac764e
+    m_Address: Assets/Sets/BaseSet/Images/001013 - Jacob.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f25e4507ac545f148ba07c9f41fe517b
+    m_Address: Assets/Sets/BaseSet/Images/001059 - Pharaoh_s Daughter.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2eb7496a144c034ba48d0dfcc1bee32
+    m_Address: Assets/Sets/BaseSet/Images/001025 - Josiah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3ca8e850030c6241b4b5678e256e9b5
+    m_Address: Assets/Sets/BaseSet/Images/001165 - Sea of Galilee - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3d3802ec87179a48b4223e9c3a0e5fc
+    m_Address: "Assets/Sets/BaseSet/ScriptableObjects/001154Potiphar\u2019s House.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3f2777453326834ca8dc99764c6275b
+    m_Address: Assets/Sets/BaseSet/Images/001153 - The Red Sea - Location Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f426895baccd8df4c9403657692ba8e5
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001033Mary.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f449e5548d1aa704ba53c9fecf78e51b
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001081Micah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4f785a6694769c4397e08ce8b7512c6
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001014Esau.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f541cde8d30ba044089bcd11d8dd1323
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001079Zeba.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5990fc7b6d9a7b4abcfcdbdeabdfed6
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001011Hagar.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5cfc3df4d6d40e4284d8733da6ddf0e
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001102The Exodus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6a509530bead654ca808452fd2f332a
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001167Peacock.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8922055248c84143ad7dc97f1486d28
+    m_Address: Assets/Sets/BaseSet/Images/001176 - Fishing Nets - Support Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8acb4fdc4091744c867b71b9f912dea
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001176Fishing Nets.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbdde13a90b837f459df000a17850c96
+    m_Address: Assets/Sets/BaseSet/Images/001006 - Jabal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc3b0db0b1478464baefaac2a089b14f
+    m_Address: Assets/Sets/BaseSet/Images/001040 - Benaiah.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fcfc68ecb08032348a797361c8b6b93f
+    m_Address: Assets/Sets/BaseSet/Images/001055 - Gamaliel.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd1bf2c6ac6aef545acc160ea782ecea
+    m_Address: Assets/Sets/BaseSet/Images/001105 - David_s Census - Event Card.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd97d99edabd5984bbd8e79f8df6d859
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001029Elijah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdbb86e046729f34c9ab69b5d6f7ef5e
+    m_Address: Assets/Sets/BaseSet/Images/001034 - Tarshish.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe3e329ee63115b46ae5b69cc79cb669
+    m_Address: Assets/Sets/BaseSet/ScriptableObjects/001126By Grace.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: feb13fd915bf46e4ebbb9d7435c717aa
+    m_Address: Assets/Sets/BaseSet/Images/001049 - Eutychus.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2d969ee5f1d64b54b87f4146c07244ed, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 1e9bdb1188ffb3549ba253bc06b169e1, type: 2}
+    - {fileID: 11400000, guid: 5fb0a29133f8c2b4096a9e64d45be8c1, type: 2}

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001037Jael
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 037
+  Artwork: {fileID: 1650541314150332952, guid: 149d5dfdba6057d4ab3a7c2e11e6ad88, type: 3}
+  Title: Jael
+  Rarity: Common
+  Type:
+  - Faithful
+  Value: 4
+  AbilityText: 1 Dove if Deborah is in play
+  Verse: Judges 4:21
+  VerseText: "But as he lay sleeping from exhaustion~ Heber\u2019s wife Jael took
+    a tent peg~ grabbed a hammer~ and went silently to Sisera. She drove the peg
+    through his temple and into the ground~ and he died."
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Deborah
+    Tag:
+    - 1

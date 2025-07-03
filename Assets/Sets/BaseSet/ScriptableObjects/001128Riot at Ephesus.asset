@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001128Riot at Ephesus
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 128
+  Artwork: {fileID: 4303440932843194861, guid: 62dc3eff4bc2d4f4c9770c88ea4dccaf, type: 3}
+  Title: Riot at Ephesus
+  Rarity: Common
+  Type:
+  - Event
+  Value: 6
+  AbilityText: 
+  Verse: Acts 19:28-29
+  VerseText: "\"\u201CWhen they heard this they were filled with anger"
+  Abilities: []

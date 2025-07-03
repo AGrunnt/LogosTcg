@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001066The Serpent
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 066
+  Artwork: {fileID: 2207057550102075312, guid: 26cd3836a15216844a06cef58de90d32, type: 3}
+  Title: The Serpent
+  Rarity: Common
+  Type:
+  - Fallen
+  Value: 8
+  AbilityText: 'Bonus: When The Serpent enters play~ remove any Support cards from
+    current and adjacent locations'
+  Verse: Genesis 3:4-5
+  VerseText: "\"\u201C\u201C\u2018You will not surely die"
+  Abilities:
+  - AbilityType:
+    - Remove
+    Target:
+    - AdjacentLoc
+    - Support
+    Tag:
+    - 

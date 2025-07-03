@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001016Lot
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 016
+  Artwork: {fileID: -4497790057297260788, guid: d21cbcd739fed2a46a88de924376151d, type: 3}
+  Title: Lot
+  Rarity: Common
+  Type:
+  - Faithful
+  Value: 3
+  AbilityText: 
+  Verse: Genesis 13:5-6
+  VerseText: Now Lot~ who was traveling with Abram~ also had flocks and herds and
+    tents. But the land was unable to support both of them while they stayed together~
+    for they had so many possessions that they were unable to coexist.
+  Abilities: []

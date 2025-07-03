@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001162Gethsemane
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 162
+  Artwork: {fileID: 1867767075529448926, guid: 31e11991b5240744faadc4129a4caa32, type: 3}
+  Title: Gethsemane
+  Rarity: Rare
+  Type:
+  - Location
+  Value: 0
+  AbilityText: 
+  Verse: Matthew 26:36-37
+  VerseText: 
+  Abilities: []

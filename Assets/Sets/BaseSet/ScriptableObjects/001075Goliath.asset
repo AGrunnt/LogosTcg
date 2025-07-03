@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001075Goliath
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 075
+  Artwork: {fileID: -2160224112118438071, guid: cd8d86cd38ff9a54bbe4712fb721a8cc, type: 3}
+  Title: Goliath
+  Rarity: Uncommon
+  Type:
+  - Fallen
+  Value: 10
+  AbilityText: 1 SnakeIcon if Gath is active
+  Verse: 1 Samuel 17:4
+  VerseText: "\u201CA champion out of the camp of the Philistines named Goliath of
+    Gath~ whose height was six cubits and a span went out.\u201D"
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Gath
+    Tag:
+    - 1

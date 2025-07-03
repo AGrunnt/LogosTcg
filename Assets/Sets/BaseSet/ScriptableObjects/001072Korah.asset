@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001072Korah
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 072
+  Artwork: {fileID: 4786400079121343889, guid: a05321d3e415e5e4984cf80ea8214a8f, type: 3}
+  Title: Korah
+  Rarity: Rare
+  Type:
+  - Fallen
+  Value: 7
+  AbilityText: 
+  Verse: Numbers 16:31-33
+  VerseText: "\u201CAs soon as Moses had finished saying all this~ the ground beneath
+    them split open~ and the earth opened its mouth and swallowed them and their
+    households\u2014all Korah\u2019s men and all their possessions. They went down
+    alive into Sheol with all they owned. The earth closed over them~ and they vanished
+    from the assembly.\u201D"
+  Abilities: []

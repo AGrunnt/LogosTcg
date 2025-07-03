@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001178Scroll
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 178
+  Artwork: {fileID: -7021369026596518585, guid: d378625455bd1e04a91e67e8f906d983, type: 3}
+  Title: Scroll
+  Rarity: Common
+  Type:
+  - Support|Animal
+  Value: 0
+  AbilityText: 
+  Verse: Ezra 6:1-2a
+  VerseText: 
+  Abilities: []

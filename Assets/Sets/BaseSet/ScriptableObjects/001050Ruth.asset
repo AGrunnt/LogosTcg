@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001050Ruth
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 050
+  Artwork: {fileID: -6609356990891280302, guid: 8da9fbd3294eadd41bfe751ea0eb36fa, type: 3}
+  Title: Ruth
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Value: 7
+  AbilityText: 2 Dove if Naomi is in play
+  Verse: Ruth 1:16-17
+  VerseText: "Ruth said~ \u201CDon\u2019t urge me to leave you~ and to return from
+    following you~ for where you go~ I will go; and where you stay~ I will stay.
+    Your people will be my people~ and your God my God. Where you die~ I will die~
+    and there I will be buried. May Yahweh do so to me~ and more also~ if anything
+    but death parts you and me.\u201D"
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Naomi
+    Tag:
+    - 2

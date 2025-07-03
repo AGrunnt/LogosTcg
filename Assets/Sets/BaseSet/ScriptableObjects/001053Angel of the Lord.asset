@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001053Angel of the Lord
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 053
+  Artwork: {fileID: 8931505045787633742, guid: 06f8ca0cbf897fa4da41636ebee57c35, type: 3}
+  Title: Angel of the Lord
+  Rarity: Common
+  Type:
+  - Neutral
+  Value: 0
+  AbilityText: 'Instant: You may discard Angel of the Lord to prevent an additional
+    Location from being placed on the timeline.'
+  Verse: 1 Chronicles 21:15
+  VerseText: "Then God sent an angel to destroy Jerusalem~ but as the angel was doing
+    so~ the LORD saw it and relented from the calamity~ and He said to the angel
+    who was destroying the people~ \u201CEnough! Withdraw your hand now!\u201D At
+    that time the angel of the LORD was standing by the threshing floor of Ornan
+    the Jebusite."
+  Abilities:
+  - AbilityType:
+    - PreventLocPlacement
+    - Instant
+    - DiscardSelf
+    Target:
+    - 
+    Tag:
+    - 

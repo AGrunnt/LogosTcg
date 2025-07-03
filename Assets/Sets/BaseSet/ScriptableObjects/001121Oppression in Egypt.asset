@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001121Oppression in Egypt
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 121
+  Artwork: {fileID: 2008581046620218379, guid: 117c62c09d9ece9459f3dbafd489ebe1, type: 3}
+  Title: Oppression in Egypt
+  Rarity: Common
+  Type:
+  - Event
+  Value: 7
+  AbilityText: 
+  Verse: Exodus 1:13-14
+  VerseText: "\"\u201CThey worked the Israelites ruthlessly and made their lives
+    bitter with hard labor in brick and mortar"
+  Abilities: []

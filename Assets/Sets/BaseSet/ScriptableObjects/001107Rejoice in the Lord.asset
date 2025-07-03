@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: 001107Rejoice in the Lord
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 107
+  Artwork: {fileID: -6878015189298275779, guid: d721c94091f24f94a9bf9b4412b74f3f, type: 3}
+  Title: Rejoice in the Lord
+  Rarity: Common
+  Type:
+  - Event
+  Value: 0
+  AbilityText: You may use this card to refresh the faith pool (DoveIcon) to match
+    the amount of one of your Faithful in play.
+  Verse: Joel 2:23
+  VerseText: "\"\u201CBe glad"
+  Abilities:
+  - AbilityType:
+    - Refresh
+    Target:
+    - 
+    Tag:
+    - 
