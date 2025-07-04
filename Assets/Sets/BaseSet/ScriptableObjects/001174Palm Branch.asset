@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Palm Branch
   Rarity: Uncommon
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: John 12:13

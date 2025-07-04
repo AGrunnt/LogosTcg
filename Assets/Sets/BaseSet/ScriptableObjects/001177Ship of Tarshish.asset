@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Ship of Tarshish
   Rarity: Uncommon
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Isaiah 60:9

@@ -41,7 +41,7 @@ namespace LogosTcg
     /// <summary>
     /// ScriptableObject definition for a Realm card with multiple suits and flexible abilities.
     /// </summary>
-    [CreateAssetMenu(menuName = "CardHouse/Card Definition/RealmsCardDef")]
+    [CreateAssetMenu(menuName = "Logos/CardDef")]
     public class CardDef : ScriptableObject
     {
         [Tooltip("Unique identifier for this card")]

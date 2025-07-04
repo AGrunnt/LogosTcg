@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Fishing Nets
   Rarity: Uncommon
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Luke 5:4

@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Camel
   Rarity: Common
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Genesis 24:10

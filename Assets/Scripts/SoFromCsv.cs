@@ -94,7 +94,7 @@ namespace LogosTcg
             card.Title = cdRow[dataCdHeaders.IndexOf("Name")];
             card.Rarity = cdRow[dataCdHeaders.IndexOf("Rarity")];
             // initialize Type list
-            card.Type = cdRow[dataCdHeaders.IndexOf("Type")].Split(new[] { '~' }, StringSplitOptions.RemoveEmptyEntries)
+            card.Type = cdRow[dataCdHeaders.IndexOf("Type")].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
                   .Select(s => s.Trim())
                   .ToList();
 

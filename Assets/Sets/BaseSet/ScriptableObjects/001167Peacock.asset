@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Peacock
   Rarity: Rare
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: 1 Kings 10:22

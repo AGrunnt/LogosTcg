@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: "Pharaoh\u2019s Ring"
   Rarity: Common
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Genesis 41:42

@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: "Aaron\u2019s Staff"
   Rarity: Rare
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Numbers 17:8

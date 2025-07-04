@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Scroll
   Rarity: Common
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Ezra 6:1-2a

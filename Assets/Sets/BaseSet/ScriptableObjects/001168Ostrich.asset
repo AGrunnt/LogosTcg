@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Ostrich
   Rarity: Common
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Lamentations 4:3

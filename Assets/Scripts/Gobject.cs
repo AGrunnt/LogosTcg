@@ -41,6 +41,9 @@ namespace LogoTcg
         public bool isHovering;
         public bool isDragging;
         [HideInInspector] public bool wasDragged;
+        public bool draggable = false;
+        public bool hoverable = false;
+        public bool selectable = false;
 
         [Header("Events")]
         [HideInInspector] public UnityEvent<Gobject> PointerEnterEvent;
@@ -107,6 +110,9 @@ namespace LogoTcg
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (!draggable)
+                return;
+
             BeginDragEvent.Invoke(this);
 
             // ? use new Input System
@@ -126,6 +132,8 @@ namespace LogoTcg
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            if(!draggable) return; //fix: may not need
+
             EndDragEvent.Invoke(this);
             isDragging = false;
             //canvas.GetComponent<GraphicRaycaster>().enabled = true;
@@ -146,18 +154,24 @@ namespace LogoTcg
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (!hoverable) return;
+
             PointerEnterEvent.Invoke(this);
             isHovering = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (!hoverable) return;
+
             PointerExitEvent.Invoke(this);
             isHovering = false;
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            if(!selectable) return;
+
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
 
@@ -167,6 +181,8 @@ namespace LogoTcg
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            if (!selectable) return;
+
             if (eventData.button != PointerEventData.InputButton.Left)
                 return;
 

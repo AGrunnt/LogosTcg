@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Sparrow
   Rarity: Common
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Matthew 10:31

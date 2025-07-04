@@ -1,4 +1,5 @@
 using DG.Tweening;
+using LogoTcg;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,14 +7,20 @@ namespace LogosTcg
 {
     public class SlotDropHandler : MonoBehaviour, IDropHandler
     {
+        public bool faceup = true;
+        public bool active = true;
+        public int maxChildrenCards = 1;
 
 
         // This will be called when something is dropped on this UI element
         public void OnDrop(PointerEventData eventData)
         {
-            Debug.Log("ran");
+            
             var dropped = eventData.pointerDrag;
-            if (dropped == null) return;
+            Gobject obj = dropped.GetComponent<Gobject>();
+
+            if (dropped == null || !obj.draggable || transform.GetComponentsInChildren<Gobject>().Length >= maxChildrenCards || !active) return;
+
 
              // Reparent the card under this slot
             dropped.transform.SetParent(transform, worldPositionStays: false);
@@ -24,6 +31,7 @@ namespace LogosTcg
                 rt.anchoredPosition = Vector2.zero;
             else
                 dropped.transform.localPosition = Vector3.zero;
+
         }
     }
 }

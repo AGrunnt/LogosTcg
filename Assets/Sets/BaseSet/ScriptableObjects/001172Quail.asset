@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Quail
   Rarity: Uncommon
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Numbers 11:31

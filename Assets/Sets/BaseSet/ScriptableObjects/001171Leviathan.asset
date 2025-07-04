@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Leviathan
   Rarity: Rare
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Job 41:1-3

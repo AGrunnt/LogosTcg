@@ -17,7 +17,8 @@ MonoBehaviour:
   Title: Manna
   Rarity: Common
   Type:
-  - Support|Animal
+  - Support
+  - Animal
   Value: 0
   AbilityText: 
   Verse: Exodus 16:15
