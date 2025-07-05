@@ -18,10 +18,10 @@ namespace LogosTcg
 
         [Header("Gobject")]
         public Gobject parentGobject;
-        private Transform gobjectTransform;
-        private Vector3 rotationDelta;
-        private int savedIndex;
-        Vector3 movementDelta;
+        public Transform gobjectTransform; //was priv
+        public Vector3 rotationDelta; //was priv
+        public int savedIndex; //waspriv
+        public Vector3 movementDelta; //was none
         private Canvas canvas;
 
         [Header("References")]
@@ -97,6 +97,8 @@ namespace LogosTcg
 
         public void Initialize(Gobject target, int index = 0)
         {
+            //Debug.Log(target.transform.name);
+
             //Declarations
             parentGobject = target;
             gobjectTransform = target.transform;
@@ -152,6 +154,7 @@ namespace LogosTcg
         private void FollowRotation()
         {
             Vector3 movement = (transform.position - gobjectTransform.position);
+            if (movement != Vector3.zero) Debug.Log(movement);
             movementDelta = Vector3.Lerp(movementDelta, movement, 25 * Time.deltaTime);
             Vector3 movementRotation = (parentGobject.isDragging ? movementDelta : movement) * rotationAmount;
             rotationDelta = Vector3.Lerp(rotationDelta, movementRotation, rotationSpeed * Time.deltaTime);
