@@ -223,15 +223,18 @@ namespace LogosTcg
             if (scaleAnimations)
                 transform.DOScale(scaleOnSelect, scaleTransition).SetEase(scaleEase);
 
+            canvas.sortingLayerName = "FrontCards";
             //canvas.overrideSorting = true;
-            canvas.sortingOrder = 2;
+            //canvas.sortingOrder = 2;
         }
 
         private void EndDrag(Gobject gobject)
         {
+
             //canvas.overrideSorting = false;
-            canvas.sortingOrder = 1;
+            //canvas.sortingOrder = 1;
             transform.DOScale(1, scaleTransition).SetEase(scaleEase);
+            canvas.sortingLayerName = "Cards";
         }
 
         private void PointerEnter(Gobject gobject)

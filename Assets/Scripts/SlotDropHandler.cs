@@ -8,10 +8,13 @@ namespace LogosTcg
 {
     public class SlotDropHandler : MonoBehaviour, IDropHandler
     {
-        public bool faceup = true;
-        public bool active = true;
-        public int maxChildrenCards = 1;
 
+        SlotScript slotScript;
+
+        void Start()
+        {
+            slotScript = GetComponent<SlotScript>();
+        }
 
         // This will be called when something is dropped on this UI element
         public void OnDrop(PointerEventData eventData)
@@ -19,7 +22,7 @@ namespace LogosTcg
             var dropped = eventData.pointerDrag;
             Gobject obj = dropped.GetComponent<Gobject>();
 
-            if (dropped == null || !obj.draggable || transform.GetComponentsInChildren<Gobject>().Length >= maxChildrenCards || !active) return;
+            if (dropped == null || !obj.draggable || transform.GetComponentsInChildren<Gobject>().Length >= GetComponent<SlotScript>().maxChildrenCards || !GetComponent<SlotScript>().active) return;
 
 
             Transform lastParent = dropped.transform.parent;
@@ -33,30 +36,12 @@ namespace LogosTcg
             else
                 dropped.transform.localPosition = Vector3.zero;
 
-            GetComponent<ParentActions>().SetLastChildActive();
-            lastParent.GetComponent<ParentActions>().SetLastChildActive();
-
-            Transform front = FindDescendantByName(dropped.transform, "Front");
-            Transform back = FindDescendantByName(dropped.transform, "Back");
-
-            if(faceup)
-            {
-                front.gameObject.SetActive(true);
-                back.gameObject.SetActive(false);
-            } else
-            {
-                front.gameObject.SetActive(false);
-                back.gameObject.SetActive(true);
-            }
+            slotScript.SetFacing(dropped.transform);
 
         }
 
-        public Transform FindDescendantByName(Transform tf, string childName)
-        {
-            // includes this.transform too; skip if you only want strict children
-            return tf
-                .GetComponentsInChildren<Transform>(includeInactive: true)
-                .FirstOrDefault(t => t.name == childName);
-        }
+
+
+
     }
 }
