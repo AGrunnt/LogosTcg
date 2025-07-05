@@ -16,7 +16,8 @@ namespace LogoTcg
         IPointerEnterHandler, IPointerExitHandler,
         IPointerUpHandler, IPointerDownHandler
     {
-        private Canvas canvas;
+        public Canvas canvas;
+        public Canvas canvasChild;
         private Image imageComponent;
         [SerializeField] private bool instantiateVisual = true;
         private VisualGobjectsHandler visualHandler;
@@ -54,9 +55,10 @@ namespace LogoTcg
         [HideInInspector] public UnityEvent<Gobject> EndDragEvent;
         [HideInInspector] public UnityEvent<Gobject, bool> SelectEvent;
 
-        void Start()
+        void Awake()
         {
             canvas = GetComponentInParent<Canvas>();
+            
             imageComponent = GetComponent<Image>(); //was getting the image comp of the card. now want to assign it
 
             if (!instantiateVisual)
@@ -73,10 +75,10 @@ namespace LogoTcg
             ).GetComponent<GobjectVisual>();
             gobjectVisual.Initialize(this);
 
-
-
             foreach (Transform child in directChildren)
                 child.SetParent(gobjectVisual.holder);
+
+            canvasChild = GetComponentInChildren<Canvas>();
         }
 
         void Update()
@@ -115,6 +117,8 @@ namespace LogoTcg
 
             BeginDragEvent.Invoke(this);
 
+            State.Instance.globalDragging = true;
+
             // ? use new Input System
             Vector2 pointerScreenPos = Mouse.current.position.ReadValue();
             Vector2 worldPos = Camera.main.ScreenToWorldPoint(pointerScreenPos);
@@ -133,6 +137,8 @@ namespace LogoTcg
         public void OnEndDrag(PointerEventData eventData)
         {
             if(!draggable) return; //fix: may not need
+
+            State.Instance.globalDragging = false;
 
             EndDragEvent.Invoke(this);
             isDragging = false;
@@ -154,7 +160,7 @@ namespace LogoTcg
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (!hoverable) return;
+            if (!hoverable || State.Instance.globalDragging) return;
 
             PointerEnterEvent.Invoke(this);
             isHovering = true;

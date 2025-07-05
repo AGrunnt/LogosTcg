@@ -6,23 +6,24 @@ namespace LogosTcg
 {
     public class ParentActions : MonoBehaviour
     {
-        void OnTransformChildrenChanged()
-        {
-
-            SetLastChildActive();
-        }
-
+        //void OnTransformChildrenChanged()
+        
+        
         public void SetLastChildActive()
         {
             foreach (Gobject childCard in transform.GetComponentsInChildren<Gobject>())
-                {
-                    childCard.draggable = false;
-                    childCard.hoverable = false;
-                    childCard.selectable = false;
-                }
+            {
+                childCard.draggable = false;
+                childCard.hoverable = false;
+                childCard.selectable = false;
+                childCard.GetComponentInChildren<Canvas>().sortingOrder = childCard.transform.GetSiblingIndex();
+                childCard.GetComponentInChildren<Canvas>().sortingLayerName = "Cards";
+            }
 
             //Gobject lastObj = transform.GetChild(transform.childCount - 1).GetComponent<Gobject>();
             Gobject lastObj = GetLastDirectChildGobjLinq(transform);
+            if (lastObj == null) return;
+            lastObj.GetComponentInChildren<Canvas>().sortingLayerName = "FrontCards";
 
             if (lastObj == null) return;
 
@@ -39,6 +40,7 @@ namespace LogosTcg
                 .Where(c => c != null)              // filter out non?Cards
                 .LastOrDefault();                   // take the last one (or null)
         }
+        
 
     }
 }

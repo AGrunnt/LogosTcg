@@ -22,20 +22,30 @@ namespace LogosTcg
             {
                 GameObject newCard = Instantiate(cardPrefab, faithful);
                 newCard.GetComponent<Card>().Apply(card);
+                
             }
 
             foreach (CardDef card in populateDecks.deckEncounter.CardCollection)
             {
                 GameObject newCard = Instantiate(cardPrefab, encounters);
                 newCard.GetComponent<Card>().Apply(card);
+                
             }
 
             foreach (CardDef card in populateDecks.deckLocation.CardCollection)
             {
                 GameObject newCard = Instantiate(cardPrefab, locations);
                 newCard.GetComponent<Card>().Apply(card);
+                
             }
 
+            
+            
+            foreach(ParentActions parent in FindObjectsByType<ParentActions>(sortMode: FindObjectsSortMode.None))
+            {
+                //parent.SetLastChildActive();
+            }
+            
 
         }
     }
