@@ -12,28 +12,41 @@ namespace LogosTcg
 
         void OnTransformChildrenChanged()
         {
-            SetLastChildActive();
+            SetLastCardSettings();
         }
-        
-        
-        public void SetLastChildActive()
+        //SetFacing
+
+        public void SetLastCardSettings()
+        {
+            Gobject lastObj = GetLastDirectChildGobjLinq(transform);
+            if (lastObj == null) return;
+
+            lastObj.GetComponentInChildren<Canvas>().sortingOrder = lastObj.transform.GetSiblingIndex();
+
+            if (active)
+            {
+                lastObj.draggable = true;
+                lastObj.hoverable = true;
+                lastObj.selectable = true;
+            }
+
+            if(faceup)
+                SetFacing(lastObj.transform);
+        }
+
+        public void InitializeSlots()
         {
             foreach (Gobject childCard in transform.GetComponentsInChildren<Gobject>())
             {
                 childCard.draggable = false;
                 childCard.hoverable = false;
                 childCard.selectable = false;
+                SetFacing(childCard.transform);
                 childCard.GetComponentInChildren<Canvas>().sortingOrder = childCard.transform.GetSiblingIndex();
             }
 
-            if (!active) return;
+            if (active) SetLastCardSettings();
 
-            Gobject lastObj = GetLastDirectChildGobjLinq(transform);
-            if (lastObj == null) return;
-
-            lastObj.draggable = true;
-            lastObj.hoverable = true;
-            lastObj.selectable = true;
         }
 
         Gobject GetLastDirectChildGobjLinq(Transform parent)

@@ -54,5 +54,8 @@ TagManager:
   - name: FrontCards
     uniqueID: 29902735
     locked: 0
+  - name: ActiveObj
+    uniqueID: 1960001835
+    locked: 0
   m_RenderingLayers:
   - Default

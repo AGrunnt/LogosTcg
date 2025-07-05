@@ -995,6 +995,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: faceup
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7145512577488573148, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: m_Name
       value: FaithfulSlot
@@ -2331,6 +2335,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: faceup
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7145512577488573148, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: m_Name
       value: LocationSlot
@@ -3213,6 +3221,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: maxChildrenCards
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7145512577488573148, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: m_Name
       value: Slot
@@ -3448,6 +3460,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3530426988859719919, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: faceup
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145512577488573148, guid: 49ee869bed17f634b83f3cf137398175, type: 3}

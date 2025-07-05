@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0.000015258789}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0.0010233, y: 0.0000076294}
+  m_SizeDelta: {x: 148.49, y: 234.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3772907506009727932
 CanvasRenderer:
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -0.0015049, y: 0.0000076294}
+  m_SizeDelta: {x: 148.49, y: 234.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6456656486447430079
 CanvasRenderer:
@@ -415,7 +415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8718616321595230330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -433,8 +433,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -0.0015049, y: -0.00031281}
+  m_SizeDelta: {x: 148.49, y: 234.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7570536686994790878
 GameObject:
@@ -572,16 +572,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5dfe12e26c6d94c9de18b95df65ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  canvasChild: {fileID: 0}
   instantiateVisual: 1
   moveSpeedLimit: 50
   selected: 0
   selectionOffset: 50
   gobjectVisualPrefab: {fileID: 7310339964073049012, guid: 7fe84931bcb3e6347bdbe396cb4678f7, type: 3}
   gobjectVisual: {fileID: 0}
-  Shadow: {fileID: 7515478033833157671}
+  Shadow: {fileID: 739689573878633973}
   isHovering: 0
   isDragging: 0
   wasDragged: 0
+  draggable: 0
+  hoverable: 0
+  selectable: 0
   PointerEnterEvent:
     m_PersistentCalls:
       m_Calls: []

@@ -35,7 +35,6 @@ namespace LogoTcg
         [Header("Visual")]
         [SerializeField] private GameObject gobjectVisualPrefab;
         [HideInInspector] public GobjectVisual gobjectVisual;
-        //[SerializeField] public Image ImageShadow;
         [SerializeField] public Transform Shadow;
 
         [Header("States")]
@@ -125,11 +124,8 @@ namespace LogoTcg
             offset = worldPos - (Vector2)transform.position;
 
             isDragging = true;
-            //canvas.GetComponent<GraphicRaycaster>().enabled = false; //this stops from interacting with everything else
             imageComponent.raycastTarget = false;
             wasDragged = true;
-
-            //GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
 
         public void OnDrag(PointerEventData eventData) { }
@@ -142,9 +138,7 @@ namespace LogoTcg
 
             EndDragEvent.Invoke(this);
             isDragging = false;
-            //canvas.GetComponent<GraphicRaycaster>().enabled = true;
             imageComponent.raycastTarget = true;
-            //GetComponent<CanvasGroup>().blocksRaycasts = true;
 
             StartCoroutine(FrameWait());
 
@@ -204,7 +198,6 @@ namespace LogoTcg
                 transform.localPosition += (gobjectVisual.transform.up * selectionOffset);
             else
                 transform.localPosition -= (gobjectVisual.transform.up * selectionOffset);
-            //transform.localPosition = Vector3.zero;
         }
 
         public void Deselect()

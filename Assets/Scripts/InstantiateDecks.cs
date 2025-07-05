@@ -39,13 +39,11 @@ namespace LogosTcg
                 
             }
 
-            /*  rm          
-            foreach(SlotScript parent in FindObjectsByType<SlotScript>(sortMode: FindObjectsSortMode.None))
+            foreach( SlotScript slotScript in FindObjectsByType<SlotScript>(sortMode: FindObjectsSortMode.None))
             {
-                parent.SetLastChildActive();
+                slotScript.InitializeSlots();
+                slotScript.SetLastCardSettings();
             }
-            */
-
         }
     }
 }
