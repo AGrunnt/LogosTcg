@@ -116,7 +116,7 @@ namespace LogoTcg
                 return;
 
             BeginDragEvent.Invoke(this);
-            Debug.Log($"begin drag {transform.name}");
+            //Debug.Log($"begin drag {transform.name}");
 
             State.Instance.globalDragging = true;
 
@@ -143,7 +143,7 @@ namespace LogoTcg
             State.Instance.globalDragging = false;
 
             EndDragEvent.Invoke(this);
-            Debug.Log($"end drag {transform.name}");
+            //Debug.Log($"end drag {transform.name}");
 
             isDragging = false;
             imageComponent.raycastTarget = true;
@@ -156,7 +156,8 @@ namespace LogoTcg
                 wasDragged = false;
             }
 
-            transform.DOLocalMove(Vector3.zero, .15f).SetEase(Ease.OutBack);
+            if(transform.parent.GetComponent<HorizontalLayoutGroup>() == null && transform.parent.GetComponent<GridLayoutGroup>() == null)
+                transform.DOLocalMove(Vector3.zero, .15f).SetEase(Ease.OutBack); //fix
 
         }
 
@@ -165,7 +166,7 @@ namespace LogoTcg
             if (!hoverable || State.Instance.globalDragging) return;
 
             PointerEnterEvent.Invoke(this);
-            Debug.Log($"pointer enter {transform.name}");
+            //Debug.Log($"pointer enter {transform.name}");
             isHovering = true;
         }
 
@@ -174,7 +175,7 @@ namespace LogoTcg
             if (!hoverable) return;
 
             PointerExitEvent.Invoke(this);
-            Debug.Log($"pointer exit {transform.name}");
+            //Debug.Log($"pointer exit {transform.name}");
             isHovering = false;
         }
 
@@ -186,7 +187,7 @@ namespace LogoTcg
                 return;
 
             PointerDownEvent.Invoke(this);
-            Debug.Log($"pointer down {transform.name}");
+            //Debug.Log($"pointer down {transform.name}");
             pointerDownTime = Time.time;
         }
 
@@ -200,7 +201,7 @@ namespace LogoTcg
             pointerUpTime = Time.time;
             bool longPress = (pointerUpTime - pointerDownTime) > .2f;
             PointerUpEvent.Invoke(this, longPress);
-            Debug.Log($"pointer up {transform.name}");
+            //Debug.Log($"pointer up {transform.name}");
 
             if (longPress || wasDragged) return;
 
@@ -215,6 +216,7 @@ namespace LogoTcg
 
         public void Deselect()
         {
+            Debug.Log("deselected");
             if (!selected) return;
             selected = false;
             transform.localPosition = Vector3.zero;
