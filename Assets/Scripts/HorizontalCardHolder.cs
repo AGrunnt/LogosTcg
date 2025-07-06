@@ -1,182 +1,141 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
-using DG.Tweening;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using DG.Tweening;
 using LogoTcg;
-using UnityEngine.InputSystem; // ? NEW
 
-namespace LogosTcb
+namespace LogosTcg
 {
     public class HorizontalGobjectHolder : MonoBehaviour
     {
-        [SerializeField] private Gobject selectedGobject;
-        [SerializeReference] private Gobject hoveredGobject;
+        // drag events come in on the Gobject itself
+        public List<Gobject> gobjects = new List<Gobject>();
 
-        [SerializeField] private GameObject slotPrefab;
-        private RectTransform rect;
+        RectTransform rect;
+        public Transform tempHold;
+        Gobject selectedObj;
+        bool isDragging = false;
 
-        [Header("Spawn Settings")]
-        [SerializeField] private int gobjectsToSpawn = 7;
-        public List<Gobject> gobjects;
-
-        bool isCrossing = false;
-        [SerializeField] private bool tweenGobjectReturn = true;
-
-        // ? NEW INPUT ACTIONS
-        private InputAction deleteAction;
-        private InputAction rightClickAction;
+        [SerializeField] float tweenDuration = 0.15f;
 
         void Awake()
         {
-            // Setup InputActions
-            deleteAction = new InputAction(binding: "<Keyboard>/delete");
-            rightClickAction = new InputAction(binding: "<Mouse>/rightButton");
-        }
-
-        void OnEnable()
-        {
-            deleteAction.Enable();
-            rightClickAction.Enable();
-        }
-
-        void OnDisable()
-        {
-            deleteAction.Disable();
-            rightClickAction.Disable();
+            rect = GetComponent<RectTransform>();
         }
 
         void Start()
         {
-            for (int i = 0; i < gobjectsToSpawn; i++)
+            // hook into their drag callbacks
+            foreach (var obj in gobjects)
             {
-                Instantiate(slotPrefab, transform);
+                obj.BeginDragEvent.AddListener(OnBeginDrag);
+                obj.DragEvent.AddListener(OnDrag);      // now matches UnityEvent<Gobject>
+                obj.EndDragEvent.AddListener(OnEndDrag);
             }
 
-            rect = GetComponent<RectTransform>();
-            gobjects = GetComponentsInChildren<Gobject>().ToList();
-
-            int gobjectCount = 0;
-
-            foreach (Gobject gobject in gobjects)
-            {
-                gobject.PointerEnterEvent.AddListener(GobjectPointerEnter);
-                gobject.PointerExitEvent.AddListener(GobjectPointerExit);
-                gobject.BeginDragEvent.AddListener(BeginDrag);
-                gobject.EndDragEvent.AddListener(EndDrag);
-                gobject.name = gobjectCount.ToString();
-                gobjectCount++;
-            }
-
-            StartCoroutine(Frame());
-
-            IEnumerator Frame()
-            {
-                yield return new WaitForSecondsRealtime(.1f);
-                for (int i = 0; i < gobjects.Count; i++)
-                {
-                    if (gobjects[i].gobjectVisual != null)
-                        gobjects[i].gobjectVisual.UpdateIndex(transform.childCount);
-                }
-            }
+            // initial spread
+            LayoutCards();
         }
 
-        private void BeginDrag(Gobject gobject)
+        void OnTransformChildrenChanged()
         {
-            selectedGobject = gobject;
+            
+            // if you ever reparent cards under this holder, resync:
+            gobjects = transform.GetComponentsInChildren<Gobject>().ToList<Gobject>();
+
+            if (gobjects == null) return;
+
+            if(Gobject.Count > 5)
+                rect.sizeDelta = new Vector2(gobjects.Count * gobjects[0].GetComponent<RectTransform>().sizeDelta.x * 1.1f, rect.sizeDelta.y);
+            
+            LayoutCards();
         }
 
-        void EndDrag(Gobject gobject)
+        void OnBeginDrag(Gobject obj)
         {
-            if (selectedGobject == null)
+            selectedObj = obj;
+            isDragging = true;
+
+            // remove from the layout list so it can move freely
+            gobjects.Remove(obj);
+        }
+
+        // ? this signature now matches UnityEvent<Gobject>
+        void OnDrag(Gobject dragged)
+        {
+            // only care about the currently selected card
+            if (selectedObj == null || dragged != selectedObj)
                 return;
 
-            selectedGobject.transform.DOLocalMove(selectedGobject.selected ? new Vector3(0, selectedGobject.selectionOffset, 0) : Vector3.zero, tweenGobjectReturn ? .15f : 0).SetEase(Ease.OutBack);
+            // convert screen mouse pos to local-x in our RectTransform
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                rect,
+                Input.mousePosition,
+                Camera.main,            // or null if your canvas is Overlay
+                out Vector2 localPoint
+            );
 
-            rect.sizeDelta += Vector2.right;
-            rect.sizeDelta -= Vector2.right;
+            // compute *where* in the hand it would land:
+            int newIndex = CalculateInsertIndex(localPoint.x);
 
-            selectedGobject = null;
-        }
-
-        void GobjectPointerEnter(Gobject gobject)
-        {
-            hoveredGobject = gobject;
-        }
-
-        void GobjectPointerExit(Gobject gobject)
-        {
-            hoveredGobject = null;
-        }
-
-        void Update()
-        {
-            if (deleteAction.WasPressedThisFrame())
+            // if it really moved, update the list & re-layout
+            if (gobjects.IndexOf(selectedObj) != newIndex)
             {
-                if (hoveredGobject != null)
-                {
-                    Destroy(hoveredGobject.transform.parent.gameObject);
-                    gobjects.Remove(hoveredGobject);
-                }
+                gobjects.Insert(newIndex, selectedObj);
+                LayoutCards();
             }
+        }
 
-            if (rightClickAction.WasPressedThisFrame())
-            {
-                foreach (Gobject gobject in gobjects)
-                {
-                    gobject.Deselect();
-                }
-            }
+        void OnEndDrag(Gobject obj)
+        {
+            isDragging = false;
 
-            if (selectedGobject == null || isCrossing)
-                return;
+            // put it back into the layout fully
+            if (!gobjects.Contains(obj))
+                gobjects.Add(obj);
 
+            LayoutCards();
+            selectedObj = null;
+        }
+
+        int CalculateInsertIndex(float localX)
+        {
+            int count = gobjects.Count + 1; // +1 because selectedObj is out
+            if (count <= 1) return 0;
+
+            float width = rect.rect.width;
+            // map [-width/2 .. +width/2] to [0 .. count-1]
+            float normalized = Mathf.InverseLerp(-width / 2, width / 2, localX);
+            int idx = Mathf.RoundToInt(normalized * (count - 1));
+            return Mathf.Clamp(idx, 0, count - 1);
+        }
+
+        void LayoutCards()
+        {
+            int count = gobjects.Count;
+            if (selectedObj != null && isDragging)
+                count++; // include the dragged card as placeholder
+
+            float width = rect.rect.width;
+            float spacing = count > 1 ? width / (count - 1) : 0;
+            float startX = -width / 2;
+
+            // now tween each card to its target spot
             for (int i = 0; i < gobjects.Count; i++)
             {
-                if (selectedGobject.transform.position.x > gobjects[i].transform.position.x)
-                {
-                    if (selectedGobject.ParentIndex() < gobjects[i].ParentIndex())
-                    {
-                        Swap(i);
-                        break;
-                    }
-                }
+                var obj = gobjects[i];
 
-                if (selectedGobject.transform.position.x < gobjects[i].transform.position.x)
-                {
-                    if (selectedGobject.ParentIndex() > gobjects[i].ParentIndex())
-                    {
-                        Swap(i);
-                        break;
-                    }
-                }
-            }
-        }
+                // skip the one being dragged so it follows the pointer
+                if (obj == selectedObj && isDragging)
+                    continue;
 
-        void Swap(int index)
-        {
-            isCrossing = true;
-
-            Transform focusedParent = selectedGobject.transform.parent;
-            Transform crossedParent = gobjects[index].transform.parent;
-
-            gobjects[index].transform.SetParent(focusedParent);
-            gobjects[index].transform.localPosition = gobjects[index].selected ? new Vector3(0, gobjects[index].selectionOffset, 0) : Vector3.zero;
-            selectedGobject.transform.SetParent(crossedParent);
-
-            isCrossing = false;
-
-            if (gobjects[index].gobjectVisual == null)
-                return;
-
-            bool swapIsRight = gobjects[index].ParentIndex() > selectedGobject.ParentIndex();
-            gobjects[index].gobjectVisual.Swap(swapIsRight ? -1 : 1);
-
-            foreach (Gobject gobject in gobjects)
-            {
-                gobject.gobjectVisual.UpdateIndex(transform.childCount);
+                Vector2 target = new Vector2(
+                    startX + spacing * i,
+                    obj.selected ? obj.selectionOffset : 0
+                );
+                obj.transform.DOLocalMove(target, tweenDuration)
+                             .SetEase(Ease.OutBack);
             }
         }
     }

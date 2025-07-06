@@ -8,11 +8,13 @@ namespace LogosTcg
     {
         public bool faceup = true;
         public bool active = true;
+        public bool onlyTop = true;
         public int maxChildrenCards = 1;
 
         void OnTransformChildrenChanged()
         {
-            SetLastCardSettings();
+            //SetLastCardSettings();
+            InitializeSlots();
         }
         //SetFacing
 
@@ -21,7 +23,7 @@ namespace LogosTcg
             Gobject lastObj = GetLastDirectChildGobjLinq(transform);
             if (lastObj == null) return;
 
-            lastObj.GetComponentInChildren<Canvas>().sortingOrder = lastObj.transform.GetSiblingIndex();
+            lastObj.gobjectVisual.GetComponent<Canvas>().sortingOrder = lastObj.transform.GetSiblingIndex();
 
             if (active)
             {
@@ -38,11 +40,19 @@ namespace LogosTcg
         {
             foreach (Gobject childCard in transform.GetComponentsInChildren<Gobject>())
             {
-                childCard.draggable = false;
-                childCard.hoverable = false;
-                childCard.selectable = false;
+                if (onlyTop)
+                {
+                    childCard.draggable = false;
+                    childCard.hoverable = false;
+                    childCard.selectable = false;
+                } else
+                {
+                    childCard.draggable = true;
+                    childCard.hoverable = true;
+                    childCard.selectable = true;
+                }
                 SetFacing(childCard.transform);
-                childCard.GetComponentInChildren<Canvas>().sortingOrder = childCard.transform.GetSiblingIndex();
+                childCard.gobjectVisual.GetComponentInChildren<Canvas>().sortingOrder = childCard.transform.GetSiblingIndex();
             }
 
             if (active) SetLastCardSettings();
@@ -60,8 +70,8 @@ namespace LogosTcg
 
         public void SetFacing(Transform tf)
         {
-            Transform front = FindDescendantByName(tf, "Front");
-            Transform back = FindDescendantByName(tf, "Back");
+            Transform front = FindDescendantByName(tf.GetComponent<Gobject>().gobjectVisual.transform, "Front");
+            Transform back = FindDescendantByName(tf.GetComponent<Gobject>().gobjectVisual.transform, "Back");
 
             if (faceup)
             {

@@ -14,15 +14,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positioning:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.49450997
+      value: 0.99964607
+      inSlope: 0.03640739
+      outSlope: 0.03640739
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.46060026
+    - serializedVersion: 3
+      time: 0.9888916
+      value: 0.004760742
+      inSlope: -5.808663
+      outSlope: -5.808663
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.016856583
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  positioningInfluence: 0.1
+  positioningInfluence: 0
   rotation:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.005554199
+      value: 1.0047607
+      inSlope: -2.0435727
+      outSlope: -2.0435727
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4972229
+      value: 0
+      inSlope: -2.0435727
+      outSlope: -2.0435727
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotationInfluence: 10
+  rotationInfluence: 0

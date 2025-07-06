@@ -26,9 +26,10 @@ namespace LogosTcg
 
         [Header("References")]
         public Transform visualShadow;
-        private Vector3 shadowDragOffset = new Vector3(5, -15, 0);
-        private Vector3 shadowHoverOffset = new Vector3(3, -10, 0);
+        private Vector3 shadowDragOffset = new Vector3(5, -15, 0); //private
+        private Vector3 shadowHoverOffset = new Vector3(3, -10, 0); //private
         private Vector2 shadowDistance;
+        private bool shadowOffsetActive = false;
         [SerializeField] private Transform shakeParent;
         [SerializeField] private Transform tiltParent;
         [SerializeField] private Transform gobjectShadow;
@@ -103,6 +104,7 @@ namespace LogosTcg
             parentGobject = target;
             gobjectTransform = target.transform;
             canvas = GetComponent<Canvas>();
+            transform.position = gobjectTransform.position;
             visualShadow.GetComponent<Image>().sprite = parentGobject.Shadow.GetComponent<Image>().sprite;
             CopyRectTransform(parentGobject.Shadow.GetComponent<RectTransform>(), visualShadow.GetComponent<RectTransform>(), new Vector2(3f, -6f));
 
@@ -154,7 +156,7 @@ namespace LogosTcg
         private void FollowRotation()
         {
             Vector3 movement = (transform.position - gobjectTransform.position);
-            if (movement != Vector3.zero) Debug.Log(movement);
+            
             movementDelta = Vector3.Lerp(movementDelta, movement, 25 * Time.deltaTime);
             Vector3 movementRotation = (parentGobject.isDragging ? movementDelta : movement) * rotationAmount;
             rotationDelta = Vector3.Lerp(rotationDelta, movementRotation, rotationSpeed * Time.deltaTime);
@@ -209,6 +211,7 @@ namespace LogosTcg
             shakeParent.DOPunchRotation((Vector3.forward * swapRotationAngle) * dir, swapTransition, swapVibrato, 1).SetId(3);
         }
 
+        //Scale up and up layer
         private void BeginDrag(Gobject gobject)
         {
             if (scaleAnimations)
@@ -217,12 +220,14 @@ namespace LogosTcg
             canvas.sortingLayerName = "FrontCards";
         }
 
+        //Scales back and lower layer
         private void EndDrag(Gobject gobject)
         {
             transform.DOScale(1, scaleTransition).SetEase(scaleEase);
             canvas.sortingLayerName = "Cards";
         }
 
+        // scale up, shake, offset shadow
         private void PointerEnter(Gobject gobject)
         {
             if (scaleAnimations)
@@ -231,15 +236,28 @@ namespace LogosTcg
             DOTween.Kill(2, true);
             shakeParent.DOPunchRotation(Vector3.forward * hoverPunchAngle, hoverTransition, 20, 1).SetId(2);
 
-            visualShadow.localPosition += shadowHoverOffset;
+
+            if (!shadowOffsetActive)
+            {
+                visualShadow.localPosition += shadowHoverOffset;
+                shadowOffsetActive = true;
+            }
+
         }
+
 
         private void PointerExit(Gobject gobject)
         {
             if (!parentGobject.wasDragged)
+            {
                 transform.DOScale(1, scaleTransition).SetEase(scaleEase);
+            }
 
-            visualShadow.localPosition -= shadowHoverOffset;
+            if (shadowOffsetActive)
+            {
+                visualShadow.localPosition -= shadowHoverOffset;
+                shadowOffsetActive = false;
+            } 
         }
 
         private void PointerUp(Gobject gobject, bool longPress)
