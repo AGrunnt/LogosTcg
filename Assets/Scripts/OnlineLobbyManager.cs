@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,7 @@ namespace LogosTcg
     {
         public void LoadPlayBoard()
         {
-            SceneManager.LoadSceneAsync("PlayBoard", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("PlayBoard", LoadSceneMode.Single);
         }
     }
 }

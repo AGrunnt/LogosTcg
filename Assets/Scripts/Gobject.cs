@@ -17,7 +17,7 @@ namespace LogoTcg
         IPointerUpHandler, IPointerDownHandler
     {
         public Canvas canvas;
-        public Canvas canvasChild;
+        //public Canvas canvasChild;
         private Image imageComponent;
         [SerializeField] private bool instantiateVisual = true;
         private VisualHandler visualHandler;
@@ -78,7 +78,7 @@ namespace LogoTcg
             foreach (Transform child in directChildren)
                 child.SetParent(gobjectVisual.holder);
 
-            canvasChild = GetComponentInChildren<Canvas>();
+            //canvasChild = GetComponentInChildren<Canvas>();
         }
 
         void Update()

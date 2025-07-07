@@ -29,14 +29,6 @@ namespace LogosTcg
              // Reparent the card under this slot
             dropped.transform.SetParent(transform, worldPositionStays: true); //worldPositStay throws the card around
 
-            // Zero out its local position so it sits perfectly in the slot
-            /*
-            var rt = dropped.GetComponent<RectTransform>();
-            if (rt != null)
-                rt.anchoredPosition = Vector2.zero;
-            else
-                dropped.transform.localPosition = Vector3.zero; //fix
-            */
             slotScript.SetFacing(dropped.transform);
 
         }

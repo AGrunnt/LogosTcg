@@ -18,6 +18,7 @@ namespace LogosTcg
 
         public void Apply(CardDef data)
         {
+            gameObject.name = data.name;
             _definition = data;
             image.sprite = data.Artwork;
         }

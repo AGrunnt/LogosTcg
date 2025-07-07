@@ -1,6 +1,7 @@
 using LogoTcg;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LogosTcg
 {
@@ -10,10 +11,15 @@ namespace LogosTcg
         public bool active = true;
         public bool onlyTop = true;
         public int maxChildrenCards = 1;
+        public bool networkActive = false;
+
+        [HideInInspector] public UnityEvent<SlotScript> SlotChg;
 
         void OnTransformChildrenChanged()
         {
-            //SetLastCardSettings();
+            if(networkActive)
+                SlotChg.Invoke(this);
+            
             InitializeSlots();
         }
         //SetFacing

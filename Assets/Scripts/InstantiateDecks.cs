@@ -43,6 +43,7 @@ namespace LogosTcg
             {
                 slotScript.InitializeSlots();
                 slotScript.SetLastCardSettings();
+                slotScript.networkActive = true;
             }
         }
     }
