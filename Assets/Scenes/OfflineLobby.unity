@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f20bfe39e9a794db6a8a120214a3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.OfflineLobbyManager
-  roundNumUi: {fileID: 1629033382}
+  playerNumUi: {fileID: 1629033382}
 --- !u!1 &1764086726
 GameObject:
   m_ObjectHideFlags: 0

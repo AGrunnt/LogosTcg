@@ -6,11 +6,11 @@ namespace LogosTcg
 {
     public class OfflineLobbyManager : MonoBehaviour
     {
-        public TextMeshProUGUI roundNumUi;
+        public TextMeshProUGUI playerNumUi;
 
         public void LoadPlayBoard()
         {
-            StaticData.roundNums = int.Parse(roundNumUi.text);
+            StaticData.playerNums = int.Parse(playerNumUi.text);
 
             SceneManager.LoadSceneAsync("PlayBoard", LoadSceneMode.Single);
         }
