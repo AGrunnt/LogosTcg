@@ -85,7 +85,7 @@ namespace LogoTcg
 
         void Update()
         {
-            ClampPosition();
+            //ClampPosition(); //doesn't work if i need cards off sceen
 
             if (isDragging)
             {

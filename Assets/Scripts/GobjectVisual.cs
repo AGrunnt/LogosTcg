@@ -76,7 +76,7 @@ namespace LogosTcg
         {
             canvas.sortingLayerName = parentGobject.objType;
             shadowDistance = visualShadow.localPosition;
-            GetComponent<Canvas>().sortingOrder = transform.parent.GetSiblingIndex();
+            //GetComponent<Canvas>().sortingOrder = transform.parent.GetSiblingIndex();
         }
         void CopyRectTransform(RectTransform src, RectTransform dst, Vector2 offset)
         {

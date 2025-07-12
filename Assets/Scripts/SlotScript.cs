@@ -18,9 +18,11 @@ namespace LogosTcg
 
         void OnTransformChildrenChanged()
         {
-            if(GameManager.Instance.slotChangeActionsActive)
-                SlotChg.Invoke(this);
-            
+            if (!GameManager.Instance.slotChangeActionsActive)
+                return;
+                
+            SlotChg.Invoke(this);
+
             InitializeSlots();
         }
         //SetFacing
@@ -45,6 +47,9 @@ namespace LogosTcg
 
         public void InitializeSlots()
         {
+            if (!transform.name.Contains("Col")) {
+                Debug.Log(transform.name);
+                    }
             foreach (Card card in transform.GetComponentsInChildren<Card>())
             {
                 Gobject childCard = card.GetComponent<Gobject>();
@@ -61,6 +66,7 @@ namespace LogosTcg
                 }
                 SetFacing(childCard.transform);
                 childCard.gobjectVisual.GetComponentInChildren<Canvas>().sortingOrder = childCard.transform.GetSiblingIndex();
+                Debug.Log($"sort order {childCard.gobjectVisual.GetComponentInChildren<Canvas>().sortingOrder} index {childCard.transform.GetSiblingIndex()}");
             }
 
             if (active) SetLastCardSettings();

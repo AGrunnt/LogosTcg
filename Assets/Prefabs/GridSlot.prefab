@@ -94,10 +94,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8049386942020622097, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3550257538
+      value: 1347502979
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7145512577488573148, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7452903296621276614}
   m_SourcePrefab: {fileID: 100100000, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+--- !u!1 &2098852274943810299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7145512577488573148, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+  m_PrefabInstance: {fileID: 9081907576886593575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7452903296621276614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098852274943810299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840778d140358334a90d3e70832c248a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.GridSlotActions

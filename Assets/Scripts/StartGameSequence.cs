@@ -27,7 +27,16 @@ namespace LogosTcg
 
             instantiateDecks.SetUpDecks();
 
+            GetComponent<DealCards>().SetHands();
+            GetComponent<DealCards>().StartingDeal();
 
+            foreach (SlotScript slotScript in FindObjectsByType<SlotScript>(sortMode: FindObjectsSortMode.None))
+            {
+                slotScript.InitializeSlots();
+                slotScript.SetLastCardSettings();
+            }
+
+            GameManager.Instance.slotChangeActionsActive = true;
         }
 
     }

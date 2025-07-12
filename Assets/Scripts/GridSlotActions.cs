@@ -4,16 +4,23 @@ namespace LogosTcg
 {
     public class GridSlotActions : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        [SerializeField] private bool pullOnEmptyBool = true;
+        [SerializeField] private Transform pullTransform;
+
         void Start()
         {
-        
+            GetComponent<SlotScript>().SlotChg.AddListener(pullOnEmpty);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void pullOnEmpty(SlotScript slot)
         {
-        
+            if (!pullOnEmptyBool) return;
+
+            if(transform.childCount == 0)
+            {
+                pullTransform.GetComponentsInChildren<Card>()[0].transform.SetParent(this.transform);
+            }
         }
+
     }
 }

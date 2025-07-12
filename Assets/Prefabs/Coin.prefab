@@ -437,7 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   instantiateVisual: 1
-  center: 0
+  center: 1
   objType: Coins
   moveSpeedLimit: 50
   selected: 0

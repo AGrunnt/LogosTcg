@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Slot
   - Coin
+  - Hand
   layers:
   - Default
   - TransparentFX

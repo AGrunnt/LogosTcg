@@ -38,13 +38,13 @@ namespace LogosTcg
                 newCard.GetComponent<Card>().Apply(card);
                 
             }
-
+            /*
             foreach( SlotScript slotScript in FindObjectsByType<SlotScript>(sortMode: FindObjectsSortMode.None))
             {
                 slotScript.InitializeSlots();
                 slotScript.SetLastCardSettings();
                 GameManager.Instance.slotChangeActionsActive = true;
-            }
+            }*/
         }
     }
 }

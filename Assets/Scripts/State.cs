@@ -8,6 +8,7 @@ namespace LogosTcg
         public static State Instance;
 
         public bool globalDragging = false;
+        
 
         private void Awake()
         {
