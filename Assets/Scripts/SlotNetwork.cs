@@ -36,6 +36,12 @@ namespace LogosTcg
 
             foreach(Gobject obj in newObjs)
             {
+                if (obj.runOnline == false)
+                {
+                    obj.runOnline = true;
+                    continue;
+                }
+
                 GameNetworkManager.Instance.MountServerRpc(obj.gameObject.name, obj.transform.parent.name);
             }
         }

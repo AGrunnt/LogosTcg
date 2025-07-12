@@ -209,6 +209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col5Slot3
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -289,6 +293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 1631522681}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -322,6 +330,10 @@ PrefabInstance:
     - target: {fileID: 2098852274943810299, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Name
       value: Col4Slot4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
@@ -437,6 +449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col2Slot4
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -551,6 +567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col3Slot3
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -631,6 +651,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 910562660}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -665,6 +689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col4Slot3
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -745,6 +773,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 394628533}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -933,6 +965,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col4Slot2
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1013,6 +1049,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 1434770170}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 231080506}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1120,6 +1164,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: faceup
       value: 0
       objectReference: {fileID: 0}
@@ -1173,6 +1221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col1Slot3
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1253,6 +1305,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 461862902}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1287,6 +1343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col1Slot2
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1367,6 +1427,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 1889777725}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 441763374}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1684,6 +1752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col2Slot3
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1764,6 +1836,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 777384179}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1928,6 +2004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col2Slot2
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2008,6 +2088,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 1507218235}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 675157404}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2041,6 +2129,10 @@ PrefabInstance:
     - target: {fileID: 2098852274943810299, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Name
       value: Col3Slot4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
@@ -2286,6 +2378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col3Slot2
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2366,6 +2462,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 1172718145}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 227918153}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2584,6 +2688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col5Slot1
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2664,6 +2772,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 1631522681}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2800,6 +2912,10 @@ PrefabInstance:
     - target: {fileID: 2098852274943810299, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Name
       value: Col1Slot4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
@@ -2952,6 +3068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col3Slot1
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3032,6 +3152,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 910562660}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3205,6 +3329,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: faceup
       value: 0
       objectReference: {fileID: 0}
@@ -3262,6 +3390,10 @@ PrefabInstance:
     - target: {fileID: 2098852274943810299, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Name
       value: Col2Slot1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
@@ -3343,6 +3475,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 777384179}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3638,6 +3774,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7145512577488573148, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: m_Name
       value: DiscardSlot
@@ -3683,6 +3823,10 @@ PrefabInstance:
     - target: {fileID: 2098852274943810299, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Name
       value: Col5Slot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
@@ -3764,6 +3908,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pullVertTransform
+      value: 
+      objectReference: {fileID: 1035077589}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 40701453}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4240,6 +4392,10 @@ PrefabInstance:
       value: Col1Slot1
       objectReference: {fileID: 0}
     - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: maxChildrenCards
       value: 40
       objectReference: {fileID: 0}
@@ -4327,6 +4483,10 @@ PrefabInstance:
       propertyPath: maxChildrenCards
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 461862902}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4487,6 +4647,10 @@ PrefabInstance:
     - target: {fileID: 2098852274943810299, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Name
       value: Col5Slot4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
@@ -4675,6 +4839,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: faceup
       value: 0
       objectReference: {fileID: 0}
@@ -4849,6 +5017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Col4Slot1
       objectReference: {fileID: 0}
+    - target: {fileID: 4044679183749224452, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690283245161056456, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4929,6 +5101,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7452903296621276614, guid: 468915b2f27693c43aad8525947ec77f, type: 3}
+      propertyPath: pushVertTransform
+      value: 
+      objectReference: {fileID: 394628533}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

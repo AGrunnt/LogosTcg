@@ -24,6 +24,7 @@ namespace LogoTcg
         private Vector3 offset;
         [SerializeField] private bool center = true;
         public string objType;
+        public bool runOnline;
 
         [Header("Movement")]
         [SerializeField] private float moveSpeedLimit = 50;
