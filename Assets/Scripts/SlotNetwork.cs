@@ -17,7 +17,8 @@ namespace LogosTcg
 
         private void Start()
         {
-            GetComponent<SlotScript>().SlotChg.AddListener(ChildChg);
+            if(NetworkManager.Singleton != null)
+                GetComponent<SlotScript>().SlotChg.AddListener(ChildChg);
         }
 
         public void ChildChg(SlotScript slot)
@@ -35,29 +36,9 @@ namespace LogosTcg
 
             foreach(Gobject obj in newObjs)
             {
-                MountServerRpc(obj.gameObject.name, obj.transform.parent.name);
+                GameNetworkManager.Instance.MountServerRpc(obj.gameObject.name, obj.transform.parent.name);
             }
         }
-
-        [ServerRpc(RequireOwnership = false)]
-        public void MountServerRpc(string cardName, string newParent)
-        {
-
-            MountClientRpc(cardName, newParent);
-        }
-
-        [ClientRpc]
-        public void MountClientRpc(string cardName, string newParent)
-        {
-            Transform card = GameObject.Find(cardName).transform;
-            Transform slot = GameObject.Find(newParent).transform;
-
-            card.SetParent(slot, worldPositionStays: true);
-
-            if (slot.GetComponent<HorizontalLayoutGroup>() == null && slot.GetComponent<GridLayoutGroup>() == null)
-                card.DOLocalMove(Vector3.zero, .15f).SetEase(Ease.OutBack);
-        }
-
 
     }
 }

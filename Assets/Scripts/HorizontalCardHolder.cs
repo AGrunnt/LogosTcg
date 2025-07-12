@@ -17,9 +17,9 @@ namespace LogosTcg
         public EventSystem eventSystem;
         RectTransform rect;
         Gobject selectedObj;
-        bool isDragging = false;
+        //bool isDragging = false;
 
-        [SerializeField] float tweenDuration = 0.15f;
+        //[SerializeField] float tweenDuration = 0.15f;
 
         void Awake()
         {

@@ -11,13 +11,14 @@ namespace LogosTcg
         public bool active = true;
         public bool onlyTop = true;
         public int maxChildrenCards = 1;
-        public bool networkActive = false;
+        
+        public string slotType;
 
         [HideInInspector] public UnityEvent<SlotScript> SlotChg;
 
         void OnTransformChildrenChanged()
         {
-            if(networkActive)
+            if(GameManager.Instance.slotChangeActionsActive)
                 SlotChg.Invoke(this);
             
             InitializeSlots();
@@ -44,8 +45,9 @@ namespace LogosTcg
 
         public void InitializeSlots()
         {
-            foreach (Gobject childCard in transform.GetComponentsInChildren<Gobject>())
+            foreach (Card card in transform.GetComponentsInChildren<Card>())
             {
+                Gobject childCard = card.GetComponent<Gobject>();
                 if (onlyTop)
                 {
                     childCard.draggable = false;

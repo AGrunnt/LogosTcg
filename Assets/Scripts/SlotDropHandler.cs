@@ -22,7 +22,7 @@ namespace LogosTcg
             var dropped = eventData.pointerDrag;
             Gobject obj = dropped.GetComponent<Gobject>();
 
-            if (dropped == null || !obj.draggable || transform.GetComponentsInChildren<Gobject>().Length >= GetComponent<SlotScript>().maxChildrenCards || !GetComponent<SlotScript>().active) return;
+            if (dropped.GetComponent<Card>() == null || dropped == null || !obj.draggable || transform.GetComponentsInChildren<Gobject>().Length >= GetComponent<SlotScript>().maxChildrenCards || !GetComponent<SlotScript>().active) return;
 
 
             Transform lastParent = dropped.transform.parent;

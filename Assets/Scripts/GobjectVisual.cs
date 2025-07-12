@@ -74,7 +74,7 @@ namespace LogosTcg
 
         private void Start()
         {
-            canvas.sortingLayerName = "Cards";
+            canvas.sortingLayerName = parentGobject.objType;
             shadowDistance = visualShadow.localPosition;
             GetComponent<Canvas>().sortingOrder = transform.parent.GetSiblingIndex();
         }
@@ -217,14 +217,28 @@ namespace LogosTcg
             if (scaleAnimations)
                 transform.DOScale(scaleOnSelect, scaleTransition).SetEase(scaleEase);
 
-            canvas.sortingLayerName = "FrontCards";
+            canvas.sortingLayerName = "Front" + parentGobject.objType;
+            canvas.sortingOrder = 1;
+
+            var childCanvasList = parentGobject.transform.GetComponentInChildren<Gobject>().gobjectVisual.GetComponentsInChildren<Canvas>();
+            foreach(var childCanvas in childCanvasList)
+            {
+                canvas.sortingLayerName = "Front";
+                canvas.sortingOrder = 2;
+            }
         }
 
         //Scales back and lower layer
         private void EndDrag(Gobject gobject)
         {
             transform.DOScale(1, scaleTransition).SetEase(scaleEase);
-            canvas.sortingLayerName = "Cards";
+            canvas.sortingLayerName = parentGobject.objType;
+
+            var childCanvasList = parentGobject.transform.GetComponentInChildren<Gobject>().gobjectVisual.GetComponentsInChildren<Canvas>();
+            foreach (var childCanvas in childCanvasList)
+            {
+                canvas.sortingLayerName = parentGobject.objType;
+            }
         }
 
         // scale up, shake, offset shadow

@@ -22,6 +22,8 @@ namespace LogoTcg
         [SerializeField] private bool instantiateVisual = true;
         private VisualHandler visualHandler;
         private Vector3 offset;
+        [SerializeField] private bool center = true;
+        public string objType;
 
         [Header("Movement")]
         [SerializeField] private float moveSpeedLimit = 50;
@@ -38,8 +40,8 @@ namespace LogoTcg
         [SerializeField] public Transform Shadow;
 
         [Header("States")]
-        public bool isHovering;
-        public bool isDragging;
+        public bool isHovering = false;
+        public bool isDragging = false;
         [HideInInspector] public bool wasDragged;
         public bool draggable = false;
         public bool hoverable = false;
@@ -118,7 +120,8 @@ namespace LogoTcg
             BeginDragEvent.Invoke(this);
             //Debug.Log($"begin drag {transform.name}");
 
-            State.Instance.globalDragging = true;
+            if(State.Instance != null)
+                State.Instance.globalDragging = true;
 
             // ? use new Input System
             Vector2 pointerScreenPos = Mouse.current.position.ReadValue();
@@ -140,7 +143,8 @@ namespace LogoTcg
         {
             if(!draggable) return; //fix: may not need
 
-            State.Instance.globalDragging = false;
+            if(State.Instance != null)
+                State.Instance.globalDragging = false;
 
             EndDragEvent.Invoke(this);
             //Debug.Log($"end drag {transform.name}");
@@ -156,14 +160,14 @@ namespace LogoTcg
                 wasDragged = false;
             }
 
-            if(transform.parent.GetComponent<HorizontalLayoutGroup>() == null && transform.parent.GetComponent<GridLayoutGroup>() == null)
+            if(center && transform.parent.GetComponent<HorizontalLayoutGroup>() == null && transform.parent.GetComponent<GridLayoutGroup>() == null)
                 transform.DOLocalMove(Vector3.zero, .15f).SetEase(Ease.OutBack); //fix
 
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (!hoverable || State.Instance.globalDragging) return;
+            if (!hoverable || State.Instance == null || State.Instance.globalDragging) return;
 
             PointerEnterEvent.Invoke(this);
             //Debug.Log($"pointer enter {transform.name}");
