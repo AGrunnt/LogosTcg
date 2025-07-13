@@ -11,7 +11,6 @@ namespace LogosTcg
         public bool active = true;
         public bool onlyTop = true;
         public int maxChildrenCards = 1;
-        
         public string slotType;
 
         [HideInInspector] public UnityEvent<SlotScript> SlotChg;
@@ -66,7 +65,7 @@ namespace LogosTcg
                 }
                 SetFacing(childCard.transform);
                 childCard.gobjectVisual.GetComponentInChildren<Canvas>().sortingOrder = childCard.transform.GetSiblingIndex();
-                Debug.Log($"sort order {childCard.gobjectVisual.GetComponentInChildren<Canvas>().sortingOrder} index {childCard.transform.GetSiblingIndex()}");
+                //Debug.Log($"sort order {childCard.gobjectVisual.GetComponentInChildren<Canvas>().sortingOrder} index {childCard.transform.GetSiblingIndex()}");
             }
 
             if (active) SetLastCardSettings();
