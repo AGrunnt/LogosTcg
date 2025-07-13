@@ -15,7 +15,7 @@ namespace LogosTcg
         [SerializeField] private Transform pullHorzTransform;
         [SerializeField] private Transform pushHorzTransform;
         [SerializeField] public bool isLocSlot = false;
-        private bool pauseVert = false;
+        public bool pause = false;
 
         void Start()
         {
@@ -29,7 +29,7 @@ namespace LogosTcg
         {
             //if (!pullOnEmptyBool) return;
 
-            if(pauseVert == false && isLocSlot == false && pullVertTransform != null && transform.GetComponentsInChildren<Card>().Count() == 0 && pullVertTransform.GetComponentsInChildren<Card>().Count() != 0)
+            if(pause == false && isLocSlot == false && pullVertTransform != null && transform.GetComponentsInChildren<Card>().Count() == 0 && pullVertTransform.GetComponentsInChildren<Card>().Count() != 0)
             {
                 var card = pullVertTransform.GetComponentsInChildren<Card>()[0];
                 card.GetComponent<Gobject>().runOnline = false;
@@ -39,7 +39,7 @@ namespace LogosTcg
 
         public void pushVert(SlotScript slot)
         {
-            if(pauseVert == false && isLocSlot == false && pushVertTransform != null && pushVertTransform.GetComponentsInChildren<Card>().Count() == 0 && transform.GetComponentsInChildren<Card>().Count() != 0)
+            if(pause == false && isLocSlot == false && pushVertTransform != null && pushVertTransform.GetComponentsInChildren<Card>().Count() == 0 && transform.GetComponentsInChildren<Card>().Count() != 0)
             {
                 var card = this.GetComponentsInChildren<Card>()[0];
                 card.GetComponent<Gobject>().runOnline = false;
@@ -49,11 +49,11 @@ namespace LogosTcg
 
         public void pullOnHorzEmpty(SlotScript slot)
         {
-            if (isLocSlot == true && pullHorzTransform != null && transform.GetComponentsInChildren<Card>().Count() == 0 && pullHorzTransform.GetComponentsInChildren<Card>().Count() != 0)
+            if (pause == false && isLocSlot == true && pullHorzTransform != null && transform.GetComponentsInChildren<Card>().Count() == 0 && pullHorzTransform.GetComponentsInChildren<Card>().Count() != 0)
             {
                 foreach(GridSlotActions slotAction in transform.parent.parent.GetComponentsInChildren<GridSlotActions>())
                 {
-                    slotAction.pauseVert = true;
+                    slotAction.pause = true;
                 }
 
                 int colIndex = transform.parent.GetSiblingIndex();
@@ -62,7 +62,7 @@ namespace LogosTcg
                 {
                     foreach(GridSlotActions slotAction in gridTf.GetChild(i).GetComponentsInChildren<GridSlotActions>())
                     {
-                        if (slotAction.pullHorzTransform.GetComponentsInChildren<Card>().Count() == 0) continue;
+                        if (slotAction.pullHorzTransform == null || slotAction.pullHorzTransform.GetComponentsInChildren<Card>().Count() == 0) continue;
 
                         var card = slotAction.pullHorzTransform.GetComponentsInChildren<Card>()[0];
                         card.GetComponent<Gobject>().runOnline = false;
@@ -74,14 +74,14 @@ namespace LogosTcg
 
                 foreach (GridSlotActions slotAction in transform.parent.parent.GetComponentsInChildren<GridSlotActions>())
                 {
-                    slotAction.pauseVert = false;
+                    slotAction.pause = false;
                 }
             }
         }
 
         public void pushHorz(SlotScript slot)
         {
-            if (isLocSlot == true && pushHorzTransform != null && pushHorzTransform.GetComponentsInChildren<Card>().Count() == 0 && transform.GetComponentsInChildren<Card>().Count() != 0)
+            if (!pause && isLocSlot == true && pushHorzTransform != null && pushHorzTransform.GetComponentsInChildren<Card>().Count() == 0 && transform.GetComponentsInChildren<Card>().Count() != 0)
             {
                 //pauseVert = true;
                 //pushHorzTransform.GetComponent<GridSlotActions>().pauseVert = true;
