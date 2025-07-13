@@ -39,9 +39,10 @@ namespace LogosTcg
                 if (obj.runOnline == false)
                 {
                     obj.runOnline = true;
+                    Debug.Log($"ran offline and set true {obj.transform.name}");
                     continue;
                 }
-
+                Debug.Log($"ran online {obj.transform.name}");
                 GameNetworkManager.Instance.MountServerRpc(obj.gameObject.name, obj.transform.parent.name);
             }
         }

@@ -31,6 +31,7 @@ namespace LogosTcg
         {
             int modifier = 0;
             if (StaticData.playerNums > 1) { modifier = 1; }
+            Debug.Log($"start deal. player num {StaticData.playerNums}");
 
             for (int i = 0; i < 3 + modifier; i++)
             {

@@ -23,7 +23,7 @@ namespace LogosTcg
 
             yield return populateDecks.LoadAndPartitionBaseSet();
 
-            GetComponent<InitializeBoards>().SetUpBoards();
+            yield return GetComponent<InitializeBoards>().SetUpBoards();
 
             instantiateDecks.SetUpDecks();
 

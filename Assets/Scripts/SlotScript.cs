@@ -1,5 +1,6 @@
 using LogoTcg;
 using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,8 +20,19 @@ namespace LogosTcg
         {
             if (!GameManager.Instance.slotChangeActionsActive)
                 return;
-                
-            SlotChg.Invoke(this);
+
+            //SlotChg.Invoke(this);
+            if (NetworkManager.Singleton != null)
+                GetComponent<SlotNetwork>().ChildChg(GetComponent<SlotScript>());
+
+            GridSlotActions gsa = GetComponent<GridSlotActions>();
+            if (gsa != null)
+            {
+                gsa.pullOnVertEmpty(GetComponent<SlotScript>());
+                gsa.pushVert(GetComponent<SlotScript>());
+                gsa.pullOnHorzEmpty(GetComponent<SlotScript>());
+                gsa.pushHorz(GetComponent<SlotScript>());
+            }
 
             InitializeSlots();
         }
@@ -46,9 +58,6 @@ namespace LogosTcg
 
         public void InitializeSlots()
         {
-            if (!transform.name.Contains("Col")) {
-                Debug.Log(transform.name);
-                    }
             foreach (Card card in transform.GetComponentsInChildren<Card>())
             {
                 Gobject childCard = card.GetComponent<Gobject>();

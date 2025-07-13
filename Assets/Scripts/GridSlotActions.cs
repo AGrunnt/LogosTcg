@@ -33,6 +33,7 @@ namespace LogosTcg
             {
                 var card = pullVertTransform.GetComponentsInChildren<Card>()[0];
                 card.GetComponent<Gobject>().runOnline = false;
+                Debug.Log($"runOnline set false {card}");
                 card.transform.SetParent(this.transform, false);
             }
         }
@@ -43,6 +44,7 @@ namespace LogosTcg
             {
                 var card = this.GetComponentsInChildren<Card>()[0];
                 card.GetComponent<Gobject>().runOnline = false;
+                Debug.Log($"runOnline set false {card}");
                 card.transform.SetParent(pushVertTransform, false);
             }
         }
@@ -66,6 +68,7 @@ namespace LogosTcg
 
                         var card = slotAction.pullHorzTransform.GetComponentsInChildren<Card>()[0];
                         card.GetComponent<Gobject>().runOnline = false;
+                        Debug.Log($"runOnline set false {card}");
                         // reparent back to this slot’s transform
                         card.transform.SetParent(slotAction.transform, false);
                     }
@@ -88,7 +91,8 @@ namespace LogosTcg
                 
                     var card = this.GetComponentsInChildren<Card>()[0];
                     card.GetComponent<Gobject>().runOnline = false;
-                    card.transform.SetParent(pushHorzTransform, false);
+                Debug.Log($"runOnline set false {card}");
+                card.transform.SetParent(pushHorzTransform, false);
                 
                 /*
                 // Loop from last ? first

@@ -12,18 +12,18 @@ namespace LogosTcg
         public List<Transform> playerBoards;
 
 
-        public void SetUpBoards()
+        public IEnumerator SetUpBoards()
         {
             // Only the server/host should drive despawning
             if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsHost) //check if exists
             {
                 Debug.Log("hostSetup");
-                StartCoroutine(DespawnNetworkBoard()); //corountine allows pause to let boards spawn
+                yield return StartCoroutine(DespawnNetworkBoard()); //corountine allows pause to let boards spawn
             }
             else if (NetworkManager.Singleton == null)
             {
                 Debug.Log("offSetup");
-                StartCoroutine(DespawnOfflineBoard());
+                yield return StartCoroutine(DespawnOfflineBoard());
             }
         }
 
