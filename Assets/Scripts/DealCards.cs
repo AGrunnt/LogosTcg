@@ -11,14 +11,14 @@ namespace LogosTcg
         public Transform FaithfulDeck;
         public List<GameObject> hands;
         public List<Transform> locSlots;
-        public List<Transform> col1;
-        public List<Transform> col2;
-        public List<Transform> col3;
-        public List<Transform> col4;
+
 
         public void SetHands()
         {
-            hands = GameObject.FindGameObjectsWithTag("Hand").ToList();
+            hands = GameObject
+                .FindGameObjectsWithTag("Hand")
+                .OrderBy(go => go.name)      // sort alphabetically by name
+                .ToList();
         }
 
         public void SendTopTo(Transform src, Transform dest)
@@ -31,7 +31,6 @@ namespace LogosTcg
         {
             int modifier = 0;
             if (StaticData.playerNums > 1) { modifier = 1; }
-            Debug.Log($"start deal. player num {StaticData.playerNums}");
 
             for (int i = 0; i < 3 + modifier; i++)
             {

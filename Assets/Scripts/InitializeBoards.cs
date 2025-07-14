@@ -17,12 +17,10 @@ namespace LogosTcg
             // Only the server/host should drive despawning
             if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsHost) //check if exists
             {
-                Debug.Log("hostSetup");
                 yield return StartCoroutine(DespawnNetworkBoard()); //corountine allows pause to let boards spawn
             }
             else if (NetworkManager.Singleton == null)
             {
-                Debug.Log("offSetup");
                 yield return StartCoroutine(DespawnOfflineBoard());
             }
         }
@@ -35,7 +33,6 @@ namespace LogosTcg
             for (int i = 3; i > StaticData.playerNums - 1; i--)
             {
                 var boardTransform = playerBoards[i];
-                Debug.Log($"Despawn {boardTransform.transform.name}");
 
                 // 1) Find all slot NetworkObjects under this board
                 var slotNetObjs = boardTransform
@@ -47,7 +44,6 @@ namespace LogosTcg
                 // 2) Despawn each slot (destroy:true tells Netcode to destroy the GO on all clients)
                 foreach (var slot in slotNetObjs)
                 {
-                    Debug.Log($"Despawn {slot.transform.name}");
                     slot.Despawn(destroy: true);
                 }
             }
@@ -64,14 +60,12 @@ namespace LogosTcg
 
         private IEnumerator DespawnOfflineBoard()
         {
-            Debug.Log("deleteBoards");
             yield return null;
 
             // For each board index >= activeBoardCount, tear it down
             for (int i = 3; i > StaticData.playerNums -1; i--)
             {
                 var boardTransform = playerBoards[i];
-                Debug.Log($"delete {boardTransform.transform.name}");
                 // 3) Finally, destroy the (non-networked) board container
                 Destroy(boardTransform.gameObject);
             }

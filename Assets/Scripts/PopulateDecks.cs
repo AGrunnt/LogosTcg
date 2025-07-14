@@ -19,14 +19,9 @@ namespace LogosTcg
         private const string FaithfulLabel = "Faithful";
         private const string LocationLabel = "Location";
 
-        private void Start()
-        {
-            //StartCoroutine(LoadAndPartitionBaseSet());
-        }
-
         public IEnumerator LoadAndPartitionBaseSet()
         {
-            // 1) Faithful = BaseSet ? Faithful
+            // 1) Faithful = BaseSet ? Faithful, then sort by name
             var faithfulHandle = Addressables.LoadAssetsAsync<CardDef>(
                 new object[] { BaseSetLabel, FaithfulLabel },
                 callback: null,
@@ -34,11 +29,14 @@ namespace LogosTcg
             );
             yield return faithfulHandle;
             if (faithfulHandle.Status == AsyncOperationStatus.Succeeded)
-                deckFaithful.CardCollection = faithfulHandle.Result.ToList();
+                deckFaithful.CardCollection = faithfulHandle
+                    .Result
+                    .OrderBy(cd => cd.name)
+                    .ToList();
             else
                 Debug.LogError($"Faithful load failed: {faithfulHandle.OperationException}");
 
-            // 2) Location = BaseSet ? Location
+            // 2) Location = BaseSet ? Location, then sort by name
             var locationHandle = Addressables.LoadAssetsAsync<CardDef>(
                 new object[] { BaseSetLabel, LocationLabel },
                 callback: null,
@@ -46,13 +44,16 @@ namespace LogosTcg
             );
             yield return locationHandle;
             if (locationHandle.Status == AsyncOperationStatus.Succeeded)
-                deckLocation.CardCollection = locationHandle.Result.ToList();
+                deckLocation.CardCollection = locationHandle
+                    .Result
+                    .OrderBy(cd => cd.name)
+                    .ToList();
             else
                 Debug.LogError($"Location load failed: {locationHandle.OperationException}");
 
-            // 3) Encounter = everything in BaseSet minus those two sets
+            // 3) Encounter = BaseSet minus those two sets, then sort by name
             var allHandle = Addressables.LoadAssetsAsync<CardDef>(
-                BaseSetLabel,    // all BaseSet assets
+                BaseSetLabel,
                 callback: null
             );
             yield return allHandle;
@@ -63,12 +64,14 @@ namespace LogosTcg
                 yield break;
             }
 
+            // Build hash?sets of faithful & location for quick exclusion
             var allCards = allHandle.Result.ToList();
             var faithfulSet = new HashSet<CardDef>(deckFaithful.CardCollection);
             var locationSet = new HashSet<CardDef>(deckLocation.CardCollection);
 
             deckEncounter.CardCollection = allCards
                 .Where(cd => !faithfulSet.Contains(cd) && !locationSet.Contains(cd))
+                .OrderBy(cd => cd.name)
                 .ToList();
 
             // 4) Clean up

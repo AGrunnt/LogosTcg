@@ -9,109 +9,89 @@ namespace LogosTcg
 {
     public class GridSlotActions : MonoBehaviour
     {
+        [SerializeField] private Transform rightLocTf;
 
-        [SerializeField] private Transform pullVertTransform;
-        [SerializeField] private Transform pushVertTransform;
-        [SerializeField] private Transform pullHorzTransform;
-        [SerializeField] private Transform pushHorzTransform;
-        [SerializeField] public bool isLocSlot = false;
-        public bool pause = false;
-
-        void Start()
+        private void OnTransformChildrenChanged()
         {
-            GetComponent<SlotScript>().SlotChg.AddListener(pullOnVertEmpty);
-            GetComponent<SlotScript>().SlotChg.AddListener(pushVert);
-            GetComponent<SlotScript>().SlotChg.AddListener(pullOnHorzEmpty);
-            GetComponent<SlotScript>().SlotChg.AddListener(pushHorz);
+            //if (GetComponentsInChildren<Card>().Count() == 0 && rightLocTf != null && rightLocTf.GetComponentsInChildren<Card>().Count() != 0)
+               // shiftLeft();
         }
 
-        public void pullOnVertEmpty(SlotScript slot)
+        public void shiftLeft()
         {
-            //if (!pullOnEmptyBool) return;
+            /*
+            int colIndex = transform.parent.GetSiblingIndex();
+            Transform gridTf = transform.parent.parent;
+            
+                var locSlotScripts = gridTf
+                    .GetChild(colIndex)
+                    .GetComponentsInChildren<SlotScript>()
+                    .Where(ss => ss.slotType == "LocSlot");
+                var vertSlotScripts = gridTf
+                    .GetChild(colIndex)
+                    .GetComponentsInChildren<SlotScript>()
+                    .Where(ss => ss.slotType == "VertSlot");
+                var rightLocSlotScripts = gridTf
+                    .GetChild(colIndex + 1)
+                    .GetComponentsInChildren<SlotScript>()
+                    .Where(ss => ss.slotType == "LocSlot");
+                var rightVertSlotScripts = gridTf
+                    .GetChild(colIndex + 1)
+                    .GetComponentsInChildren<SlotScript>()
+                    .Where(ss => ss.slotType == "VertSlot");
 
-            if(pause == false && isLocSlot == false && pullVertTransform != null && transform.GetComponentsInChildren<Card>().Count() == 0 && pullVertTransform.GetComponentsInChildren<Card>().Count() != 0)
+                if (rightLocSlotScripts.First().GetComponentInChildren<Card>() == null) return;
+
+                rightLocSlotScripts.First().GetComponentInChildren<Card>().transform.SetParent(locSlotScripts.First().transform, false);
+                locSlotScripts.First().GetComponent<SlotScript>().SetLastCardSettings();
+                rightLocSlotScripts.First().GetComponent<SlotScript>().SetLastCardSettings();
+
+                if (rightVertSlotScripts.First().GetComponentInChildren<Card>() == null) return;
+
+                foreach (var card in rightVertSlotScripts.First().GetComponentsInChildren<Card>())
+                {
+                    card.transform.SetParent(vertSlotScripts.First().transform, false);
+                }
+                vertSlotScripts.First().GetComponent<SlotScript>().SetLastCardSettings();
+                rightVertSlotScripts.First().GetComponent<SlotScript>().SetLastCardSettings();
+            */
+            
+            int colIndex = transform.parent.GetSiblingIndex();
+            Transform gridTf = transform.parent.parent;
+            for (int i = colIndex; i < 4; i++)
             {
-                var card = pullVertTransform.GetComponentsInChildren<Card>()[0];
-                card.GetComponent<Gobject>().runOnline = false;
-                Debug.Log($"runOnline set false {card}");
-                card.transform.SetParent(this.transform, false);
+                var locSlotScripts = gridTf
+                    .GetChild(i)
+                    .GetComponentsInChildren<SlotScript>()
+                    .Where(ss => ss.slotType == "LocSlot");
+                var vertSlotScripts = gridTf
+                    .GetChild(i)
+                    .GetComponentsInChildren<SlotScript>()
+                    .Where(ss => ss.slotType == "VertSlot");
+                var rightLocSlotScripts = gridTf
+                    .GetChild(i+1)
+                    .GetComponentsInChildren<SlotScript>()
+                    .Where(ss => ss.slotType == "LocSlot");
+                var rightVertSlotScripts = gridTf
+                    .GetChild(i+1)
+                    .GetComponentsInChildren<SlotScript>()
+                    .Where(ss => ss.slotType == "VertSlot");
+
+                if (rightLocSlotScripts.First().GetComponentInChildren<Card>() == null) return;
+
+                rightLocSlotScripts.First().GetComponentInChildren<Card>().transform.SetParent(locSlotScripts.First().transform, false);
+                locSlotScripts.First().GetComponent<SlotScript>().SetLastCardSettings();
+                rightLocSlotScripts.First().GetComponent<SlotScript>().SetLastCardSettings();
+
+                if (rightVertSlotScripts.First().GetComponentInChildren<Card>() == null) continue;
+
+                foreach(var card in rightVertSlotScripts.First().GetComponentsInChildren<Card>())
+                {
+                    card.transform.SetParent(vertSlotScripts.First().transform, false);
+                }
+                vertSlotScripts.First().GetComponent<SlotScript>().SetLastCardSettings();
+                rightVertSlotScripts.First().GetComponent<SlotScript>().SetLastCardSettings();
             }
         }
-
-        public void pushVert(SlotScript slot)
-        {
-            if(pause == false && isLocSlot == false && pushVertTransform != null && pushVertTransform.GetComponentsInChildren<Card>().Count() == 0 && transform.GetComponentsInChildren<Card>().Count() != 0)
-            {
-                var card = this.GetComponentsInChildren<Card>()[0];
-                card.GetComponent<Gobject>().runOnline = false;
-                Debug.Log($"runOnline set false {card}");
-                card.transform.SetParent(pushVertTransform, false);
-            }
-        }
-
-        public void pullOnHorzEmpty(SlotScript slot)
-        {
-            if (pause == false && isLocSlot == true && pullHorzTransform != null && transform.GetComponentsInChildren<Card>().Count() == 0 && pullHorzTransform.GetComponentsInChildren<Card>().Count() != 0)
-            {
-                foreach(GridSlotActions slotAction in transform.parent.parent.GetComponentsInChildren<GridSlotActions>())
-                {
-                    slotAction.pause = true;
-                }
-
-                int colIndex = transform.parent.GetSiblingIndex();
-                Transform gridTf = transform.parent.parent;
-                for (int i = colIndex; i < 5; i++)
-                {
-                    foreach(GridSlotActions slotAction in gridTf.GetChild(i).GetComponentsInChildren<GridSlotActions>())
-                    {
-                        if (slotAction.pullHorzTransform == null || slotAction.pullHorzTransform.GetComponentsInChildren<Card>().Count() == 0) continue;
-
-                        var card = slotAction.pullHorzTransform.GetComponentsInChildren<Card>()[0];
-                        card.GetComponent<Gobject>().runOnline = false;
-                        Debug.Log($"runOnline set false {card}");
-                        // reparent back to this slot’s transform
-                        card.transform.SetParent(slotAction.transform, false);
-                    }
-                }
-
-
-                foreach (GridSlotActions slotAction in transform.parent.parent.GetComponentsInChildren<GridSlotActions>())
-                {
-                    slotAction.pause = false;
-                }
-            }
-        }
-
-        public void pushHorz(SlotScript slot)
-        {
-            if (!pause && isLocSlot == true && pushHorzTransform != null && pushHorzTransform.GetComponentsInChildren<Card>().Count() == 0 && transform.GetComponentsInChildren<Card>().Count() != 0)
-            {
-                //pauseVert = true;
-                //pushHorzTransform.GetComponent<GridSlotActions>().pauseVert = true;
-                
-                    var card = this.GetComponentsInChildren<Card>()[0];
-                    card.GetComponent<Gobject>().runOnline = false;
-                Debug.Log($"runOnline set false {card}");
-                card.transform.SetParent(pushHorzTransform, false);
-                
-                /*
-                // Loop from last ? first
-                for (int i = slotActs.Length - 1; i >= 0; i--)
-                {
-                    var slotAct = slotActs[i];
-                    if (slotAct.GetComponentInChildren<Card>() == null)
-                        continue;
-
-                    var card = slotAct.GetComponentsInChildren<Card>()[0];
-                    card.GetComponent<Gobject>().runOnline = false;
-                    card.transform.SetParent(slotAct.pushHorzTransform, false);
-                }
-                */
-                //pauseVert = false;
-                //pushHorzTransform.GetComponent<GridSlotActions>().pauseVert = false;
-
-            }
-        }
-
     }
 }

@@ -9,35 +9,13 @@ namespace LogosTcg
     public class SlotScript : MonoBehaviour
     {
         public bool faceup = true;
-        public bool active = true;
-        public bool onlyTop = true;
+        public bool canRecieve = true;
+        public bool hoverable = true;
+        public bool draggable = true;
+        public bool onlyTopInteractable = true;
         public int maxChildrenCards = 1;
         public string slotType;
-
-        [HideInInspector] public UnityEvent<SlotScript> SlotChg;
-
-        void OnTransformChildrenChanged()
-        {
-            if (!GameManager.Instance.slotChangeActionsActive)
-                return;
-
-            //SlotChg.Invoke(this);
-            if (NetworkManager.Singleton != null)
-                GetComponent<SlotNetwork>().ChildChg(GetComponent<SlotScript>());
-
-            GridSlotActions gsa = GetComponent<GridSlotActions>();
-            if (gsa != null)
-            {
-                gsa.pullOnVertEmpty(GetComponent<SlotScript>());
-                gsa.pushVert(GetComponent<SlotScript>());
-                gsa.pullOnHorzEmpty(GetComponent<SlotScript>());
-                gsa.pushHorz(GetComponent<SlotScript>());
-            }
-
-            InitializeSlots();
-        }
-        //SetFacing
-
+        
         public void SetLastCardSettings()
         {
             Gobject lastObj = GetLastDirectChildGobjLinq(transform);
@@ -45,15 +23,11 @@ namespace LogosTcg
 
             lastObj.gobjectVisual.GetComponent<Canvas>().sortingOrder = lastObj.transform.GetSiblingIndex();
 
-            if (active)
-            {
-                lastObj.draggable = true;
-                lastObj.hoverable = true;
-                lastObj.selectable = true;
-            }
+            if (hoverable) lastObj.hoverable = true; else lastObj.hoverable = false;
+            if (draggable) lastObj.draggable = true; else lastObj.draggable = false;
+            if (draggable) lastObj.selectable = true; else lastObj.selectable = false;
 
-            if(faceup)
-                SetFacing(lastObj.transform);
+            if(faceup) SetFacing(lastObj.transform);
         }
 
         public void InitializeSlots()
@@ -61,7 +35,7 @@ namespace LogosTcg
             foreach (Card card in transform.GetComponentsInChildren<Card>())
             {
                 Gobject childCard = card.GetComponent<Gobject>();
-                if (onlyTop)
+                if (onlyTopInteractable)
                 {
                     childCard.draggable = false;
                     childCard.hoverable = false;
@@ -77,7 +51,7 @@ namespace LogosTcg
                 //Debug.Log($"sort order {childCard.gobjectVisual.GetComponentInChildren<Canvas>().sortingOrder} index {childCard.transform.GetSiblingIndex()}");
             }
 
-            if (active) SetLastCardSettings();
+            SetLastCardSettings();
 
         }
 

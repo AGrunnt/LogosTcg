@@ -16,7 +16,7 @@ namespace LogosTcg
 
             if (dropped.tag != "Coin") return;
 
-            dropped.transform.SetParent(transform, worldPositionStays: true); //worldPositStay throws the card around
+            
         }
     }
 }

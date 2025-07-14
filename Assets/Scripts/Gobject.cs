@@ -8,6 +8,9 @@ using LogosTcg;
 using NUnit.Framework;
 using System.Collections.Generic;
 using DG.Tweening;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
+using Unity.Netcode;
 
 namespace LogoTcg
 {
@@ -80,14 +83,10 @@ namespace LogoTcg
 
             foreach (Transform child in directChildren)
                 child.SetParent(gobjectVisual.holder);
-
-            //canvasChild = GetComponentInChildren<Canvas>();
         }
 
         void Update()
         {
-            //ClampPosition(); //doesn't work if i need cards off sceen
-
             if (isDragging)
             {
                 // ? use new Input System
@@ -102,16 +101,6 @@ namespace LogoTcg
             }
         }
 
-        void ClampPosition()
-        {
-            Vector2 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(
-                Screen.width, Screen.height, Camera.main.transform.position.z
-            ));
-            Vector3 clampedPosition = transform.position;
-            clampedPosition.x = Mathf.Clamp(clampedPosition.x, -screenBounds.x, screenBounds.x);
-            clampedPosition.y = Mathf.Clamp(clampedPosition.y, -screenBounds.y, screenBounds.y);
-            transform.position = new Vector3(clampedPosition.x, clampedPosition.y, 0);
-        }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -137,33 +126,48 @@ namespace LogoTcg
         public void OnDrag(PointerEventData eventData) 
         { 
             DragEvent.Invoke(this);
-            //Debug.Log($"drag event {transform.name}");
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if(!draggable) return; //fix: may not need
+            if(!draggable) return;
 
             if(State.Instance != null)
                 State.Instance.globalDragging = false;
 
             EndDragEvent.Invoke(this);
-            //Debug.Log($"end drag {transform.name}");
 
             isDragging = false;
             imageComponent.raycastTarget = true;
 
-            StartCoroutine(FrameWait());
-
-            IEnumerator FrameWait()
+            //GameObject droppedOver = eventData.pointerCurrentRaycast.gameObject;
+            SlotScript target = eventData.hovered
+                .Select(go => go.GetComponent<SlotScript>())
+                .FirstOrDefault(t => t != null);
+           
+            if(target != null && target.canRecieve && target.GetComponentsInChildren<Card>().Count() < target.maxChildrenCards)
             {
-                yield return new WaitForEndOfFrame();
-                wasDragged = false;
+                SlotScript prevParent = transform.GetComponentInParent<SlotScript>();
+                if (NetworkManager.Singleton == null)
+                {
+                    transform.SetParent(target.transform, true);
+                    target.SetLastCardSettings();
+                    prevParent.SetLastCardSettings();
+                    if(transform.parent.GetComponent<LayoutGroup>() == null)
+                        transform.localPosition = Vector3.zero;
+
+                    if (prevParent.slotType == "LocSlot")
+                        prevParent.GetComponent<GridSlotActions>().shiftLeft();
+                } else
+                {
+                    GameNetworkManager.Instance.MountByNameServerRpc(transform.name, target.transform.name);
+                }
             }
-
-            if(center && transform.parent.GetComponent<HorizontalLayoutGroup>() == null && transform.parent.GetComponent<GridLayoutGroup>() == null)
-                transform.DOLocalMove(Vector3.zero, .15f).SetEase(Ease.OutBack); //fix
-
+            else {
+                if (transform.parent.GetComponent<LayoutGroup>() == null)
+                    transform.localPosition = Vector3.zero;
+                transform.GetComponent<Gobject>().gobjectVisual.GetComponent<Canvas>().sortingOrder = transform.GetSiblingIndex();
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)

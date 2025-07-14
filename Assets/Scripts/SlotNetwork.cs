@@ -12,40 +12,13 @@ namespace LogosTcg
 {
     public class SlotNetwork : NetworkBehaviour
     {
-
+        /*delScript
         public List<Gobject> gobjects = new List<Gobject>();
 
-        private void Start()
+        public void SetCardParentNetwork(Transform cardTf, Transform parentTf)
         {
-            if(NetworkManager.Singleton != null)
-                GetComponent<SlotScript>().SlotChg.AddListener(ChildChg);
+                GameNetworkManager.Instance.MountByNameServerRpc(cardTf.name, parentTf.name);
         }
-
-        public void ChildChg(SlotScript slot)
-        {
-            List<Gobject> prevGobjects = gobjects;
-            gobjects = transform.GetComponentsInChildren<Gobject>().ToList<Gobject>();
-
-            if (gobjects == null) return;
-
-            List<Gobject> newObjs = gobjects
-                .Except(prevGobjects)
-                .ToList();
-
-            if(newObjs == null) return;
-
-            foreach(Gobject obj in newObjs)
-            {
-                if (obj.runOnline == false)
-                {
-                    obj.runOnline = true;
-                    Debug.Log($"ran offline and set true {obj.transform.name}");
-                    continue;
-                }
-                Debug.Log($"ran online {obj.transform.name}");
-                GameNetworkManager.Instance.MountServerRpc(obj.gameObject.name, obj.transform.parent.name);
-            }
-        }
-
+        */
     }
 }

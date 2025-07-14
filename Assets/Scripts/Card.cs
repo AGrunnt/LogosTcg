@@ -27,31 +27,6 @@ namespace LogosTcg
             _definition = data;
             image.sprite = data.Artwork;
         }
-
-        void OnTransformChildrenChanged()
-        {
-            if (GameManager.Instance.slotChangeActionsActive && NetworkManager.Singleton != null)
-                ChildChgNetwork();
-        }
-
-        public void ChildChgNetwork()
-        {
-            List<Gobject> prevGobjects = gobjects;
-            gobjects = transform.GetComponentsInChildren<Gobject>().ToList<Gobject>();
-
-            if (gobjects == null) return;
-
-            List<Gobject> newObjs = gobjects
-                .Except(prevGobjects)
-                .ToList();
-
-            if (newObjs == null) return;
-
-            foreach (Gobject obj in newObjs)
-            {
-                GameNetworkManager.Instance.MountServerRpc(obj.gameObject.name, obj.transform.parent.name);
-            }
-        }
     }
 
 }

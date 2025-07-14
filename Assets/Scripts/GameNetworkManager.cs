@@ -1,7 +1,10 @@
 using DG.Tweening;
+using System.Linq;
 using Unity.Netcode;
+using Unity.Services.Multiplay.Authoring.Core.Assets;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 namespace LogosTcg
 {
@@ -16,22 +19,39 @@ namespace LogosTcg
         }
 
         [ServerRpc(RequireOwnership = false)]
-        public void MountServerRpc(string objName, string newParent)
+        public void MountByNameServerRpc(string objName, string newParent)
         {
 
-            MountClientRpc(objName, newParent);
+            MountByNameClientRpc(objName, newParent);
         }
 
         [ClientRpc]
-        public void MountClientRpc(string objName, string newParent)
+        public void MountByNameClientRpc(string objName, string newParentName)
         {
-            Transform obj = GameObject.Find(objName).transform;
-            Transform parentTf = GameObject.Find(newParent).transform;
+
+            Transform obj = GameObject
+                .FindGameObjectsWithTag("Card")
+                .FirstOrDefault(go => go.name == objName).transform;
+
+            
+            Transform parentTf = new[] { "Hand", "Slot" }
+                .SelectMany(tag => GameObject.FindGameObjectsWithTag(tag))
+                .FirstOrDefault(go => go.name == newParentName).transform;
+            
+
+            SlotScript oldParentSlot = obj.GetComponentInParent<SlotScript>();
 
             obj.SetParent(parentTf, worldPositionStays: true);
 
-            if (parentTf.GetComponent<HorizontalLayoutGroup>() == null && parentTf.GetComponent<GridLayoutGroup>() == null)
+            oldParentSlot.SetLastCardSettings();
+            parentTf.GetComponent<SlotScript>().SetLastCardSettings();
+
+            if (parentTf.GetComponent<LayoutGroup>() == null)
                 obj.DOLocalMove(Vector3.zero, .15f).SetEase(Ease.OutBack);
+
+
+            if (oldParentSlot.slotType == "LocSlot")
+                oldParentSlot.GetComponent<GridSlotActions>().shiftLeft();
         }
     }
 }

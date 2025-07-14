@@ -14,19 +14,15 @@ namespace LogosTcg
             instantiateDecks = GetComponent<InstantiateDecks>();
             populateDecks = GetComponent<PopulateDecks>();
 
-
             StartCoroutine(Sequence());
         }
 
         private IEnumerator Sequence()
         {
-
             yield return populateDecks.LoadAndPartitionBaseSet();
 
-            yield return GetComponent<InitializeBoards>().SetUpBoards();
-
+            GetComponent<InitializeBoards>().SetUpBoards();
             instantiateDecks.SetUpDecks();
-
             GetComponent<DealCards>().SetHands();
             GetComponent<DealCards>().StartingDeal();
 
@@ -36,7 +32,7 @@ namespace LogosTcg
                 slotScript.SetLastCardSettings();
             }
 
-            GameManager.Instance.slotChangeActionsActive = true;
+            GameManager.Instance.setUpFinished = true;
         }
 
     }

@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 8976072690392504160}
   m_Layer: 5
   m_Name: Card
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,6 +501,7 @@ MonoBehaviour:
   instantiateVisual: 1
   center: 1
   objType: Cards
+  runOnline: 1
   moveSpeedLimit: 50
   selected: 0
   selectionOffset: 50
@@ -582,6 +583,7 @@ MonoBehaviour:
   _definition: {fileID: 11400000, guid: b6ca5bfb79f45db46a94c02464c1cbde, type: 2}
   image: {fileID: 3415093123087353405}
   BackImage: {fileID: 8269191443868670581}
+  gobjects: []
 --- !u!114 &8976072690392504160
 MonoBehaviour:
   m_ObjectHideFlags: 0

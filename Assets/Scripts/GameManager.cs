@@ -6,7 +6,7 @@ namespace LogosTcg
 {
     public class GameManager : MonoBehaviour
     {
-        public bool slotChangeActionsActive = false;
+        public bool setUpFinished = false;
         public List<Transform> columns;
         public static GameManager Instance;
 
