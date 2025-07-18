@@ -165,7 +165,9 @@ namespace LogoTcg
             }
             else {
                 if (transform.parent.GetComponent<LayoutGroup>() == null)
+                {
                     transform.localPosition = Vector3.zero;
+                }
                 transform.GetComponent<Gobject>().gobjectVisual.GetComponent<Canvas>().sortingOrder = transform.GetSiblingIndex();
             }
         }

@@ -23,7 +23,7 @@ namespace LogosTcg
 
             GetComponent<InitializeBoards>().SetUpBoards();
             instantiateDecks.SetUpDecks();
-            GetComponent<DealCards>().SetHands();
+            //GetComponent<DealCards>().SetHands();
             GetComponent<DealCards>().StartingDeal();
 
             foreach (SlotScript slotScript in FindObjectsByType<SlotScript>(sortMode: FindObjectsSortMode.None))

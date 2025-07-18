@@ -15,6 +15,7 @@ namespace LogosTcg
         public List<Gobject> gobjects = new List<Gobject>();
         public GraphicRaycaster raycaster;
         public EventSystem eventSystem;
+        [SerializeField] bool swap = false;
         RectTransform rect;
         Gobject selectedObj;
         //bool isDragging = false;
@@ -74,6 +75,7 @@ namespace LogosTcg
         // ? this signature now matches UnityEvent<Gobject>
         void OnDrag(Gobject dragged)
         {
+            if (!swap) return;
 
             Vector2 screenPos = Mouse.current.position.ReadValue();
 
@@ -128,27 +130,15 @@ namespace LogosTcg
         }
 
 
-        void OnEndDrag(Gobject obj)
+        void OnEndDrag(Gobject obj) //fix: might run when anything is dragged
         {
-
             //GetComponent<HorizontalLayoutGroup>().CalculateLayoutInputHorizontal();
-            if (GetComponent<HorizontalLayoutGroup>() != null)
+            if (GetComponent<LayoutGroup>() != null)
             {
-                GetComponent<HorizontalLayoutGroup>().SetLayoutHorizontal();
-                GetComponent<HorizontalLayoutGroup>().SetLayoutVertical();
-            } else if (GetComponent<GridLayoutGroup>() != null)
-            {
-                GetComponent<GridLayoutGroup>().SetLayoutVertical();
-                GetComponent<GridLayoutGroup>().SetLayoutHorizontal();
+                GetComponent<LayoutGroup>().SetLayoutHorizontal();
+                GetComponent<LayoutGroup>().SetLayoutVertical();
             }
 
-            
-
-
-            //Canvas.ForceUpdateCanvases();
-            //LayoutUtils.ForceRebuild(myHorizontalLayoutGroup);
-
-            //obj.transform.DOLocalMove(Vector3.right, .15f).SetEase(Ease.OutBack); fix
         }
 
 

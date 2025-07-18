@@ -9,6 +9,7 @@ namespace LogosTcg
         public bool setUpFinished = false;
         public List<Transform> columns;
         public static GameManager Instance;
+        public List<Transform> faithfulDecks;
 
         private void Awake()
         {

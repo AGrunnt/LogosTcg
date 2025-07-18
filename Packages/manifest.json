@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.handzlikchris.fastscriptreload": "https://github.com/handzlikchris/FastScriptReload.git?path=Assets",
     "com.unity.2d.animation": "10.2.1",
     "com.unity.2d.aseprite": "1.2.5",
     "com.unity.2d.enhancers": "1.0.0",
@@ -20,7 +21,7 @@
     "com.unity.multiplayer.playmode": "1.4.3",
     "com.unity.netcode.gameobjects": "2.4.3",
     "com.unity.render-pipelines.universal": "17.2.0",
-    "com.unity.services.multiplayer": "1.1.4",
+    "com.unity.services.multiplayer": "1.1.5",
     "com.unity.test-framework": "1.5.1",
     "com.unity.timeline": "1.8.8",
     "com.unity.ugui": "2.0.0",

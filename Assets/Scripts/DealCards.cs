@@ -8,11 +8,11 @@ namespace LogosTcg
     public class DealCards : MonoBehaviour
     {
         public Transform locDeck;
-        public Transform FaithfulDeck;
+        public List<Transform> FaithfulDecks;
         public List<GameObject> hands;
         public List<Transform> locSlots;
 
-
+        /*
         public void SetHands()
         {
             hands = GameObject
@@ -20,7 +20,7 @@ namespace LogosTcg
                 .OrderBy(go => go.name)      // sort alphabetically by name
                 .ToList();
         }
-
+        */
         public void SendTopTo(Transform src, Transform dest)
         {
             var top = src.GetChild(src.childCount - 1);
@@ -40,7 +40,7 @@ namespace LogosTcg
             {
                 for (int j = 0; j < 3 - modifier; j++)
                 {
-                    SendTopTo(FaithfulDeck, hands[i].transform);
+                    SendTopTo(FaithfulDecks[i], hands[i].transform);
                 }
             }
 

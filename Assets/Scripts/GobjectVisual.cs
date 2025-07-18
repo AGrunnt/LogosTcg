@@ -262,10 +262,12 @@ namespace LogosTcg
 
         private void PointerExit(Gobject gobject)
         {
+            /*
             if (!parentGobject.wasDragged)
             {
                 transform.DOScale(1, scaleTransition).SetEase(scaleEase);
-            }
+            }*/
+            transform.DOScale(1, scaleTransition).SetEase(scaleEase);
 
             if (shadowOffsetActive)
             {
