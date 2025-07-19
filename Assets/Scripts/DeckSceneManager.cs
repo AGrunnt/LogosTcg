@@ -1,19 +1,28 @@
+using LogoTcg;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace LogosTcg
 {
     public class DeckSceneManager : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+        public EventSystem eventSystem;
+        public GraphicRaycaster raycaster;
+
         void Start()
         {
-        
+            if (raycaster == null) raycaster = GetComponentInParent<Canvas>().GetComponent<GraphicRaycaster>();
+            if (eventSystem == null) eventSystem = EventSystem.current;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        void OnSelect(Gobject obj)
+            {
+                Debug.Log("selected");
+            }
+
     }
 }
+
