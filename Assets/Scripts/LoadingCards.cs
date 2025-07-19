@@ -15,17 +15,12 @@ namespace LogosTcg
     public class LoadingCards : MonoBehaviour
     {
         List<string> activeLabels = new List<string> { "BaseSet" };
-        Transform faithfulListTf;
-        Transform encounterListTf;
-        Transform locationListTf;
         public Transform cardGridTf;
 
         public GameObject cardPrefab;
 
         //Dictionary<CardDef, GameObject> gridItems = new Dictionary<CardDef, GameObject>();
-        List<CardDef> locCardDefs;
-        List<CardDef> EncounterCardDefs;
-        List<CardDef> FaithfulCardDefs;
+
 
         private Dictionary<string, AsyncOperationHandle<CardDef>> loadedAssets
     = new Dictionary<string, AsyncOperationHandle<CardDef>>();
@@ -106,6 +101,7 @@ namespace LogosTcg
                     gridItems[key] = go;
                     Gobject gobject = go.GetComponent<Gobject>();
                     go.GetComponent<Card>().Apply(cd);
+                    go.GetComponent<Card>().SetFacing(true);
                     gobject.draggable = false;
                     ReorderGrid();
                 };

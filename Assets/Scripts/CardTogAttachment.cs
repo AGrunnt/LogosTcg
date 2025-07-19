@@ -1,19 +1,15 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace LogosTcg
 {
-    public class CardTogAttachment : MonoBehaviour
+    public class CardTogAttachment : MonoBehaviour, IPointerClickHandler
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public bool inList = false;
+        public void OnPointerClick(PointerEventData eventData)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            // This fires for any click that hits a Graphic under your raycaster
+            Debug.Log("UI element clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
         }
     }
 }

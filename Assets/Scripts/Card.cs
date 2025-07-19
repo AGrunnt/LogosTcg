@@ -27,6 +27,31 @@ namespace LogosTcg
             _definition = data;
             image.sprite = data.Artwork;
         }
+
+        public void SetFacing(bool faceup)
+        {
+            Transform front = FindDescendantByName(GetComponent<Gobject>().gobjectVisual.transform, "Front");
+            Transform back = FindDescendantByName(GetComponent<Gobject>().gobjectVisual.transform, "Back");
+
+            if (faceup)
+            {
+                front.gameObject.SetActive(true);
+                back.gameObject.SetActive(false);
+            }
+            else
+            {
+                front.gameObject.SetActive(false);
+                back.gameObject.SetActive(true);
+            }
+        }
+
+        public Transform FindDescendantByName(Transform tf, string childName)
+        {
+            // includes this.transform too; skip if you only want strict children
+            return tf
+                .GetComponentsInChildren<Transform>(includeInactive: true)
+                .FirstOrDefault(t => t.name == childName);
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 using LogoTcg;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,17 +12,50 @@ namespace LogosTcg
 
         public EventSystem eventSystem;
         public GraphicRaycaster raycaster;
+        public static DeckSceneManager instance;
+
+        List<CardDef> locCardDefs;
+        List<CardDef> EncounterCardDefs;
+        List<CardDef> FaithfulCardDefs;
+
+        public Transform faithfulListTf;
+        public Transform encounterListTf;
+        public Transform locationListTf;
+
+        public GameObject cardLinePrefab;
 
         void Start()
         {
-            if (raycaster == null) raycaster = GetComponentInParent<Canvas>().GetComponent<GraphicRaycaster>();
-            if (eventSystem == null) eventSystem = EventSystem.current;
+            instance = this;
         }
 
-        void OnSelect(Gobject obj)
+        public void AddToList(GameObject gridCardObj)
+        {
+            CardDef cardDef = gridCardObj.GetComponent<Card>()._definition;
+            GameObject cardLineObj;
+            if(cardDef.Type.Contains("Faithful"))
             {
-                Debug.Log("selected");
-            }
+                cardLineObj = Instantiate(cardLinePrefab, faithfulListTf);
+            } else if (cardDef.Type.Contains("Location"))
+            {
+                cardLineObj = Instantiate(cardLinePrefab, locationListTf);
+            } else
+                cardLineObj = Instantiate(cardLinePrefab, encounterListTf);
+
+            cardLineObj.GetComponent<CardLine>().cardDef = cardDef;
+            Destroy(gridCardObj);
+        }
+
+        public void RemoveFromList(GameObject cardLineObj)
+        {
+            CardDef cardDef = cardLineObj.GetComponent<CardLine>().cardDef;
+            GameObject gridCardObj;
+            gridCardObj= Instantiate(cardLinePrefab, faithfulListTf);
+
+            gridCardObj.GetComponent<CardLine>().cardDef = cardDef;
+            Destroy(cardLineObj);
+        }
+
 
     }
 }
