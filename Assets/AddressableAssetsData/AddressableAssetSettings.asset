@@ -109,6 +109,7 @@ MonoBehaviour:
     - Support
     - Animal
     - BaseSet
+    - Card
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 860b5a5f6a171f745ad9661f3c0af3f1, type: 2}

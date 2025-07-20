@@ -81,5 +81,58 @@ namespace LogosTcg
             AssetDatabase.SaveAssets();
             Debug.Log("Done: Applied CardDef Type & Group labels.");
         }
+
+
+        [MenuItem("Tools/Apply 'Card' Label to All CardDefs")]
+        public static void AddCardLabel()
+        {
+            // 1) find all CardDef assets
+            var guids = AssetDatabase.FindAssets("t:CardDef", new[] { SearchFolder });
+            if (guids.Length == 0)
+            {
+                Debug.LogWarning($"No CardDef assets found under {SearchFolder}");
+                return;
+            }
+
+            // 2) get Addressables settings
+            var settings = AddressableAssetSettingsDefaultObject.Settings;
+            if (settings == null)
+            {
+                Debug.LogError("Could not find AddressableAssetSettings. Make sure Addressables is set up.");
+                return;
+            }
+
+            // 3) for each CardDef, add the "Card" label if missing
+            foreach (var guid in guids)
+            {
+                var entry = settings.FindAssetEntry(guid);
+                if (entry == null)
+                {
+                    var path = AssetDatabase.GUIDToAssetPath(guid);
+                    Debug.LogWarning($"'{path}' is not marked as addressable. Skipping.");
+                    continue;
+                }
+
+                const string cardLabel = "Card";
+                if (!entry.labels.Contains(cardLabel))
+                {
+                    entry.SetLabel(cardLabel, true, true);
+                    Debug.Log($"Added '{cardLabel}' label to {entry.address}");
+                }
+                else
+                {
+                    Debug.Log($"{entry.address} already has '{cardLabel}' label");
+                }
+            }
+
+            // 4) save changes
+            settings.SetDirty(
+                AddressableAssetSettings.ModificationEvent.EntryModified,
+                null,
+                true);
+            AssetDatabase.SaveAssets();
+
+            Debug.Log("Done: Applied 'Card' label to all CardDefs.");
+        }
     }
 }

@@ -2,9 +2,11 @@ using LogoTcg;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace LogosTcg
 {
@@ -16,7 +18,8 @@ namespace LogosTcg
         public Transform cardGridTf;
         public GameObject cardPrefab;
 
-        public List<string> activeLabels = new List<string> { "BaseSet" };
+        public List<string> primLabels;
+        public List<string> secLabels;
         Dictionary<string, AsyncOperationHandle<CardDef>> loadedAssets = new();
         Dictionary<string, GameObject> gridItems = new();
 
@@ -26,11 +29,33 @@ namespace LogosTcg
         void Awake() => instance = this;
         void Start() => RefreshGrid();
 
-        public void toggleLabel(string label)
+        public void togglePrimLabel(string label)
         {
-            if (activeLabels.Contains(label)) activeLabels.Remove(label);
-            else activeLabels.Add(label);
+            if (primLabels.Contains(label)) primLabels.Remove(label);
+            else primLabels.Add(label);
             RefreshGrid();
+            UpdateLabelDisplay();
+        }
+
+        public void toggleSecLabel(string label)
+        {
+            if (secLabels.Contains(label)) secLabels.Remove(label);
+            else secLabels.Add(label);
+            RefreshGrid();
+            UpdateLabelDisplay();
+        }
+
+        public TextMeshProUGUI primLabs;
+        public TextMeshProUGUI secLabs;
+
+        void UpdateLabelDisplay()
+        {
+            primLabs.text = primLabels.Count > 0
+                ? string.Join("\n", primLabels)
+                : "<none>";
+            secLabs.text = secLabels.Count > 0
+                ? string.Join("\n", secLabels)
+                : "<none>";
         }
 
         public void RefreshGrid()
@@ -38,7 +63,7 @@ namespace LogosTcg
             StopAllCoroutines();
             StartCoroutine(DoRefreshGrid());
         }
-
+        /*
         IEnumerator DoRefreshGrid()
         {
             // 1) fetch all matching locations
@@ -50,7 +75,69 @@ namespace LogosTcg
             Addressables.Release(locHandle);
 
             var newKeys = new HashSet<string>(
-                            locations.Select(loc => loc.PrimaryKey));
+                            locations.Select(loc => loc.PrimaryKey));*/
+        IEnumerator DoRefreshGrid()
+        {
+            IList<IResourceLocation> filteredLocations;
+
+            // 1) decide which filters to apply
+            bool hasPrim = primLabels != null && primLabels.Count > 0;
+            bool hasSec = secLabels != null && secLabels.Count > 0;
+
+            if (!hasPrim && !hasSec)
+            {
+                // no filters ? show all cards (assumes you've tagged every card asset with a "Card" label)
+                var allHandle = Addressables.LoadResourceLocationsAsync(
+                                    new[] { "Card" },
+                                    Addressables.MergeMode.Union);
+                yield return allHandle;
+                filteredLocations = allHandle.Result;
+                Addressables.Release(allHandle);
+            }
+            else
+            {
+                IList<IResourceLocation> primLocs = null, secLocs = null;
+
+                // primary filter: union of all primLabels
+                if (hasPrim)
+                {
+                    var primHandle = Addressables.LoadResourceLocationsAsync(
+                                        primLabels.ToArray(),
+                                        Addressables.MergeMode.Union);
+                    yield return primHandle;
+                    primLocs = primHandle.Result;
+                    Addressables.Release(primHandle);
+                }
+
+                // secondary filter: union of all secLabels
+                if (hasSec)
+                {
+                    var secHandle = Addressables.LoadResourceLocationsAsync(
+                                        secLabels.ToArray(),
+                                        Addressables.MergeMode.Union);
+                    yield return secHandle;
+                    secLocs = secHandle.Result;
+                    Addressables.Release(secHandle);
+                }
+
+                // combine
+                if (hasPrim && hasSec)
+                {
+                    // intersect primLocs ? secLocs ? at least one prim **and** one sec
+                    filteredLocations = primLocs
+                        .Intersect(secLocs, new ResourceLocationComparer())
+                        .ToList();
+                }
+                else
+                {
+                    // only one filter active
+                    filteredLocations = primLocs ?? secLocs;
+                }
+            }
+
+            // 2) pull out your keys
+            var newKeys = new HashSet<string>(
+                            filteredLocations.Select(loc => loc.PrimaryKey));
 
             // 2) destroy any grid cards no longer in newKeys
             foreach (var key in loadedAssets.Keys.Except(newKeys).ToList())
