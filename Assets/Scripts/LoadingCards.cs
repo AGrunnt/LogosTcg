@@ -1,131 +1,158 @@
-// CardSelectionManager.cs
-using System;
+using LogoTcg;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEditor.AddressableAssets.Build.Layout;
-using LogoTcg;
 
 namespace LogosTcg
 {
     public class LoadingCards : MonoBehaviour
     {
-        List<string> activeLabels = new List<string> { "BaseSet" };
-        public Transform cardGridTf;
+        public static LoadingCards instance;
 
+        [Header("hook these up in Inspector")]
+        public Transform cardGridTf;
         public GameObject cardPrefab;
 
-        //Dictionary<CardDef, GameObject> gridItems = new Dictionary<CardDef, GameObject>();
+        public List<string> activeLabels = new List<string> { "BaseSet" };
+        Dictionary<string, AsyncOperationHandle<CardDef>> loadedAssets = new();
+        Dictionary<string, GameObject> gridItems = new();
 
+        // ? cards currently “in a list” will be parked here
+        public HashSet<string> listAssigned = new HashSet<string>();
 
-        private Dictionary<string, AsyncOperationHandle<CardDef>> loadedAssets
-    = new Dictionary<string, AsyncOperationHandle<CardDef>>();
-
-        private Dictionary<string, GameObject> gridItems
-            = new Dictionary<string, GameObject>();
-
-        AsyncOperationHandle<IList<CardDef>> currentHandle;
-        Coroutine refreshCoroutine;
+        void Awake() => instance = this;
+        void Start() => RefreshGrid();
 
         public void toggleLabel(string label)
         {
-            if(activeLabels.Contains(label))
-            {
-                activeLabels.Remove(label);
-            } else
-            {
-                activeLabels.Add(label);
-            }
-
+            if (activeLabels.Contains(label)) activeLabels.Remove(label);
+            else activeLabels.Add(label);
             RefreshGrid();
         }
 
-        void Start()
+        public void RefreshGrid()
         {
-            RefreshGrid();
-        }
-
-        void RefreshGrid()
-        {
-            // ensure only one refresh at a time //cool trick. note
-            if (refreshCoroutine != null)
-                StopCoroutine(refreshCoroutine);
-            refreshCoroutine = StartCoroutine(DoRefreshGrid());
+            StopAllCoroutines();
+            StartCoroutine(DoRefreshGrid());
         }
 
         IEnumerator DoRefreshGrid()
         {
+            // 1) fetch all matching locations
             var locHandle = Addressables.LoadResourceLocationsAsync(
-                    activeLabels.ToArray(),
-                    Addressables.MergeMode.Intersection
-                );
+                                activeLabels.ToArray(),
+                                Addressables.MergeMode.Intersection);
             yield return locHandle;
-
             var locations = locHandle.Result;
             Addressables.Release(locHandle);
-            var newKeys = new HashSet<string>(locations.Select(loc => loc.PrimaryKey));
 
-            var toRemove = loadedAssets.Keys.Except(newKeys).ToList();
-            foreach (var key in toRemove)
+            var newKeys = new HashSet<string>(
+                            locations.Select(loc => loc.PrimaryKey));
+
+            // 2) destroy any grid cards no longer in newKeys
+            foreach (var key in loadedAssets.Keys.Except(newKeys).ToList())
             {
-                // only proceed if we have a spawned GameObject for this key…
-                if (gridItems.TryGetValue(key, out var go))
+                if (gridItems.TryGetValue(key, out var go)
+                    && go.transform.IsChildOf(cardGridTf))
                 {
-                    // …and it lives under cardGridTf in the scene
-                    if (go.transform.IsChildOf(cardGridTf))
-                    {
-                        // release the asset handle
-                        Addressables.Release(loadedAssets[key]);
-                        loadedAssets.Remove(key);
-
-                        // destroy the UI element
-                        Destroy(go);
-                        gridItems.Remove(key);
-                    }
+                    Destroy(go);
+                    gridItems.Remove(key);
+                    Addressables.Release(loadedAssets[key]);
+                    loadedAssets.Remove(key);
                 }
             }
 
+            // … inside your DoRefreshGrid() …
 
+            // 3) kick off loads for brand?new keys
             foreach (var key in newKeys.Except(loadedAssets.Keys))
             {
-                var handle = Addressables.LoadAssetAsync<CardDef>(key);
-                loadedAssets[key] = handle;
-                handle.Completed += op => {
-                    // once the asset’s actually loaded:
+                // capture it so the lambda “remembers” the right string
+                var capturedKey = key;
+
+                var handle = Addressables.LoadAssetAsync<CardDef>(capturedKey);
+                loadedAssets[capturedKey] = handle;
+                handle.Completed += op =>
+                {
+                    if (op.Status != AsyncOperationStatus.Succeeded)
+                        return;
+
                     var cd = op.Result;
+
+                    // if it’s already in one of your lists, bail
+                    if (listAssigned.Contains(capturedKey))
+                        return;
+
+                    // spawn into the grid
                     var go = Instantiate(cardPrefab, cardGridTf);
-                    gridItems[key] = go;
-                    Gobject gobject = go.GetComponent<Gobject>();
-                    go.GetComponent<Card>().Apply(cd);
-                    go.GetComponent<Card>().SetFacing(true);
-                    gobject.draggable = false;
+                    var c = go.GetComponent<Card>();
+                    c.addressableKey = capturedKey;   // stash the key you captured
+                    c.Apply(cd);
+                    c.SetFacing(true);
+                    go.GetComponent<Gobject>().draggable = false;
+
+                    gridItems[capturedKey] = go;
                     ReorderGrid();
                 };
             }
+
+
+            // 4) if user just removed from a list, re?spawn here
+            foreach (var key in loadedAssets.Keys)
+            {
+                var h = loadedAssets[key];
+                if (h.IsDone
+                    && h.Status == AsyncOperationStatus.Succeeded
+                    && !listAssigned.Contains(key)
+                    && !gridItems.ContainsKey(key))
+                {
+                    SpawnGridCard(key, h.Result);
+                }
+            }
         }
 
-        private void ReorderGrid()
+        void SpawnGridCard(string key, CardDef cd)
         {
-            // collect only fully?loaded cards, sort by cardName, then materialize into a List<>
-            var sortedEntries = loadedAssets
-                .Where(kv =>
-                    gridItems.ContainsKey(kv.Key)
-                    && kv.Value.IsDone
-                    && kv.Value.Status == AsyncOperationStatus.Succeeded)
-                .Select(kv => new { Key = kv.Key, Name = kv.Value.Result.name })
-                .OrderBy(e => e.Name)
-                .ToList();   // <-- make sure the () are here!
+            var go = Instantiate(cardPrefab, cardGridTf);
+            var c = go.GetComponent<Card>();
+            c.addressableKey = key;
+            c.Apply(cd);
+            c.SetFacing(true);
+            go.GetComponent<Gobject>().draggable = false;
 
-            // then reparent in the new order
-            for (int i = 0; i < sortedEntries.Count; i++)
-            {
-                var key = sortedEntries[i].Key;
-                gridItems[key].transform.SetSiblingIndex(i);
-            }
+            gridItems[key] = go;
+            ReorderGrid();
+        }
+
+        void ReorderGrid()
+        {
+            var sorted = loadedAssets
+                .Where(kv => gridItems.ContainsKey(kv.Key)
+                             && kv.Value.IsDone
+                             && kv.Value.Status == AsyncOperationStatus.Succeeded)
+                .Select(kv => new { Key = kv.Key, Name = kv.Value.Result.name })
+                .OrderBy(x => x.Name)
+                .ToList();
+
+            for (int i = 0; i < sorted.Count; i++)
+                gridItems[sorted[i].Key].transform.SetSiblingIndex(i);
+        }
+
+        // called by DeckSceneManager after you Destroy(...) a grid card
+        public void RemoveGridCardMapping(string key)
+        {
+            gridItems.Remove(key);
+        }
+
+        // called by DeckSceneManager when a card is removed from a list
+        public void AddCardToGrid(string key, CardDef cd)
+        {
+            if (listAssigned.Contains(key) || gridItems.ContainsKey(key))
+                return;
+            SpawnGridCard(key, cd);
         }
     }
 }

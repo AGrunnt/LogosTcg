@@ -20,6 +20,7 @@ namespace LogosTcg
         public Image image;    //me was Image
         public Image BackImage;
         public List<Gobject> gobjects = new List<Gobject>();
+        public string addressableKey;
 
         public void Apply(CardDef data)
         {

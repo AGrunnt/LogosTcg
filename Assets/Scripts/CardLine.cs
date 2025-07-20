@@ -7,6 +7,12 @@ namespace LogosTcg
     {
         [SerializeField] TextMeshProUGUI title;
         public CardDef cardDef;
+        public string addressableKey;
+
+        public void Apply()
+        {
+            title.text = cardDef.name;
+        }
 
     }
 }

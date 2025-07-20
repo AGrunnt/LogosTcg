@@ -1,62 +1,63 @@
-using LogoTcg;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using LogosTcg;
 
 namespace LogosTcg
 {
     public class DeckSceneManager : MonoBehaviour
     {
-
-        public EventSystem eventSystem;
-        public GraphicRaycaster raycaster;
         public static DeckSceneManager instance;
+        void Awake() => instance = this;
 
-        List<CardDef> locCardDefs;
-        List<CardDef> EncounterCardDefs;
-        List<CardDef> FaithfulCardDefs;
-
+        [Header("hook these up in Inspector")]
         public Transform faithfulListTf;
         public Transform encounterListTf;
         public Transform locationListTf;
-
         public GameObject cardLinePrefab;
 
-        void Start()
-        {
-            instance = this;
-        }
-
+        // ---------------------------------------------------
+        // Move a grid?card into one of the three lists:
         public void AddToList(GameObject gridCardObj)
         {
-            CardDef cardDef = gridCardObj.GetComponent<Card>()._definition;
-            GameObject cardLineObj;
-            if(cardDef.Type.Contains("Faithful"))
-            {
-                cardLineObj = Instantiate(cardLinePrefab, faithfulListTf);
-            } else if (cardDef.Type.Contains("Location"))
-            {
-                cardLineObj = Instantiate(cardLinePrefab, locationListTf);
-            } else
-                cardLineObj = Instantiate(cardLinePrefab, encounterListTf);
+            var c = gridCardObj.GetComponent<Card>();
+            var cd = c._definition;
+            var key = c.addressableKey;
 
-            cardLineObj.GetComponent<CardLine>().cardDef = cardDef;
+            // 1) mark it assigned so loader never spawns it
+            LoadingCards.instance.listAssigned.Add(key);
+
+            // 2) spawn a CardLine in the right list
+            var parent =
+                cd.Type.Contains("Faithful") ? faithfulListTf :
+                cd.Type.Contains("Location") ? locationListTf :
+                                               encounterListTf;
+            var line = Instantiate(cardLinePrefab, parent)
+                       .GetComponent<CardLine>();
+
+            line.cardDef = cd;
+            line.Apply();
+            line.addressableKey = key;
+
+            // 3) destroy the grid object + clear our internal map
             Destroy(gridCardObj);
+            LoadingCards.instance.RemoveGridCardMapping(key);
         }
 
+        // ---------------------------------------------------
+        // Take a CardLine out of a list & pop it back into the grid:
         public void RemoveFromList(GameObject cardLineObj)
         {
-            CardDef cardDef = cardLineObj.GetComponent<CardLine>().cardDef;
-            GameObject gridCardObj;
-            gridCardObj= Instantiate(cardLinePrefab, faithfulListTf);
+            var line = cardLineObj.GetComponent<CardLine>();
+            var cd = line.cardDef;
+            var key = line.addressableKey;
 
-            gridCardObj.GetComponent<CardLine>().cardDef = cardDef;
+            // 1) un?mark so loader can spawn it again
+            LoadingCards.instance.listAssigned.Remove(key);
+
+            // 2) destroy the line.
             Destroy(cardLineObj);
+
+            // 3) immediately respawn into grid (if it still matches filters)
+            LoadingCards.instance.AddCardToGrid(key, cd);
         }
-
-
     }
 }
-
