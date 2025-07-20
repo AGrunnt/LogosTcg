@@ -4,6 +4,7 @@ using UnityEngine.UI;        // <-- for Text
 using LogosTcg;
 using TMPro;
 using System.Collections.Generic;
+using Unity.Netcode;
 
 namespace LogosTcg
 {
@@ -13,13 +14,17 @@ namespace LogosTcg
         void Awake() => instance = this;
 
         [Header("hook these up in Inspector")]
-        public Transform faithfulListTf;
+        public List<Transform> faithfulListTf;
+        public List<Transform> playerListTf;
+        public List<Transform> faithfulBtnTf;
         public Transform encounterListTf;
         public Transform locationListTf;
         public GameObject cardLinePrefab;
 
         [Header("Faithful?list stats UI")]
         public TextMeshProUGUI faithfulStatsText;    // drag in your Text component here
+
+        public int currPlayer = 0;
 
         int maxTot;
         int rareTot;
@@ -28,7 +33,20 @@ namespace LogosTcg
 
         void Start()
         {
-            switch (StaticData.playerNums)
+            int playerCount;
+            if (NetworkManager.Singleton != null)
+                playerCount = 1;
+            else
+                playerCount = StaticData.playerNums;
+
+            for (int i = 3; i > StaticData.playerNums - 1; i--)
+            {
+                faithfulListTf.RemoveAt(i);
+                playerListTf.RemoveAt(i);
+                faithfulBtnTf[i].gameObject.SetActive(false);
+            }
+
+                switch (StaticData.playerNums)
             {
                 case 3:
                     maxTot = 10; rareTot = 2; uncomTot = 3; comTot = 5;
@@ -72,18 +90,18 @@ namespace LogosTcg
             if (isFaithful)
             {
                 // total cap
-                if (faithfulListTf.childCount >= maxTot)
+                if (faithfulListTf[currPlayer].childCount >= maxTot)
                 {
                     Debug.LogWarning($"Cannot add more than {maxTot} Faithful cards.");
                     return;
                 }
 
                 // rarity cap
-                int currRare = faithfulListTf.GetComponentsInChildren<CardLine>()
+                int currRare = faithfulListTf[currPlayer].GetComponentsInChildren<CardLine>()
                                   .Count(l => l.cardDef.Rarity == "Rare");
-                int currUncom = faithfulListTf.GetComponentsInChildren<CardLine>()
+                int currUncom = faithfulListTf[currPlayer].GetComponentsInChildren<CardLine>()
                                   .Count(l => l.cardDef.Rarity == "Uncommon");
-                int currCom = faithfulListTf.GetComponentsInChildren<CardLine>()
+                int currCom = faithfulListTf[currPlayer].GetComponentsInChildren<CardLine>()
                                   .Count(l => l.cardDef.Rarity == "Common");
 
                 if (cd.Rarity == "Rare" && currRare >= rareTot) { Debug.LogWarning($"Max {rareTot} Rares."); return; }
@@ -96,7 +114,7 @@ namespace LogosTcg
             LoadingCards.instance.listAssigned.Add(key);
 
             // 3) spawn a CardLine in the right list
-            var parent = isFaithful ? faithfulListTf
+            var parent = isFaithful ? faithfulListTf[currPlayer]
                        : isLocation ? locationListTf
                                      : encounterListTf;
 
@@ -137,11 +155,22 @@ namespace LogosTcg
                 UpdateFaithfulStats();
         }
 
+        public void SetPlayer(int player)
+        {
+            currPlayer = player;
+            UpdateFaithfulStats();
+            foreach(var playerTf in playerListTf)
+            {
+                playerTf.gameObject.SetActive(false);
+            }
+            playerListTf[currPlayer].gameObject.SetActive(true);
+        }
+
         // ---------------------------------------------------
         void UpdateFaithfulStats()
         {
             // count current
-            var lines = faithfulListTf.GetComponentsInChildren<CardLine>();
+            var lines = faithfulListTf[currPlayer].GetComponentsInChildren<CardLine>();
             int currRare = lines.Count(l => l.cardDef.Rarity == "Rare");
             int currUncom = lines.Count(l => l.cardDef.Rarity == "Uncommon");
             int currCom = lines.Count(l => l.cardDef.Rarity == "Common");
@@ -162,14 +191,26 @@ namespace LogosTcg
         // call this when you want to finish?populate everything:
         public void AutoPopulateAll()
         {
-            PopulateFaithfulList();
+            AutoPopulateAllFaithful();
             PopulateEncounterList();
             PopulateLocationList();
         }
 
+        public void AutoPopulateAllFaithful()
+        {
+            int old = currPlayer;
+            for (int i = 0; i < faithfulListTf.Count; i++)
+            {
+                currPlayer = i;
+                PopulateFaithfulList();
+            }
+            currPlayer = old;
+        }
+
         void PopulateFaithfulList()
         {
-            // define our per?rarity targets
+            var tf = faithfulListTf[currPlayer];
+            // your per?rarity targets:
             var targets = new Dictionary<string, int>
             {
                 ["Rare"] = rareTot,
@@ -177,40 +218,40 @@ namespace LogosTcg
                 ["Common"] = comTot
             };
 
-            // for each rarity: add random cards until we hit the target
             foreach (var kv in targets)
             {
                 string rarity = kv.Key;
                 int desired = kv.Value;
 
-                // current count:
-                int current = faithfulListTf
-                    .GetComponentsInChildren<CardLine>()
-                    .Count(l => l.cardDef.Rarity == rarity);
+                // count what’s already in *this* player’s list
+                int current = tf.GetComponentsInChildren<CardLine>()
+                                .Count(l => l.cardDef.Rarity == rarity);
 
                 int needed = desired - current;
                 if (needed <= 0) continue;
 
-                // gather all grid?cards of this rarity+Faithful
+                // pick from the grid all Faithful cards of that rarity
                 var candidates = LoadingCards.instance.cardGridTf
                     .GetComponentsInChildren<Card>()
                     .Where(c => c._definition.Type.Contains("Faithful")
-                                && c._definition.Rarity == rarity)
+                             && c._definition.Rarity == rarity)
                     .Select(c => c.gameObject)
                     .ToList();
 
-                // pick `needed` at random
                 for (int i = 0; i < needed && candidates.Count > 0; i++)
                 {
                     int idx = Random.Range(0, candidates.Count);
                     var go = candidates[idx];
                     candidates.RemoveAt(idx);
+
+                    // this will now deposit into faithfulListTf[currPlayer]
                     AddToList(go);
                 }
             }
 
             UpdateFaithfulStats();
         }
+
 
         void PopulateEncounterList()
         {

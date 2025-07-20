@@ -16,5 +16,7 @@ namespace LogosTcg
 
         public static int timerStaticInt;
 
+        //public static List<List<CardDef>> cardDefLists;
+
     }
 }

@@ -30,7 +30,7 @@ namespace LogosTcg
             yield return new WaitForSeconds(0.1f);
 
             // 3) now that everyone has their StaticData.playerNums set, load the scene
-            NetworkManager.Singleton.SceneManager.LoadScene("PlayBoard", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("CreateDecks", LoadSceneMode.Single);
         }
 
         // include the player count as an argument so clients don't need to query NM

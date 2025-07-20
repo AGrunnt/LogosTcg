@@ -12,7 +12,7 @@ namespace LogosTcg
         {
             StaticData.playerNums = int.Parse(playerNumUi.text);
 
-            SceneManager.LoadSceneAsync("PlayBoard", LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync("CreateDecks", LoadSceneMode.Single);
         }
     }
 }
