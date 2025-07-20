@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: gobjectVisualPrefab
       value: 
       objectReference: {fileID: 8600899261394953707, guid: 8113455837fb0ec41abc9a8344f543ba, type: 3}
+    - target: {fileID: 3415093123087353405, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6157734155397468751, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -100,6 +104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8269191443868670581, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8994356602663114153, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
       propertyPath: m_Name
       value: CollectCard
@@ -129,3 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f353f4db2eaebfe43838423e1bbed2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardTogAttachment
+  inList: 0

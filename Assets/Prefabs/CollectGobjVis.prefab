@@ -92,7 +92,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectGobjVis
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4132845374223140069, guid: 7fe84931bcb3e6347bdbe396cb4678f7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

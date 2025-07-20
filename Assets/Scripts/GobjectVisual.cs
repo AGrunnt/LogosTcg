@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using Unity.VisualScripting;
 using LogoTcg;
 using UnityEngine.InputSystem;
+using UnityEditor.SceneManagement;
 
 namespace LogosTcg
 {
@@ -68,15 +69,18 @@ namespace LogosTcg
         [Header("Curve")]
         [SerializeField] private CurveParameters curve;
 
+        //public bool rmCanvas = false;
+
         private float curveYOffset;
         private float curveRotationOffset;
         private Coroutine pressCoroutine;
 
         private void Start()
         {
-            canvas.sortingLayerName = parentGobject.objType;
+            if(canvas != null) canvas.sortingLayerName = parentGobject.objType;
             shadowDistance = visualShadow.localPosition;
             //GetComponent<Canvas>().sortingOrder = transform.parent.GetSiblingIndex();
+            //Destroy(canvas);
         }
         void CopyRectTransform(RectTransform src, RectTransform dst, Vector2 offset)
         {

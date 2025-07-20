@@ -56,7 +56,7 @@ namespace LogosTcg
         public string AbilityText;
         public string Verse;
         public string VerseText;
-        
+        public string AbilityType;
 
         [Header("Scoring Abilities")]
         [Tooltip("All abilities this card grants or triggers at end-game scoring")]
