@@ -8,6 +8,14 @@ namespace LogosTcg
 {
     public class ListManager : MonoBehaviour
     {
+
+        public static ListManager instance;
+
+        void Awake()
+        {
+            instance = this;
+        }
+        
         /*
         public List<Transform> faithfulListTf;
         public List<Transform> playerListTf;
@@ -23,8 +31,8 @@ namespace LogosTcg
         public int uncomTot = 0;
         public int comTot = 0;
 
-        public static ListManager instance;
-        void Awake() => instance = this;
+     
+        
 
         void Start()
         {

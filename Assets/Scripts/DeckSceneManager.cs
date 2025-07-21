@@ -11,7 +11,14 @@ namespace LogosTcg
     public class DeckSceneManager : MonoBehaviour
     {
         public static DeckSceneManager instance;
-        void Awake() => instance = this;
+        ListManager lm;
+
+        void Awake()
+        {
+            lm = ListManager.instance;
+            instance = this;
+        }
+        
 
         [Header("hook these up in Inspector")]
         public List<Transform> faithfulListTf;
@@ -25,8 +32,6 @@ namespace LogosTcg
         public TextMeshProUGUI faithfulStatsText;    // drag in your Text component here
 
         public int currPlayer = 0;
-
-        ListManager lm;
 
 
         private void Start()
