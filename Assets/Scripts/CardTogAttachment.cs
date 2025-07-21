@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -26,13 +27,25 @@ namespace LogosTcg
             Debug.Log("UI element clicked: " + obj.name);
             if (obj.GetComponent<CardLine>() != null)
             {
-                DeckSceneManager.instance.RemoveFromList(obj);
+                ListManager.instance.RemoveFromList(obj);
+                /*
+                if(NetworkManager.Singleton == null)
+                    DeckSceneManager.instance.RemoveFromList(obj);
+                else
+                    DeckSceneManager.instance.RemoveFromOnlineListServerRpc(obj.GetComponent<Card>().addressableKey, DeckSceneManager.instance.currPlayer);
+                */
                 Debug.Log("remove from list");
             }
             else if (GetComponent<Card>() != null)
             {
-                Debug.Log("add to list");
-                DeckSceneManager.instance.AddToList(obj);
+                ListManager.instance.AddToList(obj);
+                /*
+                if (NetworkManager.Singleton == null)
+                    DeckSceneManager.instance.AddToList(obj);
+                else
+                    DeckSceneManager.instance.AddToOnlineList(obj);
+
+                */
             }
             }
     }
