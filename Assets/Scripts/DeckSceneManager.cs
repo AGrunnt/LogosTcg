@@ -15,8 +15,13 @@ namespace LogosTcg
 
         void Awake()
         {
-            lm = ListManager.instance;
+
             instance = this;
+        }
+
+        void Start()
+        {
+            lm = ListManager.instance;
         }
         
 
@@ -34,10 +39,6 @@ namespace LogosTcg
         public int currPlayer = 0;
 
 
-        private void Start()
-        {
-            lm = GetComponent<ListManager>();
-        }
         public void SetPlayer(int player)
         {
             currPlayer = player;
@@ -58,7 +59,6 @@ namespace LogosTcg
             int currUncom = lines.Count(l => l.cardDef.Rarity == "Uncommon");
             int currCom = lines.Count(l => l.cardDef.Rarity == "Common");
 
-            Debug.Log($"{currRare} {currUncom} {currCom}");
             // build text: “1 / 2 Rares, 3 / 5 Commons, …”
             faithfulStatsText.text =
                 $"{currRare} / {lm.rareTot} Rares,  " +

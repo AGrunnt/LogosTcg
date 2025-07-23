@@ -22,9 +22,6 @@ namespace LogosTcg
                 obj = eventData.pointerCurrentRaycast.gameObject.GetComponentInParent<CardLine>().gameObject;
 
 
-            // This fires for any click that hits a Graphic under your raycaster
-            Debug.Log("UI element clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
-            Debug.Log("UI element clicked: " + obj.name);
             if (obj.GetComponent<CardLine>() != null)
             {
                 ListManager.instance.RemoveFromList(obj);

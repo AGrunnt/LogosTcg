@@ -10,7 +10,7 @@ namespace LogosTcg
         ListManager lm;
         DeckSceneManager dsm;
 
-        private void Start()
+        void Start()
         {
             lm = GetComponent<ListManager>();
             dsm = DeckSceneManager.instance;

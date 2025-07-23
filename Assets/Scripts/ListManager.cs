@@ -10,10 +10,12 @@ namespace LogosTcg
     {
 
         public static ListManager instance;
+        ListOnlineManager lom;
 
         void Awake()
         {
             instance = this;
+            lom = GetComponent<ListOnlineManager>();
         }
         
         /*
@@ -30,9 +32,6 @@ namespace LogosTcg
         public int rareTot = 0;
         public int uncomTot = 0;
         public int comTot = 0;
-
-     
-        
 
         void Start()
         {
@@ -115,6 +114,16 @@ namespace LogosTcg
             }
             // ?????????????????????????????????????????????????????????????
 
+            int listType = c._definition.Type.Contains("Faithful") ? 0
+                         : c._definition.Type.Contains("Location") ? 1
+                         : 2;
+
+            if (NetworkManager.Singleton != null)
+            {
+                lom.AddToOnlineListServerRpc(key, dsm.currPlayer, listType);
+                return;
+            }
+
             // 2) mark it assigned so loader never spawns it
             LoadingCards.instance.listAssigned.Add(key);
 
@@ -145,6 +154,15 @@ namespace LogosTcg
             var line = cardLineObj.GetComponent<CardLine>();
             var cd = line.cardDef;
             var key = line.addressableKey;
+            int listType = line.cardDef.Type.Contains("Faithful") ? 0
+                         : line.cardDef.Type.Contains("Location") ? 1
+                         : 2;
+
+            if (NetworkManager.Singleton != null)
+            {
+                lom.RemoveFromOnlineListServerRpc(key, listType, dsm.currPlayer);
+                return;
+            }
 
             // 1) un?mark so loader can spawn it again
             LoadingCards.instance.listAssigned.Remove(key);

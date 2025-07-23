@@ -20,8 +20,8 @@ namespace LogosTcg
 
         public List<string> primLabels;
         public List<string> secLabels;
-        Dictionary<string, AsyncOperationHandle<CardDef>> loadedAssets = new();
-        Dictionary<string, GameObject> gridItems = new();
+        public Dictionary<string, AsyncOperationHandle<CardDef>> loadedAssets = new();
+        public Dictionary<string, GameObject> gridItems = new();
 
         // ? cards currently “in a list” will be parked here
         public HashSet<string> listAssigned = new HashSet<string>();
