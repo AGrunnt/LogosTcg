@@ -26,18 +26,18 @@ namespace LogosTcg
         // call this when you want to finish?populate everything:
         public void AutoPopulateAll()
         {
-            AutoPopulateAllFaithful();
+            StartCoroutine(AutoPopulateAllFaithful());
             StartCoroutine(PopulateEncounterList());
             StartCoroutine(PopulateLocationList());
         }
 
-        public void AutoPopulateAllFaithful()
+        private IEnumerator AutoPopulateAllFaithful()
         {
             int old = dsm.currPlayer;
             for (int i = 0; i < dsm.faithfulListTf.Count; i++)
             {
                 dsm.currPlayer = i;
-                StartCoroutine(PopulateFaithfulList());
+                yield return StartCoroutine(PopulateFaithfulList());
             }
             dsm.currPlayer = old;
         }
@@ -62,7 +62,6 @@ namespace LogosTcg
                     yield break;
                 }
 
-                yield return new WaitForSeconds(0.85f);
                 string rarity = kv.Key;
                 int desired = kv.Value;
 
@@ -86,9 +85,6 @@ namespace LogosTcg
                     int idx = Random.Range(0, candidates.Count);
                     var go = candidates[idx];
                     candidates.RemoveAt(idx);
-
-
-                    yield return new WaitForSeconds(1.85f);
                     //yield return new WaitForSeconds(0.1f);
                     // this will now deposit into faithfulListTf[currPlayer]
                     lm.AddToList(go.GetComponent<Card>().addressableKey);
@@ -136,7 +132,6 @@ namespace LogosTcg
                     var go = candidates[idx];
                     candidates.RemoveAt(idx);
                     lm.AddToList(go.GetComponent<Card>().addressableKey);
-                    yield return new WaitForSeconds(0.5f);
                 }
             }
 
@@ -189,7 +184,6 @@ namespace LogosTcg
                     int idx = Random.Range(0, candidates.Count);
                     var go = candidates[idx];
                     candidates.RemoveAt(idx);
-                    yield return new WaitForSeconds(0.5f);
                     lm.AddToList(go.GetComponent<Card>().addressableKey);
                 }
             }
@@ -217,10 +211,10 @@ namespace LogosTcg
                     int idx = Random.Range(0, noAbilityCandidates.Count);
                     var go = noAbilityCandidates[idx];
                     noAbilityCandidates.RemoveAt(idx);
-                    yield return new WaitForSeconds(0.5f);
                     lm.AddToList(go.GetComponent<Card>().addressableKey);
                 }
             }
+            yield return null;
         }
 
 
@@ -243,7 +237,6 @@ namespace LogosTcg
                 var go = candidates[idx];
                 candidates.RemoveAt(idx);
                 lm.AddToList(go.GetComponent<Card>().addressableKey);
-                yield return new WaitForSeconds(0.5f);
             }
         }
     }

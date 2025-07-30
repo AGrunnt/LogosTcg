@@ -77,7 +77,6 @@ namespace LogosTcg
 
         public void SpawnGridCard(string key)
         {
-            Debug.Log("Spawn");
             CardDef cd = cl.loadedAssets[key].Result;
             var go = Instantiate(gridCardPrefab, cardGridTf);
             var c = go.GetComponent<Card>();

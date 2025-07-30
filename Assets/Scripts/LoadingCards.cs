@@ -59,7 +59,6 @@ namespace LogosTcg
                 gm.gridItems[key] = card.gameObject;
             }
 
-            Debug.Log("Loaded all new keys");
             gm.ReorderGrid();
         }
 

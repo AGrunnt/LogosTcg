@@ -36,7 +36,7 @@ namespace LogosTcg
             RemoveCardFromGridIfPresent(key);
 
             // 2) mark it assigned so loader never spawns it
-            //lm.listItems.Add(key);
+            //lm.listItems.add(key);
 
             Transform parent = listType == 0
                 ? dsm.faithfulListTf[player]

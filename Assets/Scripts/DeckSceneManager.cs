@@ -16,16 +16,11 @@ namespace LogosTcg
 
         void Awake()
         {
-
+            lm = ListManager.instance;
+            flm = FaithfulListsManager.instance;
             instance = this;
         }
 
-        void Start()
-        {
-            lm = ListManager.instance;
-            flm = FaithfulListsManager.instance;
-        }
-        
 
         [Header("hook these up in Inspector")]
         public List<Transform> faithfulListTf;
