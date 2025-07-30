@@ -13,13 +13,15 @@ namespace LogosTcg
     {
         DeckSceneManager dsm;
         ListManager lm;
-        LoadingCards lc;
+        CardLoader cl;
+        GridManager gm;
 
         void Start()
         {
             dsm = DeckSceneManager.instance;
             lm = ListManager.instance;
-            lc = LoadingCards.instance;
+            cl = CardLoader.instance;
+            gm = GridManager.instance;
         }
 
         [ServerRpc(RequireOwnership = false)]
@@ -34,7 +36,7 @@ namespace LogosTcg
             RemoveCardFromGridIfPresent(key);
 
             // 2) mark it assigned so loader never spawns it
-            LoadingCards.instance.listAssigned.Add(key);
+            //lm.listItems.Add(key);
 
             Transform parent = listType == 0
                 ? dsm.faithfulListTf[player]
@@ -43,15 +45,16 @@ namespace LogosTcg
                     : dsm.encounterListTf;
 
             var lineGO = Instantiate(lm.cardLinePrefab, parent);
+            lm.listItems.Add(key, lineGO);
             var line = lineGO.GetComponent<CardLine>();
             line.addressableKey = key;
 
             // 3) load or reuse the CardDef handle safely
-            if (!LoadingCards.instance.loadedAssets.TryGetValue(key, out var handle))
+            if (!cl.loadedAssets.TryGetValue(key, out var handle))
             {
                 // client never loaded this key, so start loading now
                 handle = Addressables.LoadAssetAsync<CardDef>(key);
-                LoadingCards.instance.loadedAssets[key] = handle;
+                cl.loadedAssets[key] = handle;
             }
 
             // 4) when the handle completes (or is already done), apply the definition
@@ -89,16 +92,16 @@ namespace LogosTcg
         public void RemoveCardFromGridIfPresent(string key)
         {
             // do we have a grid?spawned GameObject for this key?
-            if (lc.gridItems.TryGetValue(key, out var go)
-                && go.transform.IsChildOf(lc.cardGridTf))
+            if (gm.gridItems.TryGetValue(key, out var go)
+                && go.transform.IsChildOf(gm.cardGridTf))
             {
                 // destroy the UI element
                 Destroy(go);
                 // remove from our lookup
-                lc.gridItems.Remove(key);
+                gm.gridItems.Remove(key);
                 // release & forget the asset handle
-                Addressables.Release(lc.loadedAssets[key]);
-                lc.loadedAssets.Remove(key);
+                Addressables.Release(cl.loadedAssets[key]);
+                cl.loadedAssets.Remove(key);
             }
         }
 
@@ -115,11 +118,11 @@ namespace LogosTcg
         void RemoveFromOnlineListClientRpc(string addressableKey, int listType, int playerIndex)
         {
             // un?assign
-            lc.listAssigned.Remove(addressableKey);
+            lm.listItems.Remove(addressableKey);
 
             // respawn grid card
-            var cd = lc.loadedAssets[addressableKey].Result;
-            lc.AddCardToGrid(addressableKey, cd);
+            var cd = cl.loadedAssets[addressableKey].Result;
+            gm.AddCardToGrid(addressableKey);
 
             RemoveFromListIfPresent(addressableKey, listType, playerIndex);
 

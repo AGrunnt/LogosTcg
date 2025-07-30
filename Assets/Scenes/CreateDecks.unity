@@ -292,8 +292,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007137225}
-        m_TargetAssemblyTypeName: LogosTcg.LoadingCards, Assembly-CSharp
+      - m_Target: {fileID: 2007137231}
+        m_TargetAssemblyTypeName: LogosTcg.FilterLabels, Assembly-CSharp
         m_MethodName: togglePrimLabel
         m_Mode: 5
         m_Arguments:
@@ -500,8 +500,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007137225}
-        m_TargetAssemblyTypeName: LogosTcg.LoadingCards, Assembly-CSharp
+      - m_Target: {fileID: 2007137231}
+        m_TargetAssemblyTypeName: LogosTcg.FilterLabels, Assembly-CSharp
         m_MethodName: togglePrimLabel
         m_Mode: 5
         m_Arguments:
@@ -2511,8 +2511,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007137225}
-        m_TargetAssemblyTypeName: LogosTcg.LoadingCards, Assembly-CSharp
+      - m_Target: {fileID: 2007137231}
+        m_TargetAssemblyTypeName: LogosTcg.FilterLabels, Assembly-CSharp
         m_MethodName: togglePrimLabel
         m_Mode: 5
         m_Arguments:
@@ -4970,8 +4970,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007137225}
-        m_TargetAssemblyTypeName: LogosTcg.LoadingCards, Assembly-CSharp
+      - m_Target: {fileID: 2007137231}
+        m_TargetAssemblyTypeName: LogosTcg.FilterLabels, Assembly-CSharp
         m_MethodName: toggleSecLabel
         m_Mode: 5
         m_Arguments:
@@ -5829,8 +5829,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007137225}
-        m_TargetAssemblyTypeName: LogosTcg.LoadingCards, Assembly-CSharp
+      - m_Target: {fileID: 2007137231}
+        m_TargetAssemblyTypeName: LogosTcg.FilterLabels, Assembly-CSharp
         m_MethodName: toggleSecLabel
         m_Mode: 5
         m_Arguments:
@@ -5962,8 +5962,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007137225}
-        m_TargetAssemblyTypeName: LogosTcg.LoadingCards, Assembly-CSharp
+      - m_Target: {fileID: 2007137231}
+        m_TargetAssemblyTypeName: LogosTcg.FilterLabels, Assembly-CSharp
         m_MethodName: toggleSecLabel
         m_Mode: 5
         m_Arguments:
@@ -7581,8 +7581,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007137225}
-        m_TargetAssemblyTypeName: LogosTcg.LoadingCards, Assembly-CSharp
+      - m_Target: {fileID: 2007137231}
+        m_TargetAssemblyTypeName: LogosTcg.FilterLabels, Assembly-CSharp
         m_MethodName: toggleSecLabel
         m_Mode: 5
         m_Arguments:
@@ -9361,8 +9361,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007137225}
-        m_TargetAssemblyTypeName: LogosTcg.LoadingCards, Assembly-CSharp
+      - m_Target: {fileID: 2007137231}
+        m_TargetAssemblyTypeName: LogosTcg.FilterLabels, Assembly-CSharp
         m_MethodName: togglePrimLabel
         m_Mode: 5
         m_Arguments:
@@ -9638,6 +9638,9 @@ GameObject:
   - component: {fileID: 2007137226}
   - component: {fileID: 2007137229}
   - component: {fileID: 2007137228}
+  - component: {fileID: 2007137231}
+  - component: {fileID: 2007137232}
+  - component: {fileID: 2007137233}
   m_Layer: 0
   m_Name: DeckSceneManager
   m_TagString: Untagged
@@ -9703,12 +9706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3248848167c2c41943633bfbd9c7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.LoadingCards
-  cardGridTf: {fileID: 1625767003}
-  cardPrefab: {fileID: 3741231900388702740, guid: ceee556cf8cae434aae98b19a59aa10b, type: 3}
-  primLabels: []
-  secLabels: []
-  primLabs: {fileID: 2101261951}
-  secLabs: {fileID: 1953971649}
 --- !u!114 &2007137226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9735,10 +9732,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.ListManager
   cardLinePrefab: {fileID: 5954920252524353862, guid: 9d0cb02ad0569d0448111a1e1959b88b, type: 3}
-  maxTot: 0
-  rareTot: 0
-  uncomTot: 0
-  comTot: 0
 --- !u!114 &2007137228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9795,6 +9788,52 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &2007137231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007137222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a000e12698071304ba146074eaa6bcc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.FilterLabels
+  primLabs: {fileID: 2101261951}
+  secLabs: {fileID: 1953971649}
+  primLabels: []
+  secLabels: []
+--- !u!114 &2007137232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007137222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281a737596a2a8f4cb0bfb755690ab88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.GridManager
+  cardGridTf: {fileID: 1625767003}
+  gridCardPrefab: {fileID: 3741231900388702740, guid: ceee556cf8cae434aae98b19a59aa10b, type: 3}
+--- !u!114 &2007137233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007137222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56da781beef367418ae03cbbd031d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.FaithfulListsManager
+  maxTot: 0
+  rareTot: 0
+  uncomTot: 0
+  comTot: 0
 --- !u!1 &2008805099
 GameObject:
   m_ObjectHideFlags: 0

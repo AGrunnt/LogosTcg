@@ -1,5 +1,4 @@
 using LogoTcg;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -7,239 +6,99 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
+using System.Threading.Tasks;
 
 namespace LogosTcg
 {
-    public class LoadingCards : MonoBehaviour
+    public class CardLoader : MonoBehaviour
     {
-        public static LoadingCards instance;
+        public static CardLoader instance;
 
         [Header("hook these up in Inspector")]
-        public Transform cardGridTf;
-        public GameObject cardPrefab;
+        ListManager lm;
 
-        public List<string> primLabels;
-        public List<string> secLabels;
+
+
         public Dictionary<string, AsyncOperationHandle<CardDef>> loadedAssets = new();
-        public Dictionary<string, GameObject> gridItems = new();
 
-        // ? cards currently “in a list” will be parked here
-        public HashSet<string> listAssigned = new HashSet<string>();
+
+        GridManager gm;
 
         void Awake() => instance = this;
-        void Start() => RefreshGrid();
-
-        public void togglePrimLabel(string label)
+        //async void Start() => await RefreshGridAsync();
+        void Start()
         {
-            if (primLabels.Contains(label)) primLabels.Remove(label);
-            else primLabels.Add(label);
-            RefreshGrid();
-            UpdateLabelDisplay();
+            gm = GridManager.instance;
+            lm = ListManager.instance;
+
         }
 
-        public void toggleSecLabel(string label)
+        public async Task LoadNewKeys(HashSet<string> newKeys)
         {
-            if (secLabels.Contains(label)) secLabels.Remove(label);
-            else secLabels.Add(label);
-            RefreshGrid();
-            UpdateLabelDisplay();
-        }
+            var keysToLoad = newKeys.Except(loadedAssets.Keys).ToList();
+            var loadTasks = new List<Task<CardDef>>();
 
-        public TextMeshProUGUI primLabs;
-        public TextMeshProUGUI secLabs;
+            foreach (var key in keysToLoad)
+                loadTasks.Add(LoadCardDefAsync(key));
 
-        void UpdateLabelDisplay()
-        {
-            primLabs.text = primLabels.Count > 0
-                ? string.Join("\n", primLabels)
-                : "<none>";
-            secLabs.text = secLabels.Count > 0
-                ? string.Join("\n", secLabels)
-                : "<none>";
-        }
+            var results = await Task.WhenAll(loadTasks);
 
-        public void RefreshGrid()
-        {
-            StopAllCoroutines();
-            StartCoroutine(DoRefreshGrid());
-        }
-        /*
-        IEnumerator DoRefreshGrid()
-        {
-            // 1) fetch all matching locations
-            var locHandle = Addressables.LoadResourceLocationsAsync(
-                                activeLabels.ToArray(),
-                                Addressables.MergeMode.Intersection);
-            yield return locHandle;
-            var locations = locHandle.Result;
-            Addressables.Release(locHandle);
-
-            var newKeys = new HashSet<string>(
-                            locations.Select(loc => loc.PrimaryKey));*/
-        IEnumerator DoRefreshGrid()
-        {
-            IList<IResourceLocation> filteredLocations;
-
-            // 1) decide which filters to apply
-            bool hasPrim = primLabels != null && primLabels.Count > 0;
-            bool hasSec = secLabels != null && secLabels.Count > 0;
-
-            if (!hasPrim && !hasSec)
+            for (int i = 0; i < results.Length; i++)
             {
-                // no filters ? show all cards (assumes you've tagged every card asset with a "Card" label)
-                var allHandle = Addressables.LoadResourceLocationsAsync(
-                                    new[] { "Card" },
-                                    Addressables.MergeMode.Union);
-                yield return allHandle;
-                filteredLocations = allHandle.Result;
-                Addressables.Release(allHandle);
-            }
-            else
-            {
-                IList<IResourceLocation> primLocs = null, secLocs = null;
+                var key = keysToLoad[i];
+                var cardDef = results[i];
 
-                // primary filter: union of all primLabels
-                if (hasPrim)
-                {
-                    var primHandle = Addressables.LoadResourceLocationsAsync(
-                                        primLabels.ToArray(),
-                                        Addressables.MergeMode.Union);
-                    yield return primHandle;
-                    primLocs = primHandle.Result;
-                    Addressables.Release(primHandle);
-                }
+                if (cardDef == null || lm.listItems.ContainsKey(key)) continue;
 
-                // secondary filter: union of all secLabels
-                if (hasSec)
-                {
-                    var secHandle = Addressables.LoadResourceLocationsAsync(
-                                        secLabels.ToArray(),
-                                        Addressables.MergeMode.Union);
-                    yield return secHandle;
-                    secLocs = secHandle.Result;
-                    Addressables.Release(secHandle);
-                }
+                var card = Instantiate(gm.gridCardPrefab, gm.cardGridTf).GetComponent<Card>();
+                card.addressableKey = key;
+                card.Apply(cardDef);
+                card.SetFacing(true);
+                card.GetComponent<Gobject>().draggable = false;
 
-                // combine
-                if (hasPrim && hasSec)
-                {
-                    // intersect primLocs ? secLocs ? at least one prim **and** one sec
-                    filteredLocations = primLocs
-                        .Intersect(secLocs, new ResourceLocationComparer())
-                        .ToList();
-                }
-                else
-                {
-                    // only one filter active
-                    filteredLocations = primLocs ?? secLocs;
-                }
+                gm.gridItems[key] = card.gameObject;
             }
 
-            // 2) pull out your keys
-            var newKeys = new HashSet<string>(
-                            filteredLocations.Select(loc => loc.PrimaryKey));
+            Debug.Log("Loaded all new keys");
+            gm.ReorderGrid();
+        }
 
-            // 2) destroy any grid cards no longer in newKeys
-            foreach (var key in loadedAssets.Keys.Except(newKeys).ToList())
+
+        public async Task<CardDef> LoadCardDefAsync(string key)
+        {
+            var handle = Addressables.LoadAssetAsync<CardDef>(key);
+            loadedAssets[key] = handle;
+            await handle.Task;
+            return handle.Status == AsyncOperationStatus.Succeeded ? handle.Result : null;
+        }
+
+        public void RemoveCardMapping(string key, bool unloadBool)
+        {
+            if (gm.gridItems.ContainsKey(key))
             {
-                if (gridItems.TryGetValue(key, out var go)
-                    && go.transform.IsChildOf(cardGridTf))
-                {
-                    Destroy(go);
-                    gridItems.Remove(key);
-                    Addressables.Release(loadedAssets[key]);
-                    loadedAssets.Remove(key);
-                }
+                GameObject obj = gm.gridItems[key];
+                gm.gridItems.Remove(key);
+                Destroy(obj);
+            }
+            if (lm.listItems.ContainsKey(key))
+            {
+                GameObject obj = lm.listItems[key];
+                lm.listItems.Remove(key);
+                Destroy(obj);
+            }
+            if (unloadBool)
+            {
+                Addressables.Release(loadedAssets[key]);
+                loadedAssets.Remove(key);
             }
 
-            // … inside your DoRefreshGrid() …
-
-            // 3) kick off loads for brand?new keys
-            foreach (var key in newKeys.Except(loadedAssets.Keys))
+            /*
+            if (cl.loadedAssets.TryGetValue(key, out var handle))
             {
-                // capture it so the lambda “remembers” the right string
-                var capturedKey = key;
-
-                var handle = Addressables.LoadAssetAsync<CardDef>(capturedKey);
-                loadedAssets[capturedKey] = handle;
-                handle.Completed += op =>
-                {
-                    if (op.Status != AsyncOperationStatus.Succeeded)
-                        return;
-
-                    var cd = op.Result;
-
-                    // if it’s already in one of your lists, bail
-                    if (listAssigned.Contains(capturedKey))
-                        return;
-
-                    // spawn into the grid
-                    var go = Instantiate(cardPrefab, cardGridTf);
-                    var c = go.GetComponent<Card>();
-                    c.addressableKey = capturedKey;   // stash the key you captured
-                    c.Apply(cd);
-                    c.SetFacing(true);
-                    go.GetComponent<Gobject>().draggable = false;
-
-                    gridItems[capturedKey] = go;
-                    ReorderGrid();
-                };
+                Addressables.Release(handle);  // Safe if no one else uses it
+                cl.loadedAssets.Remove(key);
             }
-
-
-            // 4) if user just removed from a list, re?spawn here
-            foreach (var key in loadedAssets.Keys)
-            {
-                var h = loadedAssets[key];
-                if (h.IsDone
-                    && h.Status == AsyncOperationStatus.Succeeded
-                    && !listAssigned.Contains(key)
-                    && !gridItems.ContainsKey(key))
-                {
-                    SpawnGridCard(key, h.Result);
-                }
-            }
-        }
-
-        void SpawnGridCard(string key, CardDef cd)
-        {
-            var go = Instantiate(cardPrefab, cardGridTf);
-            var c = go.GetComponent<Card>();
-            c.addressableKey = key;
-            c.Apply(cd);
-            c.SetFacing(true);
-            go.GetComponent<Gobject>().draggable = false;
-
-            gridItems[key] = go;
-            ReorderGrid();
-        }
-
-        void ReorderGrid()
-        {
-            var sorted = loadedAssets
-                .Where(kv => gridItems.ContainsKey(kv.Key)
-                             && kv.Value.IsDone
-                             && kv.Value.Status == AsyncOperationStatus.Succeeded)
-                .Select(kv => new { Key = kv.Key, Name = kv.Value.Result.name })
-                .OrderBy(x => x.Name)
-                .ToList();
-
-            for (int i = 0; i < sorted.Count; i++)
-                gridItems[sorted[i].Key].transform.SetSiblingIndex(i);
-        }
-
-        // called by DeckSceneManager after you Destroy(...) a grid card
-        public void RemoveGridCardMapping(string key)
-        {
-            gridItems.Remove(key);
-        }
-
-        // called by DeckSceneManager when a card is removed from a list
-        public void AddCardToGrid(string key, CardDef cd)
-        {
-            if (listAssigned.Contains(key) || gridItems.ContainsKey(key))
-                return;
-            SpawnGridCard(key, cd);
+            */
         }
     }
 }

@@ -2,26 +2,33 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using System.Collections;
 
 namespace LogosTcg
 {
-    public class PopulateLists : MonoBehaviour
+    public class AutoPopulateLists : MonoBehaviour
     {
         ListManager lm;
         DeckSceneManager dsm;
+        CardLoader cl;
+        FaithfulListsManager flm;
+        GridManager gm;
 
         void Start()
         {
-            lm = GetComponent<ListManager>();
+            lm = ListManager.instance;
             dsm = DeckSceneManager.instance;
+            cl = CardLoader.instance;
+            flm = FaithfulListsManager.instance;
+            gm = GridManager.instance;
         }
 
         // call this when you want to finish?populate everything:
         public void AutoPopulateAll()
         {
             AutoPopulateAllFaithful();
-            PopulateEncounterList();
-            PopulateLocationList();
+            StartCoroutine(PopulateEncounterList());
+            StartCoroutine(PopulateLocationList());
         }
 
         public void AutoPopulateAllFaithful()
@@ -30,24 +37,32 @@ namespace LogosTcg
             for (int i = 0; i < dsm.faithfulListTf.Count; i++)
             {
                 dsm.currPlayer = i;
-                PopulateFaithfulList();
+                StartCoroutine(PopulateFaithfulList());
             }
             dsm.currPlayer = old;
         }
 
-        void PopulateFaithfulList()
+        IEnumerator PopulateFaithfulList()
         {
             var tf = dsm.faithfulListTf[dsm.currPlayer];
             // your per?rarity targets:
             var targets = new Dictionary<string, int>
             {
-                ["Rare"] = lm.rareTot,
-                ["Uncommon"] = lm.uncomTot,
-                ["Common"] = lm.comTot
+                ["Rare"] = flm.rareTot,
+                ["Uncommon"] = flm.uncomTot,
+                ["Common"] = flm.comTot
             };
 
             foreach (var kv in targets)
             {
+
+                if (dsm.faithfulListTf[GetComponent<DeckSceneManager>().currPlayer].childCount >= flm.maxTot)
+                {
+                    Debug.LogWarning($"Cannot add more than {flm.maxTot} Faithful cards.");
+                    yield break;
+                }
+
+                yield return new WaitForSeconds(0.85f);
                 string rarity = kv.Key;
                 int desired = kv.Value;
 
@@ -59,7 +74,7 @@ namespace LogosTcg
                 if (needed <= 0) continue;
 
                 // pick from the grid all Faithful cards of that rarity
-                var candidates = LoadingCards.instance.cardGridTf
+                var candidates = gm.cardGridTf
                     .GetComponentsInChildren<Card>()
                     .Where(c => c._definition.Type.Contains("Faithful")
                              && c._definition.Rarity == rarity)
@@ -72,8 +87,11 @@ namespace LogosTcg
                     var go = candidates[idx];
                     candidates.RemoveAt(idx);
 
+
+                    yield return new WaitForSeconds(1.85f);
+                    //yield return new WaitForSeconds(0.1f);
                     // this will now deposit into faithfulListTf[currPlayer]
-                    lm.AddToList(go);
+                    lm.AddToList(go.GetComponent<Card>().addressableKey);
                 }
             }
 
@@ -81,7 +99,7 @@ namespace LogosTcg
         }
 
 
-        void PopulateEncounterList()
+        IEnumerator PopulateEncounterList()
         {
             const int totalEventSlots = 23;
 
@@ -106,7 +124,7 @@ namespace LogosTcg
                 int needed = desired - current;
                 if (needed <= 0) continue;
 
-                var candidates = LoadingCards.instance.cardGridTf
+                var candidates = gm.cardGridTf
                     .GetComponentsInChildren<Card>()
                     .Where(c => c._definition.Type.Contains(typeKey))
                     .Select(c => c.gameObject)
@@ -117,7 +135,8 @@ namespace LogosTcg
                     int idx = Random.Range(0, candidates.Count);
                     var go = candidates[idx];
                     candidates.RemoveAt(idx);
-                    lm.AddToList(go);
+                    lm.AddToList(go.GetComponent<Card>().addressableKey);
+                    yield return new WaitForSeconds(0.5f);
                 }
             }
 
@@ -151,7 +170,7 @@ namespace LogosTcg
                 int needed = desired - current;
                 if (needed <= 0) continue;
 
-                var candidates = LoadingCards.instance.cardGridTf
+                var candidates = gm.cardGridTf
                     .GetComponentsInChildren<Card>()
                     .Where(c => c._definition.Type.Contains("Event")
                              && (
@@ -170,7 +189,8 @@ namespace LogosTcg
                     int idx = Random.Range(0, candidates.Count);
                     var go = candidates[idx];
                     candidates.RemoveAt(idx);
-                    lm.AddToList(go);
+                    yield return new WaitForSeconds(0.5f);
+                    lm.AddToList(go.GetComponent<Card>().addressableKey);
                 }
             }
 
@@ -183,7 +203,7 @@ namespace LogosTcg
             int slotsLeft = totalEventSlots - currentEvents;
             if (slotsLeft > 0)
             {
-                var noAbilityCandidates = LoadingCards.instance.cardGridTf
+                var noAbilityCandidates = gm.cardGridTf
                     .GetComponentsInChildren<Card>()
                     .Where(c =>
                         c._definition.Type.Contains("Event")
@@ -197,20 +217,21 @@ namespace LogosTcg
                     int idx = Random.Range(0, noAbilityCandidates.Count);
                     var go = noAbilityCandidates[idx];
                     noAbilityCandidates.RemoveAt(idx);
-                    lm.AddToList(go);
+                    yield return new WaitForSeconds(0.5f);
+                    lm.AddToList(go.GetComponent<Card>().addressableKey);
                 }
             }
         }
 
 
-        void PopulateLocationList()
+        IEnumerator PopulateLocationList()
         {
             // assume max 10 locations; if yours varies, pull from a variable
             const int maxLocations = 10;
             int needed = maxLocations - dsm.locationListTf.childCount;
-            if (needed <= 0) return;
+            if (needed <= 0) yield break;
 
-            var candidates = LoadingCards.instance.cardGridTf
+            var candidates = gm.cardGridTf
                 .GetComponentsInChildren<Card>()
                 .Where(c => c._definition.Type.Contains("Location"))
                 .Select(c => c.gameObject)
@@ -221,7 +242,8 @@ namespace LogosTcg
                 int idx = Random.Range(0, candidates.Count);
                 var go = candidates[idx];
                 candidates.RemoveAt(idx);
-                lm.AddToList(go);
+                lm.AddToList(go.GetComponent<Card>().addressableKey);
+                yield return new WaitForSeconds(0.5f);
             }
         }
     }

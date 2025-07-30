@@ -3,76 +3,48 @@ using Unity.Burst.Intrinsics;
 using UnityEngine;
 using System.Linq;
 using Unity.Netcode;
+using UnityEngine.AddressableAssets;
 
 namespace LogosTcg
 {
     public class ListManager : MonoBehaviour
     {
+        public Dictionary<string, GameObject> listItems = new();
+        //public Transform cardListTf;
+        //public HashSet<string> listAssigned = new();
 
         public static ListManager instance;
         ListOnlineManager lom;
+        FaithfulListsManager flm;
+        GridManager gm;
+        CardLoader cl;
 
         void Awake()
         {
             instance = this;
             lom = GetComponent<ListOnlineManager>();
+            flm = FaithfulListsManager.instance;
+            gm = GridManager.instance;
+            cl = CardLoader.instance;
         }
         
-        /*
-        public List<Transform> faithfulListTf;
-        public List<Transform> playerListTf;
-        public List<Transform> faithfulBtnTf;
-        public Transform encounterListTf;
-        public Transform locationListTf;
-        */
         DeckSceneManager dsm;
         public GameObject cardLinePrefab;
 
-        public int maxTot = 0;
-        public int rareTot = 0;
-        public int uncomTot = 0;
-        public int comTot = 0;
+        
 
         void Start()
         {
             dsm = DeckSceneManager.instance;
-
-            int playerCount;
-            if (NetworkManager.Singleton != null)
-                playerCount = 1;
-            else
-                playerCount = StaticData.playerNums;
-
-            for (int i = 3; i > StaticData.playerNums - 1; i--)
-            {
-                dsm.faithfulListTf.RemoveAt(i);
-                dsm.playerListTf.RemoveAt(i);
-                dsm.faithfulBtnTf[i].gameObject.SetActive(false);
-            }
-
-            switch (StaticData.playerNums)
-            {
-                case 3:
-                    maxTot = 10; rareTot = 2; uncomTot = 3; comTot = 5;
-                    break;
-                case 4:
-                    maxTot = 8; rareTot = 1; uncomTot = 3; comTot = 4;
-                    break;
-                default:
-                    maxTot = 12; rareTot = 2; uncomTot = 4; comTot = 6;
-                    break;
-            }
-
-            dsm.UpdateFaithfulStats();
         }
 
         // ---------------------------------------------------
         // Move a grid?card into one of the three lists:
-        public void AddToList(GameObject gridCardObj)
+        public void AddToList(string key)
         {
-            var c = gridCardObj.GetComponent<Card>();
+            GameObject obj = gm.gridItems[key];
+            Card c = obj.GetComponent<Card>();
             var cd = c._definition;
-            var key = c.addressableKey;
 
             bool isFaithful = cd.Type.Contains("Faithful");
             bool isLocation = cd.Type.Contains("Location");
@@ -91,26 +63,9 @@ namespace LogosTcg
                 return;
             }
 
-            if (isFaithful)
+            if (isFaithful && !flm.ValidFaithful(cd))
             {
-                // total cap
-                if (dsm.faithfulListTf[GetComponent<DeckSceneManager>().currPlayer].childCount >= maxTot)
-                {
-                    Debug.LogWarning($"Cannot add more than {maxTot} Faithful cards.");
-                    return;
-                }
-
-                // rarity cap
-                int currRare = dsm.faithfulListTf[GetComponent<DeckSceneManager>().currPlayer].GetComponentsInChildren<CardLine>()
-                                  .Count(l => l.cardDef.Rarity == "Rare");
-                int currUncom = dsm.faithfulListTf[GetComponent<DeckSceneManager>().currPlayer].GetComponentsInChildren<CardLine>()
-                                  .Count(l => l.cardDef.Rarity == "Uncommon");
-                int currCom = dsm.faithfulListTf[GetComponent<DeckSceneManager>().currPlayer].GetComponentsInChildren<CardLine>()
-                                  .Count(l => l.cardDef.Rarity == "Common");
-
-                if (cd.Rarity == "Rare" && currRare >= rareTot) { Debug.LogWarning($"Max {rareTot} Rares."); return; }
-                if (cd.Rarity == "Uncommon" && currUncom >= uncomTot) { Debug.LogWarning($"Max {uncomTot} Uncommons."); return; }
-                if (cd.Rarity == "Common" && currCom >= comTot) { Debug.LogWarning($"Max {comTot} Commons."); return; }
+                return;
             }
             // ?????????????????????????????????????????????????????????????
 
@@ -123,9 +78,6 @@ namespace LogosTcg
                 lom.AddToOnlineListServerRpc(key, dsm.currPlayer, listType);
                 return;
             }
-
-            // 2) mark it assigned so loader never spawns it
-            LoadingCards.instance.listAssigned.Add(key);
 
             // 3) spawn a CardLine in the right list
             var parent = isFaithful ? dsm.faithfulListTf[GetComponent<DeckSceneManager>().currPlayer]
@@ -140,20 +92,23 @@ namespace LogosTcg
             line.addressableKey = key;
 
             // 4) destroy the grid object + clear our internal map
-            Destroy(gridCardObj);
-            LoadingCards.instance.RemoveGridCardMapping(key);
+            CardLoader.instance.RemoveCardMapping(key, false);
+
+            // 2) mark it assigned so loader never spawns it
+            //listAssigned.Add(key);
+            listItems.Add(key, line.gameObject);
 
             // 5) update our stats display
             if (isFaithful) GetComponent<DeckSceneManager>().UpdateFaithfulStats();
         }
 
-        // ---------------------------------------------------
-        // Take a CardLine out of a list & pop it back into the grid:
-        public void RemoveFromList(GameObject cardLineObj)
+        public void RemoveFromList(string key)
         {
-            var line = cardLineObj.GetComponent<CardLine>();
+            string test = key;
+            GameObject obj = listItems[key];
+            var line = obj.GetComponent<CardLine>();
             var cd = line.cardDef;
-            var key = line.addressableKey;
+            //var key = line.addressableKey;
             int listType = line.cardDef.Type.Contains("Faithful") ? 0
                          : line.cardDef.Type.Contains("Location") ? 1
                          : 2;
@@ -163,19 +118,14 @@ namespace LogosTcg
                 lom.RemoveFromOnlineListServerRpc(key, listType, dsm.currPlayer);
                 return;
             }
-
-            // 1) un?mark so loader can spawn it again
-            LoadingCards.instance.listAssigned.Remove(key);
-
-            // 2) destroy the line UI
-            Destroy(cardLineObj);
-
-            // 3) respawn into grid (if it still matches)
-            LoadingCards.instance.AddCardToGrid(key, cd);
+            bool added = gm.AddCardToGrid(key);
+            cl.RemoveCardMapping(key, !added);
 
             // 4) if it was a Faithful line, update stats
-            if (cd.Type.Contains("Faithful"))
+            if (listType == 0)
                 GetComponent<DeckSceneManager>().UpdateFaithfulStats();
+
         }
+
     }
 }

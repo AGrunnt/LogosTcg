@@ -10,7 +10,7 @@ namespace LogosTcg
 {
     public class CardTogAttachment : MonoBehaviour, IPointerClickHandler
     {
-        public bool inList = false;
+        public bool inList = false; 
 
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -22,27 +22,22 @@ namespace LogosTcg
                 obj = eventData.pointerCurrentRaycast.gameObject.GetComponentInParent<CardLine>().gameObject;
 
 
-            if (obj.GetComponent<CardLine>() != null)
+            if (obj.GetComponent<CardLine>() != null )
             {
-                ListManager.instance.RemoveFromList(obj);
-                /*
-                if(NetworkManager.Singleton == null)
-                    DeckSceneManager.instance.RemoveFromList(obj);
-                else
-                    DeckSceneManager.instance.RemoveFromOnlineListServerRpc(obj.GetComponent<Card>().addressableKey, DeckSceneManager.instance.currPlayer);
-                */
-                Debug.Log("remove from list");
-            }
-            else if (GetComponent<Card>() != null)
-            {
-                ListManager.instance.AddToList(obj);
-                /*
-                if (NetworkManager.Singleton == null)
-                    DeckSceneManager.instance.AddToList(obj);
-                else
-                    DeckSceneManager.instance.AddToOnlineList(obj);
+                ListManager.instance.RemoveFromList(obj.GetComponent<CardLine>().addressableKey);
+                RefreshGrid();
 
-                */
+
+            }
+            else if (GetComponent<Card>() != null )
+            {
+                ListManager.instance.AddToList(obj.GetComponent<Card>().addressableKey);
+                RefreshGrid();
+            }
+
+            async void RefreshGrid()
+            {
+                await GridManager.instance.RefreshGridAsync();
             }
             }
     }

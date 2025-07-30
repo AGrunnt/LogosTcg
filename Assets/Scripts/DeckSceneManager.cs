@@ -12,6 +12,7 @@ namespace LogosTcg
     {
         public static DeckSceneManager instance;
         ListManager lm;
+        FaithfulListsManager flm;
 
         void Awake()
         {
@@ -22,6 +23,7 @@ namespace LogosTcg
         void Start()
         {
             lm = ListManager.instance;
+            flm = FaithfulListsManager.instance;
         }
         
 
@@ -61,9 +63,9 @@ namespace LogosTcg
 
             // build text: “1 / 2 Rares, 3 / 5 Commons, …”
             faithfulStatsText.text =
-                $"{currRare} / {lm.rareTot} Rares,  " +
-                $"{currUncom} / {lm.uncomTot} Uncommons,  " +
-                $"{currCom} / {lm.comTot} Commons";
+                $"{currRare} / {flm.rareTot} Rares,  " +
+                $"{currUncom} / {flm.uncomTot} Uncommons,  " +
+                $"{currCom} / {flm.comTot} Commons";
         }
 
         // ???????????????????????????????????????????????????????????????
