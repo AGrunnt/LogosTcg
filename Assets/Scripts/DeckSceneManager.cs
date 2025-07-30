@@ -16,9 +16,14 @@ namespace LogosTcg
 
         void Awake()
         {
+
+            instance = this;
+        }
+
+        private void Start()
+        {
             lm = ListManager.instance;
             flm = FaithfulListsManager.instance;
-            instance = this;
         }
 
 

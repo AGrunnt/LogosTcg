@@ -22,10 +22,7 @@ namespace LogosTcg
         void Awake()
         {
             instance = this;
-            lom = GetComponent<ListOnlineManager>();
-            flm = FaithfulListsManager.instance;
-            gm = GridManager.instance;
-            cl = CardLoader.instance;
+
         }
         
         DeckSceneManager dsm;
@@ -35,7 +32,12 @@ namespace LogosTcg
 
         void Start()
         {
+            lom = GetComponent<ListOnlineManager>();
+            flm = FaithfulListsManager.instance;
+            gm = GridManager.instance;
+            cl = CardLoader.instance;
             dsm = DeckSceneManager.instance;
+            //dsm = DeckSceneManager.instance;
         }
 
         // ---------------------------------------------------

@@ -37,15 +37,18 @@ namespace LogosTcg
         public async Task RefreshGridAsync()
         {
             var filteredLocations = await fl.GetFilteredLocationsAsync();
-            var newKeys = new HashSet<string>(filteredLocations.Select(loc => loc.PrimaryKey));
+            var newKeys = new HashSet<string>(
+                filteredLocations.Select(loc => loc.PrimaryKey)
+                .Concat(lm.listItems.Keys)
+            );
 
-            DestroyGridItems(cl.loadedAssets.Keys.Except(newKeys).ToList());
+            DestroyItems(cl.loadedAssets.Keys.Except(newKeys).ToList());
             await cl.LoadNewKeys(newKeys);
             InstantiateLoadedCardsNotInListOrGrid();
 
         }
 
-        public bool AddCardToGrid(string key)
+        public bool AddCardToGrid(string key) 
         {
             if (lm.listItems.ContainsKey(key) || gridItems.ContainsKey(key))
             {
@@ -67,7 +70,7 @@ namespace LogosTcg
                 gridItems[sorted[i].Key].transform.SetSiblingIndex(i);
         }
 
-        public void DestroyGridItems(List<string> keyList)
+        public void DestroyItems(List<string> keyList)
         {
             foreach (var key in keyList)
             {
