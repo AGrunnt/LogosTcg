@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LogosTcg
 {
@@ -22,6 +24,7 @@ namespace LogosTcg
             lm = ListManager.instance;
             cl = CardLoader.instance;
             gm = GridManager.instance;
+            
         }
 
         [ServerRpc(RequireOwnership = false)]
@@ -33,6 +36,7 @@ namespace LogosTcg
         [ClientRpc]
         public void AddToOnlineListClientRpc(string key, int player, int listType)
         {
+            Debug.Log("test2");
             RemoveCardFromGridIfPresent(key);
 
             // 2) mark it assigned so loader never spawns it
@@ -83,7 +87,7 @@ namespace LogosTcg
                 StartCoroutine(UpdateFaithfulDelayed());
         }
 
-        IEnumerator UpdateFaithfulDelayed()
+        public IEnumerator UpdateFaithfulDelayed()
         {
             yield return new WaitForSeconds(1.0f);
             dsm.UpdateFaithfulStats();
@@ -100,7 +104,7 @@ namespace LogosTcg
                 // remove from our lookup
                 gm.gridItems.Remove(key);
                 // release & forget the asset handle
-                Addressables.Release(cl.loadedAssets[key]);
+                Addressables.Release(cl.loadedAssets[key]); // may not want to do this
                 cl.loadedAssets.Remove(key);
             }
         }
@@ -131,7 +135,7 @@ namespace LogosTcg
                 dsm.UpdateFaithfulStats();
         }
 
-        void RemoveFromListIfPresent(string key, int listType, int playerIndex)
+        public void RemoveFromListIfPresent(string key, int listType, int playerIndex)
         {
             Transform parent =
                 listType == 0 ? dsm.faithfulListTf[playerIndex]
@@ -153,5 +157,8 @@ namespace LogosTcg
                 //lc.loadedAssets.Remove(key);
             
         }
+
+
+        
     }
 }

@@ -10,6 +10,8 @@ namespace LogosTcg
     public class ListManager : MonoBehaviour
     {
         public Dictionary<string, GameObject> listItems = new();
+        public bool offline = true;
+        public List<string> tempListItems;
         //public Transform cardListTf;
         //public HashSet<string> listAssigned = new();
 
@@ -24,7 +26,14 @@ namespace LogosTcg
             instance = this;
 
         }
-        
+
+        private void Update()
+        {
+            tempListItems = listItems.Keys.ToList();
+        }
+
+
+
         DeckSceneManager dsm;
         public GameObject cardLinePrefab;
 
@@ -44,6 +53,7 @@ namespace LogosTcg
         // Move a grid?card into one of the three lists:
         public void AddToList(string key)
         {
+            Debug.Log("test");
             GameObject obj = gm.gridItems[key];
             Card c = obj.GetComponent<Card>();
             var cd = c._definition;

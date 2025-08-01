@@ -9641,6 +9641,7 @@ GameObject:
   - component: {fileID: 2007137231}
   - component: {fileID: 2007137232}
   - component: {fileID: 2007137233}
+  - component: {fileID: 2007137234}
   m_Layer: 0
   m_Name: DeckSceneManager
   m_TagString: Untagged
@@ -9731,6 +9732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e525ab2da70d7914fbd5ec07440ca470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.ListManager
+  offline: 1
   cardLinePrefab: {fileID: 5954920252524353862, guid: 9d0cb02ad0569d0448111a1e1959b88b, type: 3}
 --- !u!114 &2007137228
 MonoBehaviour:
@@ -9834,6 +9836,18 @@ MonoBehaviour:
   rareTot: 0
   uncomTot: 0
   comTot: 0
+--- !u!114 &2007137234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007137222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1caa08c15bd556246afbdb49923c3f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.PopulateOnlineList
 --- !u!1 &2008805099
 GameObject:
   m_ObjectHideFlags: 0
