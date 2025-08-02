@@ -8,6 +8,7 @@ namespace LogosTcg
     {
         InstantiateDecks instantiateDecks;
         PopulateDecks populateDecks;
+        public bool test = false;
 
         void Start()
         {
@@ -19,7 +20,10 @@ namespace LogosTcg
 
         private IEnumerator Sequence()
         {
-            yield return populateDecks.LoadAndPartitionBaseSet();
+            yield return null;
+            
+            if(test)
+                yield return populateDecks.LoadAndPartitionBaseSet();
 
             GetComponent<InitializeBoards>().SetUpBoards();
             instantiateDecks.SetUpDecks();

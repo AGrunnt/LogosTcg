@@ -51,7 +51,6 @@ namespace LogosTcg
             int old = dsm.currPlayer;
             for (int i = 0; i < dsm.faithfulListTf.Count; i++)
             {
-                Debug.Log($"loop player{i}");
                 dsm.currPlayer = i;
                 //await PopulateFaithfulList();
                 yield return PopulateFaithfulList();
@@ -77,7 +76,6 @@ namespace LogosTcg
 
             foreach (var kv in targets)
             {
-                Debug.Log(kv.Key);
                 if (tf.childCount >= flm.maxTot)
                 {
                     Debug.LogWarning($"Cannot add more than {flm.maxTot} Faithful cards. ");

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Trent\\Documents\\LogosTcg\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\populateonlinelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\populateonlinelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\scenescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\listmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\listmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\populateonlinelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\populateonlinelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\listonlinemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,6 +17,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\deckscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\deckscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\listmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\listmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\populatelists.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,8 +46,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SceneScript.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\SceneScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SceneScript.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\SceneScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SceneScript.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T22:28:45.857Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -52,19 +69,19 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\DeckSceneManager.cs",
               "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DeckSceneManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\DeckSceneManager.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAQwC4AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAASwDsAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T00:46:33.893Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PopulateOnlineList.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\PopulateOnlineList.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PopulateOnlineList.cs",
               "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\PopulateOnlineList.cs",
               "RelativeToolTip": "Assets\\Scripts\\PopulateOnlineList.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAowAYBAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAADQBAAAAAAAAAAAQwDwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T23:20:05.346Z",
               "EditorCaption": ""
@@ -77,38 +94,37 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\ListOnlineManager.cs",
               "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\ListOnlineManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\ListOnlineManager.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAcwF4AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAIwCYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T21:13:28.954Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PopulateLists.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\PopulateLists.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PopulateLists.cs",
               "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\PopulateLists.cs",
               "RelativeToolTip": "Assets\\Scripts\\PopulateLists.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAkwCoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwCoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-20T23:04:05.951Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ListManager.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\ListManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ListManager.cs",
               "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\ListManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\ListManager.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAswDcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T23:00:12.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-20T23:00:12.838Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FaithfulListsManager.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\FaithfulListsManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FaithfulListsManager.cs",
@@ -120,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CardTogAttachment.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\CardTogAttachment.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CardTogAttachment.cs",
@@ -132,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "LoadingCards.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\LoadingCards.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LoadingCards.cs",

@@ -53,7 +53,6 @@ namespace LogosTcg
         // Move a grid?card into one of the three lists:
         public void AddToList(string key)
         {
-            Debug.Log("test");
             GameObject obj = gm.gridItems[key];
             Card c = obj.GetComponent<Card>();
             var cd = c._definition;

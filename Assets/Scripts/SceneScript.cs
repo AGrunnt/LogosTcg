@@ -15,35 +15,40 @@ namespace LogosTcg
 
         public void StartGame()
         {
-            if(NetworkManager.Singleton == null)
-            {
-                encounter.CardCollection =
+            encounter.CardCollection =
                     GetComponent<DeckSceneManager>()
                       .encounterListTf
                       .GetComponentsInChildren<CardLine>()
                       .Select(l => l.cardDef)
                       .ToList();
 
-                location.CardCollection =
+            location.CardCollection =
+                GetComponent<DeckSceneManager>()
+                  .locationListTf
+                  .GetComponentsInChildren<CardLine>()
+                  .Select(l => l.cardDef)
+                  .ToList();
+
+            Debug.Log($"static players {StaticData.playerNums}");
+            for (int i = 0; i < StaticData.playerNums; i++)
+            {
+                Debug.Log($"list item {i}");
+                faithfulList[i].CardCollection =
                     GetComponent<DeckSceneManager>()
-                      .locationListTf
+                      .faithfulListTf[i]
                       .GetComponentsInChildren<CardLine>()
                       .Select(l => l.cardDef)
                       .ToList();
+            }
 
-                for (int i = 0; i <4; i++)
-                {
-                    faithfulList[i].CardCollection =
-                        GetComponent<DeckSceneManager>()
-                          .faithfulListTf[i]
-                          .GetComponentsInChildren<CardLine>()
-                          .Select(l => l.cardDef)
-                          .ToList();
-                }
-                SceneManager.LoadSceneAsync("CreateDecks", LoadSceneMode.Single);
+            //return;
+            if (NetworkManager.Singleton == null)
+            {
+                SceneManager.LoadSceneAsync("PlayBoard", LoadSceneMode.Single);
             } else
             {
-                StartCoroutine(LoadPlayBoardCoroutine());
+                if(NetworkManager.Singleton.IsHost)
+                    StartCoroutine(LoadPlayBoardCoroutine());
             }
         }
 
@@ -51,7 +56,7 @@ namespace LogosTcg
         {
             yield return null;
             // 3) now that everyone has their StaticData.playerNums set, load the scene
-            NetworkManager.Singleton.SceneManager.LoadScene("CreateDecks", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("PlayBoard", LoadSceneMode.Single);
         }
     }
 }
