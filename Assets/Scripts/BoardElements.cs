@@ -1,19 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LogosTcg
 {
     public class BoardElements : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
+        public static BoardElements instance;
+        void Awake() => instance = this;
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        public List<Transform> playerBoards;
+        public List<Transform> columns;
+        public List<Transform> faithfulDecks;
+        public Transform locDeck;
+        public List<Transform> hands;
+        public List<Transform> locSlots;
+        public Transform encountersDeck;
+
     }
 }

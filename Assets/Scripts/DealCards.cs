@@ -7,10 +7,12 @@ namespace LogosTcg
 {
     public class DealCards : MonoBehaviour
     {
-        public Transform locDeck;
-        public List<Transform> FaithfulDecks;
-        public List<GameObject> hands;
-        public List<Transform> locSlots;
+        BoardElements be;
+
+        private void Start()
+        {
+            be = BoardElements.instance;
+        }
 
         /*
         public void SetHands()
@@ -34,13 +36,13 @@ namespace LogosTcg
 
             for (int i = 0; i < 3 + modifier; i++)
             {
-                SendTopTo(locDeck, locSlots[i]);
+                SendTopTo(be.locDeck, be.locSlots[i]);
             }
             for (int i = 0; i < StaticData.playerNums; i++)
             {
                 for (int j = 0; j < 3 - modifier; j++)
                 {
-                    SendTopTo(FaithfulDecks[i], hands[i].transform);
+                    SendTopTo(be.faithfulDecks[i], be.hands[i]);
                 }
             }
 

@@ -1000,6 +1000,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2437082743271991303, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
   m_PrefabInstance: {fileID: 755063495}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &755063497 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4009405914637019393, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+  m_PrefabInstance: {fileID: 755063495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &755063498 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8000087030072414024, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+  m_PrefabInstance: {fileID: 755063495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &788864369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1368,16 @@ PrefabInstance:
 --- !u!224 &867464624 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2437082743271991303, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+  m_PrefabInstance: {fileID: 867464623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &867464625 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4009405914637019393, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+  m_PrefabInstance: {fileID: 867464623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &867464626 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8000087030072414024, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
   m_PrefabInstance: {fileID: 867464623}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &915986174
@@ -2459,6 +2479,7 @@ GameObject:
   - component: {fileID: 1508904351}
   - component: {fileID: 1508904350}
   - component: {fileID: 1508904352}
+  - component: {fileID: 1508904353}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2508,9 +2529,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d44c62ecbea2a944a5d3702a0f96cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.InstantiateDecks
-  faithful: {fileID: 399928364}
-  locations: {fileID: 1182982226}
-  encounters: {fileID: 2052793091}
+  deckFaithfulSo:
+  - {fileID: 11400000, guid: 5339b2b6110847144b34e8d998a7ff5d, type: 2}
+  - {fileID: 11400000, guid: 18f52b2a59988f04bb154714f46b206a, type: 2}
+  - {fileID: 11400000, guid: a77292b62c8337140a6f474e79f5d293, type: 2}
+  - {fileID: 11400000, guid: 0468ed1898380374e82ed51a7eeb7d5a, type: 2}
+  deckLocationSo: {fileID: 11400000, guid: 2a4a02abeb000f243a4024512d8a9198, type: 2}
+  deckEncounterSo: {fileID: 11400000, guid: 7cc60b17692f57a44acbe9fac2daa70b, type: 2}
   cardPrefab: {fileID: 8994356602663114153, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
 --- !u!114 &1508904346
 MonoBehaviour:
@@ -2551,11 +2576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.InitializeBoards
   ShowTopMostFoldoutHeaderGroup: 1
-  playerBoards:
-  - {fileID: 1141746540}
-  - {fileID: 915986175}
-  - {fileID: 1818728340}
-  - {fileID: 935312689}
 --- !u!114 &1508904349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2607,13 +2627,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.GameManager
   setUpFinished: 0
-  columns:
-  - {fileID: 788864370}
-  - {fileID: 1174235262}
-  - {fileID: 1721566368}
-  - {fileID: 927791696}
-  - {fileID: 501664185}
-  faithfulDecks: []
 --- !u!114 &1508904352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2626,14 +2639,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c0b0fdfc57459448196b11a8531b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.DealCards
+--- !u!114 &1508904353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508904342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c183e6b3171a05a45a87259035db2257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.BoardElements
+  playerBoards:
+  - {fileID: 1141746540}
+  - {fileID: 915986175}
+  - {fileID: 1818728340}
+  - {fileID: 935312689}
+  columns:
+  - {fileID: 788864370}
+  - {fileID: 1174235262}
+  - {fileID: 1721566368}
+  - {fileID: 927791696}
+  - {fileID: 501664185}
+  faithfulDecks:
+  - {fileID: 399928364}
+  - {fileID: 867464626}
+  - {fileID: 755063498}
+  - {fileID: 1860190128}
   locDeck: {fileID: 1182982226}
-  FaithfulDecks: []
-  hands: []
+  hands:
+  - {fileID: 1864827971291297859}
+  - {fileID: 867464625}
+  - {fileID: 755063497}
+  - {fileID: 1860190127}
   locSlots:
   - {fileID: 1109295417}
   - {fileID: 193071651}
   - {fileID: 813681333}
   - {fileID: 192797802}
+  - {fileID: 2027619816}
+  encountersDeck: {fileID: 2052793091}
 --- !u!1001 &1514396515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3221,6 +3267,16 @@ PrefabInstance:
 --- !u!224 &1860190126 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2437082743271991303, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+  m_PrefabInstance: {fileID: 1860190125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1860190127 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4009405914637019393, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+  m_PrefabInstance: {fileID: 1860190125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1860190128 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8000087030072414024, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
   m_PrefabInstance: {fileID: 1860190125}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1902010078
@@ -3913,6 +3969,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+--- !u!224 &1864827971291297859 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4009405914637019393, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+  m_PrefabInstance: {fileID: 1864827971291297858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5809729674482678907
 PrefabInstance:
   m_ObjectHideFlags: 0

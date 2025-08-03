@@ -9,8 +9,12 @@ namespace LogosTcg
 {
     public class InitializeBoards : NetworkBehaviour
     {
-        public List<Transform> playerBoards;
+        BoardElements be;
 
+        private void Start()
+        {
+            be = BoardElements.instance;
+        }
 
         public IEnumerator SetUpBoards()
         {
@@ -32,7 +36,7 @@ namespace LogosTcg
             // For each board index >= activeBoardCount, tear it down
             for (int i = 3; i > StaticData.playerNums - 1; i--)
             {
-                var boardTransform = playerBoards[i];
+                var boardTransform = be.playerBoards[i];
 
                 // 1) Find all slot NetworkObjects under this board
                 var slotNetObjs = boardTransform
@@ -65,7 +69,7 @@ namespace LogosTcg
             // For each board index >= activeBoardCount, tear it down
             for (int i = 3; i > StaticData.playerNums -1; i--)
             {
-                var boardTransform = playerBoards[i];
+                var boardTransform = be.playerBoards[i];
                 // 3) Finally, destroy the (non-networked) board container
                 Destroy(boardTransform.gameObject);
             }

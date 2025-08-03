@@ -5,37 +5,41 @@ namespace LogosTcg
 {
     public class InstantiateDecks : MonoBehaviour
     {
-        PopulateDecks populateDecks;
-        public Transform faithful;
-        public Transform locations;
-        public Transform encounters;
+        BoardElements be;
+
+        [SerializeField] public List<DeckDefinition> deckFaithfulSo;
+        [SerializeField] public DeckDefinition deckLocationSo;
+        [SerializeField] public DeckDefinition deckEncounterSo;
 
         [SerializeField] private GameObject cardPrefab;
 
         private void Start()
         {
-            populateDecks = GetComponent<PopulateDecks>();
+            be = BoardElements.instance;
         }
 
         public void SetUpDecks()
-        {   
-            foreach(CardDef card in populateDecks.deckFaithful.CardCollection)
+        {
+            for (int i = 0; i < StaticData.playerNums; i++)
             {
-                GameObject newCard = Instantiate(cardPrefab, faithful);
+                foreach (CardDef card in deckFaithfulSo[i].CardCollection)
+                {
+                    GameObject newCard = Instantiate(cardPrefab, be.faithfulDecks[i]);
+                    newCard.GetComponent<Card>().Apply(card);
+
+                }
+            }
+
+            foreach (CardDef card in deckEncounterSo.CardCollection)
+            {
+                GameObject newCard = Instantiate(cardPrefab, be.encountersDeck);
                 newCard.GetComponent<Card>().Apply(card);
                 
             }
 
-            foreach (CardDef card in populateDecks.deckEncounter.CardCollection)
+            foreach (CardDef card in deckLocationSo.CardCollection)
             {
-                GameObject newCard = Instantiate(cardPrefab, encounters);
-                newCard.GetComponent<Card>().Apply(card);
-                
-            }
-
-            foreach (CardDef card in populateDecks.deckLocation.CardCollection)
-            {
-                GameObject newCard = Instantiate(cardPrefab, locations);
+                GameObject newCard = Instantiate(cardPrefab, be.locDeck);
                 newCard.GetComponent<Card>().Apply(card);
                 
             }
