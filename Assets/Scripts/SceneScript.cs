@@ -7,13 +7,58 @@ using System.Linq;
 
 namespace LogosTcg
 {
-    public class SceneScript : MonoBehaviour
+    public class SceneScript : NetworkBehaviour
     {
         [SerializeField] DeckDefinition encounter;
         [SerializeField] DeckDefinition location;
         [SerializeField] List<DeckDefinition> faithfulList;
 
         public void StartGame()
+        {
+            
+
+            //return;
+            if (NetworkManager.Singleton == null)
+            {
+                encounter.CardCollection =
+                    GetComponent<DeckSceneManager>()
+                      .encounterListTf
+                      .GetComponentsInChildren<CardLine>()
+                      .Select(l => l.cardDef)
+                      .ToList();
+
+                location.CardCollection =
+                    GetComponent<DeckSceneManager>()
+                      .locationListTf
+                      .GetComponentsInChildren<CardLine>()
+                      .Select(l => l.cardDef)
+                      .ToList();
+
+                for (int i = 0; i < StaticData.playerNums; i++)
+                {
+                    Debug.Log($"list item {i}");
+                    faithfulList[i].CardCollection =
+                        GetComponent<DeckSceneManager>()
+                          .faithfulListTf[i]
+                          .GetComponentsInChildren<CardLine>()
+                          .Select(l => l.cardDef)
+                          .ToList();
+                }
+
+                SceneManager.LoadSceneAsync("PlayBoard", LoadSceneMode.Single);
+                //NetworkManager.Singleton.SceneManager.LoadScene("PlayBoard", LoadSceneMode.Single);
+            }
+            else
+            {
+                SetSoClientRpc();
+
+                if (NetworkManager.Singleton.IsHost)
+                    StartCoroutine(DelayedSceneLoadCoroutine());
+            }
+        }
+
+        [ClientRpc]
+        void SetSoClientRpc()
         {
             encounter.CardCollection =
                     GetComponent<DeckSceneManager>()
@@ -29,7 +74,6 @@ namespace LogosTcg
                   .Select(l => l.cardDef)
                   .ToList();
 
-            Debug.Log($"static players {StaticData.playerNums}");
             for (int i = 0; i < StaticData.playerNums; i++)
             {
                 Debug.Log($"list item {i}");
@@ -40,22 +84,12 @@ namespace LogosTcg
                       .Select(l => l.cardDef)
                       .ToList();
             }
-
-            //return;
-            if (NetworkManager.Singleton == null)
-            {
-                SceneManager.LoadSceneAsync("PlayBoard", LoadSceneMode.Single);
-            } else
-            {
-                if(NetworkManager.Singleton.IsHost)
-                    StartCoroutine(LoadPlayBoardCoroutine());
-            }
         }
 
-        private IEnumerator LoadPlayBoardCoroutine()
+        private IEnumerator DelayedSceneLoadCoroutine()
         {
-            yield return null;
-            // 3) now that everyone has their StaticData.playerNums set, load the scene
+            // Give RPC a chance to propagate
+            yield return new WaitForSeconds(0.5f);  // Half a second delay to allow RPC to send
             NetworkManager.Singleton.SceneManager.LoadScene("PlayBoard", LoadSceneMode.Single);
         }
     }

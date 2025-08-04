@@ -9,11 +9,13 @@ namespace LogosTcg
         InstantiateDecks instantiateDecks;
         PopulateDecks populateDecks;
         public bool test = false;
+        public int testPlayerCount;
 
         void Start()
         {
             instantiateDecks = GetComponent<InstantiateDecks>();
             populateDecks = GetComponent<PopulateDecks>();
+            StaticData.playerNums = testPlayerCount;
 
             StartCoroutine(Sequence());
         }

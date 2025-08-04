@@ -47,7 +47,6 @@ namespace LogosTcg
         //private async Task AutoPopulateAllFaithful()
         IEnumerator AutoPopulateAllFaithful()
         {
-            Debug.Log($"list count {dsm.faithfulListTf.Count} ?");
             int old = dsm.currPlayer;
             for (int i = 0; i < dsm.faithfulListTf.Count; i++)
             {
@@ -72,8 +71,7 @@ namespace LogosTcg
                 ["Common"] = flm.comTot
             };
 
-            Debug.Log($"player: {dsm.currPlayer} count {tf.childCount} maxtot {flm.maxTot} rare {flm.rareTot}");
-
+            
             foreach (var kv in targets)
             {
                 if (tf.childCount >= flm.maxTot)
