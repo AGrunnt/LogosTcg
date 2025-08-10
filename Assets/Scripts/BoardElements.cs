@@ -14,6 +14,7 @@ namespace LogosTcg
         public Transform locDeck;
         public List<Transform> hands;
         public List<Transform> locSlots;
+        public List<Transform> stackSlots;
         public Transform encountersDeck;
         public Transform commonBoard;
         public Transform mainCamera;
