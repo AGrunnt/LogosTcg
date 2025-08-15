@@ -3,11 +3,47 @@
   "WorkspaceRootPath": "C:\\Users\\Trent\\Documents\\LogosTcg\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\gate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\gatecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gatecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\dropcountgate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dropcountgate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\draggateplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\draggateplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\dropplayergate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dropplayergate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\dealcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\gobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\gobjectvisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gobjectvisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\slotscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\slotscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\boardelements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boardelements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\dealcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dealcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -17,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\slotnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\slotnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\boardelements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boardelements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,24 +62,134 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DealCards.cs",
-              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DealCards.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\DealCards.cs",
-              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DealCards.cs",
-              "RelativeToolTip": "Assets\\Scripts\\DealCards.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Gate.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\Gate.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gate.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\Gate.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T11:47:59.944Z",
+              "WhenOpened": "2025-08-12T01:26:31.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GateCollection.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\GateCollection.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GateCollection.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\GateCollection.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GateCollection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T01:03:51.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DropCountGate.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DropCountGate.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DropCountGate.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DropCountGate.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DropCountGate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T00:50:57.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DragGatePlayer.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DragGatePlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DragGatePlayer.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DragGatePlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DragGatePlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T00:49:23.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DropPlayerGate.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DropPlayerGate.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DropPlayerGate.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DropPlayerGate.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DropPlayerGate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T00:48:58.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GobjectVisual.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\GobjectVisual.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GobjectVisual.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\GobjectVisual.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GobjectVisual.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAhwJQAAACZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T13:33:47.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Gobject.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\Gobject.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gobject.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\Gobject.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gobject.cs",
+              "ViewState": "AgIAAPQAAAAAAAAAAAAlwPsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T13:33:02.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SlotScript.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\SlotScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SlotScript.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\SlotScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SlotScript.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwCAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T13:22:33.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BoardElements.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\BoardElements.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BoardElements.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\BoardElements.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BoardElements.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T13:10:44.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DealCards.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DealCards.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DealCards.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DealCards.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DealCards.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T11:47:59.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "GameNetworkManager.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\GameNetworkManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameNetworkManager.cs",
@@ -59,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "SlotNetwork.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\SlotNetwork.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SlotNetwork.cs",
@@ -71,28 +213,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BoardElements.cs",
-              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\BoardElements.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\BoardElements.cs",
-              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\BoardElements.cs",
-              "RelativeToolTip": "Assets\\Scripts\\BoardElements.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBIAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T01:19:55.508Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "TurnManager.cs",
               "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\TurnManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TurnManager.cs",
               "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\TurnManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\TurnManager.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAhwDUAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwEwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T01:15:48.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T01:15:48.867Z"
             }
           ]
         }

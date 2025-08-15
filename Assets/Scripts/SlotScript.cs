@@ -15,7 +15,9 @@ namespace LogosTcg
         public bool onlyTopInteractable = true;
         public int maxChildrenCards = 1;
         public string slotType;
-        
+        public int owner = -1;
+        public GateCollection<DropParams> DropGates;
+
         public void SetLastCardSettings()
         {
             Gobject lastObj = GetLastDirectChildGobjLinq(transform);

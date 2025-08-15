@@ -144,8 +144,16 @@ namespace LogoTcg
             SlotScript target = eventData.hovered
                 .Select(go => go.GetComponent<SlotScript>())
                 .FirstOrDefault(t => t != null);
-           
-            if(target != null && target.canRecieve && target.GetComponentsInChildren<Card>().Count() < target.maxChildrenCards)
+
+
+
+
+            if (target != null && target.canRecieve && target.DropGates.AllUnlocked(new DropParams
+                                                                                {
+                                                                                    Source = transform.parent.GetComponent<SlotScript>(),
+                                                                                        Target = target,
+                                                                                    Card = GetComponent<Card>(),
+                                                                                }))
             {
                 SlotScript prevParent = transform.GetComponentInParent<SlotScript>();
                 if (NetworkManager.Singleton == null)

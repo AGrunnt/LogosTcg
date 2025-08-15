@@ -11,6 +11,8 @@ namespace LogosTcg
         DealCards dc;
         public int currPlayer = 0;
         public string currPhase = "DrawEnc";
+        public static TurnManager instance;
+        void Awake() => instance = this;
         //public textmesh pro
 
         private void Start()
@@ -75,7 +77,6 @@ namespace LogosTcg
 
         public void EndTurn()
         {
-
             dc.SendTopTo(be.faithfulDecks[currPlayer], be.hands[currPlayer]);
             be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
             StartTurn0();
