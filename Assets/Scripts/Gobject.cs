@@ -28,6 +28,7 @@ namespace LogoTcg
         [SerializeField] private bool center = true;
         public string objType;
         public bool runOnline = true;
+        public GateCollection<NoParams> dragGates;
 
         [Header("Movement")]
         [SerializeField] private float moveSpeedLimit = 50;
@@ -104,7 +105,7 @@ namespace LogoTcg
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (!draggable)
+            if (!draggable || !dragGates.AllUnlocked(null))
                 return;
 
             BeginDragEvent.Invoke(this);
@@ -130,7 +131,7 @@ namespace LogoTcg
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if(!draggable) return;
+            if(!draggable || !dragGates.AllUnlocked(null)) return;
 
             if(State.Instance != null)
                 State.Instance.globalDragging = false;
@@ -148,7 +149,7 @@ namespace LogoTcg
 
 
 
-            if (target != null && target.canRecieve && target.DropGates.AllUnlocked(new DropParams
+            if (target != null && target.canRecieve && dragGates.AllUnlocked(null) && target.DropGates.AllUnlocked(new DropParams
                                                                                 {
                                                                                     Source = transform.parent.GetComponent<SlotScript>(),
                                                                                         Target = target,
@@ -166,6 +167,8 @@ namespace LogoTcg
 
                     if (prevParent.slotType == "LocSlot")
                         prevParent.GetComponent<GridSlotActions>().shiftLeft();
+
+                    target.OnCardDropped?.Invoke();
                 } else
                 {
                     GameNetworkManager.Instance.MountByNameServerRpc(transform.name, target.transform.name);

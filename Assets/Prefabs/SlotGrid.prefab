@@ -100,6 +100,14 @@ PrefabInstance:
       propertyPath: maxChildrenCards
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055568324416180259, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7145512577488573148, guid: 49ee869bed17f634b83f3cf137398175, type: 3}
       propertyPath: m_Name
       value: SlotGrid
@@ -180,7 +188,7 @@ MonoBehaviour:
   gobjects: []
   raycaster: {fileID: 0}
   eventSystem: {fileID: 0}
-  tweenDuration: 0.15
+  swap: 0
 --- !u!114 &2689793209530505568
 MonoBehaviour:
   m_ObjectHideFlags: 0

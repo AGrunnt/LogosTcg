@@ -4,6 +4,8 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
+using UnityEngine.EventSystems;
+
 namespace LogosTcg
 {
     public class SlotScript : MonoBehaviour
@@ -17,6 +19,7 @@ namespace LogosTcg
         public string slotType;
         public int owner = -1;
         public GateCollection<DropParams> DropGates;
+        public UnityEvent OnCardDropped;
 
         public void SetLastCardSettings()
         {

@@ -1,19 +1,19 @@
+using DG.Tweening.Core.Easing;
 using UnityEngine;
 
 namespace LogosTcg
 {
-    public class DragCountGate : MonoBehaviour
+    public class DragCountGate : Gate<NoParams>
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
+        protected override bool IsUnlockedInternal(NoParams gateParams)
         {
-        
+            if (TurnManager.instance.playCount < TurnManager.instance.playCountAvailable)
+            {
+                return true;
+            }
+
+            return false; //unlocked, lets run
         }
     }
 }

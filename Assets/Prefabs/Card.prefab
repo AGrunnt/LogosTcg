@@ -449,6 +449,8 @@ GameObject:
   - component: {fileID: 7486306067316991545}
   - component: {fileID: 4992069272568439858}
   - component: {fileID: 8976072690392504160}
+  - component: {fileID: 7493665466171001576}
+  - component: {fileID: 6553405295437337245}
   m_Layer: 5
   m_Name: Card
   m_TagString: Card
@@ -502,6 +504,10 @@ MonoBehaviour:
   center: 1
   objType: Cards
   runOnline: 1
+  dragGates:
+    Gates:
+    - {fileID: 7493665466171001576}
+    - {fileID: 6553405295437337245}
   moveSpeedLimit: 50
   selected: 0
   selectionOffset: 50
@@ -584,6 +590,7 @@ MonoBehaviour:
   image: {fileID: 3415093123087353405}
   BackImage: {fileID: 8269191443868670581}
   gobjects: []
+  addressableKey: 
 --- !u!114 &8976072690392504160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,3 +603,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696b9ed167db341429537a2003c908d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDropHandler
+--- !u!114 &7493665466171001576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994356602663114153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e092929f03e134b87c44ee864f1e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.DragGatePlayer
+  IsActive: 1
+--- !u!114 &6553405295437337245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994356602663114153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378bb20f3e03f86428a66c44603d8980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.DragCountGate
+  IsActive: 1

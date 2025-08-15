@@ -1,4 +1,5 @@
 using DG.Tweening.Core.Easing;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace LogosTcg
@@ -8,12 +9,15 @@ namespace LogosTcg
 
         protected override bool IsUnlockedInternal(NoParams gateParams)
         {
-            if (true)
+            if (NetworkManager.Singleton == null)
+                return true;
+
+            if ((int)NetworkManager.Singleton.LocalClientId == TurnManager.instance.currPlayer)
             {
-                return false;
+                return true;
             }
 
-            return true; //unlocked, lets run 
+            return false; //unlocked, lets run 
         }
     }
 }

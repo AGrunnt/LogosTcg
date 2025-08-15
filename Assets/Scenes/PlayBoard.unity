@@ -835,6 +835,34 @@ PrefabInstance:
       propertyPath: onlyTopInteractable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508904354}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncPlayCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1860093278553743236, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: draggable
       value: 0
@@ -982,6 +1010,34 @@ PrefabInstance:
     - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: onlyTopInteractable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508904354}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncPlayCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1237,6 +1293,34 @@ PrefabInstance:
       propertyPath: onlyTopInteractable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508904354}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncPlayCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1860093278553743236, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: draggable
       value: 0
@@ -1384,6 +1468,34 @@ PrefabInstance:
     - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: onlyTopInteractable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508904354}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncPlayCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2872,6 +2984,8 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   currPlayer: 0
   currPhase: DrawEnc
+  playCount: 0
+  playCountAvailable: 1
 --- !u!1001 &1514396515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3472,6 +3586,34 @@ PrefabInstance:
       propertyPath: onlyTopInteractable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508904354}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncPlayCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1860093278553743236, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: draggable
       value: 0
@@ -3619,6 +3761,34 @@ PrefabInstance:
     - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: onlyTopInteractable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508904354}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncPlayCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4221,6 +4391,34 @@ PrefabInstance:
       propertyPath: onlyTopInteractable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508904354}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncPlayCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115831829367832993, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1410523476412375747, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: swap
       value: 1
@@ -4380,6 +4578,34 @@ PrefabInstance:
     - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: onlyTopInteractable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508904354}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IncPlayCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873716084098139641, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

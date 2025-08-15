@@ -12,6 +12,8 @@ namespace LogosTcg
         public int currPlayer = 0;
         public string currPhase = "DrawEnc";
         public static TurnManager instance;
+        public int playCount = 0;
+        public int playCountAvailable = 1;
         void Awake() => instance = this;
         //public textmesh pro
 
@@ -19,6 +21,11 @@ namespace LogosTcg
         {
             be = GetComponent<BoardElements>();
             dc = GetComponent<DealCards>();
+        }
+
+        public void IncPlayCount()
+        {
+            playCount++;
         }
 
         public void NavPhase()
@@ -31,8 +38,9 @@ namespace LogosTcg
                 case "Spend":
                     currPhase = "Play";
                     EndTurn();
+                    playCount = 0;
                     break;
-                case "DrawEnc":
+                case "DrawEnc": //only runs at the start of the game, then is auto done with endturn
                     currPhase = "Play";
                     DrawEncounters0();
                     break;
