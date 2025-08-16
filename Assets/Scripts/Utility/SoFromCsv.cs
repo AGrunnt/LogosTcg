@@ -92,12 +92,15 @@ namespace LogosTcg
             // 2) Map basic CSV columns ? CardDef fields
             card.Id = cdRow[dataCdHeaders.IndexOf("CardId")];
             card.Title = cdRow[dataCdHeaders.IndexOf("Name")];
+            card.SetStr = cdRow[dataCdHeaders.IndexOf("Set")];
             card.Rarity = cdRow[dataCdHeaders.IndexOf("Rarity")];
             // initialize Type list
             card.Type = cdRow[dataCdHeaders.IndexOf("Type")].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
                   .Select(s => s.Trim())
                   .ToList();
-
+            card.Tag = cdRow[dataCdHeaders.IndexOf("Tag")].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
+                  .Select(s => s.Trim())
+                  .ToList();
             int vIdx = dataCdHeaders.IndexOf("Value");
             if (vIdx >= 0 && int.TryParse(cdRow[vIdx], out var val))
                 card.Value = val;
@@ -181,3 +184,8 @@ namespace LogosTcg
         }
     }
 }
+
+
+
+
+
