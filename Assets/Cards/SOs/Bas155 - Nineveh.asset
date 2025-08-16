@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas155 - Nineveh
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 155
+  Artwork: {fileID: -26353151341145210, guid: 1654302a05cf2444a938eae2ff3fd9d2, type: 3}
+  Title: Nineveh
+  Rarity: Uncommon
+  Type:
+  - Location
+  Tag:
+  - Moutain
+  Value: 9
+  AbilityText: 
+  Verse: Jonah 3:3
+  VerseText: "\"\u201CThis time Jonah got up and went to Nineveh"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

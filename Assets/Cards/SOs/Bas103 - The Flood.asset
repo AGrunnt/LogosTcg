@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas103 - The Flood
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 103
+  Artwork: {fileID: 6815193684591444452, guid: 50d14b6ea149cda41a44c818557f51c9, type: 3}
+  Title: The Flood
+  Rarity: Common
+  Type:
+  - Event
+  Tag: []
+  Value: 0
+  AbilityText: Draw an additional location card and add it to the faith timeline.
+  Verse: Genesis 7:11-12
+  VerseText: "\"\u201CIn the six hundredth year of Noah\u2019s life"
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - DrawLoc
+    Target: []
+    Tag: []

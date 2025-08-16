@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas167 - Peacock
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 167
+  Artwork: {fileID: 7402393578227826685, guid: 4c3a733c3d5ba3c47ac5dcfc5f5ef4d8, type: 3}
+  Title: Peacock
+  Rarity: Rare
+  Type:
+  - Support
+  - Animal
+  Tag: []
+  Value: 0
+  AbilityText: Exchange one Faithless in play with any Faithless from the discard
+    pile. Reset their Faith tokens.
+  Verse: 1 Kings 10:22
+  VerseText: "\"\u201CFor the king had the ships of Tarshish at sea with Hiram\u2019s
+    fleet"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

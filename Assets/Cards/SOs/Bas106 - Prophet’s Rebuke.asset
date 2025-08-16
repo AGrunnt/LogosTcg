@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: "Bas106 - Prophet\u2019s Rebuke"
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 106
+  Artwork: {fileID: 4937329153701122522, guid: 85a1f0d61df016644a5c30bca9424c72, type: 3}
+  Title: "Prophet\u2019s Rebuke"
+  Rarity: Rare
+  Type:
+  - Event
+  Tag: []
+  Value: 6
+  AbilityText: 
+  Verse: 2 Samuel 12:9
+  VerseText: "\"\u201CWhy then have you despised the command of the LORD by doing
+    evil in His sight? You put Uriah the Hittite to the sword and took his wife as
+    your own"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

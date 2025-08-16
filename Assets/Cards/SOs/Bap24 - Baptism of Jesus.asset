@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bap24 - Baptism of Jesus
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 24
+  Artwork: {fileID: 0}
+  Title: Baptism of Jesus
+  Rarity: Common
+  Type:
+  - Event
+  Tag: []
+  Value: 10
+  AbilityText: 
+  Verse: "Mark\_1:9-11"
+  VerseText: "\u201CIn those days Jesus came from Nazareth in Galilee and was baptized
+    by John in the Jordan. As soon as Jesus came up out of the water~ He saw the
+    heavens breaking open and the Spirit descending on Him like a dove. And a voice
+    came from heaven: \u201CYou are My beloved Son; in You I am well pleased.\u201D\u201D"
+  AbilityType: 
+  SetStr: Bap
+  Abilities: []

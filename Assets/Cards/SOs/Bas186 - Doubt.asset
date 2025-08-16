@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas186 - Doubt
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 186
+  Artwork: {fileID: 0}
+  Title: Doubt
+  Rarity: 
+  Type:
+  - Shadow
+  Tag:
+  - Skull
+  Value: 0
+  AbilityText: The total Faith of each Faithful in play is reduced by 1 every round.
+    Any Faithful that reaches 0 is discarded. Shadow effect ends when any location
+    is cleared.
+  Verse: "Matthew\_14:29-30"
+  VerseText: "\u201CThen Peter got down out of the boat~ walked on the water~ and
+    came toward Jesus. But when he saw the strength of the wind~ he was afraid~ and
+    beginning to sink~ cried out~ \u201CLord~ save me!\u201D\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Est26 - Blinded
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 26
+  Artwork: {fileID: 0}
+  Title: Blinded
+  Rarity: Common
+  Type:
+  - Trap
+  Tag: []
+  Value: 0
+  AbilityText: 'Trap: Upon reveal~ any Neutral in play gains the RefreshIcon equal
+    to their active location rather than being discarded. (Does not count against
+    Location limit.)'
+  Verse: Isaiah 6:10
+  VerseText: Make the hearts of this people calloused; deafen their ears and close
+    their eyes. Otherwise they might see with their eyes~ hear with their ears~ understand
+    with their hearts~ and turn and be healed.
+  AbilityType: 
+  SetStr: Est
+  Abilities: []

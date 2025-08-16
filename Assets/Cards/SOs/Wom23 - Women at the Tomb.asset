@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Wom23 - Women at the Tomb
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 23
+  Artwork: {fileID: 0}
+  Title: Women at the Tomb
+  Rarity: Common
+  Type:
+  - Event
+  Tag: []
+  Value: 6
+  AbilityText: 
+  Verse: "Luke\_24:1-3"
+  VerseText: "\u201COn the first day of the week~ very early in the morning~ the
+    women came to the tomb~ bringing the spices they had prepared. They found the
+    stone rolled away from the tomb~ but when they entered~ they did not find the
+    body of the Lord Jesus.\u201D"
+  AbilityType: 
+  SetStr: Wom
+  Abilities: []

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas175 - Sling and Stones
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 175
+  Artwork: {fileID: 7534550310044532020, guid: 45eb48e589850714090c6c4f6dacbc91, type: 3}
+  Title: Sling and Stones
+  Rarity: Rare
+  Type:
+  - Support
+  - Animal
+  Tag: []
+  Value: 0
+  AbilityText: Play this card on any Faithless to instantly remove them from play.
+    End your turn.
+  Verse: 1 Samuel 17:40
+  VerseText: "\"\u201CAnd David took his staff in his hand"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Adv4 - Mary
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 4
+  Artwork: {fileID: 0}
+  Title: Mary
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag:
+  - Favor
+  Value: 8
+  AbilityText: 'Bonus (Favor): At the start of your turn~ you may discard a card
+    from your hand in order to refresh the Faith pool of one of your Faithful in
+    play.'
+  Verse: "Luke\_2:4-5"
+  VerseText: "\u201CSo Joseph also went up from Nazareth in Galilee to Judea~ to
+    the city of David called Bethlehem~ since he was from the house and line of David~
+    He went there to register with Mary~ who was pledged to him in marriage and was
+    expecting a child.\u201D\u201D"
+  AbilityType: 
+  SetStr: Adv
+  Abilities: []

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas182 - Plague of Locusts
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 182
+  Artwork: {fileID: 0}
+  Title: Plague of Locusts
+  Rarity: 
+  Type:
+  - Shadow
+  Tag:
+  - Skull
+  Value: 0
+  AbilityText: "For each Location with a Support card in play or revealed add +5\_SnakeIcon
+    to that location. Shadow effect ends when 3\_Events are cleared."
+  Verse: "Exodus\_10:12"
+  VerseText: "\u201CThen the LORD said to Moses~ \u201CStretch out your hand over
+    the land of Egypt~ so that the locusts may swarm over it and devour every plant
+    in the land\u2014everything that the hail has left behind.\u201D\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

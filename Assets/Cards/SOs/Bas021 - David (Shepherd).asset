@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas021 - David (Shepherd)
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 021
+  Artwork: {fileID: -5776871254265053488, guid: facfd58e96573a946844e906705bc5aa, type: 3}
+  Title: David (Shepherd)
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 9
+  AbilityText: 
+  Verse: 1 Samuel 16:11
+  VerseText: "And Samuel asked him \u201CAre these all the sons you have?\u201D \u201CThere
+    is still the youngest~\u201D Jesse replied~ \u201Cbut he is tending the sheep.\u201D
+    \u201CSend for him~\u201D Samuel replied~ \u201CFor we will not sit down to eat
+    until he arrives.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

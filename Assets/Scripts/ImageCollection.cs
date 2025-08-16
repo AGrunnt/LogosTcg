@@ -1,4 +1,3 @@
-using LogoTcg;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,7 +10,11 @@ namespace LogosTcg
     {
         public static ImageCollection instance;
 
-        void Awake() => instance = this;
+        //void Awake() => instance = this;
+        private void Awake()
+        {
+            instance = this;
+        }
 
         public Sprite rarityCommon;
         public Sprite rarityUncommon;

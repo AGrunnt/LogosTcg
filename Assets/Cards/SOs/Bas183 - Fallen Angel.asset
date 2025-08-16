@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas183 - Fallen Angel
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 183
+  Artwork: {fileID: 0}
+  Title: Fallen Angel
+  Rarity: 
+  Type:
+  - Shadow
+  Tag:
+  - Skull
+  Value: 0
+  AbilityText: While this Shadow effect is in play~ all Faithful must pay 1 Faith
+    token to engage the Faith timeline. Shadow effect ends when 2 locations are cleared.
+  Verse: "Jude\_1:6"
+  VerseText: "\u201CAnd the angels who did not stay within their own domain but abandoned
+    their proper dwelling\u2014these He has kept in eternal chains under darkness~
+    bound for judgment on that great day.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

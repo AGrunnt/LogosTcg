@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas065 - The Serpent
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 065
+  Artwork: {fileID: -538044426145922082, guid: ad14b112524f18c4abb93655b47581d7, type: 3}
+  Title: The Serpent
+  Rarity: Common
+  Type:
+  - Faithless
+  Tag: []
+  Value: 4
+  AbilityText: 2 SnakeIcon if the Garden of Eden is active
+  Verse: Genesis 3:1
+  VerseText: "\u201CNow the serpent was more subtle than any animal of the field
+    which Yahweh God had made~ He said to the woman~ \u201CHas God really said~ \u2018You
+    shall not eat of any tree of the garden\u2019?\u201D\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Garden of Eden
+    Tag:
+    - 2

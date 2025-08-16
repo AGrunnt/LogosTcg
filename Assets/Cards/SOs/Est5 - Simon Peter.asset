@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: "Est5 - Simon\_Peter"
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 5
+  Artwork: {fileID: 0}
+  Title: "Simon\_Peter"
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag: []
+  Value: 10
+  AbilityText: 
+  Verse: "Mark\_21:3-5"
+  VerseText: "\u201CSimon Peter told them~\u201D they said. So they went out and
+    got into the boat~but caught nothing that night. Early in the morning~Jesus stood
+    on the shore~but the disciples did not recognize that it was Jesus. So He called
+    out to them~\u201CChildren~do you have any fish?\u201D \u201CNo~\u201D they answered.\u201D"
+  AbilityType: 
+  SetStr: Est
+  Abilities: []

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Val2 - Jonathan
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 2
+  Artwork: {fileID: 0}
+  Title: Jonathan
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag: []
+  Value: 7
+  AbilityText: 'Bonus: +3 DoveIcon for every active Shadow location.'
+  Verse: "1 Samuel 23:16\u201117"
+  VerseText: "And Saul\u2019s son Jonathan came to David in Horesh and strengthened
+    his hand in God~ saying~ \u201CDo not be afraid~ for my father Saul will never
+    lay a hand on you. And you will be king over Israel~ and I will be your second\u2011in\u2011command.
+    Even my father Saul knows this is true.\u201D"
+  AbilityType: 
+  SetStr: Val
+  Abilities: []

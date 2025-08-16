@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Val24 - Bull of Bashan
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 24
+  Artwork: {fileID: 0}
+  Title: Bull of Bashan
+  Rarity: Rare
+  Type:
+  - ShadowEffect
+  Tag: []
+  Value: 0
+  AbilityText: While this Shadow effect is in play~ the limit for each active location
+    before overflow is reduced by 1. Shadow effect ends when 5 Faithless are cleared.
+  Verse: "Psalms 22:12\u201313"
+  VerseText: Many bulls surround me; strong bulls of Bashan encircle me. They open
+    their jaws against me like lions that roar and maul.
+  AbilityType: 
+  SetStr: Val
+  Abilities: []

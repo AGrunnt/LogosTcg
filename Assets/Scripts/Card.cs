@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+
 namespace LogosTcg
 {
 
@@ -32,15 +33,16 @@ namespace LogosTcg
         public TextMeshProUGUI cardId;
         public Image backgroundImg;
         public Image rarityImg;
-        ImageCollection ic;
+        public ImageCollection ic;
 
-        void Start()
+        private void Awake()
         {
             ic = ImageCollection.instance;
         }
 
         public void Apply(CardDef data)
         {
+            //ic = FindFirstObjectByType<ImageCollection>();
             gameObject.name = data.name;
             _definition = data;
             image.sprite = data.Artwork;

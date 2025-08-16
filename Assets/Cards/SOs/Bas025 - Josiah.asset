@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas025 - Josiah
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 025
+  Artwork: {fileID: 346194311228959022, guid: 843f57f9bec2cfe48ae13d396ae23ff2, type: 3}
+  Title: Josiah
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag: []
+  Value: 10
+  AbilityText: 
+  Verse: 2 Kings 22:1
+  VerseText: "Josiah was eight years old when he began to reign~ and he reigned thirty-one
+    years in Jerusalem. His mother\u2019s name was Jedidah the daughter of Adaiah
+    of Bozkath."
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

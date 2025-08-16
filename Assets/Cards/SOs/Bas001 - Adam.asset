@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas001 - Adam
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 001
+  Artwork: {fileID: 5058905828709739378, guid: ac7f2f65d6bb33b40a7a393b7d341f9a, type: 3}
+  Title: Adam
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 12
+  AbilityText: 
+  Verse: Genesis 2:7
+  VerseText: Then the LORD God formed man from the dust of the ground and breathed
+    the breath of life into his nostrils~ and the man became a living being.
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

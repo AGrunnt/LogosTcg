@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Adv11 - Caesar Augustus
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 11
+  Artwork: {fileID: 0}
+  Title: Caesar Augustus
+  Rarity: Common
+  Type:
+  - Faithless
+  Tag: []
+  Value: 0
+  AbilityText: When this card is revealed in a location~ it gains the SnakeIcon equal
+    to active and adjacent locations.
+  Verse: "Luke\_2:1"
+  VerseText: "\u201CNow in those days a decree went out from Caesar Augustus that
+    a census should be taken of the whole empire.\u201D\_\u2013 Luke\_2:1"
+  AbilityType: 
+  SetStr: Adv
+  Abilities: []

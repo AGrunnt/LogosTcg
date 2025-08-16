@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Adv7 - Simeon
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 7
+  Artwork: {fileID: 0}
+  Title: Simeon
+  Rarity: Rare
+  Type:
+  - Faithful
+  Tag: []
+  Value: 9
+  AbilityText: 'Bonus: When Simeon enters play~ you may refresh the faith pool of
+    one of your Faithful in play.'
+  Verse: "Luke\_2:25-26"
+  VerseText: "\u201CNow there was a man in Jerusalem named Simeon~ who was righteous
+    and devout~ He was waiting for the consolation of Israel~ and the Holy Spirit
+    was upon him~ The Holy Spirit had revealed to him that he would not see death
+    before he had seen the Lord\u2019s Christ.\u201D\u201D"
+  AbilityType: 
+  SetStr: Adv
+  Abilities: []

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas195 - Gath
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 195
+  Artwork: {fileID: 0}
+  Title: Gath
+  Rarity: 
+  Type:
+  - Location
+  Tag:
+  - Skull
+  Value: 17
+  AbilityText: "\u201CSo Shimei saddled his donkey and set out to Achish at Gath
+    in search of his slaves~ and he brought them back from Gath.\u201D\u201D"
+  Verse: "1\_Kings\_2:40"
+  VerseText: 
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

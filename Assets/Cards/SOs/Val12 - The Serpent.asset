@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Val12 - The Serpent
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 12
+  Artwork: {fileID: 0}
+  Title: The Serpent
+  Rarity: Uncommon
+  Type:
+  - Faithless
+  Tag: []
+  Value: 9
+  AbilityText: "Bonus: Whenever a trap card is revealed on the Faith timeline~ it
+    exchanges places so as to be revealed on The Serpent\u2019s active location."
+  Verse: Genesis 3:1
+  VerseText: Now the serpent was more crafty than any beast of the field that the
+    LORD God had made. And he said to the woman~ Did God really say~ You must not
+    eat from any tree in the garden?
+  AbilityType: 
+  SetStr: Val
+  Abilities: []

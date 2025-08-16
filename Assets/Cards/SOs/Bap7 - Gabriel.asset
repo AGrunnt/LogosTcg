@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bap7 - Gabriel
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 7
+  Artwork: {fileID: 0}
+  Title: Gabriel
+  Rarity: Rare
+  Type:
+  - Neutral
+  Tag: []
+  Value: 0
+  AbilityText: Play this card on any location to remove all cards from that location.
+    Add an additional location to the timeline~ then remove Gabriel from play.
+  Verse: "Luke 1:19\u201120"
+  VerseText: "\u201CI am Gabriel~\u201D replied the angel. \u201CI stand in the presence
+    of God~ and I have been sent to speak to you and to bring you this good news.
+    And now you will be silent and unable to speak until the day this comes to pass~
+    because you did not believe my words~ which will be fulfilled at their proper
+    time.\u201D"
+  AbilityType: 
+  SetStr: Bap
+  Abilities: []

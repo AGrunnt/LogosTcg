@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas170 - Dove
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 170
+  Artwork: {fileID: 3339860429024794986, guid: a6d75f14b287e2b4ca3294d116804f42, type: 3}
+  Title: Dove
+  Rarity: Common
+  Type:
+  - Support
+  - Animal
+  Tag: []
+  Value: 0
+  AbilityText: Exchange one Faithless in play with any Faithless from the discard
+    pile. Reset their Faith tokens.
+  Verse: Genesis 8:9-10
+  VerseText: "\"\u201CBut the dove found no place to rest her foot"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

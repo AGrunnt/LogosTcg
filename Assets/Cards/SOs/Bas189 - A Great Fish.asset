@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas189 - A Great Fish
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 189
+  Artwork: {fileID: 0}
+  Title: A Great Fish
+  Rarity: 
+  Type:
+  - Trap
+  Tag:
+  - Skull
+  Value: 0
+  AbilityText: "Trap: If Jonah is in play~ discard this card. Any Faithful with no
+    Faith tokens are placed beneath A Great Fish for 3\_turns. Return to play after
+    3\_turns."
+  Verse: "Jonah\_1:17"
+  VerseText: "\u201CNow the LORD had appointed a great fish to swallow Jonah~ and
+    Jonah spent three days and three nights in the belly of the fish.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

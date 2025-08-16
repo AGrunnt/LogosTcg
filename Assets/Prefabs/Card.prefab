@@ -1571,14 +1571,16 @@ MonoBehaviour:
   gobjects: []
   addressableKey: 
   IconImg: {fileID: 6094820246711615023}
-  IconBckImg: {fileID: 7103810049047018731}
+  IconSqrBckImg: {fileID: 0}
+  IconDimBckImg: {fileID: 0}
   ValBckImg: {fileID: 5217894884160927629}
   valTmp: {fileID: 2828045771429474116}
   abilityTmp: {fileID: 3400419004034132108}
   setImg: {fileID: 6626243819710386963}
   cardId: {fileID: 1975864045788944024}
   backgroundImg: {fileID: 1030670676000134965}
-  rarityImg: {fileID: 0}
+  rarityImg: {fileID: 2280400243545956363}
+  ic: {fileID: 0}
 --- !u!114 &8976072690392504160
 MonoBehaviour:
   m_ObjectHideFlags: 0

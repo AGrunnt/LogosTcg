@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Wom12 - Herod the Tetrarch
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 12
+  Artwork: {fileID: 0}
+  Title: Herod the Tetrarch
+  Rarity: Common
+  Type:
+  - Faithless
+  Tag: []
+  Value: 0
+  AbilityText: "When this card is revealed in a location~ it gains the\_SnakeIcon
+    equal to that location."
+  Verse: "Luke\_9:7-8"
+  VerseText: "\u201CWhen Herod the tetrarch heard about all that was happening~ he
+    was perplexed. For some were saying that John had risen from the dead~ others
+    that Elijah had appeared~ and still others that a prophet of old had arisen.\u201D"
+  AbilityType: 
+  SetStr: Wom
+  Abilities: []

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: "Bas148 - Naboth\u2019s Vineyard"
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 148
+  Artwork: {fileID: -3658664689423266500, guid: b0eaa46a53c51bf46ae9bb946aa8d491, type: 3}
+  Title: "Naboth\u2019s Vineyard"
+  Rarity: Common
+  Type:
+  - Location
+  Tag:
+  - Leaf
+  Value: 6
+  AbilityText: 
+  Verse: 1 Kings 21:2
+  VerseText: "\"\u201CSo Ahab said to Naboth"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas137 - The Word of God
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 137
+  Artwork: {fileID: 8679029439660242332, guid: d05e518736e40f7448755d440e761910, type: 3}
+  Title: The Word of God
+  Rarity: Rare
+  Type:
+  - Event
+  Tag: []
+  Value: 0
+  AbilityText: You may use this card to refresh the faith pool (DoveIcon) to match
+    the amount of one of your Faithful in play.
+  Verse: Hebrews 4:12
+  VerseText: "\"\u201CFor the word of God is living and active"
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Refresh
+    Target: []
+    Tag: []

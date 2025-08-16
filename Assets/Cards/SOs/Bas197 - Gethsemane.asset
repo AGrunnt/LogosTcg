@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas197 - Gethsemane
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 197
+  Artwork: {fileID: 0}
+  Title: Gethsemane
+  Rarity: 
+  Type:
+  - Location
+  Tag:
+  - Skull
+  Value: 30
+  AbilityText: "\u201CAt that time Jesus went with His disciples to a place called
+    Gethsemane~ and He told them~ \u201CSit here while I go over there and pray.\u201D\u201D\u201D"
+  Verse: "Matthew\_26:36"
+  VerseText: 
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

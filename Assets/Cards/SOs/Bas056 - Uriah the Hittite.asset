@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas056 - Uriah the Hittite
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 056
+  Artwork: {fileID: 3944625268680121618, guid: 44a2967e341db5f4a93be5a9674b7f74, type: 3}
+  Title: Uriah the Hittite
+  Rarity: Uncommon
+  Type:
+  - Neutral
+  Tag: []
+  Value: 0
+  AbilityText: Play this card on any location to prevent Faithless from placing there.
+    If a Trap card is revealed in that location~ remove Uriah the Hittite from play
+  Verse: 2 Samuel 11:11
+  VerseText: "Uriah said to David~ \u201CThe ark~ Israel~ and Judah~ are staying
+    in tents; and my lord Joab and the servants of my lord~ are encamped in the open
+    field. Shall I then go into my house to eat and to drink and to lie with my wife?
+    As you live~ and as your soul lives~ I will not do this thing!\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Occupy
+    Target: []
+    Tag: []

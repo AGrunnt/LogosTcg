@@ -59,10 +59,15 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 93eb452e4a0870546b86666c6210aceb, type: 2}
   - {fileID: 11400000, guid: 5f17e2332f2dc264ebf374275bf53135, type: 2}
   - {fileID: 11400000, guid: 329316021bef13c44aba9b21fdd04cbc, type: 2}
   - {fileID: 11400000, guid: 7e7fab9700132da41981d83fdbd08861, type: 2}
   - {fileID: 11400000, guid: ebace5f33c4da8b49a609c9f1f463d88, type: 2}
+  - {fileID: 11400000, guid: 9e7a6f2b247508a44a392f0d1f4bda1c, type: 2}
+  - {fileID: 11400000, guid: 59796dce53c952540a63a122f59f9cc3, type: 2}
+  - {fileID: 11400000, guid: 346604c6c1cc66f468fd961d205ecda5, type: 2}
+  - {fileID: 11400000, guid: 6e0ff562c2951354197e982e7c4451f7, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -112,6 +117,18 @@ MonoBehaviour:
     - Animal
     - BaseSet
     - Card
+    - Shadow
+    - Trap
+    - Holiday
+    - Attachment
+    - ShadowEffect
+    - ShadowLocation
+    - Val
+    - Bap
+    - Common
+    - Wom
+    - phi
+    - Faithless
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 860b5a5f6a171f745ad9661f3c0af3f1, type: 2}

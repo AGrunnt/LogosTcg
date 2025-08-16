@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas159 - Canaan
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 159
+  Artwork: {fileID: -9117343267711561467, guid: edecdb20c1363c34fbb83c36456979f7, type: 3}
+  Title: Canaan
+  Rarity: Uncommon
+  Type:
+  - Location
+  Tag:
+  - Leaf
+  Value: 10
+  AbilityText: 
+  Verse: Genesis 10:19
+  VerseText: "\"\u201Cand the borders of Canaan extended from Sidon toward Gerar
+    as far as Gaza"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

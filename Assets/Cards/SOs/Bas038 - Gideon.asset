@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas038 - Gideon
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 038
+  Artwork: {fileID: -1666084015142067980, guid: 655b61b7bc66b4d4a80cedfb23e60dda, type: 3}
+  Title: Gideon
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 9
+  AbilityText: 
+  Verse: Judges 7:15-16
+  VerseText: "When Gideon heard the dream and its interpretation~ he bowed in worship.
+    He returned to the camp of Israel and said~ Get up~ for the LORD has delivered
+    the camp of Midian into your hand. And he divided the three hundred men into
+    three companies and gave each man a ram\u2019s horn in one hand and a large jar
+    in the other~ containing a torch."
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

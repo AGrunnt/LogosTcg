@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas181 - Cords of Sheol
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 181
+  Artwork: {fileID: 0}
+  Title: Cords of Sheol
+  Rarity: 
+  Type:
+  - Shadow
+  Tag:
+  - Skull
+  Value: 0
+  AbilityText: Every Neutral in play or revealed takes the form of Faithless. They
+    gain the SnakeIcon equal to that location. Shadow effect ends when any location
+    is cleared.
+  Verse: "Psalm\_18:5"
+  VerseText: "\u201CThe cords of Sheol entangled me; the snares of death confronted
+    me.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

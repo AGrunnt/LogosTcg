@@ -11,7 +11,14 @@ namespace LogosTcg
         [SerializeField] public DeckDefinition deckLocationSo;
         [SerializeField] public DeckDefinition deckEncounterSo;
 
-        [SerializeField] private GameObject cardPrefab;
+        [SerializeField] private GameObject cardPrefabNeutral;
+        [SerializeField] private GameObject cardPrefabSupport;
+        [SerializeField] private GameObject cardPrefabFaithful;
+        [SerializeField] private GameObject cardPrefabFaithless;
+        [SerializeField] private GameObject cardPrefabLocation;
+        [SerializeField] private GameObject cardPrefabTrap;
+
+        CardDef ca;
 
         private void Start()
         {
@@ -24,7 +31,7 @@ namespace LogosTcg
             {
                 foreach (CardDef card in deckFaithfulSo[i].CardCollection)
                 {
-                    GameObject newCard = Instantiate(cardPrefab, be.faithfulDecks[i]);
+                    GameObject newCard = Instantiate(cardPrefabFaithful, be.faithfulDecks[i]);
                     newCard.GetComponent<Card>().Apply(card);
 
                 }
@@ -32,14 +39,38 @@ namespace LogosTcg
 
             foreach (CardDef card in deckEncounterSo.CardCollection)
             {
-                GameObject newCard = Instantiate(cardPrefab, be.encountersDeck);
+                ca = card;
+                GameObject prefabType = null;
+
+                switch(card.Type[0])
+                {
+                    case "Neutral":
+                        prefabType = cardPrefabNeutral;
+                        break;
+                    case "Faithless":
+                        prefabType = cardPrefabFaithless;
+                        break;
+                    case "Support":
+                        prefabType = cardPrefabSupport;
+                        break;
+                    case "Trap":
+                        prefabType = cardPrefabTrap;
+                        break;
+                    default:
+                        Debug.Log("error");
+                        prefabType = cardPrefabFaithful;
+                        break;
+                }
+
+
+                GameObject newCard = Instantiate(prefabType, be.encountersDeck);
                 newCard.GetComponent<Card>().Apply(card);
                 
             }
 
             foreach (CardDef card in deckLocationSo.CardCollection)
             {
-                GameObject newCard = Instantiate(cardPrefab, be.locDeck);
+                GameObject newCard = Instantiate(cardPrefabLocation, be.locDeck);
                 newCard.GetComponent<Card>().Apply(card);
                 
             }

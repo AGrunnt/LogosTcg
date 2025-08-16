@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas028 - Elijah
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 028
+  Artwork: {fileID: -4062196917034262831, guid: b6dd22f01d31408459c3e8e82a30aa09, type: 3}
+  Title: Elijah
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag: []
+  Value: 12
+  AbilityText: "\u20133 Dove if Jezebel is in play"
+  Verse: 1 Kings 18:21
+  VerseText: "Then Elijah approached all the people and said~ \u201CHow long will
+    you waver between two opinions? If the LORD is God~ follow Him. But if Baal is
+    God~ follow him.\u201D But the people did not answer a word."
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Minus
+    Target:
+    - Jezebel
+    Tag:
+    - 3

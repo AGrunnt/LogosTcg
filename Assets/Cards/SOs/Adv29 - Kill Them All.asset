@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Adv29 - Kill Them All
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 29
+  Artwork: {fileID: 0}
+  Title: Kill Them All
+  Rarity: Uncommon
+  Type:
+  - Shadow
+  Tag: []
+  Value: 0
+  AbilityText: The total Faith of each Faithful in play is reduced by 1 every round.
+    Any Faithful that reaches 0 is discarded. Shadow effect ends when any location
+    is cleared.
+  Verse: "Matthew\_2:16"
+  VerseText: "\u201CWhen Herod saw that he had been outwitted by the Magi"
+  AbilityType: 
+  SetStr: Adv
+  Abilities: []

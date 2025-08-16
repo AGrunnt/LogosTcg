@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Adv3 - Magi
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 3
+  Artwork: {fileID: 0}
+  Title: Magi
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag:
+  - Seeking
+  Value: 7
+  AbilityText: 'Bonus (Seeking): Once~ if King Herod is in play or has been discarded~
+    you may exchange one active location for any location from the location deck~
+    Then~ shuffle the deck.'
+  Verse: "Matthew\_2:10-11"
+  VerseText: "\u201CWhen they saw the star~ they rejoiced with great delight~ On
+    coming to the house~ they saw the Child with His mother Mary~ and they fell down
+    and worshiped Him~ Then they opened their treasures and presented Him with gifts
+    of gold and frankincense and myrrh.\u201D\u201D"
+  AbilityType: 
+  SetStr: Adv
+  Abilities: []

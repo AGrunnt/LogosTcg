@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas120 - Plague of Locusts
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 120
+  Artwork: {fileID: -9072047739377108054, guid: 353d1db90f9afb24a87bc1c299dbba62, type: 3}
+  Title: Plague of Locusts
+  Rarity: Common
+  Type:
+  - Event
+  Tag: []
+  Value: 5
+  AbilityText: 
+  Verse: Exodus 10:12
+  VerseText: "\"\u201CThen the LORD said to Moses"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

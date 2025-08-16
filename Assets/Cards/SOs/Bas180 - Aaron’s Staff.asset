@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: "Bas180 - Aaron\u2019s Staff"
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 180
+  Artwork: {fileID: 8856334619200769448, guid: aa722f55afb1b8b44921bece5ff84625, type: 3}
+  Title: "Aaron\u2019s Staff"
+  Rarity: Rare
+  Type:
+  - Support
+  - Animal
+  Tag: []
+  Value: 0
+  AbilityText: '"Play this card on any Faithful. At the start of your turn'
+  Verse: Numbers 17:8
+  VerseText: you may search your Faithful deck for a card instead of drawing. Then
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

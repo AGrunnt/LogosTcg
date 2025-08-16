@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas061 - Medium at Endor
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 061
+  Artwork: {fileID: 5964004808404495210, guid: 11f4444b6627042468b1e3faae28a2c2, type: 3}
+  Title: Medium at Endor
+  Rarity: Uncommon
+  Type:
+  - Faithless
+  Tag: []
+  Value: 9
+  AbilityText: 2 SnakeIcon if Saul is in play
+  Verse: 1 Samuel 28:7
+  VerseText: "\u201CThen Saul said to his servants~ \u201CFind me a woman who is
+    a medium~ so I can go and consult her.\u201D \u201CThere is a medium at Endor\u201D
+    his servants replied.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Saul
+    Tag:
+    - 2

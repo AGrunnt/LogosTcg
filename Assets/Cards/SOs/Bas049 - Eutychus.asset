@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas049 - Eutychus
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 049
+  Artwork: {fileID: 6288981008360787692, guid: e19e20de56a73d145a0dbb47f99ba737, type: 3}
+  Title: Eutychus
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 4
+  AbilityText: 
+  Verse: Acts 20:9
+  VerseText: And a certain young man named Eutychus~ seated in the window~ was sinking
+    into a deep sleep as Paul talked on and on. When he was sound asleep~ he fell
+    from the third story and was picked up dead.
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

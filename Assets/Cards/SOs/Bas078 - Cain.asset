@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas078 - Cain
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 078
+  Artwork: {fileID: -6882379188340564600, guid: 83749b82875831d43b8686535cc7d77d, type: 3}
+  Title: Cain
+  Rarity: Uncommon
+  Type:
+  - Faithless
+  Tag: []
+  Value: 11
+  AbilityText: 2 SnakeIcon if Abel is in play
+  Verse: Genesis 4:8
+  VerseText: "\u201CThen Cain said to his brother Abel~ \u201CLet us go out to the
+    field.\u201D And while they were in the field~ Cain rose up against his brother
+    Abel and killed him.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Abel
+    Tag:
+    - 2

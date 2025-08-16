@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Est23 - Led to Pilate
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 23
+  Artwork: {fileID: 0}
+  Title: Led to Pilate
+  Rarity: Uncommon
+  Type:
+  - Event
+  Tag: []
+  Value: 0
+  AbilityText: Draw an additional location card and add it to the faith timeline.
+  Verse: John 18:28
+  VerseText: Then they led Jesus away from Caiaphas into the Praetorium. By now it
+    was early morning~ and the Jews did not enter the Praetorium~ to avoid being
+    defiled and unable to eat the Passover.
+  AbilityType: 
+  SetStr: Est
+  Abilities: []

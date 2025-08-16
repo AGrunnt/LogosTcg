@@ -1,0 +1,597 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Holiday
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Holiday
+  m_GUID: 98feb9e667875954ea37f602933e847a
+  m_SerializeEntries:
+  - m_GUID: 009ba411dc7b9ee4087600d47a487971
+    m_Address: Assets/Cards/SOs/Est9 - Annas.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 017046e4b2dc4ae48a8831b5c124636c
+    m_Address: "Assets/Cards/SOs/Est4 - Mary\_Wife\_of\_Clopas.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07cef375d2824a14ea96f2de2a58245e
+    m_Address: Assets/Cards/SOs/Adv15 - Word Became Flesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0aad7fe1a25fb6a4eb2510b1a7d88cf8
+    m_Address: Assets/Cards/SOs/Adv34 - Field.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ed6698bab4367c47a60d363ba2e2d7c
+    m_Address: "Assets/Cards/SOs/Est20 - I\_Am\_The\_Vine.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1089426268f726342b4934be30e5079d
+    m_Address: Assets/Cards/SOs/Adv26 - Frankincense.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Support
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 120bb99e2e5684a47a974d76d9e07441
+    m_Address: Assets/Cards/SOs/Adv19 - Bethlehem Ephrathah.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 122ce9c8161d6d74d9cc1f126a65e476
+    m_Address: Assets/Cards/SOs/Est1 - Mary of Bethany.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1584a1ef9d1aa534c9c2afbb9db3f9a5
+    m_Address: Assets/Cards/SOs/Est27 - Rooster.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Trap
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 184141a1b9f89294c95cd82b5e88bfbf
+    m_Address: "Assets/Cards/SOs/Est14 - Judas\_Iscariot.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b52f8ade08e4104e8612f1e5c5a7858
+    m_Address: "Assets/Cards/SOs/Adv10 - Herod\u2019s Soldier.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ff52a0823a2dca46b88d742b9d630ce
+    m_Address: "Assets/Cards/SOs/Est6 - Mary\_Magdalene.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 240b53dc4f06c574cb22b1c8b8059211
+    m_Address: "Assets/Cards/SOs/Est11 - Simon\_Peter.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 298a5acda874bb546af54c1de5a2bf18
+    m_Address: "Assets/Cards/SOs/Adv28 - King\u2019s Rage.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Trap
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e2827b43846a9442a5266f7adb69cfa
+    m_Address: Assets/Cards/SOs/Est3 - Nicodemus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43321cc547ed7eb43b22f539d3365b59
+    m_Address: Assets/Cards/SOs/Adv22 - Flight to Egypt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 454dfcdb01d652040b757c5e27ebf889
+    m_Address: Assets/Cards/SOs/Adv35 - Sea of Galilee.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 457c2ed42d215454aa850e5d422494ca
+    m_Address: Assets/Cards/SOs/Adv12 - Quirinius.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48a26d74ad19e3949900c5cdcd2b676d
+    m_Address: Assets/Cards/SOs/Adv18 - Star in the East.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48ac7b3452766c74b81d67509c3a054c
+    m_Address: Assets/Cards/SOs/Adv33 - Egypt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52457807cfdfecb479764e5a8af58963
+    m_Address: Assets/Cards/SOs/Est26 - Blinded.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Trap
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5272116e1dbb655448ce6e8d9da89bca
+    m_Address: Assets/Cards/SOs/Adv6 - Gabriel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5516f65411ccead429d0cc7c3155b174
+    m_Address: "Assets/Cards/SOs/Est16 - Mocking\_Soldiers.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5589a16d696df5043abcb70593b3536b
+    m_Address: Assets/Cards/SOs/Adv5 - Joseph.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a8748701a50c094c94184b70376f136
+    m_Address: Assets/Cards/SOs/Est18 - Hosanna!.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Support
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b7d7714aabbc064e84144f0a1d7a1a4
+    m_Address: Assets/Cards/SOs/Est31 - Bethany.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 609496dd42fc0c94caf38806e9b72f4e
+    m_Address: Assets/Cards/SOs/Est23 - Led to Pilate.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6879a76dbf609fb41ab6763c1a9046dd
+    m_Address: Assets/Cards/SOs/Adv29 - Kill Them All.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Shadow
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71e612883454f274dabf4df7cb7833c6
+    m_Address: Assets/Cards/SOs/Adv32 - Bethlehem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ccfc5e41ae836c45aa19c44861153d5
+    m_Address: Assets/Cards/SOs/Adv16 - Good News of Great Joy.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f9190e7f1fc71a4ca93fe08c5c624a8
+    m_Address: Assets/Cards/SOs/Adv17 - A Decree Went Out.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86294794ddebeac4f844135e6661e96f
+    m_Address: Assets/Cards/SOs/Est30 - Courtyard.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89d6c989b474f964f838a27aca113d39
+    m_Address: Assets/Cards/SOs/Est29 - Glory of Man.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - ShadowEffect
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cfa1fc3ccd7614469c97ed03887052d
+    m_Address: Assets/Cards/SOs/Est36 - Golgotha.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - ShadowLocation
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d5d7d54e405c5744945b25134e10588
+    m_Address: "Assets/Cards/SOs/Est7 - Servant\_Girl.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Neutral
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 927382ec869686c4bae5a731d4848238
+    m_Address: Assets/Cards/SOs/Adv7 - Simeon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e8f4ce3bab15024e9fa6d6d8c0e15e5
+    m_Address: Assets/Cards/SOs/Est32 - Garden.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a152a1a15aea42b489c70f1acfa0fbf7
+    m_Address: Assets/Cards/SOs/Adv1 - Shepherd.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1f48bf700435854f991530e7e30fce4
+    m_Address: Assets/Cards/SOs/Est28 - Doubt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - ShadowEffect
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4c371579c7499e4dbbe5d3d0ef36e63
+    m_Address: Assets/Cards/SOs/Adv31 - Nazareth.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1962106d02484e4abc32984652373c0
+    m_Address: "Assets/Cards/SOs/Est17 - Washed\_Their\_Feet.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Support
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b33a2de1a7839c845a60b8cfa4304407
+    m_Address: Assets/Cards/SOs/Est22 - It Is Finished.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b37fafc237cefb846bef3d6dc5e799fa
+    m_Address: Assets/Cards/SOs/Est12 - Caiphas.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4df854a4885ee44ca4dbcc0dce629f0
+    m_Address: Assets/Cards/SOs/Adv3 - Magi.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4fa5b2527fc5ee46b4de3a6ef9ccd55
+    m_Address: Assets/Cards/SOs/Adv21 - Furious.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b516071bc17448944958d0df90b144f1
+    m_Address: "Assets/Cards/SOs/Est15 - Whoever\_Believes.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b80befeba1607d744ab0d514e32a722e
+    m_Address: "Assets/Cards/SOs/Est19 - Anointed\_His\_Feet.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Support
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8c32e2894dad0c4396b6f0f11c0919b
+    m_Address: Assets/Cards/SOs/Adv25 - Manger.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Support
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbfa16cea2488ab41b8b1cda5ae833df
+    m_Address: Assets/Cards/SOs/Est21 - Peace Be With You.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc614aa36438eed42a15923a5429a2c2
+    m_Address: Assets/Cards/SOs/Adv27 - Scroll.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Attachment
+    - Card
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc8387ba9540bb0479d8115252f9abbd
+    m_Address: "Assets/Cards/SOs/Adv9 - Herod\u2019s Soldier.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c15d4a8e62afb9b4a9f9c3e80c34d70b
+    m_Address: Assets/Cards/SOs/Est2 - Nathanael.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c83d5f0478a73b74796edd104171927f
+    m_Address: Assets/Cards/SOs/Est35 - Gabatha.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - ShadowLocation
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca126a88422f50d4b8959e20e1c1eace
+    m_Address: Assets/Cards/SOs/Est24 - Palm Branches.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Support
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca5c11f3d08592843b4698262811aaaa
+    m_Address: Assets/Cards/SOs/Est34 - Brook Kidron.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d03e65298277e5447be78e9811adb471
+    m_Address: "Assets/Cards/SOs/Est5 - Simon\_Peter.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d51451b9da2e4c54ea7a92cca79dcbe0
+    m_Address: Assets/Cards/SOs/Adv2 - Magi.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d793a3e129b40424fb0db1cc43b2a49e
+    m_Address: Assets/Cards/SOs/Adv8 - Anna.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9d3faba8048fb74daf8b8346162b2a9
+    m_Address: Assets/Cards/SOs/Adv13 - Archelaus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc2004fbe2e3fc54391bc030586d33c0
+    m_Address: Assets/Cards/SOs/Adv23 - Warned in a Dream.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd5085459693d4d41a8b96be9cedca85
+    m_Address: Assets/Cards/SOs/Adv30 - Judea.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7a726a62ba04624eabf73e3ade51d2f
+    m_Address: Assets/Cards/SOs/Adv14 - King Herod.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e82769e50f6d5d3429aca58132349400
+    m_Address: Assets/Cards/SOs/Est10 - Thomas.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f230c000486d7fa4ea928dd55a2123b9
+    m_Address: Assets/Cards/SOs/Adv4 - Mary.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f511aeb73d9c75b4684161feb07b64c6
+    m_Address: Assets/Cards/SOs/Adv24 - Immanuel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f541189f4b031b744bccea6c3cce6c97
+    m_Address: Assets/Cards/SOs/Est25 - Young Donkey.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Support
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5429c9355316ae47ac0c733ea83d763
+    m_Address: Assets/Cards/SOs/Adv36 - Bethlehem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f79e82f912472394d854f5ce396af9ae
+    m_Address: Assets/Cards/SOs/Adv20 - Disturbed.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9c8fa17bec9d6642a0fefc27220701d
+    m_Address: Assets/Cards/SOs/Est33 - Sea of Tiberias.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Location
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb201d87435701142abd8aa216fa926a
+    m_Address: Assets/Cards/SOs/Adv11 - Caesar Augustus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc1c7855f05c35449a774f3e65f9e1be
+    m_Address: Assets/Cards/SOs/Est8 - Clopas.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Holiday
+    - Neutral
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe30831491a7b064dab1a777406487fe
+    m_Address: Assets/Cards/SOs/Est13 - Malchus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Holiday
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2d969ee5f1d64b54b87f4146c07244ed, type: 2}
+  m_SchemaSet:
+    m_Schemas: []

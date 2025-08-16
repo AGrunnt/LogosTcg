@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas070 - Giant of Egypt
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 070
+  Artwork: {fileID: -6385261079222798120, guid: 4b859d1fe66d06b4c9c18d2d1e190f51, type: 3}
+  Title: Giant of Egypt
+  Rarity: Common
+  Type:
+  - Faithless
+  Tag: []
+  Value: 3
+  AbilityText: 2 SnakeIcon if Egypt is active
+  Verse: 1 Chronicles 11:23
+  VerseText: "\u201CHe also killed an Egyptian~ a huge man five cubits tall. Although
+    the Egyptian had a spear like a weaver\u2019s beam in his hand~ Benaiah went
+    against him with a club~ snatched the spear from his hand~ and killed the Egyptian
+    with his own spear.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Egypt
+    Tag:
+    - 2

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas140 - The Golden Calf
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 140
+  Artwork: {fileID: -2508012776495348237, guid: 1550db0fb3e3e064b9d9a4ab98b46271, type: 3}
+  Title: The Golden Calf
+  Rarity: Rare
+  Type:
+  - Event
+  Tag: []
+  Value: 7
+  AbilityText: 
+  Verse: Exodus 32:4
+  VerseText: "\"\u201CHe took the gold from their hands"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

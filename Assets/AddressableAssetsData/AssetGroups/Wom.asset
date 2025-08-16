@@ -1,0 +1,309 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Wom
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Wom
+  m_GUID: 7547e57f2704dfe459b2807afc22798d
+  m_SerializeEntries:
+  - m_GUID: 18c03178653106f4bab37ff53d8df4e2
+    m_Address: Assets/Cards/SOs/Wom12 - Herod the Tetrarch.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b4f610be9dfad74193a074c2a48794f
+    m_Address: "Assets/Cards/SOs/Wom3 - Jairus\u2019 Daughter.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c33c22bcb1f6af4495cbc0d2b63db6b
+    m_Address: Assets/Cards/SOs/Wom20 - Raised to Life.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d1de86305e83b24384393d04b1e1f84
+    m_Address: Assets/Cards/SOs/Wom22 - They Worshiped Him.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 213f95b810506764da5e70240114ff59
+    m_Address: "Assets/Cards/SOs/Wom18 - The Widow\u2019s Offering.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2174326387c18a5428cfd311808929c1
+    m_Address: Assets/Cards/SOs/Wom11 - Martha.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24ed61c04a0fd6a428da8dbd160e79b4
+    m_Address: Assets/Cards/SOs/Wom28 - Rooster.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Trap
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28d512401bfb1984cb498987523b172c
+    m_Address: Assets/Cards/SOs/Wom35 - Courtyard.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Location
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3423bda7320467c4fa26f5e28e4f07ac
+    m_Address: Assets/Cards/SOs/Wom34 - Temple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Location
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46eab48a085d81940aacaeecc55ef443
+    m_Address: "Assets/Cards/SOs/Wom7 - Widow\u2019s Son.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Neutral
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b28dc257b63278459d137c121be76e3
+    m_Address: Assets/Cards/SOs/Wom21 - The Death of Jesus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f2dd20a21e9a8d47bfacd2a0f7d4b6e
+    m_Address: Assets/Cards/SOs/Wom2 - Sinful Woman.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 501390bc15a5d0944bd11ae653695e34
+    m_Address: Assets/Cards/SOs/Wom17 - Saved by Faith.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 508f40085b34c6e4cad05b45bd1fd3a6
+    m_Address: Assets/Cards/SOs/Wom8 - Servant Girl.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Neutral
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5aa5da7eb13c8f8409ad6049fa623015
+    m_Address: Assets/Cards/SOs/Wom33 - Bethany.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Location
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62c43bbd4be8bdb4a9821401327f1249
+    m_Address: Assets/Cards/SOs/Wom32 - Capernaum.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Location
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 653b9ba91c083e9449a2d5eae27b84af
+    m_Address: Assets/Cards/SOs/Wom4 - Mary of Bethany.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6740e5bfd6dca0e42aded1b873c81b4d
+    m_Address: Assets/Cards/SOs/Wom29 - Nain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Location
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69a6d4e1fd4006a4780c0f25ec850110
+    m_Address: "Assets/Cards/SOs/Wom30 - Simon the Pharisee\u2019s.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Location
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 730f13db8414321409769b7a46af8c5e
+    m_Address: Assets/Cards/SOs/Wom19 - Do Not Fear.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88917fb6b4390f6479c37325a1b1b945
+    m_Address: Assets/Cards/SOs/Wom10 - Simon the Pharisee.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98f7e760b3255884580a74303150dc1b
+    m_Address: Assets/Cards/SOs/Wom13 - Disabling Spirit.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6e8100bf93b47045a7f2545f05c7d79
+    m_Address: Assets/Cards/SOs/Wom9 - Scribe.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9ff931e9e10c784893c44f41bb3d902
+    m_Address: "Assets/Cards/SOs/Wom31 - Martha\u2019s Home.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Location
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd0b492cb8c83f84ba12cabb2385941c
+    m_Address: Assets/Cards/SOs/Wom16 - Forgiven.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfa1b938f9940d9498abaa7def3cd531
+    m_Address: Assets/Cards/SOs/Wom26 - Alabastar Jar.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Support
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5c55e27e19d4384a8439109aab785e8
+    m_Address: Assets/Cards/SOs/Wom1 - Widow of Nain.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6641d080faa1f949ac6bc0a1b503662
+    m_Address: Assets/Cards/SOs/Wom15 - Women Who Followed.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d80e6d69ca6b27549be6add539cbac41
+    m_Address: Assets/Cards/SOs/Wom14 - Demon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithless
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8c1688e80c7ba848ab5288fb098ddce
+    m_Address: Assets/Cards/SOs/Wom5 - Joanna.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e32b020a2a83b3a41ba46a0f63098ef1
+    m_Address: Assets/Cards/SOs/Wom24 - The Women Told Them.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef0176237edb8db4fbc9950ca02e5f6c
+    m_Address: Assets/Cards/SOs/Wom6 - Susanna.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Faithful
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2de39b763c305041ad5d2d1becec411
+    m_Address: Assets/Cards/SOs/Wom36 - The Tomb of Jesus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Location
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f61cb22fbd7a47e40880feb0e72ecd2c
+    m_Address: Assets/Cards/SOs/Wom25 - Copper Coins.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Support
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa06a05149e36cb42acde08653a11bfe
+    m_Address: Assets/Cards/SOs/Wom23 - Women at the Tomb.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Event
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa78c7c232ef95d48a6057da6b5b8ab3
+    m_Address: Assets/Cards/SOs/Wom27 - Demon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Card
+    - Trap
+    - Wom
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2d969ee5f1d64b54b87f4146c07244ed, type: 2}
+  m_SchemaSet:
+    m_Schemas: []

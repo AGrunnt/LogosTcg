@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Adv13 - Archelaus
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 13
+  Artwork: {fileID: 0}
+  Title: Archelaus
+  Rarity: Uncommon
+  Type:
+  - Faithless
+  Tag: []
+  Value: 11
+  AbilityText: 'Bonus: When Archelaus enters play~ remove any Neutral cards from
+    current and adjacent locations.'
+  Verse: "Matthew\_2:22"
+  VerseText: "\"\u201CBut when he learned that Archelaus was reigning in Judea in
+    place of his father Herod~ he was afraid to go there. And having been warned
+    in a dream~ he withdrew to the district of Galilee"
+  AbilityType: 
+  SetStr: Adv
+  Abilities: []

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Wom14 - Demon
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 14
+  Artwork: {fileID: 0}
+  Title: Demon
+  Rarity: Rare
+  Type:
+  - Faithless
+  Tag: []
+  Value: 18
+  AbilityText: This Faithless is immune to any card effects and can only be cleared
+    through Faith tokens.
+  Verse: "Luke\_4:33-35"
+  VerseText: "\u201CIn the synagogue there was a man possessed by the spirit of an
+    unclean demon. He cried out in a loud voice~ \u201CHa! What do You want with
+    us~ Jesus of\_Nazareth? Have You come to destroy us? I know who You are\u2014the
+    Holy\_One\_of\_God!\u201D But Jesus rebuked the demon. \u201CBe silent!\u201D
+    He said. \u201CCome out of him!\u201D At this~ the demon threw the man down before
+    them all and came out without harming him.\u201D"
+  AbilityType: 
+  SetStr: Wom
+  Abilities: []

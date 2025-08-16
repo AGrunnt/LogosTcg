@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: "Est19 - Anointed\_His\_Feet"
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 19
+  Artwork: {fileID: 0}
+  Title: "Anointed\_His\_Feet"
+  Rarity: Common
+  Type:
+  - Support
+  Tag: []
+  Value: 0
+  AbilityText: 
+  Verse: "John\_12:3"
+  VerseText: "\"You may use this card to refresh the faith pool (doveIcon) to match
+    the amount of one of your Faithful in play. \u201CThen Mary took about a pint
+    of expensive perfume"
+  AbilityType: 
+  SetStr: Est
+  Abilities: []

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Est29 - Glory of Man
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 29
+  Artwork: {fileID: 0}
+  Title: Glory of Man
+  Rarity: Common
+  Type:
+  - ShadowEffect
+  Tag: []
+  Value: 0
+  AbilityText: While this Shadow effect is in play~ no Faithful can be refreshed.
+    Shadow effect ends when any card is cleared.
+  Verse: "John 12:42\u201343"
+  VerseText: Nevertheless~ many of the leaders believed in Him. But because of the
+    Pharisees they did not confess Him~ for fear that they would be put out of the
+    synagogue. For they loved praise from men more than praise from God.
+  AbilityType: 
+  SetStr: Est
+  Abilities: []

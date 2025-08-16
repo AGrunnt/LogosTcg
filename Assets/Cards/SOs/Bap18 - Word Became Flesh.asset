@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bap18 - Word Became Flesh
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 18
+  Artwork: {fileID: 0}
+  Title: Word Became Flesh
+  Rarity: Common
+  Type:
+  - Event
+  Tag: []
+  Value: 0
+  AbilityText: "Instant: Play this card in response to a trap card to cancel the
+    effects of the trap. Discard both cards. Then~ end player\u2019s turn."
+  Verse: John 1:14
+  VerseText: The Word became flesh and made His dwelling among us. We have seen His
+    glory~ the glory of the one and only Son from the Father~ full of grace and truth.
+  AbilityType: 
+  SetStr: Bap
+  Abilities: []

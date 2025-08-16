@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas097 - Athaliah
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 097
+  Artwork: {fileID: 5846585085897651107, guid: a3556c2647dcbee45af97aabc0548834, type: 3}
+  Title: Athaliah
+  Rarity: Uncommon
+  Type:
+  - Faithless
+  Tag: []
+  Value: 8
+  AbilityText: '"Bonus: Upon reveal'
+  Verse: 2 Kings 11:1
+  VerseText: any active Faithful card with a faith amount less than 8 is discarded."
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Discard
+    Target:
+    - Faithful
+    - FaithLessThan
+    Tag:
+    - 8

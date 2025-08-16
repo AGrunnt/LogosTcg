@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas114 - Call to Follow
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 114
+  Artwork: {fileID: 7373866742705130615, guid: 6f640243e2d8db642a9837a1289398c7, type: 3}
+  Title: Call to Follow
+  Rarity: Common
+  Type:
+  - Event
+  Tag: []
+  Value: 7
+  AbilityText: 
+  Verse: Mark 1:16-18
+  VerseText: "\"\u201CAs Jesus was walking beside the Sea of Galilee"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: "Bas179 - Pharaoh\u2019s Ring"
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 179
+  Artwork: {fileID: -1042799782820600264, guid: ecaeb1865d016c146b577db9c7ff0d4e, type: 3}
+  Title: "Pharaoh\u2019s Ring"
+  Rarity: Common
+  Type:
+  - Support
+  - Animal
+  Tag: []
+  Value: 0
+  AbilityText: Play this card on any Faithless to cut their cost in half. Discard
+    when that Faithless is no longer in play.
+  Verse: Genesis 41:42
+  VerseText: "\"\u201CThen Pharaoh removed the signet ring from his finger"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

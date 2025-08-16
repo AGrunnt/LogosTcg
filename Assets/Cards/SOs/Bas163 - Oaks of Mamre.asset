@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas163 - Oaks of Mamre
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 163
+  Artwork: {fileID: -1755308426477839431, guid: d7a1619f09ad0104db21db8da67a9db3, type: 3}
+  Title: Oaks of Mamre
+  Rarity: Rare
+  Type:
+  - Location
+  Tag:
+  - Leaf
+  Value: 11
+  AbilityText: 
+  Verse: Genesis 13:18
+  VerseText: "\"\u201CSo Abram moved his tent and went to live near the Oaks of Mamre
+    at Hebron"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

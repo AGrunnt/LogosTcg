@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bap4 - Tax Collector
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 4
+  Artwork: {fileID: 0}
+  Title: Tax Collector
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 5
+  AbilityText: 
+  Verse: "Luke 3:12\u201113"
+  VerseText: "Even tax collectors came to be baptized. \u201CTeacher~\u201D they
+    asked~ \u201Cwhat should we do?\u201D \u201CCollect no more than you are authorized~\u201D
+    he answered."
+  AbilityType: 
+  SetStr: Bap
+  Abilities: []

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Adv8 - Anna
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 8
+  Artwork: {fileID: 0}
+  Title: Anna
+  Rarity: Rare
+  Type:
+  - Faithful
+  Tag:
+  - Prophetess
+  Value: 0
+  AbilityText: "Prophetess: Play Anna on any location on the Faith timeline~ Every
+    time an action is taken on this location~ refresh +2\_DoveIcon to any Faithful
+    in play."
+  Verse: "Luke\_2:36-37"
+  VerseText: "\u201CThere was also a prophetess named Anna~ the daughter of Phanuel~
+    of the tribe of Asher~ who was well along in years~ She had been married for
+    seven years~ and then was a widow to the age of eighty\u2011four~ She never left
+    the temple~ but worshiped night and day~ fasting and praying.\u201D\u201D"
+  AbilityType: 
+  SetStr: Adv
+  Abilities: []

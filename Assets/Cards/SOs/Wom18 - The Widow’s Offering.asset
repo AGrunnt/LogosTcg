@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: "Wom18 - The Widow\u2019s Offering"
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 18
+  Artwork: {fileID: 0}
+  Title: "The Widow\u2019s Offering"
+  Rarity: Common
+  Type:
+  - Event
+  Tag: []
+  Value: 0
+  AbilityText: "You may use this card to refresh the faith pool (FaithIcon) to match
+    the amount of one of your\_Faithful in\_play."
+  Verse: "Luke\_21:2-4"
+  VerseText: "\u201Cand He saw a poor widow put in two small copper coins. \u201CTruly
+    I tell you~\u201D He said~ \u201Cthis poor widow has put in more than all the
+    others. For they all contributed out of their surplus~ but she out of her poverty
+    has put in all she had to live on.\u201D\u201D"
+  AbilityType: 
+  SetStr: Wom
+  Abilities: []

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bap25 - Locust
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 25
+  Artwork: {fileID: 0}
+  Title: Locust
+  Rarity: Common
+  Type:
+  - Support
+  Tag: []
+  Value: 0
+  AbilityText: "Play this card on any MountainIcon location. On your turn~ when a
+    card with a cost is revealed in this location~ refresh the faith pool of one
+    of your Faithful equal to that card\u2019s cost (not exceeding the Faithful\u2019s
+    max)."
+  Verse: "Mark\_1:6"
+  VerseText: "\u201CJohn was clothed in camel\u2019s hair~ with a leather belt around
+    his waist. His food was locusts and wild honey.\u201D"
+  AbilityType: 
+  SetStr: Bap
+  Abilities: []

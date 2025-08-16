@@ -1,8 +1,7 @@
-// Assets/Scripts/PopulateDecks.cs
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
+//using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -22,118 +21,66 @@ namespace LogosTcg
 
         public IEnumerator LoadAndPartitionBaseSet()
         {
-            // 1) Faithful = BaseSet ? Faithful, then sort by name
+            // 1) Faithful: BaseSet ? Faithful
             var faithfulHandle = Addressables.LoadAssetsAsync<CardDef>(
-                new object[] { BaseSetLabel, FaithfulLabel },
-                callback: null,
-                mode: Addressables.MergeMode.Intersection
-            );
+                new object[] { BaseSetLabel, FaithfulLabel }, null, Addressables.MergeMode.Intersection);
             yield return faithfulHandle;
-            var allFaithfulCards = faithfulHandle.Result
-                .OrderBy(cd => cd.name)
-                .ToList();
+            var allFaithfulCards = faithfulHandle.Result.OrderBy(cd => cd.name).ToList();
 
+            // Partition Faithful among players
             int currentIndex = 0;
             int chunkSize = 12;
+            int playerCount = GetComponent<StartGameSequence>().testPlayerCount;
 
-            for (int i = 0; i < GetComponent<StartGameSequence>().testPlayerCount; i++)
+            for (int i = 0; i < playerCount; i++)
             {
-                if (currentIndex >= allFaithfulCards.Count)
-                    break; // No more cards to assign
+                int takeCount = Mathf.Min(chunkSize, allFaithfulCards.Count - currentIndex);
+                if (takeCount <= 0) break;
 
-                int cardsLeft = allFaithfulCards.Count - currentIndex;
-                int takeCount = Mathf.Min(chunkSize, cardsLeft); // Handle cases where < 12 cards are left
-
-                deckFaithful[i].CardCollection = allFaithfulCards
-                    .Skip(currentIndex)
-                    .Take(takeCount)
-                    .ToList();
-
+                deckFaithful[i].CardCollection = allFaithfulCards.Skip(currentIndex).Take(takeCount).ToList();
                 currentIndex += takeCount;
             }
 
-
-
-
-
-            // 2) Location = BaseSet ? Location, then sort by name
+            // 2) Location: BaseSet ? Location
             var locationHandle = Addressables.LoadAssetsAsync<CardDef>(
-                new object[] { BaseSetLabel, LocationLabel },
-                callback: null,
-                mode: Addressables.MergeMode.Intersection
-            );
+                new object[] { BaseSetLabel, LocationLabel }, null, Addressables.MergeMode.Intersection);
             yield return locationHandle;
+
             if (locationHandle.Status == AsyncOperationStatus.Succeeded)
-                deckLocation.CardCollection = locationHandle
-                    .Result
-                    .OrderBy(cd => cd.name)
-                    .ToList();
+                deckLocation.CardCollection = locationHandle.Result.OrderBy(cd => cd.name).ToList();
             else
                 Debug.LogError($"Location load failed: {locationHandle.OperationException}");
 
-            // 3) Encounter = BaseSet minus those two sets, then sort by name
-            var allHandle = Addressables.LoadAssetsAsync<CardDef>(
-                BaseSetLabel,
-                callback: null
-            );
+            // 3) Encounter = BaseSet ? (ALL Faithful ? ALL Location)
+            var allHandle = Addressables.LoadAssetsAsync<CardDef>(BaseSetLabel, null);
             yield return allHandle;
-
             if (allHandle.Status != AsyncOperationStatus.Succeeded)
             {
                 Debug.LogError($"BaseSet load failed: {allHandle.OperationException}");
                 yield break;
             }
 
-            // Build hash?sets of faithful & location for quick exclusion
             var allCards = allHandle.Result.ToList();
-            //var faithfulSet = new HashSet<CardDef>(deckFaithful.CardCollection);
-            HashSet<CardDef> faithfulSet = new HashSet<CardDef>();
 
-            for (int i = 0; i < GetComponent<StartGameSequence>().testPlayerCount; i++)
-            {
-                faithfulSet.UnionWith(deckFaithful[i].CardCollection);
-            }
-
-
-            var locationSet = new HashSet<CardDef>(deckLocation.CardCollection);
+            // Prefer a stable key (name or your CardDef ID) to avoid ref-equality pitfalls.
+            HashSet<string> faithfulKeys = allFaithfulCards.Select(c => c.name).ToHashSet();
+            HashSet<string> locationKeys = deckLocation.CardCollection.Select(c => c.name).ToHashSet();
 
             deckEncounter.CardCollection = allCards
-                .Where(cd => !faithfulSet.Contains(cd) && !locationSet.Contains(cd))
-                .OrderBy(cd => cd.name)
+                .Where(c => !faithfulKeys.Contains(c.name) && !locationKeys.Contains(c.name))
+                .OrderBy(c => c.name)
                 .ToList();
+
+            // Optional sanity check
+            var leaked = deckEncounter.CardCollection.Where(c => faithfulKeys.Contains(c.name)).Select(c => c.name).ToList();
+            if (leaked.Count > 0) Debug.LogError("Faithful leaked into Encounter: " + string.Join(", ", leaked));
 
             // 4) Clean up
             Addressables.Release(faithfulHandle);
             Addressables.Release(locationHandle);
             Addressables.Release(allHandle);
         }
+
     }
 }
 
-/*
- encounter.CardCollection =
-                    GetComponent<DeckSceneManager>()
-                      .encounterListTf
-                      .GetComponentsInChildren<CardLine>()
-                      .Select(l => l.cardDef)
-                      .ToList();
-
-                location.CardCollection =
-                    GetComponent<DeckSceneManager>()
-                      .locationListTf
-                      .GetComponentsInChildren<CardLine>()
-                      .Select(l => l.cardDef)
-                      .ToList();
-
-                for (int i = 0; i < StaticData.playerNums; i++)
-                {
-                    Debug.Log($"list item {i}");
-                    faithfulList[i].CardCollection =
-                        GetComponent<DeckSceneManager>()
-                          .faithfulListTf[i]
-                          .GetComponentsInChildren<CardLine>()
-                          .Select(l => l.cardDef)
-                          .ToList();
-                } 
- 
- */

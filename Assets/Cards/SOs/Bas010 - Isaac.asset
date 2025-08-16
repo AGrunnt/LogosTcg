@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas010 - Isaac
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 010
+  Artwork: {fileID: 536588176418212837, guid: acdc756ee3da7e947af78aecddfb1111, type: 3}
+  Title: Isaac
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 4
+  AbilityText: 
+  Verse: Genesis 21:1-3
+  VerseText: Now the LORD attended to Sarah as He had said~ and the LORD did for
+    Sarah what He had promised. So Sarah conceived and bore a son to Abraham in his
+    old age~ at the very time God had promised. And Abraham gave the name Isaac to
+    the son Sarah bore to him.
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

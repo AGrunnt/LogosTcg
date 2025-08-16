@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas008 - Sarah
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 008
+  Artwork: {fileID: 8064007463670637702, guid: bf5ac8992642c0146998fc4d7140468a, type: 3}
+  Title: Sarah
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 5
+  AbilityText: -2 Dove if Hagar is in play
+  Verse: Genesis 18:11
+  VerseText: And Abraham and Sarah were already old and well along in years; Sarah
+    had passed the age of childbearing.
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Minus
+    Target:
+    - Hagar
+    Tag:
+    - 2

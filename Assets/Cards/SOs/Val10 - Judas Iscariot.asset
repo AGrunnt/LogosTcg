@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Val10 - Judas Iscariot
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 10
+  Artwork: {fileID: 0}
+  Title: Judas Iscariot
+  Rarity: Rare
+  Type:
+  - Faithless
+  Tag: []
+  Value: 13
+  AbilityText: 'Bonus (Deceit): Judas Iscariot is immune to any Faith token or card
+    effect while there is any other card with a cost on active or adjacent locations.'
+  Verse: "Luke 22:3\u20114"
+  VerseText: Then Satan entered Judas Iscariot~ who was one of the Twelve. And Judas
+    went to discuss with the chief priests and temple officers how he might betray
+    Jesus to them.
+  AbilityType: 
+  SetStr: Val
+  Abilities: []

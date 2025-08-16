@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas005 - Noah
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 005
+  Artwork: {fileID: 3991544336719514832, guid: f2bb759e66c7b464c95b02fc7818744e, type: 3}
+  Title: Noah
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 12
+  AbilityText: 3 Dove if the Ark is active
+  Verse: Genesis 5:9b
+  VerseText: Noah was a righteous man~ blameless in his generation; Noah walked with
+    God.
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Ark
+    Tag:
+    - 3

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas177 - Ship of Tarshish
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 177
+  Artwork: {fileID: 802491878870739799, guid: a48adc905b1eb504d8d2e7f5d2c03e06, type: 3}
+  Title: Ship of Tarshish
+  Rarity: Uncommon
+  Type:
+  - Support
+  - Animal
+  Tag: []
+  Value: 0
+  AbilityText: Play this card on any WaveIcon location. No Faithless cards may be
+    placed and are discarded instead.
+  Verse: Isaiah 60:9
+  VerseText: "\"\u201CSurely the islands will wait for Me"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

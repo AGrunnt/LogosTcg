@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas185 - Deception
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 185
+  Artwork: {fileID: 0}
+  Title: Deception
+  Rarity: 
+  Type:
+  - Shadow
+  Tag:
+  - Skull
+  Value: 0
+  AbilityText: While this Shadow effect is in play~ the limit for each active location
+    before overflow is reduced by 1. Shadow effect ends when 5 Faithless are cleared.
+  Verse: "Genesis\_3:1"
+  VerseText: "\u201CNow the serpent was more crafty than any beast of the field that
+    the LORD God had made. And he said to the woman~ \u201CDid God really say~ \u2018You
+    must not eat from any tree in the garden?\u2019\u201D\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

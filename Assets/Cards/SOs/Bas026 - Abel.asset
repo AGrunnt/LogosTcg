@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas026 - Abel
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 026
+  Artwork: {fileID: 778374802527138934, guid: 4aee04209ef27444590986cc2e80f9bd, type: 3}
+  Title: Abel
+  Rarity: Common
+  Type:
+  - Faithful
+  Tag: []
+  Value: 5
+  AbilityText: 
+  Verse: Genesis 4:2
+  VerseText: "Later she gave birth to Cain\u2019s brother Abel. Now Abel was a keeper
+    of sheep~ while Cain was a tiller of the soil."
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

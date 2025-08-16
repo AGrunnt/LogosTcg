@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas174 - Palm Branch
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 174
+  Artwork: {fileID: 2574021606863339352, guid: e763aef5b266b3147af8eab0249cc976, type: 3}
+  Title: Palm Branch
+  Rarity: Uncommon
+  Type:
+  - Support
+  - Animal
+  Tag: []
+  Value: 0
+  AbilityText: '"Play this card on any LeafIcon location. On your turn'
+  Verse: John 12:13
+  VerseText: when a card with a cost is revealed in this location
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

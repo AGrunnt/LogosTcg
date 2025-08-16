@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Wom5 - Joanna
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 5
+  Artwork: {fileID: 0}
+  Title: Joanna
+  Rarity: Rare
+  Type:
+  - Faithful
+  Tag: []
+  Value: 12
+  AbilityText: 
+  Verse: "Luke\u202F24:8\u201110"
+  VerseText: "\u201CThen they remembered His words. And when they returned from the
+    tomb~ they reported all these things to the Eleven and to all the others. It
+    was Mary Magdalene~ Joanna~ Mary the mother of James~ and the other women with
+    them who told this to the apostles.\u201D"
+  AbilityType: 
+  SetStr: Wom
+  Abilities: []

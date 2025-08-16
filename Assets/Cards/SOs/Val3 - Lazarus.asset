@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Val3 - Lazarus
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 3
+  Artwork: {fileID: 0}
+  Title: Lazarus
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag: []
+  Value: 8
+  AbilityText: 'Bonus: When Lazarus is put in play~ refresh 2 DoveIcon for every
+    Faithful in play.'
+  Verse: "John 11:43\u201144"
+  VerseText: "After Jesus had said this~ He called out in a loud voice~ \u201CLazarus~
+    come out!\u201D The man who had been dead came out with his hands and feet bound
+    in strips of linen~ and his face wrapped in a cloth. \u201CUnwrap him and let
+    him go~\u201D Jesus told them."
+  AbilityType: 
+  SetStr: Val
+  Abilities: []

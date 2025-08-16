@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Val25 - Thorns
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 25
+  Artwork: {fileID: 0}
+  Title: Thorns
+  Rarity: Common
+  Type:
+  - Trap
+  Tag: []
+  Value: 0
+  AbilityText: 'Trap: When revealed~ any Faithful with an even number faith amount
+    are turned faced down and removed from play until the current location is cleared.'
+  Verse: Isaiah 7:25
+  VerseText: For fear of the briers and thorns~ you will no longer traverse the hills
+    once tilled by the hoe; they will become places for oxen to graze and sheep to
+    trample.
+  AbilityType: 
+  SetStr: Val
+  Abilities: []

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bap14 - Herodias
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 14
+  Artwork: {fileID: 0}
+  Title: Herodias
+  Rarity: Rare
+  Type:
+  - Faithless
+  Tag: []
+  Value: 13
+  AbilityText: 5 SnakeIcon if John the Baptist is in play
+  Verse: "Mark 6:19\u201320"
+  VerseText: "So Herodias held a grudge against John and wanted to kill him. But
+    she had been unable~ because Herod feared John and protected him~ knowing that
+    he was a righteous and holy man. When he heard John\u2019s words~ he was greatly
+    perplexed~ yet he listened to him gladly."
+  AbilityType: 
+  SetStr: Bap
+  Abilities: []

@@ -1,231 +1,338 @@
-// Assets/Editor/CardImport_BySetCode.cs
+#if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
-using UnityEditor.AddressableAssets.Settings.GroupSchemas;
-using UnityEngine;
+using LogosTcg; // your CardDef/Ability namespace
+using System.IO;
 
-namespace LogosTcg
+public static class CsvToAddressablesOneClick
 {
-    /// One-click pipeline:
-    /// 1) CSV -> ScriptableObjects   2) Mark Addressable
-    /// 3) Put into group resolved from set CODE (supports many->one)  4) Label ("Card", Types, set code, group)
-    public static class CardImport_BySetCode
+    // --- Customize these as needed ---
+    private const string CsvAbilitiesPath = "Assets/Cards/CardDb - AbilitySht.csv";
+    private const string CsvCardsPath = "Assets/Cards/CardDb - CardSht.csv";
+
+    // Where to save created ScriptableObject assets:
+    private const string OutputSoFolder = "Assets/Cards/SOs";
+
+    // Map CSV "Set" abbreviations (case-insensitive) -> Addressables Group names.
+    // Add as many as you need; multiple abbreviations can point to one group.
+    private static readonly Dictionary<string, string> SetToGroup = new(StringComparer.OrdinalIgnoreCase)
     {
-        // Search anywhere under Assets/Sets so BaseSet / Season1 / Season2 etc. are covered
-        private static readonly string[] SearchFolders = { "Assets/Sets" };
+        { "bas", "BaseSet" },
+        { "s1",  "Season1" },
+        { "s2",  "Season2" },
+        { "adv", "Holiday" },
+        { "est", "Holiday" }
+        // add more here...
+    };
 
-        // === EDIT THIS MAP ===
-        // Lower-case keys recommended; mapping supports many codes pointing to one group.
-        // Example:
-        //   "bas" -> "BaseSet"
-        //   "adv" -> "Holiday"
-        //   "est" -> "Holiday"
-        private static readonly Dictionary<string, string> SetCodeToGroupMap = new Dictionary<string, string>
+    [MenuItem("Tools/One-Click: CSV ? Scriptables ? Addressables & Labels")]
+    public static void RunAll()
+    {
+        // 1) Load CSVs
+        var csvAb = AssetDatabase.LoadAssetAtPath<TextAsset>(CsvAbilitiesPath);
+        var csvCd = AssetDatabase.LoadAssetAtPath<TextAsset>(CsvCardsPath);
+        if (csvAb == null || csvCd == null)
         {
-            { "bas", "BaseSet" },
-            { "adv", "Holiday" },
-            { "est", "Holiday" }
-            // add more here...
-        };
+            Debug.LogError($"Could not find CSVs. Check paths:\n{CsvAbilitiesPath}\n{CsvCardsPath}");
+            return;
+        }
 
-        [MenuItem("Tools/Import Cards (CSV ? Addressables + Labels, by Set Code)")]
-        public static void ImportMakeAddressableAndLabel_BySetCode()
+        var abLines = SplitCsv(csvAb.text);
+        var cdLines = SplitCsv(csvCd.text);
+
+        if (abLines.Length < 2 || cdLines.Length < 2)
         {
-            try
+            Debug.LogWarning("One or both CSVs have no data rows.");
+            return;
+        }
+
+        var abHeaders = abLines[0].Split(',').Select(h => h.Trim()).ToList();
+        var cdHeaders = cdLines[0].Split(',').Select(h => h.Trim()).ToList();
+
+        var abRows = abLines.Skip(1).Select(l => l.Split(',').Select(c => c.Trim()).ToArray()).ToList();
+        var cdRows = cdLines.Skip(1).Select(l => l.Split(',').Select(c => c.Trim()).ToArray()).ToList();
+
+        // 2) Prepare Addressables
+        var settings = AddressableAssetSettingsDefaultObject.Settings;
+        if (settings == null)
+        {
+            Debug.LogError("Addressables are not set up (AddressableAssetSettingsDefaultObject.Settings is null).");
+            return;
+        }
+
+        EnsureFolder(OutputSoFolder);
+
+        var createdOrUpdated = new List<string>();
+
+        // 3) Create/Update ScriptableObjects, then make them Addressable + label them
+        foreach (var row in cdRows)
+        {
+            var card = CreateOrUpdateCardDef(row, cdHeaders, abRows, abHeaders, out var assetPath);
+
+            // mark/move to Addressables group
+            var groupName = ResolveGroupName(card.SetStr);
+            var group = settings.FindGroup(groupName) ?? settings.CreateGroup(groupName, false, false, true, null);
+
+            var guid = AssetDatabase.AssetPathToGUID(assetPath);
+            var entry = settings.CreateOrMoveEntry(guid, group);
+
+            // Labels: "Card", group name, and each Type value (distinct)
+            EnsureLabel(settings, "Card");
+            entry.SetLabel("Card", true, true);
+
+            EnsureLabel(settings, groupName);
+            entry.SetLabel(groupName, true, true);
+
+            if (card.Type != null)
             {
-                // 1) Your CSV -> ScriptableObjects
-                DatabaseSetupBase.ImportSo();
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-
-                // 2) Addressables settings must exist
-                var settings = AddressableAssetSettingsDefaultObject.Settings;
-                if (settings == null)
+                foreach (var typeLabel in card.Type.Distinct(StringComparer.OrdinalIgnoreCase))
                 {
-                    Debug.LogError("Addressables not configured. Open 'Window > Asset Management > Addressables' to create settings.");
-                    return;
+                    if (string.IsNullOrWhiteSpace(typeLabel)) continue;
+                    EnsureLabel(settings, typeLabel);
+                    entry.SetLabel(typeLabel, true, true);
                 }
-
-                // 3) Find all CardDef assets created
-                var cardGuids = AssetDatabase.FindAssets("t:CardDef", SearchFolders);
-                if (cardGuids == null || cardGuids.Length == 0)
-                {
-                    Debug.LogWarning("No CardDef assets found under Assets/Sets.");
-                    return;
-                }
-
-                int newAddressables = 0, movedGroups = 0, relabeled = 0;
-
-                foreach (var guid in cardGuids)
-                {
-                    var path = AssetDatabase.GUIDToAssetPath(guid);
-                    var obj = AssetDatabase.LoadAssetAtPath<Object>(path);
-                    if (obj == null)
-                        continue;
-
-                    // ---- read set CODE from the CardDef (supports Set / SetStr / SetName) ----
-                    var setCode = ReadStringProp(obj, "Set") ??
-                                  ReadStringProp(obj, "SetStr") ??
-                                  ReadStringProp(obj, "SetName");
-
-                    // If no explicit property, attempt to infer from folder path: Assets/Sets/<something>/...
-                    if (string.IsNullOrWhiteSpace(setCode))
-                        setCode = InferSetCodeFromPath(path);
-
-                    // Normalize to lower for map lookup
-                    var setCodeKey = (setCode ?? "").Trim().ToLowerInvariant();
-
-                    // Resolve the Addressables group name using the mapping; fall back to the code itself if unknown
-                    var targetGroupName = ResolveGroupName(setCodeKey);
-
-                    // ---- ensure/create the target group ----
-                    var group = settings.FindGroup(targetGroupName);
-                    if (group == null)
-                    {
-                        group = settings.CreateGroup(
-                            targetGroupName,
-                            setAsDefaultGroup: false,
-                            readOnly: false,
-                            postEvent: true,
-                            schemasToCopy: null,
-                            types: new[]
-                            {
-                                typeof(BundledAssetGroupSchema),
-                                typeof(ContentUpdateGroupSchema)
-                            }
-                        );
-
-                        var bundle = group.GetSchema<BundledAssetGroupSchema>();
-                        if (bundle != null) bundle.BundleMode = BundledAssetGroupSchema.BundlePackingMode.PackTogether;
-                    }
-
-                    // ---- ensure Addressable entry and move to proper group ----
-                    var entry = settings.FindAssetEntry(guid);
-                    if (entry == null)
-                    {
-                        entry = settings.CreateOrMoveEntry(guid, group, readOnly: false, postEvent: true);
-                        entry.address = System.IO.Path.GetFileNameWithoutExtension(path);
-                        newAddressables++;
-                    }
-                    else if (entry.parentGroup != group)
-                    {
-                        settings.MoveEntry(entry, group);
-                        movedGroups++;
-                    }
-
-                    // ---- Labels: "Card", Types, set code, group name ----
-                    bool changed = false;
-
-                    if (!entry.labels.Contains("Card"))
-                    {
-                        entry.SetLabel("Card", true, true);
-                        changed = true;
-                    }
-
-                    // Add all card "Type" strings (supports List<string> Type / Types / Labels / Tags)
-                    foreach (var t in ReadStringArray(obj, "Type", "Types", "Labels", "Tags").Where(s => !string.IsNullOrWhiteSpace(s)).Distinct())
-                    {
-                        if (!entry.labels.Contains(t))
-                        {
-                            entry.SetLabel(t, true, true);
-                            changed = true;
-                        }
-                    }
-
-                    // set code label (e.g., "bas")
-                    if (!string.IsNullOrWhiteSpace(setCode) && !entry.labels.Contains(setCode))
-                    {
-                        entry.SetLabel(setCode, true, true);
-                        changed = true;
-                    }
-
-                    // resolved group name label (e.g., "BaseSet" / "Holiday")
-                    if (!entry.labels.Contains(targetGroupName))
-                    {
-                        entry.SetLabel(targetGroupName, true, true);
-                        changed = true;
-                    }
-
-                    if (changed) relabeled++;
-                }
-
-                settings.SetDirty(AddressableAssetSettings.ModificationEvent.EntryModified, null, true);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-
-                Debug.Log($"Done. New addressables: {newAddressables}, moved groups: {movedGroups}, relabeled: {relabeled}.");
             }
-            catch (System.Exception ex)
+
+            createdOrUpdated.Add(assetPath);
+        }
+
+        // 4) Save
+        settings.SetDirty(AddressableAssetSettings.ModificationEvent.EntryMoved, null, true);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+
+        Debug.Log($"Done. Created/updated {createdOrUpdated.Count} CardDef assets and Addressables.\n" +
+                  string.Join("\n", createdOrUpdated.Select(p => $" - {p}")));
+    }
+
+    // ---------------- helpers ----------------
+
+    private static string[] SplitCsv(string text) =>
+        text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
+            .Where(l => !string.IsNullOrWhiteSpace(l))
+            .ToArray();
+
+    private static void EnsureFolder(string folderPath)
+    {
+        if (!AssetDatabase.IsValidFolder(folderPath))
+        {
+            var parts = folderPath.Split('/');
+            var path = parts[0];
+            for (int i = 1; i < parts.Length; i++)
             {
-                Debug.LogError($"Import/Addressables/Labels failed: {ex}");
-            }
-        }
-
-        // ----------------- helpers -----------------
-        private static string ResolveGroupName(string setCodeLower)
-        {
-            if (!string.IsNullOrEmpty(setCodeLower) && SetCodeToGroupMap.TryGetValue(setCodeLower, out var group))
-                return group;
-
-            // Fallbacks:
-            // - If code looks like "baseset" or "season1", use a TitleCase-ish variant
-            // - Otherwise just use the code itself (Addressables will create that group)
-            if (string.IsNullOrWhiteSpace(setCodeLower)) return "Ungrouped";
-            return GuessTitle(setCodeLower);
-        }
-
-        private static string GuessTitle(string s)
-        {
-            // very small beautifier: "baseset" -> "BaseSet", "season1" -> "Season1"
-            if (string.IsNullOrWhiteSpace(s)) return s;
-            var parts = s.Split(new[] { '_', '-', ' ' }, System.StringSplitOptions.RemoveEmptyEntries);
-            return string.Concat(parts.Select(p => char.ToUpperInvariant(p[0]) + (p.Length > 1 ? p.Substring(1) : "")));
-        }
-
-        private static string InferSetCodeFromPath(string assetPath)
-        {
-            // Assets/Sets/<something>/ScriptableObjects/... -> "<something>"
-            var parts = assetPath.Replace('\\', '/').Split('/');
-            var idx = System.Array.IndexOf(parts, "Sets");
-            if (idx >= 0 && idx + 1 < parts.Length)
-                return parts[idx + 1];
-            return null;
-        }
-
-        private static string ReadStringProp(Object obj, string name)
-        {
-            var so = new SerializedObject(obj);
-            var sp = so.FindProperty(name);
-            return (sp != null && sp.propertyType == SerializedPropertyType.String) ? sp.stringValue : null;
-        }
-
-        private static IEnumerable<string> ReadStringArray(Object obj, params string[] candidateNames)
-        {
-            var so = new SerializedObject(obj);
-            foreach (var name in candidateNames)
-            {
-                var sp = so.FindProperty(name);
-                if (sp == null) continue;
-
-                if (sp.isArray && sp.propertyType != SerializedPropertyType.String)
-                {
-                    for (int i = 0; i < sp.arraySize; i++)
-                    {
-                        var elem = sp.GetArrayElementAtIndex(i);
-                        if (elem.propertyType == SerializedPropertyType.String && !string.IsNullOrWhiteSpace(elem.stringValue))
-                            yield return elem.stringValue;
-                    }
-                    yield break;
-                }
-                if (sp.propertyType == SerializedPropertyType.String && !string.IsNullOrWhiteSpace(sp.stringValue))
-                {
-                    yield return sp.stringValue;
-                    yield break;
-                }
+                var next = $"{path}/{parts[i]}";
+                if (!AssetDatabase.IsValidFolder(next))
+                    AssetDatabase.CreateFolder(path, parts[i]);
+                path = next;
             }
         }
     }
+
+    private static string ResolveGroupName(string setStr)
+    {
+        if (string.IsNullOrWhiteSpace(setStr)) return "Ungrouped";
+        if (SetToGroup.TryGetValue(setStr.Trim(), out var group)) return group;
+        // Fallback: title-case the set string or use a default
+        return setStr.Trim();
+    }
+
+    private static void EnsureLabel(AddressableAssetSettings settings, string label)
+    {
+        if (string.IsNullOrWhiteSpace(label)) return;
+        var labels = settings.GetLabels();
+        if (!labels.Contains(label))
+        {
+            settings.AddLabel(label);
+        }
+    }
+
+    /// <summary>
+    /// Creates or updates a CardDef asset from CSV rows, then returns the instance and its asset path.
+    /// </summary>
+    private static CardDef CreateOrUpdateCardDef(
+        string[] cdRow,
+        List<string> cdHeaders,
+        List<string[]> abRows,
+        List<string> abHeaders,
+        out string assetPath)
+    {
+        // build safe file name
+        string setStr = Get(cdHeaders, cdRow, "Set");
+        string id = Get(cdHeaders, cdRow, "CardId");
+        string title = Get(cdHeaders, cdRow, "Name");
+
+        string fileName = $"{Sanitize(setStr)}{Sanitize(id)} - {Sanitize(title)}.asset";
+        assetPath = $"{OutputSoFolder}/{fileName}"; //001001 - Adam.png
+
+        var existing = AssetDatabase.LoadAssetAtPath<CardDef>(assetPath);
+        CardDef card = existing != null ? existing : ScriptableObject.CreateInstance<CardDef>();
+
+        // --- basic fields ---
+        card.Id = id;
+        card.Title = title;
+        card.SetStr = setStr;
+        card.Rarity = Get(cdHeaders, cdRow, "Rarity");
+        card.AbilityText = Get(cdHeaders, cdRow, "AbilityText");
+        card.Verse = Get(cdHeaders, cdRow, "Verse");
+        card.VerseText = Get(cdHeaders, cdRow, "VerseText");
+
+        // lists
+        card.Type = SplitList(Get(cdHeaders, cdRow, "Type"));
+        card.Tag = SplitList(Get(cdHeaders, cdRow, "Tag"));
+
+        // value
+        if (int.TryParse(Get(cdHeaders, cdRow, "Value"), out var val)) card.Value = val;
+
+        // artwork (optional – adjust naming if needed)
+        TryAssignArtwork(card);
+
+        // abilities by CardId
+        RebuildAbilities(card, abRows, abHeaders);
+
+        if (existing == null)
+            AssetDatabase.CreateAsset(card, assetPath);
+        else
+            EditorUtility.SetDirty(card);
+
+        return card;
+    }
+
+    private static string Get(List<string> headers, string[] row, string name)
+    {
+        int idx = headers.IndexOf(name);
+        return (idx >= 0 && idx < row.Length) ? row[idx] : string.Empty;
+    }
+
+    private static List<string> SplitList(string raw)
+        => string.IsNullOrWhiteSpace(raw)
+            ? new List<string>()
+            : raw.Split('|').Select(s => s.Trim()).Where(s => s.Length > 0).ToList();
+
+    private static string Sanitize(string s)
+    {
+        if (string.IsNullOrEmpty(s)) return "NA";
+        foreach (var c in System.IO.Path.GetInvalidFileNameChars())
+            s = s.Replace(c, '_');
+        return s;
+    }
+
+    private static void TryAssignArtwork(CardDef card)
+    {
+        // Example: your originals searched "Assets/Sets/BaseSet/Images" for name starting with "001" + id.
+        // Tweak this to your actual art naming convention/location if needed.
+        const string artFolder = "Assets/Cards/Images";
+        var guids = AssetDatabase.FindAssets(card.SetStr + card.Id, new[] { artFolder });
+        if (guids.Length == 0) return;
+
+        string imgPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(imgPath);
+        if (sprite != null) card.Artwork = sprite;
+    }
+
+    private static void RebuildAbilities(CardDef card, List<string[]> abRows, List<string> abHeaders)
+    {
+        card.Abilities.Clear();
+
+        int abIdIndex = abHeaders.IndexOf("CardId");
+        if (abIdIndex < 0) return;
+
+        foreach (var abRow in abRows.Where(r => string.Equals(r[abIdIndex], card.Id, StringComparison.OrdinalIgnoreCase)))
+        {
+            var ability = new Ability
+            {
+                AbilityType = SplitList(Get(abHeaders, abRow, "AbilityType")),
+                Target = SplitList(Get(abHeaders, abRow, "Target")),
+                Tag = SplitList(Get(abHeaders, abRow, "Tag"))
+            };
+            card.Abilities.Add(ability);
+        }
+    }
+
+    private const string TargetFolder = "Assets/Cards/Images";
+    private const string NewPrefix = "bas";
+    private const bool IncludeSubfolders = false; // set true to include subfolders
+
+    [MenuItem("Tools/Rename PNGs in Cards/Images (first 3 ? 'bas')")]
+    public static void RenamePngs()
+    {
+        if (!AssetDatabase.IsValidFolder(TargetFolder))
+        {
+            Debug.LogError($"Folder not found: {TargetFolder}");
+            return;
+        }
+
+        var guids = AssetDatabase.FindAssets("t:Texture2D", new[] { TargetFolder });
+
+        int renamed = 0, skipped = 0, errors = 0;
+
+        try
+        {
+            for (int i = 0; i < guids.Length; i++)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+                if (!path.EndsWith(".png", System.StringComparison.OrdinalIgnoreCase))
+                {
+                    skipped++;
+                    continue;
+                }
+
+                // Only files directly in TargetFolder (exclude subfolders unless toggled)
+                if (!IncludeSubfolders)
+                {
+                    string dir = Path.GetDirectoryName(path)?.Replace('\\', '/');
+                    if (!string.Equals(dir, TargetFolder, System.StringComparison.Ordinal))
+                    {
+                        skipped++;
+                        continue;
+                    }
+                }
+
+                string nameNoExt = Path.GetFileNameWithoutExtension(path);
+                if (string.IsNullOrEmpty(nameNoExt) || nameNoExt.Length < 3)
+                {
+                    skipped++;
+                    continue;
+                }
+
+                if (nameNoExt.StartsWith(NewPrefix))
+                {
+                    skipped++;
+                    continue;
+                }
+
+                string newNameNoExt = NewPrefix + nameNoExt.Substring(3);
+
+                EditorUtility.DisplayProgressBar(
+                    "Renaming PNGs in Assets/Cards/Images",
+                    $"{nameNoExt}.png ? {newNameNoExt}.png",
+                    (float)i / Mathf.Max(1, guids.Length - 1)
+                );
+
+                string err = AssetDatabase.RenameAsset(path, newNameNoExt);
+                if (!string.IsNullOrEmpty(err))
+                {
+                    errors++;
+                    Debug.LogError($"Failed to rename '{path}': {err}");
+                }
+                else
+                {
+                    renamed++;
+                }
+            }
+        }
+        finally
+        {
+            EditorUtility.ClearProgressBar();
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        Debug.Log($"Done. Renamed: {renamed}, Skipped: {skipped}, Errors: {errors}");
+    }
 }
+#endif

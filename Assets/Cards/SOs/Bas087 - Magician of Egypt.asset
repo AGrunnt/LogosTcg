@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas087 - Magician of Egypt
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 087
+  Artwork: {fileID: 1673484709387899356, guid: 91905bd8dbf29854c93593594834637f, type: 3}
+  Title: Magician of Egypt
+  Rarity: Common
+  Type:
+  - Faithless
+  Tag: []
+  Value: 6
+  AbilityText: 2 SnakeIcon if Egypt is active
+  Verse: Exodus 7:11
+  VerseText: "\u201CBut Pharaoh called the wise men and sorcerers and magicians of
+    Egypt~ and they also did the same things by their magic arts.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Egypt
+    Tag:
+    - 2

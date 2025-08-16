@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Est36 - Golgotha
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 36
+  Artwork: {fileID: 0}
+  Title: Golgotha
+  Rarity: Rare
+  Type:
+  - ShadowLocation
+  Tag: []
+  Value: 30
+  AbilityText: 
+  Verse: "John\_19:16-17"
+  VerseText: Then Pilate handed Jesus over to be crucified~ and the soldiers took
+    Him away. Carrying His own cross~ He went out to The Place of the Skull~ which
+    in Hebrew is called Golgotha.
+  AbilityType: 
+  SetStr: Est
+  Abilities: []

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bap13 - Herod the Tetrarch
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 13
+  Artwork: {fileID: 0}
+  Title: Herod the Tetrarch
+  Rarity: Rare
+  Type:
+  - Faithless
+  Tag: []
+  Value: 15
+  AbilityText: "2 SnakeIcon if Herodias\u2019 Daughter is in play"
+  Verse: "Mark 6:26\u201327"
+  VerseText: "The king was consumed with sorrow~ but because of his oaths and his
+    guests~ he did not want to refuse her. So without delay~ the king commanded that
+    John\u2019s head be brought in. He sent an executioner~ who went and beheaded
+    him in the prison."
+  AbilityType: 
+  SetStr: Bap
+  Abilities: []

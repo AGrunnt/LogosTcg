@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Est21 - Peace Be With You
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 21
+  Artwork: {fileID: 0}
+  Title: Peace Be With You
+  Rarity: Rare
+  Type:
+  - Event
+  Tag: []
+  Value: 0
+  AbilityText: 'Instant: When this card is revealed in a location~ the total cost
+    of all cards in that location is the total used to refresh WaveIcon between all
+    Faithful in play of current player.'
+  Verse: "John 20:19\u201320"
+  VerseText: "It was the first day of the week~ and that very evening~ while the
+    disciples were together with the doors locked for fear of the Jews~ Jesus came
+    and stood among them. \u201CPeace be with you!\u201D He said to them. After He
+    had said this~ He showed them His hands and His side."
+  AbilityType: 
+  SetStr: Est
+  Abilities: []

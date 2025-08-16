@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Val32 - Adriatic Sea
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 32
+  Artwork: {fileID: 0}
+  Title: Adriatic Sea
+  Rarity: Common
+  Type:
+  - ShadowLocation
+  Tag: []
+  Value: 17
+  AbilityText: 
+  Verse: "Acts\_27:18-20"
+  VerseText: "We were tossed so violently that the next day the men began to jettison
+    the cargo. On the third day~ they threw the ship\u2019s tackle overboard with
+    their own hands. When neither sun nor stars appeared for many days and the great
+    storm continued to batter us~ we abandoned all hope of being saved."
+  AbilityType: 
+  SetStr: Val
+  Abilities: []

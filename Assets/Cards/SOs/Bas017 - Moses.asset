@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas017 - Moses
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 017
+  Artwork: {fileID: -4851268099889213156, guid: f28f592a5673c404b8ca23b4d3ce8091, type: 3}
+  Title: Moses
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag: []
+  Value: 10
+  AbilityText: 
+  Verse: Exodus 3:1-2
+  VerseText: Meanwhile~ Moses was shepherding the flock of his father-in-law Jethro~
+    the priest of Midian. He led the flock to the far side of the wilderness and
+    came to Horeb~ the mountain of God. There the angel of the LORD appeared to him
+    in a blazing fire from within a bush. Moses saw the bush ablaze with fire~ but
+    it was not consumed.
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

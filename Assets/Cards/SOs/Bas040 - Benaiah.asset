@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas040 - Benaiah
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 040
+  Artwork: {fileID: -8795104764004862535, guid: afb3ac42f6077344383e1b028a0354c3, type: 3}
+  Title: Benaiah
+  Rarity: Uncommon
+  Type:
+  - Faithful
+  Tag: []
+  Value: 10
+  AbilityText: 2 Dove if a Wild Lion is in play
+  Verse: 2 Samuel 23:20
+  VerseText: And Benaiah son of Jehoiada was a man of valor from Kabzeel~ a man of
+    many exploits. He struck down two champions of Moab~ and on a snowy day he went
+    down into a pit and killed a lion.
+  AbilityType: 
+  SetStr: Bas
+  Abilities:
+  - AbilityType:
+    - Add
+    Target:
+    - Wild Lion
+    Tag:
+    - 2

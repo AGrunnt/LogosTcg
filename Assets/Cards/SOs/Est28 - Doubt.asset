@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Est28 - Doubt
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 28
+  Artwork: {fileID: 0}
+  Title: Doubt
+  Rarity: Uncommon
+  Type:
+  - ShadowEffect
+  Tag: []
+  Value: 0
+  AbilityText: While this Shadow effect is in play~ whenever a Faithful engages with
+    the Faith timeline~ they are turned upside down and inactive for the next round.
+    Shadow effect ends when any location is cleared.
+  Verse: John 20:25b
+  VerseText: "But he replied~ \u201CUnless I see the nail marks in His hands~ and
+    put my finger where the nails have been~ and put my hand into His side~ I will
+    never believe.\u201D"
+  AbilityType: 
+  SetStr: Est
+  Abilities: []

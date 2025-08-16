@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Val14 - Og King of Bashan
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 14
+  Artwork: {fileID: 0}
+  Title: Og King of Bashan
+  Rarity: Rare
+  Type:
+  - Faithless
+  Tag: []
+  Value: 18
+  AbilityText: 
+  Verse: Deuteronomy 3:11
+  VerseText: "For only Og king of Bashan remained of the remnant of the Rephaim.
+    Behold~ his bedstead was a bedstead of iron. Isn\u2019t it in Rabbah of the children
+    of Ammon? Nine cubits was its length~ and four cubits its width~ after the cubit
+    of a man."
+  AbilityType: 
+  SetStr: Val
+  Abilities: []

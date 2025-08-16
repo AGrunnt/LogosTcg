@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bap19 - Prepare the Way
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 19
+  Artwork: {fileID: 0}
+  Title: Prepare the Way
+  Rarity: Uncommon
+  Type:
+  - Event
+  Tag: []
+  Value: 13
+  AbilityText: 
+  Verse: Isaiah 40:3
+  VerseText: "A voice of one calling~ \u201CPrepare the way for the LORD in the wilderness~
+    make a straight highway for our God in the desert.\u201D"
+  AbilityType: 
+  SetStr: Bap
+  Abilities: []

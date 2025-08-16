@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Wom10 - Simon the Pharisee
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 10
+  Artwork: {fileID: 0}
+  Title: Simon the Pharisee
+  Rarity: Uncommon
+  Type:
+  - Faithless
+  Tag: []
+  Value: 9
+  AbilityText: 
+  Verse: "Luke\u202F7:39\u201140"
+  VerseText: "\u201CNow when the Pharisee who had invited him saw it~ he said to
+    himself~ \u201CThis man~ if he were a prophet~ would have perceived who and what
+    kind of woman this is who touches him~ that she is a sinner.\u201D Jesus answered
+    him~ \u201CSimon~ I have something to tell you.\u201D He said~ \u201CTeacher~
+    say on.\u201D\u201D"
+  AbilityType: 
+  SetStr: Wom
+  Abilities: []

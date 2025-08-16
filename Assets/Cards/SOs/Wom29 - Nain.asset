@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Wom29 - Nain
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 29
+  Artwork: {fileID: 0}
+  Title: Nain
+  Rarity: Rare
+  Type:
+  - Location
+  Tag:
+  - LeafIcon
+  Value: 14
+  AbilityText: 
+  Verse: "Luke\_7:11"
+  VerseText: "\u201CSoon afterward~ Jesus went to a town called Nain. His disciples
+    went with Him~ accompanied by a large crowd.\u201D"
+  AbilityType: 
+  SetStr: Wom
+  Abilities: []

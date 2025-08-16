@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas169 - Sparrow
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 169
+  Artwork: {fileID: 139451156141350883, guid: 65770f3350aa57941aff9f17d8ba2c43, type: 3}
+  Title: Sparrow
+  Rarity: Common
+  Type:
+  - Support
+  - Animal
+  Tag: []
+  Value: 0
+  AbilityText: Play this card on any LeafIcon location. No Faithless cards may be
+    placed and are discarded instead.
+  Verse: Matthew 10:31
+  VerseText: "\u201CAnd even the very hairs of your head are all numbered. So do
+    not be afraid; you are worth more than many sparrows.\u201D"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []

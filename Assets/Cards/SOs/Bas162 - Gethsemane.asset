@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90501db28e9b9aa4d8900ec5a9866134, type: 3}
+  m_Name: Bas162 - Gethsemane
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDef
+  Id: 162
+  Artwork: {fileID: 1867767075529448926, guid: f1c848439b8763b41b8eedd43e220c05, type: 3}
+  Title: Gethsemane
+  Rarity: Rare
+  Type:
+  - Location
+  Tag:
+  - Leaf
+  Value: 19
+  AbilityText: 
+  Verse: Matthew 26:36-37
+  VerseText: "\"\u201CAt that time Jesus went with His disciples to a place called
+    Gethsemane"
+  AbilityType: 
+  SetStr: Bas
+  Abilities: []
