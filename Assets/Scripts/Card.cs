@@ -2,6 +2,7 @@
 using LogoTcg;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,6 +22,15 @@ namespace LogosTcg
         public Image BackImage;
         public List<Gobject> gobjects = new List<Gobject>();
         public string addressableKey;
+        public Image IconImg;
+        public Image IconBckImg;
+        public Image ValBckImg;
+        public TextMeshProUGUI valTmp;
+        public TextMeshProUGUI abilityTmp;
+        public Image setImg;
+        public TextMeshProUGUI cardId;
+        public Image backgroundImg;
+        public Image rarityImg;
 
         public void Apply(CardDef data)
         {

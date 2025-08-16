@@ -2756,6 +2756,7 @@ GameObject:
   - component: {fileID: 1508904352}
   - component: {fileID: 1508904353}
   - component: {fileID: 1508904354}
+  - component: {fileID: 1508904355}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2986,6 +2987,40 @@ MonoBehaviour:
   currPhase: DrawEnc
   playCount: 0
   playCountAvailable: 1
+--- !u!114 &1508904355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508904342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d1a5137ccb2eb418d85f22b7156026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.ImageCollection
+  rarityCommon: {fileID: 0}
+  rarityUncommon: {fileID: 0}
+  rarityRare: {fileID: 0}
+  bckFaithful: {fileID: 0}
+  bckFaithless: {fileID: 0}
+  bckEvent: {fileID: 0}
+  bckTrap: {fileID: 0}
+  bckNeutral: {fileID: 0}
+  bckSupport: {fileID: 0}
+  bckLocLeaf: {fileID: 0}
+  bckLocMnt: {fileID: 0}
+  bckLocWave: {fileID: 0}
+  boxBckLocLeaf: {fileID: 0}
+  boxBckLocMnt: {fileID: 0}
+  boxBckLocWave: {fileID: 0}
+  dimBckLocLeaf: {fileID: 0}
+  dimBckLocMnt: {fileID: 0}
+  dimBckLocWave: {fileID: 0}
+  IconLeaf: {fileID: 0}
+  IconMnt: {fileID: 0}
+  IconWave: {fileID: 0}
+  setBase: {fileID: 0}
 --- !u!1001 &1514396515
 PrefabInstance:
   m_ObjectHideFlags: 0
