@@ -29,6 +29,7 @@ namespace LogosTcg
         public Image ValBckImg;
         public TextMeshProUGUI valTmp;
         public TextMeshProUGUI abilityTmp;
+        public TextMeshProUGUI title;
         public Image setImg;
         public TextMeshProUGUI cardId;
         public Image backgroundImg;
@@ -45,6 +46,8 @@ namespace LogosTcg
             //ic = FindFirstObjectByType<ImageCollection>();
             gameObject.name = data.name;
             _definition = data;
+            title.text = data.Title;
+            abilityTmp.text = data.AbilityText;
             image.sprite = data.Artwork;
             cardId.text = data.Id;
             valTmp.text = data.Value.ToString();
