@@ -23,7 +23,8 @@ namespace LogosTcg
         public List<Gobject> gobjects = new List<Gobject>();
         public string addressableKey;
         public Image IconImg;
-        public Image IconBckImg;
+        public Image IconSqrBckImg;
+        public Image IconDimBckImg;
         public Image ValBckImg;
         public TextMeshProUGUI valTmp;
         public TextMeshProUGUI abilityTmp;
@@ -31,13 +32,57 @@ namespace LogosTcg
         public TextMeshProUGUI cardId;
         public Image backgroundImg;
         public Image rarityImg;
+        ImageCollection ic;
+
+        void Start()
+        {
+            ic = ImageCollection.instance;
+        }
 
         public void Apply(CardDef data)
         {
             gameObject.name = data.name;
             _definition = data;
             image.sprite = data.Artwork;
-        }
+            cardId.text = data.Id;
+            valTmp.text = data.Value.ToString();
+
+            switch(data.Rarity) //do same for set
+            {
+                case "Common":
+                    rarityImg.sprite = ic.rarityCommon;
+                    break;
+                case "Uncommon":
+                    rarityImg.sprite = ic.rarityUncommon;
+                    break;
+                case "Rare":
+                    rarityImg.sprite = ic.rarityRare;
+                    break;
+            }
+
+            if (data.Type[0] == "Location")
+            {
+                switch (data.Tag[0])
+                {
+                    case "Leaf":
+                        IconSqrBckImg.sprite = ic.boxBckLocLeaf;
+                        IconDimBckImg.sprite = ic.dimBckLocLeaf;
+                        IconImg.sprite = ic.IconLeaf;
+                        break;
+                    case "Mountain":
+                        IconSqrBckImg.sprite = ic.boxBckLocMnt;
+                        IconDimBckImg.sprite = ic.dimBckLocMnt;
+                        IconImg.sprite = ic.IconMnt;
+                        break;
+                    case "Wave":
+                        IconSqrBckImg.sprite = ic.boxBckLocWave;
+                        IconDimBckImg.sprite = ic.dimBckLocWave;
+                        IconImg.sprite = ic.IconWave;
+                        break;
+                }
+                //set, 
+            }
+    }
 
         public void SetFacing(bool faceup)
         {

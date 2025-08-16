@@ -52,11 +52,13 @@ namespace LogosTcg
         public string Title;
         public string Rarity;
         public List<string> Type;
+        public List<string> Tag;
         public int Value;
         public string AbilityText;
         public string Verse;
         public string VerseText;
         public string AbilityType;
+        public string SetStr;
 
         [Header("Scoring Abilities")]
         [Tooltip("All abilities this card grants or triggers at end-game scoring")]

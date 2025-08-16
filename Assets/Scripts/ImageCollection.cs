@@ -9,18 +9,13 @@ namespace LogosTcg
 {
     public class ImageCollection : MonoBehaviour
     {
+        public static ImageCollection instance;
+
+        void Awake() => instance = this;
+
         public Sprite rarityCommon;
         public Sprite rarityUncommon;
         public Sprite rarityRare;
-        public Sprite bckFaithful;
-        public Sprite bckFaithless;
-        public Sprite bckEvent;
-        public Sprite bckTrap;
-        public Sprite bckNeutral;
-        public Sprite bckSupport;
-        public Sprite bckLocLeaf;
-        public Sprite bckLocMnt;
-        public Sprite bckLocWave;
         public Sprite boxBckLocLeaf;
         public Sprite boxBckLocMnt;
         public Sprite boxBckLocWave;
@@ -30,6 +25,9 @@ namespace LogosTcg
         public Sprite IconLeaf;
         public Sprite IconMnt;
         public Sprite IconWave;
+        public Sprite IconDove;
+        public Sprite IconSnake;
+        public Sprite IconTrap;
         public Sprite setBase;
     }
 }

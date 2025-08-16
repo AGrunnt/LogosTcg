@@ -152,6 +152,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8269191443868670581, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2230946618985260917, guid: 7748c39c58840c949ae68120d8e9521e, type: 3}
     - target: {fileID: 8584770105869498616, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.34
@@ -182,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994356602663114153, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
       propertyPath: m_Name
-      value: CardLocation
+      value: CardLocationVarient
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
