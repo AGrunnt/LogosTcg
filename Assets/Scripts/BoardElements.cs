@@ -19,6 +19,7 @@ namespace LogosTcg
         public List<Transform> stackSlots;
         public Transform encountersDeck;
         public Transform commonBoard;
+        public Transform discard;
         public Transform mainCamera;
 
     }

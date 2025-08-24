@@ -2,7 +2,9 @@ using DG.Tweening;
 using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
+using System.Collections.Generic;
 using static UnityEngine.Rendering.CoreUtils;
+using NUnit.Framework.Internal;
 
 namespace LogosTcg
 {
@@ -64,6 +66,7 @@ namespace LogosTcg
         
         public void DrawEncounters0()
         {
+            List<Transform> tfList = new List<Transform>();
             for (int i = 0; i < be.locSlots.Count; i++)
             {
                 if (be.locSlots[i].GetComponentInChildren<Card>() == null)
@@ -80,9 +83,30 @@ namespace LogosTcg
 
                 }
 
-                dc.SendTopTo(be.encountersDeck, slot);
+                Transform topCard = dc.SendTopTo(be.encountersDeck, slot);
+                tfList.Add(topCard);
                 slot.GetComponent<SlotScript>().InitializeSlots();
                 //break;
+            }
+
+            foreach(Transform tf in tfList)
+            {
+                string type0 = tf.GetComponent<Card>()._definition.Type[0];
+
+                if (new[] { "Support", "Neutral"}.Contains(type0) || (type0 == "Event" && tf.GetComponent<Card>()._definition.Value == 0))
+                {
+                    tf.SetParent(be.hands[currPlayer], false);
+                    be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
+                    //top.SetParent(dest, false);
+                }
+
+                if (type0 == "Trap")
+                {
+                    tf.SetParent(be.discard, false);
+                    be.discard.GetComponent<SlotScript>().InitializeSlots();
+                    //top.SetParent(dest, false);
+                }
+
             }
         }
 

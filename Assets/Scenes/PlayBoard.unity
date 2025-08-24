@@ -3019,6 +3019,7 @@ MonoBehaviour:
   - {fileID: 1008889017}
   encountersDeck: {fileID: 2052793091}
   commonBoard: {fileID: 244437429}
+  discard: {fileID: 1514396516}
   mainCamera: {fileID: 1741426290}
 --- !u!114 &1508904354
 MonoBehaviour:

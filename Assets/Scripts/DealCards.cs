@@ -23,10 +23,11 @@ namespace LogosTcg
                 .ToList();
         }
         */
-        public void SendTopTo(Transform src, Transform dest)
+        public Transform SendTopTo(Transform src, Transform dest)
         {
-            var top = src.GetChild(src.childCount - 1);
-            top.transform.SetParent(dest, false);
+            Transform top = src.GetChild(src.childCount - 1).transform;
+            top.SetParent(dest, false);
+            return top;
         }
 
         public void StartingDeal()
