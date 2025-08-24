@@ -103,5 +103,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8994356602663114153, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 568031430189841379}
   m_SourcePrefab: {fileID: 100100000, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
+--- !u!1 &3297567114725613489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8994356602663114153, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
+  m_PrefabInstance: {fileID: 5841468320143264280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &568031430189841379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297567114725613489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696b9ed167db341429537a2003c908d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDropHandler

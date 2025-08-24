@@ -1,13 +1,21 @@
 using DG.Tweening.Core.Easing;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LogosTcg
 {
-    public class DragCountGate : Gate<NoParams>
+    public class DragPhaseGate : Gate<NoParams>
     {
+        TurnManager tm;
+        public List<string> phases;
+
+        private void Awake()
+        {
+            tm = TurnManager.instance;
+        }
         protected override bool IsUnlockedInternal(NoParams gateParams)
         {
-            if (TurnManager.instance.playCount < TurnManager.instance.playCountAvailable)
+            if (phases.Contains(tm.currPhase))
             {
                 return true;
             }

@@ -8,6 +8,8 @@ namespace LogosTcg
         public static BoardElements instance;
         void Awake() => instance = this;
 
+        public List<Transform> inPlayUsable;
+        public List<Transform> inPlayNotUsable;
         public List<Transform> playerBoards;
         public List<Transform> columns;
         public List<Transform> faithfulDecks;

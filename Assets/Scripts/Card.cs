@@ -36,9 +36,28 @@ namespace LogosTcg
         public Image rarityImg;
         public ImageCollection ic;
 
+        public int baseValue;
+        public int currValue;
+
         private void Awake()
         {
             ic = ImageCollection.instance;
+        }
+
+        public int SetValue(int chgVal)
+        {
+            currValue = currValue - chgVal;
+
+            if (currValue >= 0)
+            {
+                valTmp.text = currValue.ToString();
+                return 0;
+            }
+
+            valTmp.text = "0";
+            int returnVal = currValue * -1;
+            currValue = 0;
+            return returnVal;
         }
 
         public void Apply(CardDef data)
@@ -51,6 +70,8 @@ namespace LogosTcg
             image.sprite = data.Artwork;
             cardId.text = data.Id;
             valTmp.text = data.Value.ToString();
+            baseValue = data.Value;
+            currValue = data.Value;
 
             switch(data.Rarity) //do same for set
             {

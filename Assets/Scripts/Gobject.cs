@@ -48,7 +48,7 @@ namespace LogoTcg
         public bool isHovering = false;
         public bool isDragging = false;
         [HideInInspector] public bool wasDragged;
-        public bool draggable = false;
+        public bool draggable = false; //making it a gate
         public bool hoverable = false;
         public bool selectable = false;
 
@@ -61,6 +61,7 @@ namespace LogoTcg
         [HideInInspector] public UnityEvent<Gobject> DragEvent;
         [HideInInspector] public UnityEvent<Gobject> EndDragEvent;
         [HideInInspector] public UnityEvent<Gobject, bool> SelectEvent;
+        public UnityEvent<Gobject> PostSetup;
 
         void Awake()
         {
@@ -83,7 +84,15 @@ namespace LogoTcg
             gobjectVisual.Initialize(this);
 
             foreach (Transform child in directChildren)
+            {
+                //Debug.Log(child.name);
+                if(child.GetComponent<Gobject>() != null || child.name.Contains("Coin"))
+                    continue;
+
                 child.SetParent(gobjectVisual.holder);
+            }
+
+            PostSetup.Invoke(this);
         }
 
         void Update()
@@ -153,7 +162,7 @@ namespace LogoTcg
                                                                                 {
                                                                                     Source = transform.parent.GetComponent<SlotScript>(),
                                                                                         Target = target,
-                                                                                    Card = GetComponent<Card>(),
+                                                                                    tf = transform,
                                                                                 }))
             {
                 SlotScript prevParent = transform.GetComponentInParent<SlotScript>();
@@ -168,7 +177,7 @@ namespace LogoTcg
                     if (prevParent.slotType == "LocSlot")
                         prevParent.GetComponent<GridSlotActions>().shiftLeft();
 
-                    target.OnCardDropped?.Invoke();
+                    target.OnCardDropped?.Invoke(transform);
                 } else
                 {
                     GameNetworkManager.Instance.MountByNameServerRpc(transform.name, target.transform.name);

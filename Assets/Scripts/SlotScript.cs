@@ -13,13 +13,13 @@ namespace LogosTcg
         public bool faceup = true;
         public bool canRecieve = true;
         public bool hoverable = true;
-        public bool draggable = true;
+        public bool draggable = true; //making it a gate
         public bool onlyTopInteractable = true;
         public int maxChildrenCards = 1;
         public string slotType;
         public int owner = -1;
         public GateCollection<DropParams> DropGates;
-        public UnityEvent OnCardDropped;
+        public UnityEvent<Transform> OnCardDropped;
 
         public void SetLastCardSettings()
         {

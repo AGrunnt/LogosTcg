@@ -1427,9 +1427,10 @@ GameObject:
   - component: {fileID: 133173175211647385}
   - component: {fileID: 7486306067316991545}
   - component: {fileID: 4992069272568439858}
-  - component: {fileID: 8976072690392504160}
   - component: {fileID: 7493665466171001576}
   - component: {fileID: 6553405295437337245}
+  - component: {fileID: 1686579131741973902}
+  - component: {fileID: 4671496931965716370}
   m_Layer: 5
   m_Name: Card
   m_TagString: Card
@@ -1487,6 +1488,7 @@ MonoBehaviour:
     Gates:
     - {fileID: 7493665466171001576}
     - {fileID: 6553405295437337245}
+    - {fileID: 4671496931965716370}
   moveSpeedLimit: 50
   selected: 0
   selectionOffset: 50
@@ -1521,6 +1523,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   SelectEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PostSetup:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &7486306067316991545
@@ -1565,7 +1570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1cb6c8250331894a8f37a2831c52d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.Card
-  _definition: {fileID: 11400000, guid: b6ca5bfb79f45db46a94c02464c1cbde, type: 2}
+  _definition: {fileID: 0}
   image: {fileID: 3415093123087353405}
   BackImage: {fileID: 8269191443868670581}
   gobjects: []
@@ -1582,18 +1587,8 @@ MonoBehaviour:
   backgroundImg: {fileID: 1030670676000134965}
   rarityImg: {fileID: 2280400243545956363}
   ic: {fileID: 0}
---- !u!114 &8976072690392504160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994356602663114153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 696b9ed167db341429537a2003c908d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CardDropHandler
+  baseValue: 0
+  currValue: 0
 --- !u!114 &7493665466171001576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1620,3 +1615,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.DragCountGate
   IsActive: 1
+--- !u!114 &1686579131741973902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994356602663114153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da42e108aeaa47c448d032d2a620e241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.DragGateSlots
+  IsActive: 1
+--- !u!114 &4671496931965716370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994356602663114153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e66655445e2ef642be7e6380b50590d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.DragPhaseGate
+  IsActive: 1
+  phases:
+  - Play

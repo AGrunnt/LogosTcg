@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace LogosTcg
 {
-    public class DragCountGate : Gate<NoParams>
+    public class DragGateSlots : Gate<NoParams>
     {
+
         protected override bool IsUnlockedInternal(NoParams gateParams)
         {
-            if (TurnManager.instance.playCount < TurnManager.instance.playCountAvailable)
+            if (transform.parent.GetComponent<SlotScript>().draggable)
             {
                 return true;
             }

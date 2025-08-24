@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace LogosTcg
 {
     public class NoParams
@@ -8,7 +10,7 @@ namespace LogosTcg
     {
         public SlotScript Source;
         public SlotScript Target;
-        public Card Card;
+        public Transform tf;
     }
 
     public abstract class Gate<T> : Toggleable

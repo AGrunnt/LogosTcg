@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5055568324416180259}
   - component: {fileID: 4760764241344286504}
   - component: {fileID: 1684348073620828203}
+  - component: {fileID: 7092570719174144975}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -103,6 +104,7 @@ MonoBehaviour:
     Gates:
     - {fileID: 4760764241344286504}
     - {fileID: 1684348073620828203}
+    - {fileID: 7092570719174144975}
   OnCardDropped:
     m_PersistentCalls:
       m_Calls: []
@@ -132,6 +134,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.DropPlayerGate
   IsActive: 1
+--- !u!114 &7092570719174144975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145512577488573148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9493ee73e75e6f241b18d31dd1948593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.DropTagGate
+  IsActive: 1
+  tags:
+  - Card
 --- !u!1 &8913211991995303893
 GameObject:
   m_ObjectHideFlags: 0

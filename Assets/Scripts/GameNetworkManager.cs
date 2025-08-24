@@ -53,7 +53,7 @@ namespace LogosTcg
             if (oldParentSlot.slotType == "LocSlot")
                 oldParentSlot.GetComponent<GridSlotActions>().shiftLeft();
 
-            parentTf.GetComponent<SlotScript>().OnCardDropped?.Invoke();
+            parentTf.GetComponent<SlotScript>().OnCardDropped?.Invoke(obj);
         }
     }
 }

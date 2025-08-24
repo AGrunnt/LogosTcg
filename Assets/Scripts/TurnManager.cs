@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
+using static UnityEngine.Rendering.CoreUtils;
 
 namespace LogosTcg
 {
@@ -33,9 +34,11 @@ namespace LogosTcg
             switch(currPhase)
             {
                 case "Play":
+                    SetCoins();
                     currPhase = "Spend";
                     break;
                 case "Spend":
+                    SetCoins();
                     currPhase = "Play";
                     EndTurn();
                     playCount = 0;
@@ -89,6 +92,17 @@ namespace LogosTcg
             be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
             StartTurn0();
         }
+
+        public void SetCoins()
+        {
+            Transform currentUsable = be.inPlayUsable[currPlayer];
+            foreach(var stack in currentUsable.GetComponentsInChildren<CoinStack>())
+            {
+                Debug.Log("set coins");
+                stack.ToggleVisible();
+            }
+        }
+
 
     }
 }

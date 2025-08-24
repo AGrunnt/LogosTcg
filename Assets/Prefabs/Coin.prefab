@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 55.11111, y: 55.11111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3338678999289796158
 CanvasRenderer:
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1452, y: 0.00012046}
-  m_SizeDelta: {x: 77.1638, y: 100}
+  m_AnchoredPosition: {x: -0.000076294, y: -0.000015259}
+  m_SizeDelta: {x: 55.111, y: 55.111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &602878930978146638
 CanvasRenderer:
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 89.5
+  m_fontSize: 49.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -424,7 +424,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5460266348994677132}
   - {fileID: 3962756498550268340}
@@ -471,7 +471,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 55.11111, y: 55.11111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4923331155155705991
 CanvasRenderer:
@@ -541,7 +541,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 432}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2427939890681394114}
   - {fileID: 6663059378222069305}
@@ -550,7 +550,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 55.11111, y: 55.11111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8953283105976309589
 CanvasRenderer:
@@ -613,6 +613,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   SelectEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PostSetup:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1773192012971105028
