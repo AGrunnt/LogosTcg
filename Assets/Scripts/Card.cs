@@ -85,7 +85,7 @@ namespace LogosTcg
                     rarityImg.sprite = ic.rarityRare;
                     break;
             }
-
+            Debug.Log(data.name);
             if (data.Type[0] == "Location")
             {
                 switch (data.Tag[0])

@@ -9642,6 +9642,7 @@ GameObject:
   - component: {fileID: 2007137232}
   - component: {fileID: 2007137233}
   - component: {fileID: 2007137234}
+  - component: {fileID: 2007137235}
   m_Layer: 0
   m_Name: DeckSceneManager
   m_TagString: Untagged
@@ -9733,6 +9734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.ListManager
   offline: 1
+  tempListItems: []
   cardLinePrefab: {fileID: 5954920252524353862, guid: 9d0cb02ad0569d0448111a1e1959b88b, type: 3}
 --- !u!114 &2007137228
 MonoBehaviour:
@@ -9746,6 +9748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01245a0caee4d974f813edbc75b20394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.SceneScript
+  ShowTopMostFoldoutHeaderGroup: 1
   encounter: {fileID: 11400000, guid: 7cc60b17692f57a44acbe9fac2daa70b, type: 2}
   location: {fileID: 11400000, guid: 2a4a02abeb000f243a4024512d8a9198, type: 2}
   faithfulList:
@@ -9848,6 +9851,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1caa08c15bd556246afbdb49923c3f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.PopulateOnlineList
+  ShowTopMostFoldoutHeaderGroup: 1
+  keyList: []
+  playerList: []
+  listTypeList: []
+--- !u!114 &2007137235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007137222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d1a5137ccb2eb418d85f22b7156026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.ImageCollection
+  rarityCommon: {fileID: 5781445747943558089, guid: bd4bc9df72565144488c83bcd82f133b, type: 3}
+  rarityUncommon: {fileID: 1494541406350700143, guid: b0bebc59e84d1bb42a2df5611fb297ae, type: 3}
+  rarityRare: {fileID: -4205624841535225538, guid: 0194c57e83005ad45a19cbad5dba0916, type: 3}
+  boxBckLocLeaf: {fileID: 2965743625139969680, guid: a19aa6bd1deae364d976278c1abdc6a1, type: 3}
+  boxBckLocMnt: {fileID: -4078650718545885453, guid: ef1f50e6418aa8240814b87efeb14a5e, type: 3}
+  boxBckLocWave: {fileID: 7013805496363982165, guid: cb9b57bf1bced4546b4092c6ab5faf47, type: 3}
+  dimBckLocLeaf: {fileID: 7034949837913716119, guid: e7efc8925909c934c814b926389c1678, type: 3}
+  dimBckLocMnt: {fileID: 7064828377696298297, guid: a2e4cfa2cd4550f419c3924c19d6fe3c, type: 3}
+  dimBckLocWave: {fileID: 8120169905836373163, guid: 66bafc572a4e5a84c964510c31019ff5, type: 3}
+  IconLeaf: {fileID: 5781445747943558089, guid: bd4bc9df72565144488c83bcd82f133b, type: 3}
+  IconMnt: {fileID: 1494541406350700143, guid: b0bebc59e84d1bb42a2df5611fb297ae, type: 3}
+  IconWave: {fileID: -4205624841535225538, guid: 0194c57e83005ad45a19cbad5dba0916, type: 3}
+  IconDove: {fileID: -1416895338048675301, guid: 063ba86bdbab0154fb6b3d601e5cec8a, type: 3}
+  IconSnake: {fileID: -6674719417043644698, guid: a1b48c263a034f44ba21b7ff9834ff4c, type: 3}
+  IconTrap: {fileID: -4205624841535225538, guid: 0194c57e83005ad45a19cbad5dba0916, type: 3}
+  setBase: {fileID: -7442171647529701490, guid: 9db3b0585f978f0468f559a37bcfecb8, type: 3}
 --- !u!1 &2008805099
 GameObject:
   m_ObjectHideFlags: 0

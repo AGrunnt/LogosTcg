@@ -14,14 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: phi
   m_GUID: 7f6071918785ec24783e9f8b07b75c36
-  m_SerializeEntries:
-  - m_GUID: 033c612245825e44ba0d8cef24b83b5d
-    m_Address: Assets/Cards/SOs/phiNA - NA.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Card
-    - phi
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2d969ee5f1d64b54b87f4146c07244ed, type: 2}
   m_SchemaSet:
