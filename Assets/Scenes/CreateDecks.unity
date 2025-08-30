@@ -9643,6 +9643,7 @@ GameObject:
   - component: {fileID: 2007137233}
   - component: {fileID: 2007137234}
   - component: {fileID: 2007137235}
+  - component: {fileID: 2007137236}
   m_Layer: 0
   m_Name: DeckSceneManager
   m_TagString: Untagged
@@ -9822,7 +9823,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.GridManager
   cardGridTf: {fileID: 1625767003}
+  test: 1
   gridCardPrefab: {fileID: 3741231900388702740, guid: ceee556cf8cae434aae98b19a59aa10b, type: 3}
+  cardPrefabNeutral: {fileID: 6663184607485547989, guid: fbeae1d176fce3447af2edf771760097, type: 3}
+  cardPrefabSupport: {fileID: 9197219644198650260, guid: aae3bb013f3399446b94591b6cc36280, type: 3}
+  cardPrefabFaithful: {fileID: 6663184607485547989, guid: 8a007e04ab88e6d4c8e19506d41ebf15, type: 3}
+  cardPrefabFaithless: {fileID: 3297567114725613489, guid: 8aaa51353a7e207408d7cee026426d97, type: 3}
+  cardPrefabLocation: {fileID: 4579900924142073812, guid: 1cd9c8b6d68d1ae4599770bbecc33364, type: 3}
+  cardPrefabTrap: {fileID: 2853450361665554625, guid: a3068c50515c06f49a6ea917f04f4686, type: 3}
+  cardPrefabEventBase: {fileID: 2999711397751808510, guid: f6f2e617630b2b14c8d95b9f0aa78cf3, type: 3}
+  cardPrefabEventValue: {fileID: 3176700352213231812, guid: 9b2026f34606dff45ab141cc9ed27701, type: 3}
 --- !u!114 &2007137233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9883,6 +9893,18 @@ MonoBehaviour:
   IconSnake: {fileID: -6674719417043644698, guid: a1b48c263a034f44ba21b7ff9834ff4c, type: 3}
   IconTrap: {fileID: -4205624841535225538, guid: 0194c57e83005ad45a19cbad5dba0916, type: 3}
   setBase: {fileID: -7442171647529701490, guid: 9db3b0585f978f0468f559a37bcfecb8, type: 3}
+--- !u!114 &2007137236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007137222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d990030012144224c93e51b094fb0041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.OnInstantiate
 --- !u!1 &2008805099
 GameObject:
   m_ObjectHideFlags: 0

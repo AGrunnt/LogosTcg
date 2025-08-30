@@ -41,7 +41,7 @@ namespace LogosTcg
         IEnumerator DelayedSetUp()
         {
             yield return new WaitForEndOfFrame();
-            Debug.Log("coinStack setup");
+            
             coinVis1 = coin1.GetComponent<Gobject>().gobjectVisual.gameObject;
             coinVis5 = coin5.GetComponent<Gobject>().gobjectVisual.gameObject;
             coinVis10 = coin10.GetComponent<Gobject>().gobjectVisual.gameObject;

@@ -50,7 +50,9 @@ namespace LogosTcg
 
                 if (cardDef == null || lm.listItems.ContainsKey(key)) continue;
 
-                var card = Instantiate(gm.gridCardPrefab, gm.cardGridTf).GetComponent<Card>();
+                GameObject go = gm.InstGo(cardDef);
+                //var card = Instantiate(gm.gridCardPrefab, gm.cardGridTf).GetComponent<Card>();
+                var card = go.GetComponent<Card>();
                 card.addressableKey = key;
                 card.Apply(cardDef);
                 card.SetFacing(true);

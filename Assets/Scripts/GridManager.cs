@@ -5,6 +5,7 @@ using UnityEngine.AddressableAssets;
 using LogoTcg;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Linq;
+using UnityEditor;
 
 
 namespace LogosTcg
@@ -13,7 +14,16 @@ namespace LogosTcg
     {
         public Dictionary<string, GameObject> gridItems = new();
         public Transform cardGridTf;
+        [SerializeField] bool test = false;
         public GameObject gridCardPrefab;
+        [SerializeField] private GameObject cardPrefabNeutral;
+        [SerializeField] private GameObject cardPrefabSupport;
+        [SerializeField] private GameObject cardPrefabFaithful;
+        [SerializeField] private GameObject cardPrefabFaithless;
+        [SerializeField] private GameObject cardPrefabLocation;
+        [SerializeField] private GameObject cardPrefabTrap;
+        [SerializeField] private GameObject cardPrefabEventBase;
+        [SerializeField] private GameObject cardPrefabEventValue;
 
         public static GridManager instance;
         void Awake() => instance = this;
@@ -81,7 +91,9 @@ namespace LogosTcg
         public void SpawnGridCard(string key)
         {
             CardDef cd = cl.loadedAssets[key].Result;
-            var go = Instantiate(gridCardPrefab, cardGridTf);
+
+            GameObject go = InstGo(cd);
+
             var c = go.GetComponent<Card>();
             c.addressableKey = key;
             c.Apply(cd);
@@ -90,6 +102,57 @@ namespace LogosTcg
 
             gridItems[key] = go;
             ReorderGrid();
+        }
+
+        public GameObject InstGo(CardDef cd)
+        {
+            GameObject returnObj = null;
+
+            if (!test)
+            {
+                //Debug.Log("no test");
+                returnObj = Instantiate(gridCardPrefab, cardGridTf);
+                return returnObj;
+            }
+
+            //Debug.Log("test");
+
+
+            switch (cd.Type[0])
+            {
+                case "Location":
+                    returnObj = Instantiate(cardPrefabLocation, cardGridTf);
+                    break;
+                case "Faithful":
+                    returnObj = Instantiate(cardPrefabFaithful, cardGridTf);
+                    break;
+                case "Support":
+                    returnObj = Instantiate(cardPrefabSupport, cardGridTf);
+                    break;
+                case "Trap":
+                    returnObj = Instantiate(cardPrefabTrap, cardGridTf);
+                    break;
+                case "Neutral":
+                    returnObj = Instantiate(cardPrefabNeutral, cardGridTf);
+                    break;
+                case "Faithless":
+                    returnObj = Instantiate(cardPrefabFaithless, cardGridTf);
+                    break;
+                case "Event":
+                    if (cd.Value == 0)
+                        returnObj = Instantiate(cardPrefabEventBase, cardGridTf);
+                    else
+                        returnObj = Instantiate(cardPrefabEventValue, cardGridTf);
+
+                    break;
+
+                default:
+                    Debug.Log($"error {cd.Type[0]}");
+                    returnObj = Instantiate(cardPrefabFaithful, cardGridTf);
+                    break;
+            }
+
+            return returnObj;
         }
 
         public void InstantiateLoadedCardsNotInListOrGrid()

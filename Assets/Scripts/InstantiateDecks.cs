@@ -17,6 +17,8 @@ namespace LogosTcg
         [SerializeField] private GameObject cardPrefabFaithless;
         [SerializeField] private GameObject cardPrefabLocation;
         [SerializeField] private GameObject cardPrefabTrap;
+        [SerializeField] private GameObject cardPrefabEventBase;
+        [SerializeField] private GameObject cardPrefabEventValue;
 
         CardDef ca;
 
@@ -55,6 +57,13 @@ namespace LogosTcg
                         break;
                     case "Trap":
                         prefabType = cardPrefabTrap;
+                        break;
+                    case "Event":
+                        if(card.Value == 0)
+                            prefabType = cardPrefabEventBase;
+                        else
+                            prefabType = cardPrefabEventValue;
+
                         break;
                     default:
                         Debug.Log("error");

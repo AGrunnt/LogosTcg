@@ -122,7 +122,7 @@ namespace LogosTcg
             Transform currentUsable = be.inPlayUsable[currPlayer];
             foreach(var stack in currentUsable.GetComponentsInChildren<CoinStack>())
             {
-                Debug.Log("set coins");
+                //Debug.Log("set coins");
                 stack.ToggleVisible();
             }
         }

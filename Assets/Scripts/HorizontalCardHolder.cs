@@ -33,10 +33,16 @@ namespace LogosTcg
 
         void OnTransformChildrenChanged()
         {
-            List<Gobject> prevGobjects = gobjects;
+            //List<Gobject> prevGobjects = gobjects;
+            List<Gobject> prevGobjects = new List<Gobject>(gobjects);
 
+            gobjects.Clear();
+            foreach (Transform child in this.transform)
+                if (child.TryGetComponent<Gobject>(out var comp))
+                    gobjects.Add(comp);
+            
             // if you ever reparent cards under this holder, resync:
-            gobjects = transform.GetComponentsInChildren<Gobject>().ToList<Gobject>();
+            //gobjects = transform.GetComponentsInChildren<Gobject>().ToList<Gobject>();
 
             if (gobjects == null) return;
 
@@ -62,6 +68,7 @@ namespace LogosTcg
 
             foreach (Gobject newObj in newObjs)
             {
+                Debug.Log(newObj.name);
                 newObj.BeginDragEvent.AddListener(OnBeginDrag);
                 newObj.DragEvent.AddListener(OnDrag);      // now matches UnityEvent<Gobject>
                 newObj.EndDragEvent.AddListener(OnEndDrag);
@@ -75,6 +82,7 @@ namespace LogosTcg
         // ? this signature now matches UnityEvent<Gobject>
         void OnDrag(Gobject dragged)
         {
+            Debug.Log("try dragging");
             if (!swap) return;
 
             Vector2 screenPos = Mouse.current.position.ReadValue();
@@ -111,10 +119,11 @@ namespace LogosTcg
             var hit = results
                 .Select(r => r.gameObject.GetComponentInParent<Gobject>())
                 .FirstOrDefault(g => g != null && g != selectedObj);
-
+            //Debug.Log("hit maybe");
             // (E) If we hit one, swap their sibling indices
             if (hit != null)
             {
+                
                 var selT = dragged.transform;
                 var hitT = hit.transform;
 

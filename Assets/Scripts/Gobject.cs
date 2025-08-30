@@ -93,6 +93,13 @@ namespace LogoTcg
             }
 
             PostSetup.Invoke(this);
+
+            List<OnInstantiate> ois = FindObjectsByType<OnInstantiate>(sortMode: FindObjectsSortMode.None).ToList();
+            foreach(var oi in ois)
+            {
+                oi.OnInstActions(this.gameObject);
+            }
+
         }
 
         void Update()

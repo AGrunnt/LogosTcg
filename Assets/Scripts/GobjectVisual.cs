@@ -10,6 +10,8 @@ using Unity.VisualScripting;
 using LogoTcg;
 using UnityEngine.InputSystem;
 using UnityEditor.SceneManagement;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LogosTcg
 {
@@ -81,6 +83,12 @@ namespace LogosTcg
             shadowDistance = visualShadow.localPosition;
             //GetComponent<Canvas>().sortingOrder = transform.parent.GetSiblingIndex();
             //Destroy(canvas);
+
+            List<OnInstantiate> ois = FindObjectsByType<OnInstantiate>(sortMode: FindObjectsSortMode.None).ToList();
+            foreach (var oi in ois)
+            {
+                oi.OnInstActions(this.gameObject);
+            }
         }
         void CopyRectTransform(RectTransform src, RectTransform dst, Vector2 offset)
         {

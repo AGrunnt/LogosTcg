@@ -166,6 +166,10 @@ PrefabInstance:
       propertyPath: gobjectVisualPrefab
       value: 
       objectReference: {fileID: 8600899261394953707, guid: 8113455837fb0ec41abc9a8344f543ba, type: 3}
+    - target: {fileID: 1030670676000134965, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3415093123087353405, guid: 34224b2fbead4e04d8a0d0c1fe304cea, type: 3}
       propertyPath: m_RaycastTarget
       value: 0

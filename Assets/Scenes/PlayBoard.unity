@@ -883,6 +883,10 @@ PrefabInstance:
       propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1410523476412375747, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1860093278553743236, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: draggable
       value: 0
@@ -979,6 +983,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 459403328
       objectReference: {fileID: 0}
+    - target: {fileID: 2875066939252869948, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3061658764060558174, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: m_Name
       value: UsableSlot3
@@ -1002,6 +1010,10 @@ PrefabInstance:
     - target: {fileID: 5960535679607931595, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4005290730
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034740790335328100, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6783771843944171270, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: m_Name
@@ -1341,6 +1353,10 @@ PrefabInstance:
       propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1410523476412375747, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1860093278553743236, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: draggable
       value: 0
@@ -1437,6 +1453,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 32360151
       objectReference: {fileID: 0}
+    - target: {fileID: 2875066939252869948, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3061658764060558174, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: m_Name
       value: UsableSlot2
@@ -1460,6 +1480,10 @@ PrefabInstance:
     - target: {fileID: 5960535679607931595, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2942851495
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034740790335328100, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6783771843944171270, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: m_Name
@@ -2858,6 +2882,8 @@ MonoBehaviour:
   cardPrefabFaithless: {fileID: 3297567114725613489, guid: 8aaa51353a7e207408d7cee026426d97, type: 3}
   cardPrefabLocation: {fileID: 4579900924142073812, guid: 1cd9c8b6d68d1ae4599770bbecc33364, type: 3}
   cardPrefabTrap: {fileID: 2853450361665554625, guid: a3068c50515c06f49a6ea917f04f4686, type: 3}
+  cardPrefabEventBase: {fileID: 2999711397751808510, guid: f6f2e617630b2b14c8d95b9f0aa78cf3, type: 3}
+  cardPrefabEventValue: {fileID: 3176700352213231812, guid: 9b2026f34606dff45ab141cc9ed27701, type: 3}
 --- !u!114 &1508904346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3694,6 +3720,10 @@ PrefabInstance:
       propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1410523476412375747, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1860093278553743236, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: draggable
       value: 0
@@ -3790,6 +3820,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1448710553
       objectReference: {fileID: 0}
+    - target: {fileID: 2875066939252869948, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3061658764060558174, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: m_Name
       value: UsableSlot4
@@ -3813,6 +3847,10 @@ PrefabInstance:
     - target: {fileID: 5960535679607931595, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3799046415
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034740790335328100, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
+      propertyPath: swap
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6783771843944171270, guid: 8ecebcdd306d3e14e8cdab72be430f05, type: 3}
       propertyPath: m_Name
