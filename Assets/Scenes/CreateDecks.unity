@@ -4979,7 +4979,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Fallen
+          m_StringArgument: Faithless
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1083676448
@@ -9709,6 +9709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3248848167c2c41943633bfbd9c7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.LoadingCards
+  loadedAssetsStrView: []
 --- !u!114 &2007137226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9736,6 +9737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.ListManager
   offline: 1
   tempListItems: []
+  listItemsView: []
   cardLinePrefab: {fileID: 5954920252524353862, guid: 9d0cb02ad0569d0448111a1e1959b88b, type: 3}
 --- !u!114 &2007137228
 MonoBehaviour:
@@ -9833,6 +9835,9 @@ MonoBehaviour:
   cardPrefabTrap: {fileID: 2853450361665554625, guid: a3068c50515c06f49a6ea917f04f4686, type: 3}
   cardPrefabEventBase: {fileID: 2999711397751808510, guid: f6f2e617630b2b14c8d95b9f0aa78cf3, type: 3}
   cardPrefabEventValue: {fileID: 3176700352213231812, guid: 9b2026f34606dff45ab141cc9ed27701, type: 3}
+  lg: {fileID: 1625767004}
+  mask: {fileID: 310016684}
+  gridItemsView: []
 --- !u!114 &2007137233
 MonoBehaviour:
   m_ObjectHideFlags: 0

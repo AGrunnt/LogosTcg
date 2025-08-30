@@ -21,6 +21,8 @@ namespace LogosTcg
         GridManager gm;
         CardLoader cl;
 
+        public List<GameObject> listItemsView = new();
+
         void Awake()
         {
             instance = this;
@@ -30,6 +32,7 @@ namespace LogosTcg
         private void Update()
         {
             tempListItems = listItems.Keys.ToList();
+            listItemsView = listItems.Values.ToList();
         }
 
 
@@ -129,7 +132,11 @@ namespace LogosTcg
                 lom.RemoveFromOnlineListServerRpc(key, listType, dsm.currPlayer);
                 return;
             }
+
+            
             bool added = gm.AddCardToGrid(key);
+
+            //return; 
             cl.RemoveCardMapping(key, !added);
 
             // 4) if it was a Faithful line, update stats

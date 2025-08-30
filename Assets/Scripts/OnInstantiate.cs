@@ -17,7 +17,6 @@ namespace LogosTcg
                 Image[] imgs = go.GetComponentsInChildren<Image>(includeInactive: true);
                 foreach(var img in imgs)
                 {
-                    Debug.Log("img");
                     img.raycastTarget = false;
                 }
             }

@@ -20,7 +20,14 @@ namespace LogosTcg
 
 
         public Dictionary<string, AsyncOperationHandle<CardDef>> loadedAssets = new();
+        public List<AsyncOperationHandle<CardDef>> loadedAssetsView = new();
+        public List<string> loadedAssetsStrView = new();
 
+        private void Update()
+        {
+            loadedAssetsView = loadedAssets.Values.ToList();
+            loadedAssetsStrView = loadedAssets.Keys.ToList();
+        }
 
         GridManager gm;
 
@@ -75,20 +82,25 @@ namespace LogosTcg
 
         public void RemoveCardMapping(string key, bool unloadBool)
         {
-            if (gm.gridItems.ContainsKey(key))
+            if (lm.listItems.ContainsKey(key))
             {
+                Debug.Log("in list lc");
+                GameObject obj = lm.listItems[key];
+                lm.listItems.Remove(key);
+                Destroy(obj);
+            }else if (gm.gridItems.ContainsKey(key))
+            {
+                //return;
+                Debug.Log("in grid lc");
                 GameObject obj = gm.gridItems[key];
                 gm.gridItems.Remove(key);
                 Destroy(obj);
             }
-            if (lm.listItems.ContainsKey(key))
-            {
-                GameObject obj = lm.listItems[key];
-                lm.listItems.Remove(key);
-                Destroy(obj);
-            }
+            
             if (unloadBool)
             {
+                Debug.Log("unloadedbool");
+                //return;
                 Addressables.Release(loadedAssets[key]);
                 loadedAssets.Remove(key);
             }

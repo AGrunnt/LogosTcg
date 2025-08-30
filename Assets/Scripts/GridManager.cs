@@ -6,6 +6,8 @@ using LogoTcg;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Linq;
 using UnityEditor;
+using UnityEngine.UI;
+using System.Collections;
 
 
 namespace LogosTcg
@@ -25,12 +27,22 @@ namespace LogosTcg
         [SerializeField] private GameObject cardPrefabEventBase;
         [SerializeField] private GameObject cardPrefabEventValue;
 
+        public LayoutGroup lg = null;
+        public Mask mask;
+
         public static GridManager instance;
         void Awake() => instance = this;
 
         CardLoader cl;
         FilterLabels fl;
         ListManager lm;
+
+        public List<GameObject> gridItemsView = new();
+
+        private void Update()
+        {
+            gridItemsView = gridItems.Values.ToList();
+        }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         async void Start()
@@ -44,6 +56,7 @@ namespace LogosTcg
 
         // Update is called once per frame
 
+        [ContextMenu("Refresh Grid asny")]
         public async Task RefreshGridAsync()
         {
             var filteredLocations = await fl.GetFilteredLocationsAsync();
@@ -68,6 +81,7 @@ namespace LogosTcg
             else return false;
         }
 
+        [ContextMenu("reorder Grid")]
         public void ReorderGrid()
         {
             var sorted = cl.loadedAssets
@@ -78,6 +92,33 @@ namespace LogosTcg
 
             for (int i = 0; i < sorted.Count; i++)
                 gridItems[sorted[i].Key].transform.SetSiblingIndex(i);
+
+            /*
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(lg.GetComponent<RectTransform>());
+            Canvas.ForceUpdateCanvases();
+            lg.SetLayoutHorizontal();
+            lg.SetLayoutVertical(); 
+            */
+
+            //transform.parent.GetComponent<Mask>().enabled = false;
+            //transform.parent.GetComponent<Mask>().enabled = true;
+
+
+            //mask.enabled = true;
+            StartCoroutine(delaysec());
+
+        }
+
+        IEnumerator delaysec()
+        {
+            //yield return new WaitForSeconds(1.0f);
+            yield return new WaitForEndOfFrame();
+            mask.enabled = false; //need to dirty the layout stuff.
+
+            Debug.Log("testtest");
+            mask.enabled = true;
+            
         }
 
         public void DestroyItems(List<string> keyList)
@@ -147,7 +188,7 @@ namespace LogosTcg
                     break;
 
                 default:
-                    Debug.Log($"error {cd.Type[0]}");
+                    //Debug.Log($"error {cd.Type[0]}");
                     returnObj = Instantiate(cardPrefabFaithful, cardGridTf);
                     break;
             }

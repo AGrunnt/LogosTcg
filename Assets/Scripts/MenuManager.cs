@@ -12,6 +12,7 @@ namespace LogosTcg
 
         public void LoadOfflineLobby()
         {
+            StaticData.seedNum = Random.Range(-2000000000, 2000000000);
             SceneManager.LoadSceneAsync("OfflineLobby", LoadSceneMode.Single);
         }
     }

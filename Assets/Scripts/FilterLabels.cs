@@ -34,7 +34,7 @@ namespace LogosTcg
             if (primLabels.Contains(label)) primLabels.Remove(label);
             else primLabels.Add(label);
             //await gm.RefreshGridAsync();
-            await GridManager.instance.RefreshGridAsync();
+            await gm.RefreshGridAsync();
             UpdateLabelDisplay();
         }
 
