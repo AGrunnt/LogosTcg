@@ -21,7 +21,8 @@ namespace LogosTcg
             // 1) send the RPC to set StaticData on ALL clients (host included)
             //    note: pass the count as a parameter so you don’t have to read
             //    NetworkManager on the client side
-            SetStaticDataClientRpc(NetworkManager.Singleton.ConnectedClients.Count);
+            StaticData.seedNum = Random.Range(-2000000000, 2000000000);
+            SetStaticDataClientRpc(NetworkManager.Singleton.ConnectedClients.Count, seedNum);
 
             // 2) wait a frame so that the RPC has actually been sent & applied
             //    you can also yield return new WaitForSeconds(0.1f) if you find
@@ -35,9 +36,10 @@ namespace LogosTcg
 
         // include the player count as an argument so clients don't need to query NM
         [ClientRpc]
-        void SetStaticDataClientRpc(int count, ClientRpcParams rpcParams = default)
+        void SetStaticDataClientRpc(int count, int seedNum, ClientRpcParams rpcParams = default)
         {
             StaticData.playerNums = count;
+            StaticData.seedNum = seedNum;
         }
     }
 
