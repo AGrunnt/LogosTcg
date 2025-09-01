@@ -9709,7 +9709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3248848167c2c41943633bfbd9c7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.LoadingCards
-  loadedAssetsStrView: []
 --- !u!114 &2007137226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9837,8 +9836,9 @@ MonoBehaviour:
   cardPrefabEventValue: {fileID: 3176700352213231812, guid: 9b2026f34606dff45ab141cc9ed27701, type: 3}
   lg: {fileID: 1625767004}
   mask: {fileID: 310016684}
-  instantiateBudgetMsPerFrame: 2
-  suppressLayoutDuringBuild: 1
+  instantiateBudgetMsPerFrame: 6
+  suppressLayoutDuringBuild: 0
+  filtersDebounceSeconds: 0.05
   gridItemsView: []
 --- !u!114 &2007137233
 MonoBehaviour:

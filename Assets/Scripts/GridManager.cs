@@ -1,27 +1,25 @@
-
+// GridManager.cs
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Diagnostics;                 // Stopwatch
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEngine.AddressableAssets;
-using LogoTcg;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using System.Linq;
-using UnityEngine.UI;
-using System.Collections;
+using Task = System.Threading.Tasks.Task; // avoid UnityEditor.Task ambiguity
 using Unity.Netcode;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Diagnostics; // for Stopwatch
-using System;
-using LogosTcg;
-using NUnit.Framework.Internal;
-//using UnityEditor.VersionControl;
+using UnityEngine.UI;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using LogoTcg;
 
 namespace LogosTcg
 {
     public class GridManager : MonoBehaviour
     {
-        // ---------- Inspector ----------
+        // ---------- Scene refs ----------
+        [Header("Parents / UI")]
         public Transform cardGridTf;
 
         [Header("Prefabs")]
@@ -36,20 +34,35 @@ namespace LogosTcg
         [SerializeField] private GameObject cardPrefabEventBase;
         [SerializeField] private GameObject cardPrefabEventValue;
 
-        [Header("Layout Nudge")]
+        [Header("Layout")]
         public LayoutGroup lg = null;
         public Mask mask;
 
-        [Header("Performance Tuning")]
-        [Tooltip("Hard cap on spawn work per frame to keep networking responsive (ms).")]
-        [SerializeField] private int instantiateBudgetMsPerFrame = 350;
-        [Tooltip("Temporarily disable LayoutGroup while building to avoid thrash.")]
-        [SerializeField] private bool suppressLayoutDuringBuild = false;
+        [Header("ScrollRect / Content")]
+        [SerializeField] private ScrollRect scrollRect;              // CollectionView's ScrollRect
+        [SerializeField] private RectTransform contentRect;          // Content RectTransform
+        [SerializeField] private GridLayoutGroup contentGrid;        // Content GridLayoutGroup
+        [SerializeField] private ContentSizeFitter contentFitter;    // Content ContentSizeFitter
+
+        [Header("Performance")]
+        [Tooltip("Max milliseconds to spend spawning per frame.")]
+        [SerializeField] private int instantiateBudgetMsPerFrame = 6;
+        [Tooltip("Disable LayoutGroup while spawning; enable after reorder.")]
+        [SerializeField] private bool suppressLayoutDuringBuild = true;
+        [Tooltip("Debounce delay for rapid filter changes (seconds).")]
+        [SerializeField] private float filtersDebounceSeconds = 0.05f;
+
+        [Header("ContentSizeFitter Throttling")]
+        [Tooltip("Temporarily re-enable the fitter after this many spawned cards.")]
+        [SerializeField] private int fitterFlushEveryN = 24;
+        [Tooltip("How many frames to keep the fitter enabled during a flush.")]
+        [SerializeField] private int fitterFlushFrames = 1;
 
         // ---------- State ----------
         public static GridManager instance;
+
         public Dictionary<string, GameObject> gridItems = new();
-        public List<GameObject> gridItemsView = new(); // rebuilt only when content changes 
+        public List<GameObject> gridItemsView = new(); // rebuilt only when content changes
 
         private CardLoader cl;
         private FilterLabels fl;
@@ -58,14 +71,25 @@ namespace LogosTcg
         private CancellationTokenSource _refreshCts;
         private bool _bootstrapStarted;
 
-        // Reorder scheduling & event
+        // filter-change debounce + stale work suppression
+        private Coroutine _debounceRefreshCo;
+        private int _refreshSerial = 0;
+
+        // reorder
         private bool _reorderScheduled;
         public event Action OnReordered;
 
-        // Layout suppression tracking
+        // layout suppression
         private bool _layoutSuppressed;
 
-        // ---------- Lifecycle ----------
+        // allowed keys snapshot for quick checks
+        private HashSet<string> _currentAllowedKeys = new();
+
+        // --- fitter throttle internal state ---
+        private int _spawnSinceFlush;
+        private Coroutine _fitterFlushCo;
+        private bool _fitterThrottleActive;
+
         void Awake() => instance = this;
 
         void OnEnable()
@@ -78,6 +102,9 @@ namespace LogosTcg
                 if (nm.SceneManager != null)
                     nm.SceneManager.OnLoadEventCompleted += OnLoadEventCompleted;
             }
+
+            if (FilterLabels.instance != null)
+                FilterLabels.instance.FiltersChanged += OnFiltersChanged;
         }
 
         void OnDisable()
@@ -90,6 +117,9 @@ namespace LogosTcg
                 if (nm.SceneManager != null)
                     nm.SceneManager.OnLoadEventCompleted -= OnLoadEventCompleted;
             }
+
+            if (FilterLabels.instance != null)
+                FilterLabels.instance.FiltersChanged -= OnFiltersChanged;
         }
 
         async void Start()
@@ -98,148 +128,154 @@ namespace LogosTcg
             fl = FilterLabels.instance;
             lm = ListManager.instance;
 
-            // Fallback if the connection was already created in the previous scene.
-            await Task.Yield();
-            await Task.Yield();
+            await Task.Yield(); await Task.Yield(); // give transport a breath
             StartGridSafely();
+
+            // late-subscribe if needed
+            if (fl != null)
+            {
+                fl.FiltersChanged -= OnFiltersChanged;
+                fl.FiltersChanged += OnFiltersChanged;
+            }
         }
 
-        void OnServerStarted()
-        {
-            if (NetworkManager.Singleton.IsHost)
-                StartGridSafely();
-        }
-
+        void OnServerStarted() { if (NetworkManager.Singleton.IsHost) StartGridSafely(); }
         void OnClientConnected(ulong clientId)
-        {
-            if (clientId == NetworkManager.Singleton.LocalClientId)
-                StartGridSafely();
-        }
-
-        void OnLoadEventCompleted(string sceneName, LoadSceneMode mode,
-                                  List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
-        {
-            if (clientsCompleted.Contains(NetworkManager.Singleton.LocalClientId))
-                StartGridSafely();
-        }
+        { if (clientId == NetworkManager.Singleton.LocalClientId) StartGridSafely(); }
+        void OnLoadEventCompleted(string _, LoadSceneMode __, List<ulong> ok, List<ulong> ___)
+        { if (ok.Contains(NetworkManager.Singleton.LocalClientId)) StartGridSafely(); }
 
         void StartGridSafely()
         {
             if (_bootstrapStarted) return;
             _bootstrapStarted = true;
-
-            _ = SafeRun(async () =>
-            {
-                // Give UTP/Relay a couple frames to breathe before doing any heavy work.
-                await Task.Yield();
-                await Task.Yield();
-                await RefreshGridAsync();
-            });
+            _ = SafeRun(async () => { await Task.Yield(); await Task.Yield(); await RefreshGridAsync(); });
         }
 
+        // ----- Filters changed -----
+        private void OnFiltersChanged()
+        {
+            _refreshCts?.Cancel(); // cancel in-flight
+            if (_debounceRefreshCo != null) StopCoroutine(_debounceRefreshCo);
+            _debounceRefreshCo = StartCoroutine(DebounceRefresh(filtersDebounceSeconds));
+        }
+
+        private IEnumerator DebounceRefresh(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            _debounceRefreshCo = null;
+            RefreshGridFireAndForget();
+        }
+
+        // ----- Safe runner -----
         async Task SafeRun(Func<Task> fn)
         {
             try { await fn(); }
-            catch (Exception ex) { }
-            //Debug.LogException(ex); }
+            catch (OperationCanceledException) { /* normal when superseded  */ }
+            catch (Exception ex) { UnityEngine.Debug.LogException(ex); }
         }
+
+        public void RefreshGridFireAndForget() => _ = SafeRun(RefreshGridAsync);
 
         // ---------- Public API ----------
         [ContextMenu("Refresh Grid (async)")]
-        private async void RefreshGrid_ContextMenu()
-        {
-            await SafeRun(RefreshGridAsync);
-        }
+        private async void RefreshGrid_ContextMenu() => await SafeRun(RefreshGridAsync);
 
         public async Task RefreshGridAsync()
         {
-            // Cancel any previous refresh to avoid overlapping work.
+            int mySerial = Interlocked.Increment(ref _refreshSerial);
+
             _refreshCts?.Cancel();
             _refreshCts = new CancellationTokenSource();
             var ct = _refreshCts.Token;
 
-            // 1) Get filtered locations (async, non-blocking)
-            var filteredLocations = await fl.GetFilteredLocationsAsync();
-            ct.ThrowIfCancellationRequested();
-
-            // 2) Build newKeys OFF the main thread (pure C#)
-            var newKeys = await Task.Run(() =>
+            try
             {
-                var set = new HashSet<string>(filteredLocations.Select(loc => loc.PrimaryKey));
-                foreach (var k in lm.listItems.Keys) set.Add(k);
-                return set;
-            }, ct);
-            ct.ThrowIfCancellationRequested();
+                // 1) read filters
+                var filteredLocations = await fl.GetFilteredLocationsAsync();
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
 
-            // 3) Remove stale items (main thread)
-            var stale = cl.loadedAssets.Keys.Where(k => !newKeys.Contains(k)).ToList();
-            DestroyItems(stale);
-            ct.ThrowIfCancellationRequested();
+                // 2) compute allowed keys off-thread
+                var newKeys = await Task.Run(() =>
+                {
+                    var set = new HashSet<string>(filteredLocations.Select(loc => loc.PrimaryKey));
+                    foreach (var k in lm.listItems.Keys) set.Add(k);
+                    return set;
+                }, ct);
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
 
-            // 4) Load new keys asynchronously (ensure CardLoader uses awaits, not WaitForCompletion)
-            await cl.LoadNewKeys(newKeys);
-            ct.ThrowIfCancellationRequested();
+                _currentAllowedKeys = new HashSet<string>(newKeys);
 
-            // 5) Instantiate missing items with a strict per-frame time budget
-            BeginBulkLayout();
-            await InstantiateMissingWithBudget(instantiateBudgetMsPerFrame, ct);
-            ct.ThrowIfCancellationRequested();
+                // 3) remove stale
+                var stale = cl.loadedAssets.Keys.Where(k => !newKeys.Contains(k)).ToList();
+                DestroyItems(stale);
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
 
-            // 6) Reorder once at end-of-frame (also ends bulk layout + nudges mask)
-            ReorderGrid(); // schedules
+                // 4) load (no instantiate here)
+                await cl.LoadNewKeys(newKeys);
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
+
+                // 5) spawn budgeted + throttle the ContentSizeFitter
+                BeginBulkLayout();
+                BeginFitterThrottle();
+                try
+                {
+                    await InstantiateMissingWithBudget(instantiateBudgetMsPerFrame, ct, mySerial);
+                }
+                finally
+                {
+                    // ensure fitter ends enabled even on cancel
+                    if (_fitterThrottleActive) EndFitterThrottle(leaveEnabled: true);
+                }
+
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
+
+                // 6) reorder once
+                ReorderGrid(); // schedules EndBulkLayout + final fitter enable
+            }
+            catch (OperationCanceledException) { /* expected on supersede */ }
         }
+
+        /// <summary>True if key allowed by current filter snapshot.</summary>
+        public bool CanShowInGrid(string key) =>
+            _currentAllowedKeys == null || _currentAllowedKeys.Count == 0 || _currentAllowedKeys.Contains(key);
 
         public bool AddCardToGrid(string key)
         {
-            if (lm.listItems.ContainsKey(key) || gridItems.ContainsKey(key))
-            {
-                SpawnGridCard_NoReorder(key);
-                ReorderGrid(); // schedule a single reorder at frame end
-                return true;
-            }
-            return false;
+            if (!CanShowInGrid(key)) return false;
+            if (gridItems.ContainsKey(key)) return true;
+
+            SpawnGridCard_NoReorder(key);
+            ReorderGrid();
+            return gridItems.ContainsKey(key);
         }
 
-        // ---------- Reorder API (backward compatible) ----------
-
-        // Old callers can keep calling this. It now SCHEDULES a single reorder for end-of-frame.
+        // ---------- Reorder ----------
         [ContextMenu("Reorder Grid (deferred)")]
         public void ReorderGrid() => DeferReorderOnce();
 
-        // Optional convenience overload
-        public void ReorderGrid(bool defer)
-        {
-            if (defer) DeferReorderOnce();
-            else ReorderGridImmediate();
-        }
+        public void ReorderGrid(bool defer) { if (defer) DeferReorderOnce(); else ReorderGridImmediate(); }
 
-        // Use sparingly if a caller truly needs immediate results in the same frame.
         public void ReorderGridImmediate()
         {
             var sorted = cl.loadedAssets
                 .Where(kv => gridItems.ContainsKey(kv.Key) &&
                              kv.Value.IsDone &&
                              kv.Value.Status == AsyncOperationStatus.Succeeded)
-                .Select(kv => new { Key = kv.Key, Name = kv.Value.Result.name })
-                .OrderBy(x => x.Name)
-                .ToList();
+                .Select(kv => new { kv.Key, Name = kv.Value.Result.name })
+                .OrderBy(x => x.Name).ToList();
 
             for (int i = 0; i < sorted.Count; i++)
                 gridItems[sorted[i].Key].transform.SetSiblingIndex(i);
 
-            // Re-enable layout if we suppressed it during build
             EndBulkLayout();
 
-            // Nudge layout once (no per-card thrash)
-            if (mask != null)
-            {
-                mask.enabled = false;
-                mask.enabled = true;
-            }
+            // finalize fitter state (must end enabled)
+            EndFitterThrottle(leaveEnabled: true);
 
-            // Keep the view list in sync only when content actually changes
+            if (mask != null) { mask.enabled = false; mask.enabled = true; }
+
             gridItemsView = gridItems.Values.ToList();
-
             OnReordered?.Invoke();
         }
 
@@ -252,39 +288,35 @@ namespace LogosTcg
 
         private IEnumerator ReorderNextFrame()
         {
-            // Wait until all layout/instantiation for this frame is done
             yield return new WaitForEndOfFrame();
             _reorderScheduled = false;
             ReorderGridImmediate();
         }
 
-        // ---------- Instantiation / Destruction ----------
-
-        private async Task InstantiateMissingWithBudget(int maxMsPerFrame, CancellationToken ct)
+        // ---------- Spawn / Destroy ----------
+        private async Task InstantiateMissingWithBudget(int maxMsPerFrame, CancellationToken ct, int mySerial)
         {
-            var pending = cl.loadedAssets
-                .Where(kv =>
-                    kv.Value.IsDone &&
-                    kv.Value.Status == AsyncOperationStatus.Succeeded &&
-                    !lm.listItems.ContainsKey(kv.Key) &&
-                    !gridItems.ContainsKey(kv.Key))
-                .Select(kv => kv.Key)
-                .ToList();
-
+            var candidates = cl.loadedAssets.Keys.ToList();
             var sw = Stopwatch.StartNew();
 
-            foreach (var key in pending)
+            foreach (var key in candidates)
             {
-                ct.ThrowIfCancellationRequested();
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
 
-                // Spawn one card (main-thread only)
+                if (!CanShowInGrid(key)) continue;           // live filter recheck
+                if (lm.listItems.ContainsKey(key)) continue;  // moved to list mid-refresh
+                if (gridItems.ContainsKey(key)) continue;     // already spawned elsewhere
+
+                if (!cl.loadedAssets.TryGetValue(key, out var handle)) continue;
+                if (!handle.IsDone || handle.Status != AsyncOperationStatus.Succeeded) continue;
+
                 SpawnGridCard_NoReorder(key);
+                OnSpawnedOneForFitterThrottle();
 
-                // If we've used our budget this frame, yield so networking can breathe
                 if (sw.ElapsedMilliseconds >= maxMsPerFrame)
                 {
                     sw.Restart();
-                    await Task.Yield(); // lets EarlyUpdate/transport run
+                    await Task.Yield(); // let networking/UI breathe
                 }
             }
         }
@@ -294,32 +326,26 @@ namespace LogosTcg
             foreach (var key in keyList)
             {
                 cl.RemoveCardMapping(key, true);
-                if (gridItems.TryGetValue(key, out var go) && go != null)
-                {
-                    Destroy(go);
-                    gridItems.Remove(key);
-                }
+                gridItems.Remove(key);
             }
-
             gridItemsView = gridItems.Values.ToList();
         }
 
         private void SpawnGridCard_NoReorder(string key)
         {
-            var handle = cl.loadedAssets[key];
+            if (!cl.loadedAssets.TryGetValue(key, out var handle)) return;
             if (!handle.IsDone || handle.Status != AsyncOperationStatus.Succeeded) return;
 
-            CardDef cd = handle.Result;
+            var cd = handle.Result;
             GameObject go = InstGo(cd);
 
             var c = go.GetComponent<Card>();
             c.addressableKey = key;
-            c.Apply(cd);
+            c.Apply(cd); // if heavy, you can move to a later budgeted pass
             c.SetFacing(true);
-            go.GetComponent<Gobject>().draggable = false;
+            var g = go.GetComponent<Gobject>(); if (g) g.draggable = false;
 
             gridItems[key] = go;
-            // do NOT reorder here (batched at end)
         }
 
         public GameObject InstGo(CardDef cd)
@@ -327,58 +353,43 @@ namespace LogosTcg
             if (!test)
                 return Instantiate(gridCardPrefab, cardGridTf);
 
-            GameObject returnObj;
+            GameObject obj;
             switch (cd.Type[0])
             {
-                case "Location":
-                    returnObj = Instantiate(cardPrefabLocation, cardGridTf);
-                    break;
-                case "Faithful":
-                    returnObj = Instantiate(cardPrefabFaithful, cardGridTf);
-                    break;
-                case "Support":
-                    returnObj = Instantiate(cardPrefabSupport, cardGridTf);
-                    break;
-                case "Trap":
-                    returnObj = Instantiate(cardPrefabTrap, cardGridTf);
-                    break;
-                case "Neutral":
-                    returnObj = Instantiate(cardPrefabNeutral, cardGridTf);
-                    break;
-                case "Faithless":
-                    returnObj = Instantiate(cardPrefabFaithless, cardGridTf);
-                    break;
+                case "Location": obj = Instantiate(cardPrefabLocation, cardGridTf); break;
+                case "Faithful": obj = Instantiate(cardPrefabFaithful, cardGridTf); break;
+                case "Support": obj = Instantiate(cardPrefabSupport, cardGridTf); break;
+                case "Trap": obj = Instantiate(cardPrefabTrap, cardGridTf); break;
+                case "Neutral": obj = Instantiate(cardPrefabNeutral, cardGridTf); break;
+                case "Faithless": obj = Instantiate(cardPrefabFaithless, cardGridTf); break;
                 case "Event":
-                    returnObj = (cd.Value == 0)
+                    obj = (cd.Value == 0)
                         ? Instantiate(cardPrefabEventBase, cardGridTf)
                         : Instantiate(cardPrefabEventValue, cardGridTf);
                     break;
                 default:
-                    returnObj = Instantiate(cardPrefabFaithful, cardGridTf);
+                    obj = Instantiate(cardPrefabFaithful, cardGridTf);
                     break;
             }
-            return returnObj;
+            return obj;
         }
 
-        // Kept for compatibility if called elsewhere (now defers a single reorder)
+        // ---------- Compatibility ----------
         public void InstantiateLoadedCardsNotInListOrGrid()
         {
             BeginBulkLayout();
+            BeginFitterThrottle();
 
-            foreach (var kvp in cl.loadedAssets)
+            foreach (var key in cl.loadedAssets.Keys.ToList())
             {
-                var key = kvp.Key;
-                var handle = kvp.Value;
+                if (!CanShowInGrid(key)) continue;
+                if (lm.listItems.ContainsKey(key)) continue;
+                if (gridItems.ContainsKey(key)) continue;
 
-                if (handle.IsDone &&
-                    handle.Status == AsyncOperationStatus.Succeeded &&
-                    !lm.listItems.ContainsKey(key) &&
-                    !gridItems.ContainsKey(key))
-                {
-                    SpawnGridCard_NoReorder(key);
-                }
+                SpawnGridCard_NoReorder(key);
+                OnSpawnedOneForFitterThrottle();
             }
-            ReorderGrid(); // schedule once (will EndBulkLayout inside)
+            ReorderGrid(); // EndFitterThrottle() will run inside ReorderGridImmediate()
         }
 
         // ---------- Layout helpers ----------
@@ -399,216 +410,57 @@ namespace LogosTcg
                 _layoutSuppressed = false;
             }
         }
-    }
-}
 
-/*
-using System.Collections.Generic;
-using UnityEngine;
-using System.Threading.Tasks;
-using UnityEngine.AddressableAssets;
-using LogoTcg;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using System.Linq;
-using UnityEditor;
-using UnityEngine.UI;
-using System.Collections;
-
-
-namespace LogosTcg
-{
-    public class GridManager : MonoBehaviour
-    {
-        public Dictionary<string, GameObject> gridItems = new();
-        public Transform cardGridTf;
-        [SerializeField] bool test = false;
-        public GameObject gridCardPrefab;
-        [SerializeField] private GameObject cardPrefabNeutral;
-        [SerializeField] private GameObject cardPrefabSupport;
-        [SerializeField] private GameObject cardPrefabFaithful;
-        [SerializeField] private GameObject cardPrefabFaithless;
-        [SerializeField] private GameObject cardPrefabLocation;
-        [SerializeField] private GameObject cardPrefabTrap;
-        [SerializeField] private GameObject cardPrefabEventBase;
-        [SerializeField] private GameObject cardPrefabEventValue;
-
-        public LayoutGroup lg = null;
-        public Mask mask;
-
-        public static GridManager instance;
-        void Awake() => instance = this;
-
-        CardLoader cl;
-        FilterLabels fl;
-        ListManager lm;
-
-        public List<GameObject> gridItemsView = new();
-
-        private void Update()
+        // ---------- ContentSizeFitter throttling ----------
+        private IEnumerator FitterEnableWindow(int frames)
         {
-            gridItemsView = gridItems.Values.ToList();
+            if (!contentFitter) yield break;
+
+            contentFitter.enabled = true;
+            for (int i = 0; i < Mathf.Max(1, frames); i++)
+                yield return null;
+            // disable again until we finish or next flush
+            contentFitter.enabled = false;
         }
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        async void Start()
+        private void BeginFitterThrottle()
         {
-            cl = CardLoader.instance;
-            fl = FilterLabels.instance;
-            lm = ListManager.instance;
-
-            await RefreshGridAsync();
+            if (!contentFitter) return;
+            _spawnSinceFlush = 0;
+            _fitterThrottleActive = true;
+            contentFitter.enabled = false; // start disabled
         }
 
-        // Update is called once per frame
-
-        [ContextMenu("Refresh Grid asny")]
-        public async Task RefreshGridAsync()
+        private void OnSpawnedOneForFitterThrottle()
         {
-            var filteredLocations = await fl.GetFilteredLocationsAsync();
-            var newKeys = new HashSet<string>(
-                filteredLocations.Select(loc => loc.PrimaryKey)
-                .Concat(lm.listItems.Keys)
-            );
+            if (!_fitterThrottleActive || !contentFitter) return;
 
-            DestroyItems(cl.loadedAssets.Keys.Except(newKeys).ToList());
-            await cl.LoadNewKeys(newKeys);
-            InstantiateLoadedCardsNotInListOrGrid();
-
-        }
-
-        public bool AddCardToGrid(string key) 
-        {
-            if (lm.listItems.ContainsKey(key) || gridItems.ContainsKey(key))
+            _spawnSinceFlush++;
+            if (fitterFlushEveryN > 0 && _spawnSinceFlush >= fitterFlushEveryN)
             {
-                SpawnGridCard(key);
-                return true;
+                _spawnSinceFlush = 0;
+                if (_fitterFlushCo != null) StopCoroutine(_fitterFlushCo);
+                _fitterFlushCo = StartCoroutine(FitterEnableWindow(fitterFlushFrames));
             }
-            else return false;
         }
 
-        [ContextMenu("reorder Grid")]
-        public void ReorderGrid()
+        private void EndFitterThrottle(bool leaveEnabled)
         {
-            var sorted = cl.loadedAssets
-                .Where(kv => gridItems.ContainsKey(kv.Key) && kv.Value.IsDone && kv.Value.Status == AsyncOperationStatus.Succeeded)
-                .Select(kv => new { Key = kv.Key, Name = kv.Value.Result.name })
-                .OrderBy(x => x.Name)
-                .ToList();
+            if (!contentFitter) return;
 
-            for (int i = 0; i < sorted.Count; i++)
-                gridItems[sorted[i].Key].transform.SetSiblingIndex(i);
+            if (_fitterFlushCo != null)
+            {
+                StopCoroutine(_fitterFlushCo);
+                _fitterFlushCo = null;
+            }
 
+            contentFitter.enabled = leaveEnabled;
 
-//transform.parent.GetComponent<Mask>().enabled = false;
-//transform.parent.GetComponent<Mask>().enabled = true;
+            // make sure size is up-to-date immediately
+            if (contentRect)
+                LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
 
-
-//mask.enabled = true;
-StartCoroutine(delaysec());
-
-        }
-
-        IEnumerator delaysec()
-{
-    //yield return new WaitForSeconds(1.0f);
-    yield return new WaitForEndOfFrame();
-    mask.enabled = false; //need to dirty the layout stuff.
-
-    mask.enabled = true;
-
-}
-
-public void DestroyItems(List<string> keyList)
-{
-    foreach (var key in keyList)
-    {
-        cl.RemoveCardMapping(key, true);
-    }
-}
-
-public void SpawnGridCard(string key)
-{
-    CardDef cd = cl.loadedAssets[key].Result;
-
-    GameObject go = InstGo(cd);
-
-    var c = go.GetComponent<Card>();
-    c.addressableKey = key;
-    c.Apply(cd);
-    c.SetFacing(true);
-    go.GetComponent<Gobject>().draggable = false;
-
-    gridItems[key] = go;
-    ReorderGrid();
-}
-
-public GameObject InstGo(CardDef cd)
-{
-    GameObject returnObj = null;
-
-    if (!test)
-    {
-        //Debug.Log("no test");
-        returnObj = Instantiate(gridCardPrefab, cardGridTf);
-        return returnObj;
-    }
-
-    //Debug.Log("test");
-
-
-    switch (cd.Type[0])
-    {
-        case "Location":
-            returnObj = Instantiate(cardPrefabLocation, cardGridTf);
-            break;
-        case "Faithful":
-            returnObj = Instantiate(cardPrefabFaithful, cardGridTf);
-            break;
-        case "Support":
-            returnObj = Instantiate(cardPrefabSupport, cardGridTf);
-            break;
-        case "Trap":
-            returnObj = Instantiate(cardPrefabTrap, cardGridTf);
-            break;
-        case "Neutral":
-            returnObj = Instantiate(cardPrefabNeutral, cardGridTf);
-            break;
-        case "Faithless":
-            returnObj = Instantiate(cardPrefabFaithless, cardGridTf);
-            break;
-        case "Event":
-            if (cd.Value == 0)
-                returnObj = Instantiate(cardPrefabEventBase, cardGridTf);
-            else
-                returnObj = Instantiate(cardPrefabEventValue, cardGridTf);
-
-            break;
-
-        default:
-            //Debug.Log($"error {cd.Type[0]}");
-            returnObj = Instantiate(cardPrefabFaithful, cardGridTf);
-            break;
-    }
-
-    return returnObj;
-}
-
-public void InstantiateLoadedCardsNotInListOrGrid()
-{
-    foreach (var kvp in cl.loadedAssets)
-    {
-        var key = kvp.Key;
-        var handle = kvp.Value;
-
-        if (handle.IsDone &&
-            handle.Status == AsyncOperationStatus.Succeeded &&
-            !lm.listItems.ContainsKey(key) &&
-            !gridItems.ContainsKey(key))
-        {
-            SpawnGridCard(key);
+            _fitterThrottleActive = false;
         }
     }
 }
-    }
-}
-*/

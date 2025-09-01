@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceLocations;
+using System;
 
 namespace LogosTcg
 {
@@ -22,6 +23,17 @@ namespace LogosTcg
 
 
         void Awake() => instance = this;
+
+
+        // ?? Consumers (GridManager) subscribe to this
+        public event Action FiltersChanged;
+
+
+        /// <summary>Call this from your UI toggle handlers after you change any filter state.</summary>
+        public void RaiseFiltersChanged()
+        {
+            FiltersChanged?.Invoke();
+        }
 
         void Start()
         {

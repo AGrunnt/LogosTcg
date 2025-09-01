@@ -56,36 +56,29 @@ namespace LogosTcg
         // Move a grid?card into one of the three lists:
         public void AddToList(string key)
         {
-            GameObject obj = gm.gridItems[key];
-            Card c = obj.GetComponent<Card>();
-            var cd = c._definition;
+            if (!TryGetCardDefForKey(key, out var cd))
+            {
+                Debug.LogWarning($"AddToList: missing CardDef for key {key}");
+                return;
+            }
 
             bool isFaithful = cd.Type.Contains("Faithful");
             bool isLocation = cd.Type.Contains("Location");
             bool isEncounter = !isFaithful && !isLocation;
 
-            // ?? enforce per?list & per?rarity caps ???????????????????????
             if (isEncounter && dsm.encounterListTf.childCount >= 54)
             {
                 Debug.LogWarning("Cannot add more than 54 Encounter cards.");
                 return;
             }
-
             if (isLocation && dsm.locationListTf.childCount >= 10)
             {
                 Debug.LogWarning("Cannot add more than 10 Location cards.");
                 return;
             }
+            if (isFaithful && !flm.ValidFaithful(cd)) return;
 
-            if (isFaithful && !flm.ValidFaithful(cd))
-            {
-                return;
-            }
-            // ?????????????????????????????????????????????????????????????
-
-            int listType = c._definition.Type.Contains("Faithful") ? 0
-                         : c._definition.Type.Contains("Location") ? 1
-                         : 2;
+            int listType = isFaithful ? 0 : isLocation ? 1 : 2;
 
             if (NetworkManager.Singleton != null)
             {
@@ -93,39 +86,42 @@ namespace LogosTcg
                 return;
             }
 
-            // 3) spawn a CardLine in the right list
             var parent = isFaithful ? dsm.faithfulListTf[GetComponent<DeckSceneManager>().currPlayer]
-                       : isLocation ? dsm.locationListTf
-                                     : dsm.encounterListTf;
+                                    : isLocation ? dsm.locationListTf
+                                                 : dsm.encounterListTf;
 
-            var line = Instantiate(cardLinePrefab, parent)
-                       .GetComponent<CardLine>();
-
+            var line = Instantiate(cardLinePrefab, parent).GetComponent<CardLine>();
             line.cardDef = cd;
             line.Apply();
             line.addressableKey = key;
 
-            // 4) destroy the grid object + clear our internal map
-            CardLoader.instance.RemoveCardMapping(key, false);
+            // Remove any grid/list mapping (no unload; we keep the handle) :contentReference[oaicite:12]{index=12}
+            CardLoader.instance.RemoveCardMapping(key, unloadAddressable: false);
 
-            // 2) mark it assigned so loader never spawns it
-            //listAssigned.Add(key);
-            listItems.Add(key, line.gameObject);
+            // Track in listItems so refresh will skip spawning it while it’s in a list
+            listItems[key] = line.gameObject;
 
-            // 5) update our stats display
             if (isFaithful) GetComponent<DeckSceneManager>().UpdateFaithfulStats();
         }
 
+        // Replace RemoveFromList with this:
         public void RemoveFromList(string key)
         {
-            string test = key;
-            GameObject obj = listItems[key];
+            if (!listItems.TryGetValue(key, out var obj) || obj == null)
+            {
+                // If the UI already got cleaned up, just attempt to add to grid (if allowed) and unload if not.
+                bool addedAnyway = gm.AddCardToGrid(key); // respects filters via CanShowInGrid
+                cl.RemoveCardMapping(key, unloadAddressable: !addedAnyway);
+                if (addedAnyway && key != null) GetComponent<DeckSceneManager>().UpdateFaithfulStats();
+                return;
+            }
+
             var line = obj.GetComponent<CardLine>();
-            var cd = line.cardDef;
-            //var key = line.addressableKey;
-            int listType = line.cardDef.Type.Contains("Faithful") ? 0
-                         : line.cardDef.Type.Contains("Location") ? 1
-                         : 2;
+            var cd = line != null ? line.cardDef : null;
+
+            int listType = cd != null && cd.Type.Contains("Faithful") ? 0
+                          : cd != null && cd.Type.Contains("Location") ? 1
+                          : 2;
 
             if (NetworkManager.Singleton != null)
             {
@@ -133,16 +129,38 @@ namespace LogosTcg
                 return;
             }
 
-            
-            bool added = gm.AddCardToGrid(key);
+            // Try to return it to the grid only if current filters allow it
+            bool added = gm.AddCardToGrid(key);         // internally checks gm.CanShowInGrid(key)
 
-            //return; 
-            cl.RemoveCardMapping(key, !added);
+            // Remove UI + mapping; unload Addressable only if not added back to grid :contentReference[oaicite:13]{index=13}
+            cl.RemoveCardMapping(key, unloadAddressable: !added);
 
-            // 4) if it was a Faithful line, update stats
             if (listType == 0)
                 GetComponent<DeckSceneManager>().UpdateFaithfulStats();
+        }
 
+        private bool TryGetCardDefForKey(string key, out CardDef cd)
+        {
+            cd = null;
+            // Prefer the grid GO if it still exists (e.g., clicked from the grid)
+            if (gm != null && gm.gridItems.TryGetValue(key, out var gridGo) && gridGo != null)
+            {
+                var card = gridGo.GetComponent<Card>();
+                if (card != null && card._definition != null)
+                {
+                    cd = card._definition;
+                    return true;
+                }
+            }
+            // Fallback to loader handle (safe during refresh)
+            if (cl != null && cl.loadedAssets.TryGetValue(key, out var handle) &&
+                handle.IsDone && handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded &&
+                handle.Result != null)
+            {
+                cd = handle.Result;
+                return true;
+            }
+            return false;
         }
 
     }
