@@ -1,5 +1,6 @@
 using LogoTcg;
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace LogosTcg
@@ -15,19 +16,25 @@ namespace LogosTcg
         {
             instantiateDecks = GetComponent<InstantiateDecks>();
             populateDecks = GetComponent<PopulateDecks>();
-            StaticData.playerNums = testPlayerCount;
+
+            if (test & NetworkManager.Singleton == null)
+                StaticData.playerNums = testPlayerCount;
 
             StartCoroutine(Sequence());
         }
 
         private IEnumerator Sequence()
         {
-            yield return null;
+            //yield return null;
+
             
-            if(test)
+            if(test & NetworkManager.Singleton == null)
                 yield return populateDecks.LoadAndPartitionBaseSet();
 
-            GetComponent<InitializeBoards>().SetUpBoards();
+            
+
+            StartCoroutine(GetComponent<InitializeBoards>().SetUpBoards());
+            
             instantiateDecks.SetUpDecks();
             //GetComponent<DealCards>().SetHands();
             GetComponent<DealCards>().StartingDeal();

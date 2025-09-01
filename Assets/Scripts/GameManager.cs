@@ -8,11 +8,13 @@ namespace LogosTcg
     {
         public bool setUpFinished = false;
         public static GameManager Instance;
+        public int playerCount;
 
 
         private void Awake()
         {
             Instance = this;
+            playerCount = StaticData.playerNums;
         }
     }
 }

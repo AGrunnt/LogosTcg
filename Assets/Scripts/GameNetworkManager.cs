@@ -55,5 +55,39 @@ namespace LogosTcg
 
             parentTf.GetComponent<SlotScript>().OnCardDropped?.Invoke(obj);
         }
+
+
+
+
+
+
+
+        [ServerRpc(RequireOwnership = false)]
+        public void CoinDropServerRpc(string cardFaith, string cardOth, int val)
+        {
+            CoinDropClientRpc(cardFaith, cardOth, val);
+        }
+
+        [ClientRpc]
+        public void CoinDropClientRpc(string cardFaith, string cardOth, int val)
+        {
+            OfflineCoinDrop(cardFaith, cardOth, val);
+        }
+
+        public void OfflineCoinDrop(string cardFaithStr, string cardOthStr, int val)
+        {
+            Card cardFaith = GameObject
+                .FindGameObjectsWithTag("Card")
+                .FirstOrDefault(go => go.name == cardFaithStr).GetComponent<Card>();
+
+            Card cardOth = GameObject
+                .FindGameObjectsWithTag("Card")
+                .FirstOrDefault(go => go.name == cardOthStr).GetComponent<Card>();
+
+
+            int overkill = cardOth.SetValue(val);
+            cardFaith.SetValue(val - overkill);
+            cardFaith.GetComponent<CoinStack>().ReVisible();
+        }
     }
 }

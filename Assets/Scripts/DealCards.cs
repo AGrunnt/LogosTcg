@@ -9,7 +9,7 @@ namespace LogosTcg
     {
         BoardElements be;
 
-        private void Start()
+        private void Awake()
         {
             be = BoardElements.instance;
         }

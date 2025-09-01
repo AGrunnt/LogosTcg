@@ -22,7 +22,7 @@ namespace LogosTcg
             //    note: pass the count as a parameter so you don’t have to read
             //    NetworkManager on the client side
             StaticData.seedNum = Random.Range(-2000000000, 2000000000);
-            SetStaticDataClientRpc(NetworkManager.Singleton.ConnectedClients.Count, seedNum);
+            SetStaticDataClientRpc(NetworkManager.Singleton.ConnectedClients.Count, StaticData.seedNum);
 
             // 2) wait a frame so that the RPC has actually been sent & applied
             //    you can also yield return new WaitForSeconds(0.1f) if you find

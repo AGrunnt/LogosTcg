@@ -2896,7 +2896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb447d25dac7df4cba04893fcf3a0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.StartGameSequence
-  test: 1
+  test: 0
   testPlayerCount: 3
 --- !u!114 &1508904347
 MonoBehaviour:
@@ -3064,6 +3064,7 @@ MonoBehaviour:
   currPhase: DrawEnc
   playCount: 0
   playCountAvailable: 1
+  nextPhaseBtn: {fileID: 1516865007}
 --- !u!114 &1508904355
 MonoBehaviour:
   m_ObjectHideFlags: 0

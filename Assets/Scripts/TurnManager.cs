@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using static UnityEngine.Rendering.CoreUtils;
 using NUnit.Framework.Internal;
+using System;
 
 namespace LogosTcg
 {
@@ -17,6 +18,7 @@ namespace LogosTcg
         public static TurnManager instance;
         public int playCount = 0;
         public int playCountAvailable = 1;
+        public GameObject nextPhaseBtn;
         void Awake() => instance = this;
         //public textmesh pro
 
@@ -24,6 +26,12 @@ namespace LogosTcg
         {
             be = GetComponent<BoardElements>();
             dc = GetComponent<DealCards>();
+
+            if (NetworkManager.Singleton != null)
+            {
+                if (NetworkManager.Singleton.LocalClientId != 0)
+                    nextPhaseBtn.SetActive(false);
+            }
         }
 
         public void IncPlayCount()
@@ -33,7 +41,36 @@ namespace LogosTcg
 
         public void NavPhase()
         {
-            switch(currPhase)
+            if(NetworkManager.Singleton != null)
+            {
+                Debug.Log("online");
+                NavPhaseServerRpc();
+            } else
+            {
+                Debug.Log("offline");
+                OfflineNavPhase();
+            }
+
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        public void NavPhaseServerRpc()
+        {
+            Debug.Log("server");
+            NavPhaseClientRpc();
+        }
+
+        [ClientRpc]
+        public void NavPhaseClientRpc()
+        {
+            Debug.Log("client");
+            OfflineNavPhase();
+
+        }
+
+        public void OfflineNavPhase()
+        {
+            switch (currPhase)
             {
                 case "Play":
                     SetCoins();
@@ -50,8 +87,8 @@ namespace LogosTcg
                     DrawEncounters0();
                     break;
             }
-
         }
+
         public void StartTurn0()
         {
             currPlayer = (currPlayer + 1) % StaticData.playerNums;
@@ -60,6 +97,18 @@ namespace LogosTcg
             be.commonBoard.SetParent(be.playerBoards[currPlayer].transform);
             //be.commonBoard.localPosition = Vector3.zero;
             be.commonBoard.transform.DOLocalMoveX(0, 1.5f);
+
+            if(NetworkManager.Singleton != null)
+            {
+                Debug.Log($"{currPlayer} and {(int)NetworkManager.Singleton.LocalClientId}");
+                if(currPlayer == (int)NetworkManager.Singleton.LocalClientId)
+                {
+                    nextPhaseBtn.SetActive(true);
+                } else
+                {
+                    nextPhaseBtn.SetActive(false);
+                }
+            }
 
             DrawEncounters0();
         }

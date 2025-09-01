@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace LogosTcg
 {
+    [DefaultExecutionOrder(-100)]
     public class BoardElements : MonoBehaviour
     {
         public static BoardElements instance;

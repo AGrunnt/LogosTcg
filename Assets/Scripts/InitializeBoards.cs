@@ -21,21 +21,26 @@ namespace LogosTcg
             // Only the server/host should drive despawning
             if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsHost) //check if exists
             {
+                Debug.Log("despawn online");
                 yield return StartCoroutine(DespawnNetworkBoard()); //corountine allows pause to let boards spawn
             }
             else if (NetworkManager.Singleton == null)
             {
+                Debug.Log("despawn offline");
                 yield return StartCoroutine(DespawnOfflineBoard());
             }
+            Debug.Log("despawn otherwise");
         }
 
         private IEnumerator DespawnNetworkBoard()
         {
             yield return null;
 
+            Debug.Log($"player nums {StaticData.playerNums}");
             // For each board index >= activeBoardCount, tear it down
             for (int i = 3; i > StaticData.playerNums - 1; i--)
             {
+                Debug.Log($"inex {i}");
                 var boardTransform = be.playerBoards[i];
 
                 // 1) Find all slot NetworkObjects under this board
@@ -59,11 +64,13 @@ namespace LogosTcg
         [ClientRpc]
         public void DestroyUnusedGroupsClientRpc()
         {
+            Debug.Log("despawn client");
             StartCoroutine(DespawnOfflineBoard());
         }
 
         private IEnumerator DespawnOfflineBoard()
         {
+            Debug.Log("despawn");
             yield return null;
 
             // For each board index >= activeBoardCount, tear it down

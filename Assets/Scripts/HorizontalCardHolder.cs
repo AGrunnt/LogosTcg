@@ -68,7 +68,7 @@ namespace LogosTcg
 
             foreach (Gobject newObj in newObjs)
             {
-                Debug.Log(newObj.name);
+                //Debug.Log(newObj.name);
                 newObj.BeginDragEvent.AddListener(OnBeginDrag);
                 newObj.DragEvent.AddListener(OnDrag);      // now matches UnityEvent<Gobject>
                 newObj.EndDragEvent.AddListener(OnEndDrag);

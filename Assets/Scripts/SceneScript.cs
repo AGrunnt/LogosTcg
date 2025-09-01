@@ -76,7 +76,6 @@ namespace LogosTcg
 
             for (int i = 0; i < StaticData.playerNums; i++)
             {
-                Debug.Log($"list item {i}");
                 faithfulList[i].CardCollection =
                     GetComponent<DeckSceneManager>()
                       .faithfulListTf[i]
