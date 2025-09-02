@@ -9836,9 +9836,16 @@ MonoBehaviour:
   cardPrefabEventValue: {fileID: 3176700352213231812, guid: 9b2026f34606dff45ab141cc9ed27701, type: 3}
   lg: {fileID: 1625767004}
   mask: {fileID: 310016684}
+  scrollRect: {fileID: 825702237}
+  contentRect: {fileID: 1625767003}
+  contentGrid: {fileID: 1625767004}
+  contentFitter: {fileID: 1625767005}
   instantiateBudgetMsPerFrame: 6
   suppressLayoutDuringBuild: 0
   filtersDebounceSeconds: 0.05
+  reorderAfterRefresh: 0
+  fitterFlushEveryN: 24
+  fitterFlushFrames: 1
   gridItemsView: []
 --- !u!114 &2007137233
 MonoBehaviour:

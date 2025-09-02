@@ -47,10 +47,14 @@ namespace LogosTcg
         [Header("Performance")]
         [Tooltip("Max milliseconds to spend spawning per frame.")]
         [SerializeField] private int instantiateBudgetMsPerFrame = 6;
-        [Tooltip("Disable LayoutGroup while spawning; enable after reorder.")]
+        [Tooltip("Disable LayoutGroup while spawning; enable after finalize.")]
         [SerializeField] private bool suppressLayoutDuringBuild = true;
         [Tooltip("Debounce delay for rapid filter changes (seconds).")]
         [SerializeField] private float filtersDebounceSeconds = 0.05f;
+
+        [Header("Behavior")]
+        [Tooltip("If ON, the grid is sorted once at the end of a refresh. If OFF, children keep insertion order.")]
+        [SerializeField] private bool reorderAfterRefresh = true;
 
         [Header("ContentSizeFitter Throttling")]
         [Tooltip("Temporarily re-enable the fitter after this many spawned cards.")]
@@ -171,7 +175,7 @@ namespace LogosTcg
         async Task SafeRun(Func<Task> fn)
         {
             try { await fn(); }
-            catch (OperationCanceledException) { /* normal when superseded  */ }
+            catch (OperationCanceledException) { /* normal when superseded */ }
             catch (Exception ex) { UnityEngine.Debug.LogException(ex); }
         }
 
@@ -230,8 +234,16 @@ namespace LogosTcg
 
                 if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
 
-                // 6) reorder once
-                ReorderGrid(); // schedules EndBulkLayout + final fitter enable
+                // 6) finalize
+                if (reorderAfterRefresh)
+                {
+                    ReorderGrid(); // schedules EndBulkLayout + final fitter enable
+                }
+                else
+                {
+                    // Skip sorting; still finalize layout/fitter and update bookkeeping
+                    FinalizeWithoutReorder();
+                }
             }
             catch (OperationCanceledException) { /* expected on supersede */ }
         }
@@ -246,6 +258,8 @@ namespace LogosTcg
             if (gridItems.ContainsKey(key)) return true;
 
             SpawnGridCard_NoReorder(key);
+
+            // NOTE: this path still reorders; toggle only affects the *end-of-refresh* sort.
             ReorderGrid();
             return gridItems.ContainsKey(key);
         }
@@ -277,6 +291,18 @@ namespace LogosTcg
 
             gridItemsView = gridItems.Values.ToList();
             OnReordered?.Invoke();
+        }
+
+        private void FinalizeWithoutReorder()
+        {
+            // Re-enable layout/fitter and nudge once, but keep insertion order
+            EndBulkLayout();
+            EndFitterThrottle(leaveEnabled: true);
+
+            if (mask != null) { mask.enabled = false; mask.enabled = true; }
+
+            gridItemsView = gridItems.Values.ToList();
+            // Intentionally NOT invoking OnReordered, since no sort occurred
         }
 
         private void DeferReorderOnce()
@@ -389,7 +415,9 @@ namespace LogosTcg
                 SpawnGridCard_NoReorder(key);
                 OnSpawnedOneForFitterThrottle();
             }
-            ReorderGrid(); // EndFitterThrottle() will run inside ReorderGridImmediate()
+
+            if (reorderAfterRefresh) ReorderGrid();
+            else FinalizeWithoutReorder();
         }
 
         // ---------- Layout helpers ----------
