@@ -3,6 +3,7 @@ using LogoTcg;
 using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace LogosTcg
@@ -11,6 +12,9 @@ namespace LogosTcg
     {
         Card card;
         GameNetworkManager gnm;
+
+        public UnityEvent onDrop;
+
         void Start()
         {
             gnm = GameNetworkManager.Instance;
@@ -33,10 +37,14 @@ namespace LogosTcg
                 int overkill = card.SetValue(dropped.GetComponent<Coin>().value);
                 Card orgCard = dropped.transform.parent.parent.GetComponent<Card>();
                 orgCard.SetValue(dropped.GetComponent<Coin>().value - overkill);
-                Debug.Log($"orgCard Val {dropped.GetComponent<Coin>().value - overkill}");
+                //Debug.Log($"orgCard Val {dropped.GetComponent<Coin>().value - overkill}");
                 orgCard.GetComponent<CoinStack>().ReVisible();
             }
 
+            Debug.Log("coin dropped");
+
+            onDrop?.Invoke();
+            // Run event here
 
             /*
             int overkill = card.SetValue(val);
@@ -47,8 +55,14 @@ namespace LogosTcg
             */
         }
 
+        public void DiscardZeroed()
+        {
+            if (card.currValue > 0) return;
 
+            transform.SetParent(BoardElements.instance.discard, false);
+            transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            BoardElements.instance.discard.GetComponent<SlotScript>().InitializeSlots();
 
-        
+        }
     }
 }

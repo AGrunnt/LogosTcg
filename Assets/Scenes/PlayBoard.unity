@@ -2896,8 +2896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb447d25dac7df4cba04893fcf3a0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.StartGameSequence
-  test: 0
-  testPlayerCount: 3
+  test: 1
+  testPlayerCount: 2
 --- !u!114 &1508904347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2975,6 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.GameManager
   setUpFinished: 0
+  playerCount: 0
 --- !u!114 &1508904352
 MonoBehaviour:
   m_ObjectHideFlags: 0
