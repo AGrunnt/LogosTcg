@@ -1,4 +1,3 @@
-// GridManager.cs
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -73,6 +72,7 @@ namespace LogosTcg
         private ListManager lm;
 
         private CancellationTokenSource _refreshCts;
+        private CancellationTokenSource _lifetimeCts;   // cancels on scene change/disable/destroy
         private bool _bootstrapStarted;
 
         // filter-change debounce + stale work suppression
@@ -94,7 +94,21 @@ namespace LogosTcg
         private Coroutine _fitterFlushCo;
         private bool _fitterThrottleActive;
 
-        void Awake() => instance = this;
+        // scene ownership
+        private Scene _owningScene;
+        private bool _isQuitting;
+
+        void Awake()
+        {
+            instance = this;
+            _owningScene = gameObject.scene;
+            _lifetimeCts = new CancellationTokenSource();
+
+            // Cancel on scene changes that affect us
+            SceneManager.activeSceneChanged += OnActiveSceneChanged;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
+            Application.quitting += OnAppQuitting;
+        }
 
         void OnEnable()
         {
@@ -113,6 +127,12 @@ namespace LogosTcg
 
         void OnDisable()
         {
+            // End throttles and ensure fitter is left enabled
+            TryEndFitterThrottle();
+
+            // cancel lifetime for any in-flight tasks
+            _lifetimeCts?.Cancel();
+
             var nm = NetworkManager.Singleton;
             if (nm != null)
             {
@@ -124,6 +144,34 @@ namespace LogosTcg
 
             if (FilterLabels.instance != null)
                 FilterLabels.instance.FiltersChanged -= OnFiltersChanged;
+        }
+
+        void OnDestroy()
+        {
+            TryEndFitterThrottle();
+
+            _lifetimeCts?.Cancel();
+            _lifetimeCts?.Dispose();
+            _lifetimeCts = null;
+
+            SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
+            Application.quitting -= OnAppQuitting;
+        }
+
+        private void OnAppQuitting() => _isQuitting = true;
+
+        private void OnActiveSceneChanged(Scene oldScene, Scene newScene)
+        {
+            // If *our* scene is going away or we’re no longer in the active scene, stop everything.
+            if (oldScene == _owningScene || gameObject == null || gameObject.scene != newScene)
+                _lifetimeCts?.Cancel();
+        }
+
+        private void OnSceneUnloaded(Scene unloaded)
+        {
+            if (unloaded == _owningScene)
+                _lifetimeCts?.Cancel();
         }
 
         async void Start()
@@ -175,8 +223,8 @@ namespace LogosTcg
         async Task SafeRun(Func<Task> fn)
         {
             try { await fn(); }
-            catch (OperationCanceledException) { /* normal when superseded */ }
-            catch (Exception ex) { UnityEngine.Debug.LogException(ex); }
+            catch (OperationCanceledException) { /* normal when superseded or scene changed */ }
+            catch (Exception ex) { if (!_isQuitting) UnityEngine.Debug.LogException(ex); }
         }
 
         public void RefreshGridFireAndForget() => _ = SafeRun(RefreshGridAsync);
@@ -189,15 +237,20 @@ namespace LogosTcg
         {
             int mySerial = Interlocked.Increment(ref _refreshSerial);
 
+            // link refresh CTS with lifetime CTS so scene changes kill this run
             _refreshCts?.Cancel();
             _refreshCts = new CancellationTokenSource();
-            var ct = _refreshCts.Token;
+            using var linked = CancellationTokenSource.CreateLinkedTokenSource(_refreshCts.Token, _lifetimeCts.Token);
+            var ct = linked.Token;
 
             try
             {
+                // Bail immediately if our scene/parent is gone
+                if (!IsAliveForSpawns()) return;
+
                 // 1) read filters
                 var filteredLocations = await fl.GetFilteredLocationsAsync();
-                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial || !IsAliveForSpawns()) return;
 
                 // 2) compute allowed keys off-thread
                 var newKeys = await Task.Run(() =>
@@ -206,18 +259,18 @@ namespace LogosTcg
                     foreach (var k in lm.listItems.Keys) set.Add(k);
                     return set;
                 }, ct);
-                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial || !IsAliveForSpawns()) return;
 
                 _currentAllowedKeys = new HashSet<string>(newKeys);
 
                 // 3) remove stale
                 var stale = cl.loadedAssets.Keys.Where(k => !newKeys.Contains(k)).ToList();
                 DestroyItems(stale);
-                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial || !IsAliveForSpawns()) return;
 
                 // 4) load (no instantiate here)
                 await cl.LoadNewKeys(newKeys);
-                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial || !IsAliveForSpawns()) return;
 
                 // 5) spawn budgeted + throttle the ContentSizeFitter
                 BeginBulkLayout();
@@ -232,7 +285,7 @@ namespace LogosTcg
                     if (_fitterThrottleActive) EndFitterThrottle(leaveEnabled: true);
                 }
 
-                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial || !IsAliveForSpawns()) return;
 
                 // 6) finalize
                 if (reorderAfterRefresh)
@@ -241,11 +294,10 @@ namespace LogosTcg
                 }
                 else
                 {
-                    // Skip sorting; still finalize layout/fitter and update bookkeeping
                     FinalizeWithoutReorder();
                 }
             }
-            catch (OperationCanceledException) { /* expected on supersede */ }
+            catch (OperationCanceledException) { /* expected on supersede/scene change */ }
         }
 
         /// <summary>True if key allowed by current filter snapshot.</summary>
@@ -256,10 +308,11 @@ namespace LogosTcg
         {
             if (!CanShowInGrid(key)) return false;
             if (gridItems.ContainsKey(key)) return true;
+            if (!IsAliveForSpawns()) return false;
 
             SpawnGridCard_NoReorder(key);
 
-            // NOTE: this path still reorders; toggle only affects the *end-of-refresh* sort.
+            // NOTE: per-item adds still reorder; the end-of-refresh toggle only affects auto sort
             ReorderGrid();
             return gridItems.ContainsKey(key);
         }
@@ -272,6 +325,13 @@ namespace LogosTcg
 
         public void ReorderGridImmediate()
         {
+            if (!IsAliveForSpawns())
+            { // still finalize layout/fitter if we can
+                TryEndFitterThrottle();
+                EndBulkLayout();
+                return;
+            }
+
             var sorted = cl.loadedAssets
                 .Where(kv => gridItems.ContainsKey(kv.Key) &&
                              kv.Value.IsDone &&
@@ -295,14 +355,12 @@ namespace LogosTcg
 
         private void FinalizeWithoutReorder()
         {
-            // Re-enable layout/fitter and nudge once, but keep insertion order
             EndBulkLayout();
             EndFitterThrottle(leaveEnabled: true);
 
             if (mask != null) { mask.enabled = false; mask.enabled = true; }
 
             gridItemsView = gridItems.Values.ToList();
-            // Intentionally NOT invoking OnReordered, since no sort occurred
         }
 
         private void DeferReorderOnce()
@@ -327,7 +385,7 @@ namespace LogosTcg
 
             foreach (var key in candidates)
             {
-                if (ct.IsCancellationRequested || mySerial != _refreshSerial) return;
+                if (ct.IsCancellationRequested || mySerial != _refreshSerial || !IsAliveForSpawns()) return;
 
                 if (!CanShowInGrid(key)) continue;           // live filter recheck
                 if (lm.listItems.ContainsKey(key)) continue;  // moved to list mid-refresh
@@ -359,11 +417,17 @@ namespace LogosTcg
 
         private void SpawnGridCard_NoReorder(string key)
         {
+            if (!IsAliveForSpawns()) return;
             if (!cl.loadedAssets.TryGetValue(key, out var handle)) return;
             if (!handle.IsDone || handle.Status != AsyncOperationStatus.Succeeded) return;
 
             var cd = handle.Result;
+
+            // If our parent is gone (scene changed), skip
+            if (cardGridTf == null) return;
+
             GameObject go = InstGo(cd);
+            if (go == null) return;
 
             var c = go.GetComponent<Card>();
             c.addressableKey = key;
@@ -372,10 +436,15 @@ namespace LogosTcg
             var g = go.GetComponent<Gobject>(); if (g) g.draggable = false;
 
             gridItems[key] = go;
+
+            // Ensure spawned object stays in the same scene as this manager
+            try { SceneManager.MoveGameObjectToScene(go, _owningScene); } catch { /* ignore if invalid */ }
         }
 
         public GameObject InstGo(CardDef cd)
         {
+            if (cardGridTf == null) return null;
+
             if (!test)
                 return Instantiate(gridCardPrefab, cardGridTf);
 
@@ -403,11 +472,14 @@ namespace LogosTcg
         // ---------- Compatibility ----------
         public void InstantiateLoadedCardsNotInListOrGrid()
         {
+            if (!IsAliveForSpawns()) return;
+
             BeginBulkLayout();
             BeginFitterThrottle();
 
             foreach (var key in cl.loadedAssets.Keys.ToList())
             {
+                if (!IsAliveForSpawns()) break;
                 if (!CanShowInGrid(key)) continue;
                 if (lm.listItems.ContainsKey(key)) continue;
                 if (gridItems.ContainsKey(key)) continue;
@@ -448,7 +520,7 @@ namespace LogosTcg
             for (int i = 0; i < Mathf.Max(1, frames); i++)
                 yield return null;
             // disable again until we finish or next flush
-            contentFitter.enabled = false;
+            if (_fitterThrottleActive) contentFitter.enabled = false;
         }
 
         private void BeginFitterThrottle()
@@ -489,6 +561,24 @@ namespace LogosTcg
                 LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
 
             _fitterThrottleActive = false;
+        }
+
+        private void TryEndFitterThrottle()
+        {
+            if (_fitterThrottleActive)
+                EndFitterThrottle(leaveEnabled: true);
+        }
+
+        // ---------- Life/scene guards ----------
+        private bool IsAliveForSpawns()
+        {
+            // UnityEngine.Object equality handles destroyed objects -> null
+            return this != null
+                   && gameObject != null
+                   && cardGridTf != null
+                   && gameObject.scene == _owningScene
+                   && gameObject.activeInHierarchy
+                   && !_isQuitting;
         }
     }
 }

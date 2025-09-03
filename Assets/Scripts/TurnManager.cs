@@ -168,6 +168,9 @@ namespace LogosTcg
 
         public void SetCoins()
         {
+            if (NetworkManager.Singleton != null && currPlayer != (int)NetworkManager.Singleton.LocalClientId)
+                return;
+
             Transform currentUsable = be.inPlayUsable[currPlayer];
             foreach(var stack in currentUsable.GetComponentsInChildren<CoinStack>())
             {

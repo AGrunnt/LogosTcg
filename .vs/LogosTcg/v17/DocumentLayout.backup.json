@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Trent\\Documents\\LogosTcg\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\loadingcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loadingcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\dealcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dealcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\gridmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gridmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\coinstack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\coinstack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\listmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\listmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\filterlabels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\filterlabels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|c:\\users\\trent\\documents\\logostcg\\assets\\scripts\\instantiatedecks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\instantiatedecks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\scenescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\loadingcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loadingcards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|C:\\Users\\Trent\\Documents\\LogosTcg\\assets\\scripts\\deckscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE5545D4-4237-FA95-3394-FB3EA561D13E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\deckscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,32 +38,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\Card.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Card.cs",
-              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\Card.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Card.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAawFcAAAAOAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "DealCards.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DealCards.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DealCards.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DealCards.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DealCards.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAA3wCcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T23:21:41.294Z",
+              "WhenOpened": "2025-09-02T00:30:35.611Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoadingCards.cs",
-              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\LoadingCards.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\LoadingCards.cs",
-              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\LoadingCards.cs",
-              "RelativeToolTip": "Assets\\Scripts\\LoadingCards.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwDMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ListManager.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\ListManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ListManager.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\ListManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ListManager.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowIsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T23:15:41.633Z",
+              "WhenOpened": "2025-09-01T21:50:46.359Z",
               "EditorCaption": ""
             },
             {
@@ -66,36 +74,61 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\GridManager.cs",
               "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\GridManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\GridManager.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAawIkAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAKcAAAAAAAAAAAArwLAAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T22:57:36.394Z",
+              "WhenOpened": "2025-08-31T12:03:38.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoadingCards.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\LoadingCards.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LoadingCards.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\LoadingCards.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LoadingCards.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T12:02:55.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FilterLabels.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\FilterLabels.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FilterLabels.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\FilterLabels.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FilterLabels.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-30T21:27:39.208Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "InstantiateDecks.cs",
-              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\InstantiateDecks.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\InstantiateDecks.cs",
-              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\InstantiateDecks.cs",
-              "RelativeToolTip": "Assets\\Scripts\\InstantiateDecks.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwEMAAAAUAAAAAAAAAA==",
+              "Title": "SceneScript.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\SceneScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SceneScript.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\SceneScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SceneScript.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T22:58:54.198Z",
+              "WhenOpened": "2025-08-31T23:06:13.843Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CoinStack.cs",
-              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\CoinStack.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CoinStack.cs",
-              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\CoinStack.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CoinStack.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAawCsAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "DeckSceneManager.cs",
+              "DocumentMoniker": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DeckSceneManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DeckSceneManager.cs",
+              "ToolTip": "C:\\Users\\Trent\\Documents\\LogosTcg\\Assets\\Scripts\\DeckSceneManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DeckSceneManager.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T23:02:45.391Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-31T12:02:29.198Z"
             }
           ]
         }
