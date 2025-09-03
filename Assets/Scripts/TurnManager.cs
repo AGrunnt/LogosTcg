@@ -95,6 +95,7 @@ namespace LogosTcg
             be.mainCamera.transform.DOLocalMoveX(19 * currPlayer, 1);
             Transform temptf = be.playerBoards[currPlayer];
             be.commonBoard.SetParent(be.playerBoards[currPlayer].transform);
+
             //be.commonBoard.localPosition = Vector3.zero;
             be.commonBoard.transform.DOLocalMoveX(0, 1.5f);
 
@@ -144,14 +145,16 @@ namespace LogosTcg
 
                 if (new[] { "Support", "Neutral"}.Contains(type0) || (type0 == "Event" && tf.GetComponent<Card>()._definition.Value == 0))
                 {
-                    tf.SetParent(be.hands[currPlayer], false);
+                    tf.SetParent(be.hands[currPlayer], true);
+                    tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
                     be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
                     //top.SetParent(dest, false);
                 }
 
                 if (type0 == "Trap")
                 {
-                    tf.SetParent(be.discard, false);
+                    tf.SetParent(be.discard, true);
+                    tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
                     be.discard.GetComponent<SlotScript>().InitializeSlots();
                     //top.SetParent(dest, false);
                 }

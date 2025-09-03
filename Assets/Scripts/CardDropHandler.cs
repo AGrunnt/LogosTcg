@@ -1,10 +1,12 @@
 using DG.Tweening;
 using LogoTcg;
+using NUnit.Framework.Internal;
 using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 namespace LogosTcg
 {
@@ -59,9 +61,23 @@ namespace LogosTcg
         {
             if (card.currValue > 0) return;
 
+            /*
+            var orgSpeed = GetComponent<Gobject>().gobjectVisual.followSpeed;
+            GetComponent<Gobject>().gobjectVisual.followSpeed = 1;
+
             transform.SetParent(BoardElements.instance.discard, false);
             transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             BoardElements.instance.discard.GetComponent<SlotScript>().InitializeSlots();
+
+            GetComponent<Gobject>().gobjectVisual.followSpeed = orgSpeed;
+            */
+
+            transform.SetParent(BoardElements.instance.discard, true);
+            transform.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
+           
+            //transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            BoardElements.instance.discard.GetComponent<SlotScript>().InitializeSlots();
+
 
         }
     }

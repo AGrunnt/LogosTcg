@@ -39,7 +39,7 @@ namespace LogosTcg
         [SerializeField] public Transform holder;
 
         [Header("Follow Parameters")]
-        [SerializeField] private float followSpeed = 30;
+        [SerializeField] public float followSpeed = 30;
 
         [Header("Rotation Parameters")]
         [SerializeField] private float rotationAmount = 20;
