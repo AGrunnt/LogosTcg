@@ -1,3 +1,5 @@
+
+
 using DG.Tweening;
 using System.Linq;
 using Unity.Netcode;
@@ -6,6 +8,7 @@ using System.Collections.Generic;
 using static UnityEngine.Rendering.CoreUtils;
 using NUnit.Framework.Internal;
 using System;
+using System.Collections;
 
 namespace LogosTcg
 {
@@ -84,7 +87,7 @@ namespace LogosTcg
                     break;
                 case "DrawEnc": //only runs at the start of the game, then is auto done with endturn
                     currPhase = "Play";
-                    DrawEncounters0();
+                    StartCoroutine(DrawEncounters0());
                     break;
             }
         }
@@ -95,8 +98,6 @@ namespace LogosTcg
             be.mainCamera.transform.DOLocalMoveX(19 * currPlayer, 1);
             Transform temptf = be.playerBoards[currPlayer];
             be.commonBoard.SetParent(be.playerBoards[currPlayer].transform);
-
-            //be.commonBoard.localPosition = Vector3.zero;
             be.commonBoard.transform.DOLocalMoveX(0, 1.5f);
 
             if(NetworkManager.Singleton != null)
@@ -111,10 +112,10 @@ namespace LogosTcg
                 }
             }
 
-            DrawEncounters0();
+            StartCoroutine(DrawEncounters0());
         }
-        
-        public void DrawEncounters0()
+
+        IEnumerator DrawEncounters0()   //public void DrawEncounters0()
         {
             List<Transform> tfList = new List<Transform>();
             for (int i = 0; i < be.locSlots.Count; i++)
@@ -133,14 +134,20 @@ namespace LogosTcg
 
                 }
 
+                //want one to shoot out and half way through the next one will be coming out
+                yield return new WaitForSeconds(0.2f);
                 Transform topCard = dc.SendTopTo(be.encountersDeck, slot);
                 tfList.Add(topCard);
                 slot.GetComponent<SlotScript>().InitializeSlots();
-                //break;
+                
             }
 
-            foreach(Transform tf in tfList)
+            yield return new WaitForSeconds(1);
+            //I want a light pause here for maybe 1 second
+            foreach (Transform tf in tfList)
             {
+                //want one to shoot out and when its most the way through the next one will be coming out
+                yield return new WaitForSeconds(0.3f);
                 string type0 = tf.GetComponent<Card>()._definition.Type[0];
 
                 if (new[] { "Support", "Neutral"}.Contains(type0) || (type0 == "Event" && tf.GetComponent<Card>()._definition.Value == 0))
@@ -148,7 +155,6 @@ namespace LogosTcg
                     tf.SetParent(be.hands[currPlayer], true);
                     tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
                     be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
-                    //top.SetParent(dest, false);
                 }
 
                 if (type0 == "Trap")
@@ -156,10 +162,11 @@ namespace LogosTcg
                     tf.SetParent(be.discard, true);
                     tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
                     be.discard.GetComponent<SlotScript>().InitializeSlots();
-                    //top.SetParent(dest, false);
                 }
 
             }
+
+            
         }
 
         public void EndTurn()

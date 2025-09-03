@@ -16,15 +16,6 @@ namespace LogosTcg
             be = BoardElements.instance;
         }
 
-        /*
-        public void SetHands()
-        {
-            hands = GameObject
-                .FindGameObjectsWithTag("Hand")
-                .OrderBy(go => go.name)      // sort alphabetically by name
-                .ToList();
-        }
-        */
         public Transform SendTopTo(Transform src, Transform dest)
         {
             Transform top = src.GetChild(src.childCount - 1).transform;
