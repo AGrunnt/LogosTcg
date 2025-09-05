@@ -114,6 +114,8 @@ namespace LogosTcg
 
         IEnumerator DrawEncounters0()   //public void DrawEncounters0()
         {
+            yield return new WaitForSeconds(1.5f);
+
             List<Transform> tfList = new List<Transform>();
             for (int i = 0; i < be.locSlots.Count; i++)
             {
@@ -134,14 +136,17 @@ namespace LogosTcg
                 //want one to shoot out and half way through the next one will be coming out
                 yield return new WaitForSeconds(0.2f);
                 
-                Transform top = be.encountersDeck.GetChild(be.encountersDeck.childCount - 1).transform;
-                GobjectVisual gv = top.GetComponent<Gobject>().gobjectVisual;
-                gv.SetFollowSpeedMan();
+                //Transform top = be.encountersDeck.GetChild(be.encountersDeck.childCount - 1).transform;
+                //GobjectVisual gv = top.GetComponent<Gobject>().gobjectVisual;
+                //float orgSpeed = gv.followSpeed;
+                //gv.SetFollowSpeed(5f);
 
 
                 Transform topCard = dc.SendTopTo(be.encountersDeck, slot);
                 tfList.Add(topCard);
                 //slot.GetComponent<SlotScript>().InitializeSlots();
+
+                //gv.SetFollowSpeed(orgSpeed);
                 
             }
 
@@ -162,9 +167,19 @@ namespace LogosTcg
 
                 if (new[] { "Support", "Neutral"}.Contains(type0) || (type0 == "Event" && tf.GetComponent<Card>()._definition.Value == 0))
                 {
-                    tf.SetParent(be.hands[currPlayer], false);
+                    //tf.SetParent(be.hands[currPlayer], false);
                     //tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
+                    
+
+                    GobjectVisual gv = tf.GetComponent<Gobject>().gobjectVisual;
+                    float orgSpeed = gv.followSpeed;
+                    gv.SetFollowSpeed(5f);
+
+                    tf.SetParent(be.hands[currPlayer], false);
                     be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
+
+                    StartCoroutine(DelayedSetFollowSpeed(tf, orgSpeed, 0.5f));
+                    //gv.SetFollowSpeed(orgSpeed);
                 }
 
                 if (type0 == "Trap")
@@ -175,8 +190,13 @@ namespace LogosTcg
                 }
 
             }
+        }
 
-            
+        IEnumerator DelayedSetFollowSpeed(Transform card, float speed, float time)
+        {
+            yield return new WaitForSeconds(time);
+
+            card.GetComponent<Gobject>().gobjectVisual.followSpeed = speed;
         }
 
         public void EndTurn()

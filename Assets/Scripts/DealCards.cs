@@ -5,6 +5,7 @@ using System.Linq;
 using LogoTcg;
 using DG.Tweening;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace LogosTcg
 {
@@ -21,12 +22,13 @@ namespace LogosTcg
         {
             Transform top = src.GetChild(src.childCount - 1).transform;
 
-            var orgSpeed = top.GetComponent<Gobject>().gobjectVisual.followSpeed;
-            //top.GetComponent<Gobject>().gobjectVisual.followSpeed = 5f;
+            //var orgSpeed = top.GetComponent<Gobject>().gobjectVisual.followSpeed;
+            //top.GetComponent<Gobject>().gobjectVisual.followSpeed = 7f;
             //GobjectVisual gv = top.GetComponent<Gobject>().gobjectVisual;
             //gv.SetFollowSpeedMan();
+            //gv.SetFollowSpeed(3f);
 
-            Debug.Log("dc fl");
+            //Debug.Log("dc fl");
             if (dest.GetComponent<LayoutGroup>() == null)
             {
                 top.SetParent(dest, true);
@@ -34,13 +36,25 @@ namespace LogosTcg
             }
             else
             {
+                var orgSpeed = top.GetComponent<Gobject>().gobjectVisual.followSpeed;
+                top.GetComponent<Gobject>().gobjectVisual.followSpeed = 7f;
+
                 top.SetParent(dest, false);
+
+                StartCoroutine(DelayedSetFollowSpeed(top, orgSpeed, 0.5f));
             }
 
-            top.GetComponent<Gobject>().gobjectVisual.followSpeed = orgSpeed;
+            //top.GetComponent<Gobject>().gobjectVisual.followSpeed = orgSpeed;
             //top.SetParent(dest, true);
 
             return top;
+        }
+
+        IEnumerator DelayedSetFollowSpeed(Transform card, float speed, float time)
+        {
+            yield return new WaitForSeconds(time);
+
+            card.GetComponent<Gobject>().gobjectVisual.followSpeed = speed;
         }
 
         public void StartingDeal()
