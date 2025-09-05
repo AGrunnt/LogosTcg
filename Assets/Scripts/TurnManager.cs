@@ -9,6 +9,7 @@ using static UnityEngine.Rendering.CoreUtils;
 using NUnit.Framework.Internal;
 using System;
 using System.Collections;
+using LogoTcg;
 
 namespace LogosTcg
 {
@@ -46,11 +47,9 @@ namespace LogosTcg
         {
             if(NetworkManager.Singleton != null)
             {
-                Debug.Log("online");
                 NavPhaseServerRpc();
             } else
             {
-                Debug.Log("offline");
                 OfflineNavPhase();
             }
 
@@ -59,14 +58,12 @@ namespace LogosTcg
         [ServerRpc(RequireOwnership = false)]
         public void NavPhaseServerRpc()
         {
-            Debug.Log("server");
             NavPhaseClientRpc();
         }
 
         [ClientRpc]
         public void NavPhaseClientRpc()
         {
-            Debug.Log("client");
             OfflineNavPhase();
 
         }
@@ -136,10 +133,23 @@ namespace LogosTcg
 
                 //want one to shoot out and half way through the next one will be coming out
                 yield return new WaitForSeconds(0.2f);
+                
+                Transform top = be.encountersDeck.GetChild(be.encountersDeck.childCount - 1).transform;
+                GobjectVisual gv = top.GetComponent<Gobject>().gobjectVisual;
+                gv.SetFollowSpeedMan();
+
+
                 Transform topCard = dc.SendTopTo(be.encountersDeck, slot);
                 tfList.Add(topCard);
-                slot.GetComponent<SlotScript>().InitializeSlots();
+                //slot.GetComponent<SlotScript>().InitializeSlots();
                 
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            foreach (var slot in be.stackSlots)
+            {
+                slot.GetComponent<SlotScript>().InitializeSlots();
             }
 
             yield return new WaitForSeconds(1);
@@ -152,8 +162,8 @@ namespace LogosTcg
 
                 if (new[] { "Support", "Neutral"}.Contains(type0) || (type0 == "Event" && tf.GetComponent<Card>()._definition.Value == 0))
                 {
-                    tf.SetParent(be.hands[currPlayer], true);
-                    tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
+                    tf.SetParent(be.hands[currPlayer], false);
+                    //tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
                     be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
                 }
 

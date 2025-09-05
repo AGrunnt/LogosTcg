@@ -159,6 +159,17 @@ namespace LogosTcg
             curveRotationOffset = curve.rotation.Evaluate(parentGobject.NormalizedPosition());
         }
 
+        public void SetFollowSpeed(float speed)
+        {
+            followSpeed = speed;
+        }
+
+        [ContextMenu("Set Speed")]
+        public void SetFollowSpeedMan()
+        {
+            followSpeed = 5f;
+        }
+
         private void SmoothFollow()
         {
             Vector3 verticalOffset = (Vector3.up * (parentGobject.isDragging ? 0 : curveYOffset));

@@ -21,15 +21,12 @@ namespace LogosTcg
             // Only the server/host should drive despawning
             if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsHost) //check if exists
             {
-                Debug.Log("despawn online");
                 yield return StartCoroutine(DespawnNetworkBoard()); //corountine allows pause to let boards spawn
             }
             else if (NetworkManager.Singleton == null)
             {
-                Debug.Log("despawn offline");
                 yield return StartCoroutine(DespawnOfflineBoard());
             }
-            Debug.Log("despawn otherwise");
         }
 
         private IEnumerator DespawnNetworkBoard()

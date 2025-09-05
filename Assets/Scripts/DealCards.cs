@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using LogoTcg;
 using DG.Tweening;
+using UnityEngine.UI;
 
 namespace LogosTcg
 {
@@ -21,9 +22,20 @@ namespace LogosTcg
             Transform top = src.GetChild(src.childCount - 1).transform;
 
             var orgSpeed = top.GetComponent<Gobject>().gobjectVisual.followSpeed;
-            top.GetComponent<Gobject>().gobjectVisual.followSpeed = 10;
-            top.SetParent(dest, true);
-            top.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
+            //top.GetComponent<Gobject>().gobjectVisual.followSpeed = 5f;
+            //GobjectVisual gv = top.GetComponent<Gobject>().gobjectVisual;
+            //gv.SetFollowSpeedMan();
+
+            Debug.Log("dc fl");
+            if (dest.GetComponent<LayoutGroup>() == null)
+            {
+                top.SetParent(dest, true);
+                top.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
+            }
+            else
+            {
+                top.SetParent(dest, false);
+            }
 
             top.GetComponent<Gobject>().gobjectVisual.followSpeed = orgSpeed;
             //top.SetParent(dest, true);
