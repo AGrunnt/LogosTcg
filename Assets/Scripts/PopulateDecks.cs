@@ -1,6 +1,148 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+
+namespace LogosTcg
+{
+    public class PopulateDecks : MonoBehaviour
+    {
+        [Header("Assign your DeckDefinition ScriptableObjects here")]
+        [SerializeField] public List<DeckDefinition> deckFaithful;
+        [SerializeField] public DeckDefinition deckLocation;
+        [SerializeField] public DeckDefinition deckEncounter;
+
+        private const string BaseSetLabel = "BaseSet";
+        private const string FaithfulLabel = "Faithful";
+        private const string LocationLabel = "Location";
+
+        // Encounter categories (any one of these, but always within BaseSet)
+        private const string FaithlessLabel = "Faithless";
+        private const string SupportLabel = "Support";
+        private const string TrapLabel = "Trap";
+        private const string NeutralLabel = "Neutral";
+
+        // Fisher–Yates shuffle (in-place)
+        private static void ShuffleInPlace<T>(IList<T> list, System.Random rng)
+        {
+            for (int i = list.Count - 1; i > 0; i--)
+            {
+                int j = rng.Next(i + 1);
+                (list[i], list[j]) = (list[j], list[i]);
+            }
+        }
+
+        public IEnumerator LoadAndPartitionBaseSet()
+        {
+            var rng = new System.Random(); // different order every run
+
+            // -------- 1) Faithful = BaseSet ? Faithful --------
+            var faithfulHandle = Addressables.LoadAssetsAsync<CardDef>(
+                new object[] { BaseSetLabel, FaithfulLabel },
+                callback: null,
+                mode: Addressables.MergeMode.Intersection
+            );
+            yield return faithfulHandle;
+
+            var allFaithfulCards = faithfulHandle.Result.ToList();
+            ShuffleInPlace(allFaithfulCards, rng);
+
+            int currentIndex = 0;
+            int chunkSize = 12;
+            int playerCount = GetComponent<StartGameSequence>().testPlayerCount;
+            int maxDecks = Mathf.Min(playerCount, deckFaithful.Count);
+
+            for (int i = 0; i < maxDecks; i++)
+            {
+                if (currentIndex >= allFaithfulCards.Count) break;
+
+                int cardsLeft = allFaithfulCards.Count - currentIndex;
+                int takeCount = Mathf.Min(chunkSize, cardsLeft);
+
+                var sub = allFaithfulCards.Skip(currentIndex).Take(takeCount).ToList();
+                ShuffleInPlace(sub, rng); // also shuffle within each player deck
+                deckFaithful[i].CardCollection = sub;
+
+                currentIndex += takeCount;
+            }
+
+            // -------- 2) Location = BaseSet ? Location --------
+            var locationHandle = Addressables.LoadAssetsAsync<CardDef>(
+                new object[] { BaseSetLabel, LocationLabel },
+                callback: null,
+                mode: Addressables.MergeMode.Intersection
+            );
+            yield return locationHandle;
+
+            if (locationHandle.Status == AsyncOperationStatus.Succeeded)
+            {
+                var loc = locationHandle.Result.ToList();
+                ShuffleInPlace(loc, rng);
+                deckLocation.CardCollection = loc;
+            }
+            else
+            {
+                Debug.LogError($"Location load failed: {locationHandle.OperationException}");
+            }
+
+            // -------- 3) Encounter = union of (BaseSet ? each category) --------
+            var encFaithlessHandle = Addressables.LoadAssetsAsync<CardDef>(
+                new object[] { BaseSetLabel, FaithlessLabel }, null, Addressables.MergeMode.Intersection);
+            yield return encFaithlessHandle;
+
+            var encSupportHandle = Addressables.LoadAssetsAsync<CardDef>(
+                new object[] { BaseSetLabel, SupportLabel }, null, Addressables.MergeMode.Intersection);
+            yield return encSupportHandle;
+
+            var encTrapHandle = Addressables.LoadAssetsAsync<CardDef>(
+                new object[] { BaseSetLabel, TrapLabel }, null, Addressables.MergeMode.Intersection);
+            yield return encTrapHandle;
+
+            var encNeutralHandle = Addressables.LoadAssetsAsync<CardDef>(
+                new object[] { BaseSetLabel, NeutralLabel }, null, Addressables.MergeMode.Intersection);
+            yield return encNeutralHandle;
+
+            var byName = new Dictionary<string, CardDef>();
+            void AddRangeIfSucceeded(AsyncOperationHandle<IList<CardDef>> h, string label)
+            {
+                if (h.Status == AsyncOperationStatus.Succeeded && h.Result != null)
+                {
+                    foreach (var cd in h.Result) byName[cd.name] = cd; // de-dupe by name
+                }
+                else
+                {
+                    Debug.LogError($"Encounter ({label}) load failed: {h.OperationException}");
+                }
+            }
+
+            AddRangeIfSucceeded(encFaithlessHandle, FaithlessLabel);
+            AddRangeIfSucceeded(encSupportHandle, SupportLabel);
+            AddRangeIfSucceeded(encTrapHandle, TrapLabel);
+            AddRangeIfSucceeded(encNeutralHandle, NeutralLabel);
+
+            var encounterList = byName.Values.ToList();
+            ShuffleInPlace(encounterList, rng);
+            deckEncounter.CardCollection = encounterList;
+
+            // -------- 4) Clean up --------
+            Addressables.Release(faithfulHandle);
+            Addressables.Release(locationHandle);
+            Addressables.Release(encFaithlessHandle);
+            Addressables.Release(encSupportHandle);
+            Addressables.Release(encTrapHandle);
+            Addressables.Release(encNeutralHandle);
+        }
+    }
+}
+
+
+
+/*
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 // using Unity.VisualScripting; // keep this out to avoid LINQ extension clashes
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -130,3 +272,4 @@ namespace LogosTcg
         }
     }
 }
+*/

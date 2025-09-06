@@ -2976,6 +2976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.GameManager
   setUpFinished: 0
   playerCount: 0
+  inString: []
 --- !u!114 &1508904352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3066,6 +3067,7 @@ MonoBehaviour:
   playCount: 0
   playCountAvailable: 1
   nextPhaseBtn: {fileID: 1516865007}
+  gm: {fileID: 0}
 --- !u!114 &1508904355
 MonoBehaviour:
   m_ObjectHideFlags: 0

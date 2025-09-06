@@ -51,13 +51,29 @@ namespace LogosTcg
             if (currValue >= 0)
             {
                 valTmp.text = currValue.ToString();
+                SetValColor();
                 return 0;
             }
 
             valTmp.text = "0";
             int returnVal = currValue * -1;
             currValue = 0;
+            SetValColor();
             return returnVal;
+        }
+
+        public void SetValColor()
+        {
+            if(currValue > baseValue)
+            {
+                ValBckImg.color = Color.green;
+            } else if (currValue < baseValue)
+            {
+                ValBckImg.color = Color.red;
+            } else
+            {
+                ValBckImg.color = Color.white;
+            }
         }
 
         public void Apply(CardDef data)

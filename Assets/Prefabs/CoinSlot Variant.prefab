@@ -8,6 +8,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 188901744878660563, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 188901744878660563, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 188901744878660563, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3827061693620342236}
+    - target: {fileID: 188901744878660563, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 188901744878660563, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunAbilities
+      objectReference: {fileID: 0}
+    - target: {fileID: 188901744878660563, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.FaithfulAbilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 188901744878660563, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2854741674283788588, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
       propertyPath: m_Name
       value: CoinSlot Variant
@@ -107,6 +135,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2854741674283788588, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3048802449004327029}
+    - targetCorrespondingSourceObject: {fileID: 2854741674283788588, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3827061693620342236}
   m_SourcePrefab: {fileID: 100100000, guid: 9b880dcbf47ffcd44a2a70a548bd59e9, type: 3}
 --- !u!1 &3182324429107561271 stripped
 GameObject:
@@ -125,3 +156,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c04ed393a8711441be7e3d07067168d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.CoinCardHandler
+--- !u!114 &3827061693620342236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182324429107561271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f805ab012a2a3498ebeb59d3b79a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.FaithfulAbilities

@@ -10,6 +10,8 @@ using NUnit.Framework.Internal;
 using System;
 using System.Collections;
 using LogoTcg;
+using Unity.VisualScripting;
+using UnityEngine.InputSystem.HID;
 
 namespace LogosTcg
 {
@@ -23,6 +25,7 @@ namespace LogosTcg
         public int playCount = 0;
         public int playCountAvailable = 1;
         public GameObject nextPhaseBtn;
+        public GameManager gm;
         void Awake() => instance = this;
         //public textmesh pro
 
@@ -30,6 +33,7 @@ namespace LogosTcg
         {
             be = GetComponent<BoardElements>();
             dc = GetComponent<DealCards>();
+            gm = GameManager.Instance;
 
             if (NetworkManager.Singleton != null)
             {
@@ -79,7 +83,7 @@ namespace LogosTcg
                 case "Spend":
                     SetCoins();
                     currPhase = "Play";
-                    EndTurn();
+                    StartCoroutine(EndTurn());
                     playCount = 0;
                     break;
                 case "DrawEnc": //only runs at the start of the game, then is auto done with endturn
@@ -144,6 +148,7 @@ namespace LogosTcg
 
                 Transform topCard = dc.SendTopTo(be.encountersDeck, slot);
                 tfList.Add(topCard);
+                gm.AddString(topCard.GetComponent<Card>()._definition.Title);
                 //slot.GetComponent<SlotScript>().InitializeSlots();
 
                 //gv.SetFollowSpeed(orgSpeed);
@@ -164,6 +169,20 @@ namespace LogosTcg
                 //want one to shoot out and when its most the way through the next one will be coming out
                 yield return new WaitForSeconds(0.3f);
                 string type0 = tf.GetComponent<Card>()._definition.Type[0];
+                List<Ability> abilities = tf.GetComponent<Card>()._definition.Abilities;
+
+                foreach(Ability ab in abilities)
+                {
+                    if (ab.AbilityType[0] == "Add" && gm.inString.Contains(ab.Target[0]))
+                    {
+                        tf.GetComponent<Card>().SetValue(int.Parse(ab.Tag[0]));
+                    }
+
+                    if (ab.AbilityType[0] == "Minus" && gm.inString.Contains(ab.Target[0]))
+                    {
+                        tf.GetComponent<Card>().SetValue(-int.Parse(ab.Tag[0]));
+                    }
+                }
 
                 if (new[] { "Support", "Neutral"}.Contains(type0) || (type0 == "Event" && tf.GetComponent<Card>()._definition.Value == 0))
                 {
@@ -189,6 +208,21 @@ namespace LogosTcg
                     be.discard.GetComponent<SlotScript>().InitializeSlots();
                 }
 
+                if(type0 == "Faithless")
+                {
+                    if(!tf.parent.GetComponent<ColumnScript>().FaithlessAllowed) //occupy ability
+                    {
+                        int idx = UnityEngine.Random.Range(0, be.encountersDeck.childCount); // 0..childCount-1
+                        tf.SetParent(be.discard, true);
+                        tf.SetSiblingIndex(idx);
+                        tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
+                        be.discard.GetComponent<SlotScript>().InitializeSlots();
+                    } else
+                    {
+                        gm.AddString(tf.GetComponent<Card>()._definition.Title);
+                    }
+                }
+
             }
         }
 
@@ -199,10 +233,13 @@ namespace LogosTcg
             card.GetComponent<Gobject>().gobjectVisual.followSpeed = speed;
         }
 
-        public void EndTurn()
+        IEnumerator EndTurn()
         {
+            DiscardZeroedLocs();
             dc.SendTopTo(be.faithfulDecks[currPlayer], be.hands[currPlayer]);
             be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
+
+            yield return new WaitForSeconds(0.5f);
             StartTurn0();
         }
 
@@ -219,6 +256,15 @@ namespace LogosTcg
             }
         }
 
-
+        public void DiscardZeroedLocs()
+        {
+            foreach(Transform tf in be.locSlots)
+            {
+                if (tf.GetComponentInChildren<CardDropHandler>() != null)
+                {
+                    tf.GetComponentInChildren<CardDropHandler>().DiscardZeroed();
+                }
+            }
+        }
     }
 }

@@ -108,6 +108,34 @@ PrefabInstance:
       propertyPath: maxChildrenCards
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8904574695402351432, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904574695402351432, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904574695402351432, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2240885312618876355}
+    - target: {fileID: 8904574695402351432, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904574695402351432, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunAbilities
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904574695402351432, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LogosTcg.ColumnAbilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904574695402351432, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      propertyPath: OnCardDropped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3718980117649183597, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
     - {fileID: 2335933154551994441, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
@@ -117,6 +145,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6814631019063437751, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5448473550069251314}
+    - targetCorrespondingSourceObject: {fileID: 6814631019063437751, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6483702640099739638}
+    - targetCorrespondingSourceObject: {fileID: 6814631019063437751, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2240885312618876355}
   m_SourcePrefab: {fileID: 100100000, guid: 6bf6fa477fd096448a6363733e95d134, type: 3}
 --- !u!1 &7344456049494790349 stripped
 GameObject:
@@ -149,3 +183,29 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 1
+--- !u!114 &6483702640099739638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344456049494790349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c797e00c858830442954794984091616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.ColumnScript
+  FaithlessAllowed: 1
+  AltFilled: 0
+--- !u!114 &2240885312618876355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344456049494790349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b808b24caa5c79842b6d5ef3adf976ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogosTcg.ColumnAbilities

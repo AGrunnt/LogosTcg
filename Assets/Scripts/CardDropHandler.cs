@@ -61,6 +61,8 @@ namespace LogosTcg
         {
             if (card.currValue > 0) return;
 
+            if (card._definition.Type[0] == "Location" && transform.parent.parent.GetComponentsInChildren<Card>().Count() > 1) return;
+
             /*
             var orgSpeed = GetComponent<Gobject>().gobjectVisual.followSpeed;
             GetComponent<Gobject>().gobjectVisual.followSpeed = 1;
@@ -77,6 +79,8 @@ namespace LogosTcg
            
             //transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             BoardElements.instance.discard.GetComponent<SlotScript>().InitializeSlots();
+
+            GameManager.Instance.RmString(GetComponent<Card>()._definition.Title);
 
 
         }
