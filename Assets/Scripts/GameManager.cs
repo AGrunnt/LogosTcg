@@ -10,6 +10,8 @@ namespace LogosTcg
         public static GameManager Instance;
         public int playerCount;
         public List<string> inString;
+        public List<string> GameplayStatuses;
+        public int coinModifier = 0;
 
         public void AddString(string str)
         {

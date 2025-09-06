@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using System;
 
 namespace LogosTcg
 {
@@ -14,6 +15,8 @@ namespace LogosTcg
     {
         Card card;
         GameNetworkManager gnm;
+        BoardElements be;
+        GameManager gm;
 
         public UnityEvent onDrop;
 
@@ -21,6 +24,8 @@ namespace LogosTcg
         {
             gnm = GameNetworkManager.Instance;
             card = GetComponent<Card>();
+            be = BoardElements.instance;
+            gm = GameManager.Instance;
         }
 
         // This will be called when something is dropped on this UI element
@@ -28,24 +33,44 @@ namespace LogosTcg
         {
             var dropped = eventData.pointerDrag;
 
-            if (dropped.tag != "Coin" || !transform.parent.GetComponent<SlotScript>().faceup) return;
-
-            if (NetworkManager.Singleton != null)
+            if (dropped.tag == "Card" && dropped.GetComponent<Card>()._definition.Abilities.Any(t => t.AbilityType.Contains("Instant")))
             {
-                gnm.CoinDropServerRpc(dropped.transform.parent.parent.name, card.name,dropped.GetComponent<Coin>().value);
+                if(dropped.GetComponent<Card>()._definition.Abilities.Any(t => t.AbilityType.Contains("PreventLocPlacement")) && GetComponent<Card>()._definition.Type[0] == "Location" && transform.parent.parent.GetComponentsInChildren<Card>().Count() <= 1 && GetComponent<Card>().turnsInPlay == 0)
+                {
+                    int idx = UnityEngine.Random.Range(0, be.locDeck.childCount); // 0..childCount-1
+                    transform.SetParent(be.locDeck, true);
+                    transform.SetSiblingIndex(idx);
+                    transform.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
+                    be.locDeck.GetComponent<SlotScript>().InitializeSlots();
+
+
+                    dropped.transform.SetParent(be.discard, true);
+                    dropped.transform.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
+                    be.discard.GetComponent<SlotScript>().InitializeSlots();
+                }
             }
-            else
+
+ //dropped.GetComponent<Card>()?._definition?.Abilities?.AbilityType?.Any(t => string.Equals(t, "Instant", StringComparison.OrdinalIgnoreCase))?? false;
+
+            if (dropped.tag == "Coin" || transform.parent.GetComponent<SlotScript>().faceup)
             {
-                int overkill = card.SetValue(dropped.GetComponent<Coin>().value);
-                Card orgCard = dropped.transform.parent.parent.GetComponent<Card>();
-                orgCard.SetValue(dropped.GetComponent<Coin>().value - overkill);
-                //Debug.Log($"orgCard Val {dropped.GetComponent<Coin>().value - overkill}");
-                orgCard.GetComponent<CoinStack>().ReVisible();
+                if (NetworkManager.Singleton != null)
+                {
+                    gnm.CoinDropServerRpc(dropped.transform.parent.parent.name, card.name, dropped.GetComponent<Coin>().value);
+                }
+                else
+                {
+                    int overkill = card.SetValue(dropped.GetComponent<Coin>().value + gm.coinModifier);
+                    Card orgCard = dropped.transform.parent.parent.GetComponent<Card>();
+                    orgCard.SetValue(dropped.GetComponent<Coin>().value - overkill);
+                    //Debug.Log($"orgCard Val {dropped.GetComponent<Coin>().value - overkill}");
+                    orgCard.GetComponent<CoinStack>().ReVisible();
+                }
+
+                Debug.Log("coin dropped");
+
+                onDrop?.Invoke();
             }
-
-            Debug.Log("coin dropped");
-
-            onDrop?.Invoke();
             // Run event here
 
             /*
@@ -80,9 +105,10 @@ namespace LogosTcg
             //transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             BoardElements.instance.discard.GetComponent<SlotScript>().InitializeSlots();
 
-            GameManager.Instance.RmString(GetComponent<Card>()._definition.Title);
+            gm.RmString(GetComponent<Card>()._definition.Title);
 
-
+            if(GetComponent<Card>()._definition.Type[0] == "Faithless")
+                FaithlessAbilities.instance.CardDiscarded(transform);
         }
     }
 }

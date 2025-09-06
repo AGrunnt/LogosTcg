@@ -12,10 +12,16 @@ namespace LogosTcg
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         public static GameNetworkManager Instance;
+        GameManager gm;
 
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void Start()
+        {
+            gm = GameManager.Instance;
         }
 
         [ServerRpc(RequireOwnership = false)]
@@ -85,7 +91,7 @@ namespace LogosTcg
                 .FirstOrDefault(go => go.name == cardOthStr).GetComponent<Card>();
 
 
-            int overkill = cardOth.SetValue(val);
+            int overkill = cardOth.SetValue(val + gm.coinModifier);
             cardFaith.SetValue(val - overkill);
             cardFaith.GetComponent<CoinStack>().ReVisible();
         }

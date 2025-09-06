@@ -26,6 +26,7 @@ namespace LogosTcg
         public int playCountAvailable = 1;
         public GameObject nextPhaseBtn;
         public GameManager gm;
+        public event Action OnEndTurn;
         void Awake() => instance = this;
         //public textmesh pro
 
@@ -148,6 +149,8 @@ namespace LogosTcg
 
                 Transform topCard = dc.SendTopTo(be.encountersDeck, slot);
                 tfList.Add(topCard);
+                topCard.GetComponent<Card>().InPlay = true;
+                topCard.GetComponent<CardTurnEvents>().TrySubscribeOnEndTurn();
                 gm.AddString(topCard.GetComponent<Card>()._definition.Title);
                 //slot.GetComponent<SlotScript>().InitializeSlots();
 
@@ -213,13 +216,14 @@ namespace LogosTcg
                     if(!tf.parent.GetComponent<ColumnScript>().FaithlessAllowed) //occupy ability
                     {
                         int idx = UnityEngine.Random.Range(0, be.encountersDeck.childCount); // 0..childCount-1
-                        tf.SetParent(be.discard, true);
+                        tf.SetParent(be.encountersDeck, true);
                         tf.SetSiblingIndex(idx);
                         tf.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.InOutQuad);
-                        be.discard.GetComponent<SlotScript>().InitializeSlots();
+                        be.encountersDeck.GetComponent<SlotScript>().InitializeSlots();
                     } else
                     {
                         gm.AddString(tf.GetComponent<Card>()._definition.Title);
+                        GetComponent<FaithlessAbilities>().RunAbilities(tf);
                     }
                 }
 
@@ -238,7 +242,7 @@ namespace LogosTcg
             DiscardZeroedLocs();
             dc.SendTopTo(be.faithfulDecks[currPlayer], be.hands[currPlayer]);
             be.hands[currPlayer].GetComponent<SlotScript>().InitializeSlots();
-
+            OnEndTurn?.Invoke();
             yield return new WaitForSeconds(0.5f);
             StartTurn0();
         }

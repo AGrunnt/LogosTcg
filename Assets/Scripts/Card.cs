@@ -39,6 +39,9 @@ namespace LogosTcg
         public int baseValue;
         public int currValue;
 
+        public bool InPlay = false;
+        public int turnsInPlay = 0;
+
         private void Awake()
         {
             ic = ImageCollection.instance;
